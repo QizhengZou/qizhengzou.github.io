@@ -182,9 +182,9 @@ dateFormatToUse = "2006-01-02"
   # Social Info in home page
   [params.social]
     Email = "2838264218@qq.com"
-    Skype = "live:844327696"
+    #Skype = "live:844327696"
     GitHub = "JefoFrank"  
-    bilibili = "15452558"
+    #bilibili = "15452558"
     
     #Linkedin = "xxxx"
     #Twitter = "xxxx"
