@@ -124,7 +124,7 @@ dateFormatToUse = "2006-01-02"
   subtitle = "御心"
 
   # whether to show social share links in post page
-  socialShare = false
+  socialShare = true
 
   # Footer CopyRight Info
   ## Site creation time
