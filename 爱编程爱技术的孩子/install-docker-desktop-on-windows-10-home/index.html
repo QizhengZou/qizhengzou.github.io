@@ -1,0 +1,76 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Docker-Win10 Home安装Docker | Qizheng's Blog</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=Description content="Qizheng的个人博客"><link rel=prev href=https://qizhengzou.github.io/%E7%88%B1%E7%BC%96%E7%A8%8B%E7%88%B1%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AD%A9%E5%AD%90/using-docker-installation-to-run-mysql/><link rel=next href=https://qizhengzou.github.io/%E7%88%B1%E7%BC%96%E7%A8%8B%E7%88%B1%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AD%A9%E5%AD%90/algorithm-dynamic-programming/><link rel=canonical href=https://qizhengzou.github.io/%E7%88%B1%E7%BC%96%E7%A8%8B%E7%88%B1%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AD%A9%E5%AD%90/install-docker-desktop-on-windows-10-home/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><meta name=twitter:card content="summary"><meta name=twitter:title content="Docker-Win10 Home安装Docker"><meta name=twitter:description content="Docker Desktop 是 Windows 安装 Docker 的推荐安装方式，然而系统需求是 Pro, Enterprise 或 Education 版本，Home 版不支持，因为没有 Hyper-V。 这篇文章记录网上找到的 Win10 Home 版安装 Docker Desktop 的方"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Docker-Win10 Home安装Docker","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/%E7%88%B1%E7%BC%96%E7%A8%8B%E7%88%B1%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AD%A9%E5%AD%90\/install-docker-desktop-on-windows-10-home\/"},"image":{"@type":"ImageObject","url":"https:\/\/qizhengzou.github.io\/cover.png","width":800,"height":600},"genre":"爱编程爱技术的孩子","keywords":"linux","wordcount":734,"url":"https:\/\/qizhengzou.github.io\/%E7%88%B1%E7%BC%96%E7%A8%8B%E7%88%B1%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AD%A9%E5%AD%90\/install-docker-desktop-on-windows-10-home\/","datePublished":"2020-04-23T00:00:00\x2b00:00","dateModified":"2020-04-23T00:00:00\x2b00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"qizheng","logo":{"@type":"ImageObject","url":"https:\/\/qizhengzou.github.io\/logo.png","width":127,"height":40}},"description":""}</script><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/css/lib/fontawesome-free/all.min.css></head><body><script>window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><nav class=navbar><div class=top-scroll-bar></div><div class=navbar-container><div class="navbar-header animated bounceIn"><a href=https://qizhengzou.github.io>Qizheng's Blog</a></div><div class=navbar-menu><a class=menu-item href=https://qizhengzou.github.io/posts>Posts</a><a class=menu-item href=https://qizhengzou.github.io/tags>Tags</a><a class=menu-item href=https://qizhengzou.github.io/categories>Categories</a><a class=menu-item href=https://qizhengzou.github.io/about>About</a><a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw" title="Switch Theme"></i></a></div></div></nav><nav class=navbar-mobile><div class=top-scroll-bar></div><div class=navbar-container><div class=navbar-header><div class="navbar-header-title animated bounceIn"><a href=https://qizhengzou.github.io>Qizheng's Blog</a></div><div class=menu-toggle id=menu-toggle><span></span><span></span><span></span></div></div><div class=navbar-menu id=mobile-menu><a class=menu-item href=https://qizhengzou.github.io/posts>Posts</a><a class=menu-item href=https://qizhengzou.github.io/tags>Tags</a><a class=menu-item href=https://qizhengzou.github.io/categories>Categories</a><a class=menu-item href=https://qizhengzou.github.io/about>About</a><a href=javascript:void(0); class=theme-switch><i class="fas fa-adjust fa-rotate-180 fa-fw" title="Switch Theme"></i></a></div></div></nav><main class=main><div class=container><div class="page single"><h1 class="post-title animated pulse faster">Docker-Win10 Home安装Docker</h1><div class=post-content><p>Docker Desktop 是 Windows 安装 Docker 的推荐安装方式，然而系统需求是 Pro, Enterprise 或 Education 版本，Home 版不支持，因为没有 Hyper-V。</p><p>这篇文章记录网上找到的 Win10 Home 版安装 Docker Desktop 的方式，主要思路是自行安装 Hyper-V 及 相关服务，并修改注册表欺骗 Docker 的安装检测。</p><a class=post-dummy-target id=1-安装-hyper-v></a><h2>1. 安装 Hyper-V</h2><p>新建 txt 文档，复制以下内容到文档中。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-txt data-lang=txt>pushd &#34;%~dp0&#34;
+dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt
+for /f %%i in (&#39;findstr /i . hyper-v.txt 2^&gt;nul&#39;) do dism /online /norestart /add-package:&#34;%SystemRoot%\servicing\Packages\%%i&#34;
+del hyper-v.txt
+Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL
+</code></pre></td></tr></table></div></div><p>将文档格式后缀由 <code>.txt</code> 更改为 <code>.cmd</code>，然后以管理员方式执行。该脚本会自动安装 Hyper-V 服务，安装完成后按提示键入 <code>Y</code>，电脑自动重启。注意，这里键入 <code>Y</code> 后直接就重启了，所以有其它未保存任务及时保存。</p><p>重启完成后进入搜索「启用或关闭 Windows 功能」并打开，查看 「Hyper-V」选项是否被选中，如果没有，勾选并重启电脑。</p><p>再次新建 txt 文档并填充如下内容</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-txt data-lang=txt>pushd &#34;%~dp0&#34;
+dir /b %SystemRoot%\servicing\Packages\*containers*.mum &gt;containers.txt
+for /f %%i in (&#39;findstr /i . containers.txt 2^&gt;nul&#39;) do dism /online /norestart /add-package:&#34;%SystemRoot%\servicing\Packages\%%i&#34;
+del containers.txt
+Dism /online /enable-feature /featurename:Containers -All /LimitAccess /ALL
+pause
+</code></pre></td></tr></table></div></div><p>更改后缀为 <code>.cmd</code> 并以管理员方式执行，安装完毕后键入 <code>Y</code> 重启电脑。至此第一步完成</p><a class=post-dummy-target id=2-伪装成专业版绕过安装检测></a><h2>2. 伪装成专业版绕过安装检测</h2><p>Docker Desktop 安装时会检测系统版本，因此我们修改注册表</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion
+
+EditionID = Professional
+</code></pre></td></tr></table></div></div><p>然后遵照<a href=https://docs.docker.com/docker-for-windows/install/ target=_blank>官方文档</a>下载安装 Docker即可。</p><p>注：重启后修改的注册表项会自动还原，但不影响 Docker 运行。</p><a class=post-dummy-target id=3-测试></a><h2>3. 测试</h2><p>查看 Docker 版本</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker --version
+Docker version 19.03.8, build afacb8b
+</code></pre></td></tr></table></div></div><p>运行 <code>hello-world</code> 镜像测试安装是否成功</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ docker run hello-world                                                                                                
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the <span class=s2>&#34;hello-world&#34;</span> image from the Docker Hub.
+    <span class=o>(</span>amd64<span class=o>)</span>
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre></td></tr></table></div></div><p>出现 <code>Hello from Docker!</code> 说明安装成功。</p><p>参考：<a href=https://docs.docker.com/get-started/ target=_blank>Orientation and setup | Docker Documentation</a></p></div></div></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://qizhengzou.github.io/about/ target=_blank>qizheng</a> | </span>Powered by <a href=https://gohugo.io/ target=_blank rel="external nofollow noopener noreffer">Hugo</a> & <a href=https://github.com/dillonzq/LoveIt target=_blank rel="external nofollow noopener noreffer">LoveIt</a></div></div></footer></div><a href=# class=dynamic-to-top id=dynamic-to-top data-scroll><span>&nbsp;</span></a>
+<script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-209130979-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script src=/js/lib/jquery/jquery.slim.min.js></script><script src=/js/lib/lazysizes/lazysizes.min.js></script><script src=/js/lib/smooth-scroll/smooth-scroll.polyfills.min.js></script><script>window.scroll=new SmoothScroll('[data-scroll]',{speed:300,speedAsDuration:true});</script><link rel=stylesheet href=/css/lib/katex/katex.min.css><script src=/js/lib/katex/katex.min.js></script><script defer src=/js/lib/katex/auto-render.min.js></script><link rel=stylesheet href=/css/lib/katex/copy-tex.min.css><script defer src=/js/lib/katex/copy-tex.min.js></script><script defer src=/js/lib/katex/mhchem.min.js></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true},{left:"$",right:"$",display:false},]});});</script><script src=/js/blog.min.js></script></body></html>
