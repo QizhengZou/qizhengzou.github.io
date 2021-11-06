@@ -1,3 +1,11 @@
+---
+title: 一条sql更新语句
+date: 2018-04-20T19:06:20+08:00 
+lastmod: 2020-10-08
+tags: [mysql]
+categories: [Mysql_L]
+slug: Git learning Getting started 
+---
 ## update执行过程
 MySQL 可以恢复到半个月内任意一秒的状态.
 查询语句的那一套流程，更新语句也是同样会走一遍。
