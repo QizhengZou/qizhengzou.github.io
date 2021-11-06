@@ -2,7 +2,7 @@ baseURL = "https://qizhengzou.github.io"
 # website language
 languageCode = "en"
 # [en, zh, ...] determines which i18n file to use
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-CN"
 # website title
 title = "Qizheng's Blog"
 # theme
@@ -121,14 +121,14 @@ dateFormatToUse = "2006-01-02"
   ## URL of avatar shown in home page
   avatar = "images/avatar.png"
   ## subtitle shown in home page
-  subtitle = "御心"
+  subtitle = "御心&&目的论"
 
   # whether to show social share links in post page
-  socialShare = true
+  socialShare = false
 
   # Footer CopyRight Info
   ## Site creation time
-  since = 2018
+  since = 2021
   ## ICP info only in China (HTML format is allowed)
   icp = ""
   ## license info (HTML format is allowed)
@@ -182,9 +182,9 @@ dateFormatToUse = "2006-01-02"
   # Social Info in home page
   [params.social]
     Email = "2838264218@qq.com"
-    Skype = "live:844327696"
+    #Skype = "live:844327696"
     GitHub = "qizhengzou"  
-    bilibili = "15452558"
+    #bilibili = "15452558"
     
     #Linkedin = "xxxx"
     #Twitter = "xxxx"
