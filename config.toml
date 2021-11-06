@@ -124,7 +124,7 @@ dateFormatToUse = "2006-01-02"
   subtitle = "御心"
 
   # whether to show social share links in post page
-  socialShare = true
+  socialShare = false
 
   # Footer CopyRight Info
   ## Site creation time
@@ -183,7 +183,7 @@ dateFormatToUse = "2006-01-02"
   [params.social]
     Email = "2838264218@qq.com"
     #Skype = "live:844327696"
-    GitHub = "JefoFrank"  
+    GitHub = "qizhengzou"  
     #bilibili = "15452558"
     
     #Linkedin = "xxxx"
