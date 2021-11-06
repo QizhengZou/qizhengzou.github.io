@@ -1,6 +1,3 @@
-{{- $destination := .Destination -}}
-{{- with dict "Path" $destination "Resources" .Page.Resources | partial "function/resource.html" -}}
-    {{- $destination = .RelPermalink -}}
-{{- end -}}
-{{- $options := dict "Destination" $destination "Title" .Title "Content" .Text -}}
-{{- partial "plugin/link.html" $options -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank"{{ end }}>
+    {{- .Text | safeHTML -}}
+</a>

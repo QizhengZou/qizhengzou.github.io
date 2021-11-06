@@ -2,14 +2,35 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 97.5vh;
   width: 100%;
 
   main {
     flex: 1 0 auto;
 
     .container {
-      padding: 0 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
+}
+
+// 顶部阅读进度条
+.top-scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  width: 0;
+  height: 3px;
+  background: #58D3F7;
+} 
+
+.footer {
+  height: 2rem;
+  width: 100%;
+  text-align: center;
+  line-height: 1.5rem;
+  padding-top: 2rem;
 }

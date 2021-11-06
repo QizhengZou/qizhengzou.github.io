@@ -1,57 +1,49 @@
-# LoveIt Theme | Hugo [![Netlify Status](https://api.netlify.com/api/v1/badges/e60303f2-862c-4342-bf59-7c9adb10812e/deploy-status)](https://app.netlify.com/sites/hugo-loveit/deploys)
+# LoveIt Theme | Hugo
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/releases)
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.62.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)
-[![License](https://img.shields.io/github/license/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/blob/master/LICENSE)
-[![CircleCI](https://img.shields.io/circleci/build/github/dillonzq/LoveIt/develop?label=CI&style=flat-square&logo=circleci)](https://app.circleci.com/pipelines/github/dillonzq/LoveIt)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e60303f2-862c-4342-bf59-7c9adb10812e/deploy-status)](https://app.netlify.com/sites/hugo-loveit-en/deploys)
 
-English README | [简体中文说明](https://github.com/dillonzq/LoveIt/blob/master/README.zh-cn.md)
+English README | [中文说明](README.zh.md)
 
-> **LoveIt** is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/).
+**LoveIt** is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/).
 
-It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
+It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt/) and [KeepIt Theme](https://github.com/liuzc/LeaveIt/).
 
 Since the three themes have a similar look, if you have questions about their differences,
 read [Why choose LoveIt](#why-choose-loveit) so that you can choose the one that works best for you.
 
-![Hugo Theme LoveIt](https://github.com/dillonzq/LoveIt/raw/master/images/Apple-Devices-Preview.png)
+![Hugo Theme LoveIt](images/Apple-Devices-Preview.png)
 
-## [Demo Site](https://hugoloveit.com/)
+## [Demo Site](https://hugo-loveit-en.netlify.com)
 
-To see this theme in action, here is a live [demo site](https://hugoloveit.com/) which is rendered with **LoveIt** theme.
+To see this theme in action, here is a live [demo site](https://hugo-loveit-en.netlify.com) which is rendered with **LoveIt** theme.
 
 ## Why choose LoveIt
 
 Compared to the original LeaveIt theme and the KeepIt theme, the LoveIt theme has the following modifications.
 
-* Custom **Header**
-* Custom **CSS Style**
-* A new **home page**, compatible with the latest version of Hugo
-* A lot of **style detail adjustments,** including color, font size, margins, code preview style
-* More readable **dark mode**
-* Some beautiful **CSS animations**
-* Easy-to-use and self-expanding **table of contents**
-* More **social links**, **share sites** and **comment system**
-* **Search** supported by [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/)
-* **Copy code** to clipboard with one click
-* Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
-* Extended Markdown syntax for **ruby annotation**
-* Extended Markdown syntax for **fraction**
-* **Mathematical formula** supported by [KaTeX](https://katex.org/)
-* **Diagram syntax** shortcode supported by [mermaid](https://github.com/knsv/mermaid)
-* **Interactive data visualization** shortcode supported by [ECharts](https://echarts.apache.org/)
-* **Mapbox** shortcode supported by [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
-* Embedded **music player** supported by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
-* **Bilibili** player supported
-* Kinds of **admonitions** shortcode supported
-* Custom style shortcodes supported
-* **CDN** for all third-party libraries supported
-* ...
+* Fixed title bar
+* System native fonts
+* Home subtitles typewriter effect
+* A new list of home posts, compatible with the latest version of Hugo
+* Replace all theme icons with [Font Awesome](https://fontawesome.com/)
+* A lot of style detail adjustments, including color, font size, margins, code preview style
+* More readable dark mode
+* Some beautiful CSS animations
+* Easy-to-use and self-expanding article catalog, while adapting to the mobile side
+* More suitable as a blog theme, the gallery function has been removed, but the image is lazy loaded to improve performance
+* Extended markdown syntax for [Font Awesome](https://fontawesome.com/) icons
+* Math formula support by [Katex](https://katex.org/)
+* Diagram syntax shortcode support by [mermaid](https://github.com/knsv/mermaid)
+* Embedded music player support by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
+* Bilibili player support
+* Kinds of admonitions shortcode support
+* Custom align and float style shortcodes support
+* CDN for all third-party libraries support
 
 In short,
 if you prefer the design language and freedom of the LoveIt theme,
 if you want to use the extended Font Awesome icons conveniently,
-if you want to embed mathematical formulas, flowcharts, music or Bilibili videos in your posts,
+if you want to embed math formulas, flowcharts, music or Bilibili videos in your posts,
 the LoveIt theme may be more suitable for you.
 
 I hope you will LoveIt ❤️!
@@ -60,91 +52,138 @@ I hope you will LoveIt ❤️!
 
 ### Performance and SEO
 
-* Optimized for **performance**: 99/100 on mobile and 100/100 on desktop in [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights)
-* Optimized SEO performance with a correct **SEO SCHEMA** based on JSON-LD
-* **[Google Analytics](https://analytics.google.com/analytics)** supported
-* **[Fathom Analytics](https://usefathom.com/)** supported
-* Search engine **verification** supported (Google, Bind, Yandex and Baidu)
-* **CDN** for third-party libraries supported
-* Automatically converted images with **Lazy Load** by [lazysizes](https://github.com/aFarkas/lazysizes)
+* Optimized for performance: 99/100 on mobile and 100/100 on desktop in [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights)
+* Optimized SEO performance with a correct SEO SCHEMA based on JSON-LD
+* [Google Analytics](https://analytics.google.com/analytics) support
+* Search engine verification support (Google, Bind, Yandex and Baidu)
+* CDN for all third-party libraries support
+* Automatically converted images with Lazy Load by [lazysizes](https://github.com/aFarkas/lazysizes)
 
 ### Appearance and Layout
 
-* **Responsive** layout
-* **Light/Dark** mode
-* Globally consistent **design language**
-* **Pagination** supported
-* Easy-to-use and self-expanding **table of contents**
-* **Multilanguage** supported and i18n ready
-* Beautiful **CSS animation**
+* Desktops/Mobiles Responsive layout
+* Dark/Light Mode
+* A More coerent style beetwen page and sections
+* Pagination support
+* Easy-to-use and self-expanding article catalog, while adapting to the mobile side
+* Multilanguage support and I18N ready
+* Beautiful CSS animation
 
 ### Social and Comment Systems
 
-* **Gravatar** supported by [Gravatar](https://gravatar.com)
-* Local **Avatar** supported
-* Up to **64** social links supported
-* Up to **28** share sites supported
-* **Disqus** comment system supported by [Disqus](https://disqus.com)
-* **Gitalk** comment system supported by [Gitalk](https://github.com/gitalk/gitalk)
-* **Valine** comment system supported by [Valine](https://valine.js.org/)
-* **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
-* **Telegram comments** system supported by [Telegram Comments](https://comments.app/)
-* **Commento** comment system supported by [Commento](https://commento.io/)
-* **Utterances** comment system supported by [Utterances](https://utteranc.es/)
+* Gravatar support by [Gravatar](https://gravatar.com)
+* Local Avatar support
+* Up to 54 social sites supported
+* Share post support
+* Disqus comment system support by [Disqus](https://disqus.com)
+* Gitalk comment system support by [Gitalk](https://github.com/gitalk/gitalk)
+* Valine comment system support by [Valine](https://valine.js.org/)
+* Facebook comment system support by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
 
 ### Extended Features
 
-* **Search** supported by [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/)
-* **Twemoji** supported
-* Automatically **highlighting** code
-* **Copy code** to clipboard with one click
-* **Images gallery** supported by [lightgallery.js](https://github.com/sachinchoolur/lightgallery.js)
-* Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
-* Extended Markdown syntax for **ruby annotation**
-* Extended Markdown syntax for **fraction**
-* **Mathematical formula** supported by [KaTeX](https://katex.org/)
-* **Diagrams** shortcode supported by [mermaid](https://github.com/knsv/mermaid)
-* **Interactive data visualization** shortcode supported by [ECharts](https://echarts.apache.org/)
-* **Mapbox** shortcode supported by [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
-* **Music player** shortcode supported by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
-* **Bilibili player** shortcode
-* Kinds of **admonitions** shortcode
-* **Custom style** shortcode
-* **Custom script** shortcode
-* **Animated typing** supported by [TypeIt](https://typeitjs.com/)
-* **Dynamic scroll** supported by [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* **Cookie consent banner** supported by [cookieconsent](https://github.com/osano/cookieconsent)
+* Automatically highlighting code by chroma in Hugo
+* Extended markdown syntax for [Font Awesome](https://fontawesome.com/) icons
+* Math formula support by [Katex](https://katex.org/)
+* Diagram syntax shortcode support by [mermaid](https://github.com/knsv/mermaid)
+* Embedded music player support by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
+* Bilibili player support
+* Kinds of admonitions shortcode support
+* Custom align and float style shortcodes support
+* Animated typing support by [TypeIt](https://typeitjs.com/)
+* Animated coutdown support by [jQuery.countdown](https://github.com/hilios/jQuery.countdown)
+* Dynamic to top support by [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
 * ...
 
-## [Documentation](https://hugoloveit.com/categories/documentation/)
+## Getting Started
 
-Build Documentation Locally:
+Clone this repository to your hugo theme directory.
 
 ```bash
-hugo server --source=exampleSite
+  cd themes
+  git clone https://github.com/dillonzq/LoveIt.git
 ```
 
-## Multilingual and i18n
+Or, make this repository a submodule of your site directory.
 
-LoveIt supports the following languages:
+```bash
+  git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+```
 
-* English
-* Simplified Chinese
-* French
-* Polish
-* Brazilian Portuguese
-* Italian
-* Spanish
-* German
-* Serbian
-* Russian
-* Romanian
-* Vietnamese
-* [Contribute with a new language](https://github.com/dillonzq/LoveIt/pulls)
+Next, open `config.toml` in the base of the Hugo site and ensure the theme option is set to KeepIt:
 
-[Languages Compatibility](https://hugoloveit.com/theme-documentation-basics/#language-compatibility)
+```bash
+  theme = "LoveIt"
+```
 
-## [Roadmap](https://github.com/dillonzq/LoveIt/projects/1)
+For more information read the [official setup guide](https://gohugo.io/documentation/) of Hugo.
+
+## Site Configuration
+
+Take a look in the `exampleSite` folder.
+
+This directory contains an example config file and the content for the demo for `en` and `zh` languages.
+It serves as an example setup for your website.
+
+Copy the `config.toml` to the root directory of your website. Overwrite the existing config file if necessary.
+
+## Content Suggestions
+
+A few suggestions to help you get a good looking site quickly:
+
+* Keep blog posts in the `content/posts` directory, for example: `content/posts/my-first-post.md`
+* Keep static pages in the `content` directory, for example: `content/about.md`
+* Keep media like images in the `static` directory, for example: `static/images/2019/9/screenshot.png`
+
+## Customizing styles for your website
+
+If you want to change some styling to fit your own website needs, you can edit them:
+
+* `assets/css/_varibales.scss`: You can override the variables in `_variables.scss` to customize the style
+* `assets/css/_custom.scss`: You can put your custom css in this file
+
+## Favicons, Browserconfig, Manifest
+
+It is recommended to put your own favicons
+
+* apple-touch-icon.png (180x180)
+* favicon-32x32.png (32x32)
+* favicon-16x16.png (16x16)
+* mstile-150x150.png (150x150)
+* android-chrome-192x192.png (192x192)
+* android-chrome-512x512.png (512x512)
+
+into `/static`. They’re easily created via [https://realfavicongenerator.net/](https://realfavicongenerator.net/).
+
+Customize `browserconfig.xml` and `site.webmanifest` to set theme-color and background-color.
+
+## Tips
+
+### Set `production` environment when generating site
+
+Because some features are only in production mode, so you need to add a `production` environment variables when generating your site.
+
+```bash
+  HUGO_ENV=production hugo --gc --minify
+```
+
+### How to toggle dark-light mode
+
+* You can click the circle icon to toggle dark-light mode. In the desktop version the circle icon is to the right and in the mobile version is positioned to the left, close to the site title.
+* If you want to make your own theme toggle-able element, you can create an element with a class `.theme-switch`. See [here](https://github.com/dillonzq/LoveIt/blob/master/assets/js/blog.js#L14)
+
+### Home Post model
+
+If you want to show posts on index instead of a personal profile, just open `config.toml`, add the following line:
+
+```toml
+  [params]
+    home_mode = "post"
+```
+
+### Add logo and cover for SEO
+
+Add a logo image (127x40) and a cover image (800x600) in the `static` directory.
 
 ## Questions, ideas, bugs, pull requests
 
@@ -152,45 +191,25 @@ All feedback is welcome! Head over to the [issue tracker](https://github.com/dil
 
 ## License
 
-LoveIt is licensed under the **MIT** license. Check the [LICENSE file](https://github.com/dillonzq/LoveIt/blob/master/LICENSE) for details.
+LoveIt is licensed under the MIT license. Check the [LICENSE file](https://github.com/dillonzq/LoveIt/blob/master/LICENSE) for details.
 
 Thanks to the authors of following resources included in the theme:
 
-* [normalize.css](https://github.com/necolas/normalize.css)
 * [Font Awesome](https://fontawesome.com/)
-* [Simple Icons](https://github.com/simple-icons/simple-icons)
 * [Animate.css](https://daneden.github.io/animate.css/)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [autocomplete.js](https://github.com/algolia/autocomplete.js)
-* [Lunr.js](https://lunrjs.com/)
-* [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)
 * [lazysizes](https://github.com/aFarkas/lazysizes)
-* [object-fit-images](https://github.com/fregante/object-fit-images)
-* [Twemoji](https://github.com/twitter/twemoji)
-* [lightgallery.js](https://github.com/sachinchoolur/lightgallery.js)
-* [clipboard.js](https://github.com/zenorocha/clipboard.js)
-* [Sharer.js](https://github.com/ellisonleao/sharer.js)
+* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
 * [TypeIt](https://typeitjs.com/)
-* [KaTeX](https://katex.org/)
+* [jQuery](https://github.com/jquery/jquery)
+* [jQuery.countdown](https://github.com/hilios/jQuery.countdown)
+* [Katex](https://katex.org/)
 * [mermaid](https://github.com/knsv/mermaid)
-* [ECharts](https://echarts.apache.org/)
-* [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
 * [APlayer](https://github.com/MoePlayer/APlayer)
 * [MetingJS](https://github.com/metowolf/MetingJS)
 * [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
-* [cookieconsent](https://github.com/osano/cookieconsent)
+* [Facebook](https://developers.facebook.com/docs/plugins/comments/)
 
 ## Author
 
 [Dillon](https://dillonzq.com)
-
-## Sponsor
-
-If you enjoy the theme, please consider buying me a coffee ☕️.
-
-* [PayPal](https://paypal.me/dillonzq)
-* [Alipay](https://github.com/dillonzq/LoveIt/raw/master/images/Alipay.jpg)
-* [Wechat](https://github.com/dillonzq/LoveIt/raw/master/images/Wechat.jpg)
-
-Thanks! ❤️

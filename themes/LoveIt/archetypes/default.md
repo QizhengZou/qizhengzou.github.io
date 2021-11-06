@@ -1,28 +1,25 @@
 ---
+author: ""
+author_link: ""
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
-subtitle: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
-author: ""
-authorLink: ""
 description: ""
+show_in_homepage: true
+description_as_summary: false
+license: ""
 
 tags: []
 categories: []
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
+featured_image: ""
+featured_image_preview: ""
 
-featuredImage: ""
-featuredImagePreview: ""
-
-toc:
-  enable: true
-math:
-  enable: false
-lightgallery: false
-license: ""
+comment: true
+toc: false
+auto_collapse_toc: true
+math: false
 ---
 
 <!--more-->
