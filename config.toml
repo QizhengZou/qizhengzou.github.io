@@ -4,7 +4,7 @@ languageCode = "en"
 # [en, zh, ...] determines which i18n file to use
 defaultContentLanguage = "en"
 # website title
-title = "Shuzang's Blog"
+title = "Qizheng's Blog"
 # theme
 theme = "LoveIt"
 # whether to use git commit log to generate lastmod record
@@ -56,8 +56,8 @@ dateFormatToUse = "2006-01-02"
 
 # Author Info
 [author]
-  name = "shuzang"
-  link = "https://shuzang.github.io/about/"
+  name = "qizheng"
+  link = "https://qizhengzou.github.io/about/"
 
 # Sitemap Info
 [sitemap]
@@ -107,9 +107,9 @@ dateFormatToUse = "2006-01-02"
   # LoveIt theme version
   version = "0.1.X"
   # site description
-  description = "书藏的个人博客，包括Golang、数据结构、算法的学习记录，各类生活技能的学习，每周五发布一期自己的生活周刊"
+  description = "Qizheng的个人博客"
   # site keywords
-  keywords = ["blog", "Golang", "Hugo", "blockchain", "go", "life"]
+  keywords = ["blog"]
   toc = true
   autoCollapseToc = true
 
@@ -121,7 +121,7 @@ dateFormatToUse = "2006-01-02"
   ## URL of avatar shown in home page
   avatar = "images/avatar.png"
   ## subtitle shown in home page
-  subtitle = "随心所向，素履以往"
+  subtitle = "御心"
 
   # whether to show social share links in post page
   socialShare = true
@@ -181,9 +181,9 @@ dateFormatToUse = "2006-01-02"
 
   # Social Info in home page
   [params.social]
-    Email = "lylw1996@qq.com"
+    Email = "2838264218@qq.com"
     Skype = "live:844327696"
-    GitHub = "shuzang"  
+    GitHub = "JefoFrank"  
     bilibili = "15452558"
     
     #Linkedin = "xxxx"
@@ -260,7 +260,7 @@ dateFormatToUse = "2006-01-02"
 
   # Publisher Info just for SEO
   [params.publisher]
-    name = "shuzang"
+    name = "qizheng"
     [params.publisher.logo]
       url = "logo.png"
       width = 127
