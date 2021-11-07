@@ -2,7 +2,7 @@ baseURL = "https://qizhengzou.github.io"
 # website language
 languageCode = "en"
 # [en, zh, ...] determines which i18n file to use
-defaultContentLanguage = "zh-CN"
+defaultContentLanguage = "en"
 # website title
 title = "Qizheng's Blog"
 # theme
