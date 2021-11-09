@@ -50,7 +50,7 @@ HDFS读写接口（Java）：
 * FileSystem是一个通用文件系统的抽象基类，可以被分布式文件系统继承，所有可能使用Hadoop文件系统的代码，都要使用这个类
 * Hadoop为FileSystem这个抽象类提供了多种具体实现，DistributedFileSystem就是FileSystem在HDFS文件系统中的具体实现
 * FileSystem的open()方法返回的是一个输入流FSDataInputStream对象，在HDFS文件系统中，具体的输入流就是DFSInputStream；FileSystem中的create()方法返回的是一个输出流FSDataOutputStream对象，在HDFS文件系统中，具体的输出流就是DFSOutputStream。
-```c
+```
 Configuration conf = new Configuration();
 FileSystem fs = FileSystem.get(conf);
 FSDataInputStream in = fs.open(new Path(uri));
