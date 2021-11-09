@@ -4,10 +4,10 @@
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-c data-lang=c><span class=n>Configuration</span> <span class=n>conf</span> <span class=o>=</span> <span class=n>new</span> <span class=n>Configuration</span><span class=p>(</span><span class=p>)</span><span class=p>;</span>
-<span class=n>FileSystem</span> <span class=n>fs</span> <span class=o>=</span> <span class=n>FileSystem</span><span class=p>.</span><span class=n>get</span><span class=p>(</span><span class=n>conf</span><span class=p>)</span><span class=p>;</span>
-<span class=n>FSDataInputStream</span> <span class=n>in</span> <span class=o>=</span> <span class=n>fs</span><span class=p>.</span><span class=n>open</span><span class=p>(</span><span class=n>new</span> <span class=n>Path</span><span class=p>(</span><span class=n>uri</span><span class=p>)</span><span class=p>)</span><span class=p>;</span>
-<span class=n>FSDataOutputStream</span> <span class=n>out</span> <span class=o>=</span> <span class=n>fs</span><span class=p>.</span><span class=n>create</span><span class=p>(</span><span class=n>new</span> <span class=n>Path</span><span class=p>(</span><span class=n>uri</span><span class=p>)</span><span class=p>)</span><span class=p>;</span>
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Configuration conf = new Configuration();
+FileSystem fs = FileSystem.get(conf);
+FSDataInputStream in = fs.open(new Path(uri));
+FSDataOutputStream out = fs.create(new Path(uri));
 </code></pre></td></tr></table></div></div><a class=post-dummy-target id=hdfs的读写流程与容错恢复机制></a><h3>HDFS的读写流程与容错恢复机制</h3><a class=post-dummy-target id=hdfs写数据></a><h4>HDFS写数据</h4><p>HDFS数据读写过程——写数据请求:</p><ul><li>首先，client请求NameNode，要将文件（可能需分为多个块）写入到HDFS。</li><li>NameNode会给client赋予写权限，并为client提供可以写入数据的DataNode的IP
 地址。NameNode在选择可写入数据的DN的规则是: 结合了DN的健康状态、复制因
 子、机架感知等因素</li><li>假如复制因子是3(默认值)，那么会为每个block返回三个IP地址。</li><li>整体的数据复制流程分三个阶段:1.流水线建立；2.复制数据；3.关闭流水线</li></ul><p><figure><img src=/svg/loading.min.svg data-sizes=auto data-src=https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108200150.png alt class=lazyload></figure></p><p>写数据——流水线(pipeline)机制:</p><ul><li>创建流水线：Client通过连接各个块的ip列表来为每个块创建流水线</li><li>块写入：Client向流水线中写入块数据</li><li>关闭流水线：当数据块复制到所有DN后，按ip地址列表相反方向，依次反馈写入成功信息至Client，最终Client再反馈给NameNode以更新元数据信息</li></ul><a class=post-dummy-target id=hdfs读数据></a><h4>HDFS读数据</h4><p>HDFS数据读写过程——读数据请求：</p><ul><li>Client请求NameNode要读取文件。</li><li>NameNode根据自己的元数据信息，反馈给client一个DataNode的列表(包含所有
