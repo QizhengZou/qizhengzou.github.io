@@ -3,7 +3,7 @@ title: "Mysql_base_01"
 date: 2021-11-07T09:14:50+08:00
 lastmod: 2021-11-07
 tags: [mysql]
-categories: [大三上]
+categories: [School Courses]
 slug: Mysql conceptual structure
 draft: false
 ---

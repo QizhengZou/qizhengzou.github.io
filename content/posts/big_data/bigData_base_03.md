@@ -3,7 +3,7 @@ title: "BigData_base_03"
 date: 2021-11-08T19:28:38+08:00
 lastmod:
 tags: [big_data]
-categories: [大三上]
+categories: [School Courses]
 slug: hdfs
 draft: false
 ---

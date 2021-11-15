@@ -3,7 +3,7 @@ title: "Mysql_base_02"
 date: 2021-11-07T09:18:21+08:00
 lastmod: 2021-11-09
 tags: [mysql]
-categories: [大三上]
+categories: [School Courses]
 slug: Mysql relational model and relational operation.
 draft: false
 ---
