@@ -1,4 +1,4 @@
-baseURL = "https://qizhengzou.github.io"
+baseURL = "https://jefofrank.club"
 # website language
 languageCode = "en"
 # [en, zh, ...] determines which i18n file to use
@@ -121,7 +121,7 @@ dateFormatToUse = "2006-01-02"
   ## URL of avatar shown in home page
   avatar = "images/avatar.png"
   ## subtitle shown in home page
-  subtitle = "御心&&目的论"
+  subtitle = "Be proactive, start with the end, and put the important things first!"
 
   # whether to show social share links in post page
   socialShare = false
