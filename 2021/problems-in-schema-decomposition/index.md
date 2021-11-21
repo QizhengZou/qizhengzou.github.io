@@ -33,7 +33,7 @@
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110804.png)
 5NF:
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110849.png)
-## 数据库设计需要知道的?
+## 数据库设计需要知道的
 数据库设计理论要解决的根本问题：   
 - 哪些属性被组织成一个关系?
 - 是一个大关系模式呢，还是若干小关系模式?
