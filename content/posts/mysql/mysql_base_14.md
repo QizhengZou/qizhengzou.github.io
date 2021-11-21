@@ -4,10 +4,10 @@ date: 2021-11-21T10:18:45+08:00
 lastmod: 2021-11-21
 tags: [mysql]
 categories: [School Courses]
-slug: Database transaction processing technology
+slug: Fault recovery
 draft: false
 ---
-# 数据库事务处理技术
+# 故障恢复
 ## 数据库的故障类型及其影响
 DBMS的运行方式：
 - DBMS利用内存(主存)和外存(辅存)这样的存储体系来进行数据库管理
@@ -192,8 +192,8 @@ Undo/Redo型日志
 
 利用undo/Redo型日志进行恢复
 - 首先，确定每一个事务是否已完成?
-    - < START T>….<COMMIT T>…. = yes
-    - < START T>….<ABORT T>……. = no(已结束，但未完成)
+    - < START T>….< COMMIT T>…. = yes
+    - < START T>….< ABORT T>……. = no(已结束，但未完成)
     - < START T>……………………… = no
 - 自前向后地，按日志记录的正序，重做所有已提交的事务；自 后向前，按日志记录的反序，撤销所有未完成事务的所有修改。
     - < COMMIT T>:标记T已完成
