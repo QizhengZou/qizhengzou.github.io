@@ -1,5 +1,6 @@
 # Mysql_base_11
 
+# 数据库查询实现算法
 ## 数据库查询实现算法-I
 ### 数据库查询实现算法概述
 查询实现&查询优化：
@@ -201,7 +202,7 @@ R.Close(); S.Close();
 - 基于排序的并、交和差
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115113952.png)
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115114054.png)
-对于集合差：R  S，当且仅当t出现在R中但不出现在S中时输出
+对于集合差：R - S，当且仅当t出现在R中但不出现在S中时输出
 - 基于排序的连接运算
     - 第一趟：划分R和S的子表并进行子表排序，排序均基于Y属性排序。
     - 第二趟：归并时注意是R的输入还是S的输入。R和S的两路输入之间进行连接检查并连接后输出。

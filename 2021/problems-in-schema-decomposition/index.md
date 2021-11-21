@@ -1,5 +1,6 @@
 # Mysql_base_08
 
+# 模式分解存在的问题
 ## 模式分解存在什么问题
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113100944.png)
 模式分解需要关注：   
