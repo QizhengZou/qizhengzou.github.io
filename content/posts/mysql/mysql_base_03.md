@@ -7,6 +7,7 @@ categories: [School Courses]
 slug: sql
 draft: false
 ---
+# sql语言
 ## SQL语言概述
 ### SQL语言提出和发展
 * 1974年，由Boyce和Chamber提出

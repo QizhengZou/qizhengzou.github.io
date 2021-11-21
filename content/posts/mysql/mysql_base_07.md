@@ -7,6 +7,7 @@ categories: [School Courses]
 slug: Functional dependence and its axiom theorem
 draft: false
 ---
+# 函数依赖及其公理定理
 ## 函数依赖
 定义：   
 函数依赖:
@@ -16,15 +17,14 @@ draft: false
 {学号，课号} -> 成绩   
 函数依赖的特性：
 * 对X->Y,但Y不包含于X, 则称X->Y为非平凡的函数依赖；
-* 若X->Y,则任意两个元组,若X上值相等,则Y上值必然相等,则称X为决定
-因素；
+* 若X->Y,则任意两个元组,若X上值相等,则Y上值必然相等,则称X为决定因素；
 * 若X->Y,Y->X,则记作X<->Y；
 * X->Y,有基于模式R的,则要求对任意的关系r成立；有基于具体关系r 的,则要求对某一关系r成立；
 * 如一关系r的某属性集X,r中根本没有X上相等的两个元组存在,则X->Y恒
 成立。
 ## 完全函数依赖与传递函数依赖
 部分或完全函数依赖：   
-在R(U)中，若XY并且对于X的任何真子集X'都有X' Y,则称Y完全函数依赖于X, 记为：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211112113023.png)否则称Y部分函数依赖于X,记为：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211112113050.png)
+在R(U)中，若X->Y并且对于X的任何真子集X'都有y不依赖于x',则称Y完全函数依赖于X, 记为：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211112113023.png)否则称Y部分函数依赖于X,记为：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211112113050.png)
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211112113259.png)
 
 传递函数依赖:   
@@ -38,7 +38,7 @@ draft: false
         - 若K是R的一个候选键，S包含于K, 则称S为R的一个超键(Super Key)
 - 逻辑蕴含
     - 设F是关系模式R(U)中的一个函数依赖集合X，Y是R的属性子集，如果从F中的函数依赖能够推导出X->Y，则称F逻辑蕴涵X->Y，或称X->Y是F的逻辑蕴涵。记作F|= X->Y
-    - 设F是关系模式R(U)的函数依赖集, XY是一个函数依赖，若对R中的每个满足F的关系r, 能够用逻辑推理的方法推出r也满足X->Y，则称F|= X->Y。
+    - 设F是关系模式R(U)的函数依赖集, X->Y是一个函数依赖，若对R中的每个满足F的关系r, 能够用逻辑推理的方法推出r也满足X->Y，则称F|= X->Y。
 - 闭包
     - 被F逻辑蕴涵的所有函数依赖集合称为F的闭包(Closure)，记作F+。
     - 若F+=F, 则说F是一个全函数依赖族(函数依赖完备集)。
@@ -58,7 +58,7 @@ draft: false
     - X->Y，可从F由Armstrong Axiom(即A1,A2,A3)导出，当且仅当真包含于X的属性闭包 
 ## 函数依赖集的最小覆盖
 覆盖：   
-对R(U)上的两个函数依赖集合F、G, 如果F+=G+，则称F和G是等价的，也 称F覆盖G或者G覆盖   
+对R(U)上的两个函数依赖集合F、G, 如果F+=G+，则称F和G是等价的，也称F覆盖G或者G覆盖   
 引理：
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113090019.png)
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113090446.png)
@@ -78,7 +78,7 @@ draft: false
 ### 关系的第1NF和第2NF
 - 若关系模式R(U)中关系的每个分量都是不可分的数据项(值、原子)，则称R(U)属于第一范式，记为：R(U) 属于 1NF。
     - 1NF要求关系中不能有复合属性、多值属性及其组合
-- 若R(U)1NF且U中的每一非主属性完全函数依赖于候选键，则称R(U)属于第二范式，记为：R(U) 属于 2NF。
+- 若R(U)属于1NF且U中的每一非主属性完全函数依赖于候选键，则称R(U)属于第二范式，记为：R(U) 属于 2NF。
     - 第二范式消除了非主属性对候选键的部分依赖
 ### 关系的第3NF和Boyce-Codd NF
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113093439.png)
@@ -87,6 +87,7 @@ draft: false
 ### 多值依赖及其公理定理
 多值依赖：   
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113094234.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211117113449.png)
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113094342.png)
 [Armstrong's Axioms A4~A8]关于多值依赖的公理：   
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113094612.png)

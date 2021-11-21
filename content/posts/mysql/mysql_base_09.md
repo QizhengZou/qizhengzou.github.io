@@ -7,6 +7,7 @@ categories: [School Courses]
 slug: Database physical storage
 draft: false
 ---
+# 数据库物理存储
 ## 基础回顾-计算机系统的存储体系
 ### 数据库的存储与检索问题
 两个基本问题如何解决？

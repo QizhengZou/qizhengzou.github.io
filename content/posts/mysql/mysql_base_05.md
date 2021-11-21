@@ -7,6 +7,7 @@ categories: [School Courses]
 slug: Ideas and methods of data modeling
 draft: false
 ---
+# 数据库建模思想与方法
 ## 为什么要数据建模和数据库设计?
 数据模型与概念模型:
 * 表达计算机世界的模型称数据模型；表达信息世界的模型称概念数据模型，简称概念模型，信息世界是对现实世界的理解与抽象

@@ -7,6 +7,7 @@ categories: [School Courses]
 slug: Query optimization
 draft: false
 ---
+# 数据查询优化
 ## 为什么要及什么是查询优化?
 - 为什么需要查询优化:
     - 关系数据库的执行效率问题

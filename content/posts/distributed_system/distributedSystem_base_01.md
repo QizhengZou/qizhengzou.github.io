@@ -7,6 +7,7 @@ categories: [School Courses]
 slug: Characteristics of distributed system
 draft: false
 ---
+# 分布式系统的特征
 ## 简介
 我们把分布式系统定义成**一个其硬件或软件组件分布在联网的计算机上，组件之间通过传递消息进行通信和动作协调的系统。**
 

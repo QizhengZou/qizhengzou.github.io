@@ -7,6 +7,7 @@ categories: [School Courses]
 slug: Database management and maintenance
 draft: false
 ---
+# 数据库管理与维护
 ## 数据库完整性与安全性控制
 ### 数据库完整性的概念及分类
 数据库完整性(DB Integrity)是指DBMS应保证DB在任何情况下的正确性、有效性和一致性   
@@ -34,10 +35,10 @@ DBMS怎样自动保证完整性呢？
 
  Integrity Constraint ::= ( O，P，A，R)
 * O―数据集合：约束的对象？
-* 列、多列(元组)、元组集合
+    * 列、多列(元组)、元组集合
 * P―谓词条件：什么样的约束？
 * A―触发条件：什么时候检查？
-* ―响应动作：不满足时怎么办？
+* R―响应动作：不满足时怎么办？
 
 * 按约束对象分类
     * 完整性约束条件的类别
