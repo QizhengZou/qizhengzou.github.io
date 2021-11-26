@@ -4,7 +4,7 @@ date: 2021-11-08T16:43:15+08:00
 lastmod: 2021-11-09
 tags: [catalogue]
 categories: [School Courses' list]
-slug: catalogue
+slug: Mysql_catalogue
 draft: false
 ---
 * base_01（数据库概念结构）

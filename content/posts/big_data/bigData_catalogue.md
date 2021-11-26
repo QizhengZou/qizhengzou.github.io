@@ -4,7 +4,7 @@ date: 2021-11-08T16:39:35+08:00
 lastmod:
 tags: [catalogue]
 categories: [School Courses' list]
-slug: catalogue
+slug: BigData_catalogue
 draft: true
 ---
 HITSZ2021大数据导论课程笔记
