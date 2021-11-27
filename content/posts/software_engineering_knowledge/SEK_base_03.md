@@ -5,7 +5,7 @@ lastmod: 2021-11-25
 tags: [software_engineering_knowledge]
 categories: [School Courses]
 slug: software demand engineering
-draft: true
+draft: false
 ---
 ## 软件需求工程
 ### 软件需求与需求工程
