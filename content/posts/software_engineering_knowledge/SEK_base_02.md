@@ -5,7 +5,7 @@ lastmod: 2021-11-25
 tags: [software_engineering_knowledge]
 categories: [School Courses]
 slug: software engineering procedure and management
-draft: true
+draft: false
 ---
 ## 第二部分 软件项目开发过程与管理
 ### 2.1 软件项目开发过程

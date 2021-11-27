@@ -5,7 +5,7 @@ lastmod: 2021-11-25
 tags: [software_engineering_knowledge]
 categories: [School Courses]
 slug: software engineering introduction
-draft: true
+draft: false
 ---
 ## 第一部分 软件工程概论
 ### 软件工程的产生与发展
