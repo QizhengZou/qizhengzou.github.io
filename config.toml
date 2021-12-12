@@ -121,7 +121,7 @@ dateFormatToUse = "2006-01-02"
   ## URL of avatar shown in home page
   avatar = "images/avatar.png"
   ## subtitle shown in home page
-  subtitle = "Be proactive, start with the end, and put the important things first!"
+  subtitle = "Stay Hungry,Stay Foolish!"
 
   # whether to show social share links in post page
   socialShare = false

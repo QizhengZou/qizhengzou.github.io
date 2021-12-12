@@ -1,7 +1,7 @@
 ---
 title: "BigData_base_05"
 date: 2021-11-15T15:57:03+08:00
-lastmod:
+lastmod: 2021-11-15
 tags: [big_data]
 categories: [School Courses]
 slug: Data preprocessing

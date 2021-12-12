@@ -1,11 +1,11 @@
 ---
 title: "Linux_base_01"
 date: 2021-11-08T15:34:58+08:00
-lastmod:
+lastmod: 2021-11-08
 tags: [linux]
-categories: [大三上]
+categories: [advanced learning]
 slug: linux
-draft: true
+draft: false
 ---
 ## 1. Linux 背景知识
 Linux 有两种含义：

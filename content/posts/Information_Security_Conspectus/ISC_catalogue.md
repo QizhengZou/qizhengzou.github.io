@@ -7,6 +7,7 @@ categories: [School Courses' list]
 slug: ISA_catalogue
 draft: true
 ---
+罗文坚老师讲的课，这课程是开卷考试，加之是早八课，所以上课时人少得可怜
 - base_01（信息安全课程概述）
     - 教学目的、目标与内容
     - 信息安全概述

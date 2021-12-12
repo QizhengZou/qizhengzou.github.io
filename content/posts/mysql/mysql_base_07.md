@@ -91,6 +91,7 @@ draft: false
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113094342.png)
 [Armstrong's Axioms A4~A8]关于多值依赖的公理：   
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113094612.png)
+**在设计数据库结构的时候，要尽量遵守三范式，如果不遵守，必须有足够的理由。比如性能。事实上我们经常会为了性能而妥协数据库的设计。**
 ### 关系的第4NF
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113094422.png)
 第四范式消除了非主属性对候选键以外属性的多值依赖
