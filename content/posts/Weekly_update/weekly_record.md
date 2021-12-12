@@ -66,4 +66,66 @@ Code Review 是一种通过复查代码提高代码质量的过程，在XP方法
 - 往事不可谏，来者犹可追。
 ### 2021/12/6
 - 我是一个智能机器，目的明显，生活简单，原则清晰
+- 邹啟正曾经说过，一个人一生只需要花百分之一的时间眺望远方即可。所以，当下的时间比你想象中的重要得多。
+- 下面是摘自worldpulse上的一篇文章:**[You're Not Late! You're Not Early](https://www.worldpulse.com/community/users/kujamac12/posts/74996)**
+<center>
+Do you think you are going No Where in Life?
+
+STOP!
+
+Take a deep breathe
+
+THINK!
+
+New York is threehours ahead of California, but that does not make California slow
+
+Cameroon is six hours ahead of New York but it does not make New York slow.
+
+Someone graduated from college at 22 but waited five years before securing a job.
+
+Someone became a CEO at 25 but died at 50.
+
+Someone became a CEO at 50 but lived to 90 years.
+
+Someone is still single,
+
+While another is married with children
+
+Absolutely, everyone in this world works based on their own time zone.
+
+People around you might seem to be ahead of you.
+
+That’s total fine. Some are behind you.
+
+Everyone is running their own race in their own time zone.
+
+Don’t envy or mock them.
+
+They are in their own time zone and you are in yours.
+
+Life is about waiting for the right moment to react.
+
+So RELAX.
+
+You’re not late
+
+You’re not early
+
+You’re very much on time, and in your time zone.
+
+Everyone have a different exams paper meaning different questions.
+
+Everyone have a different assignment meaning different purpose in life.
+
+So focus on your own exampaper, your assignment and purpose.
+
+Don’t copy and paste or steal answer else you will fail big time.
+
+Your dreams and visions are all valid.Just take your time and do the best you can.
+
+Be like the hummingbird.Even when mighty lions and tigers underestimated him,hecontinued to do what he could,where hewas ,just as he was, with the little he had.
+
+You're ok just the way you are.The little work you are doing today might seem insignificant but Ibet someday you will see the big picture.
+
+You're Not late ! You're Not early.</center>
 

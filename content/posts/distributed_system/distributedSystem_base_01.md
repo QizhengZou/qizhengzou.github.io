@@ -29,7 +29,7 @@ Google，Web搜索技术上的市场领导者，在支持用于搜索（与其�
 * 一个编程模式：它支持对底层物理基础设施上的超大并行和分布式计算的管理。
 
 ### 大型多人在线游戏
-大型多人在线游戏（Massively Multiplayer Online Game,MMOG）提供了一种身临其境的体验，超大数目用户通过互联网在一一个持久的虚拟世界中交互。这类游戏的主要例子是Sony的EverQuest Ⅱ和芬兰公司CCP Games公司的EVE Online。
+大型多人在线游戏（Massively Multiplayer Online Game,MMOG）提供了一种身临其境的体验，超大数目用户通过互联网在一个持久的虚拟世界中交互。这类游戏的主要例子是Sony的EverQuest Ⅱ和芬兰公司CCP Games公司的EVE Online。
 
 MMOG工程体现了分布式系统技术面临的巨大挑战，尤其是它对快速响应时间的需求。其他挑战包括事件实时传播给多个玩家和维护对共享世界的一个一致的视图。
 针对大型多人在线游戏，提出了许多解决方案：
