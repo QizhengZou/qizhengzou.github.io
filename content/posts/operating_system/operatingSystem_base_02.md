@@ -553,3 +553,49 @@ draft: false
 
 饥饿和饿死与资源分配策略有关，因而可从公平性方面考虑防止饥饿与饿死，以确保所有进程不被忽视，如多级反馈队列调度算法。
 
+## 习题
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214195525.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214195548.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200017.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200232.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200316.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200422.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200445.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200607.png)
+
+多级反馈队列算法
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201025.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201156.png)
+
+管程：针对信号量机制中存在的某些问题，Dijkstra于1971年提出为每个共享资源设立一个“秘书”来管理对它的访问。一切来访者都要通过“秘书”，而“秘书”每次仅允许一个来访者(进程)访问共享资源。这样既便于系统管理共享资源，又能保证互斥访问和进程间同步。
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201508.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201535.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201626.png)
+进程调度是宏观的，以完整进程为单位。
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214202229.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214202612.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214202707.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214203128.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214203212.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214203952.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214204027.png)
+
+读写者问题：
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214205858.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214205917.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214205935.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214210853.png)
+## 答案
+

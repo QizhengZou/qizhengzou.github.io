@@ -184,7 +184,22 @@ draft: false
     - 优点:首先，每个服务进程运行在独立的用户进程中，即便某个服务器失败或产生问题，也不会引起系统其他服务器和其他组成部分的崩溃，可靠性好;其次，系统具有很好的灵活性，只要接口规范，操作系统可以方便地增删服务功能;再次，便于维护，即修改服务器的代码不会影响系统其他部分;最后,这种结构的操作系统适合分布式处理的计算环境。
     - 缺点: 这种结构的操作系统效率不高，因为所有用户进程都要通过微内核相互通信，所以微内核本身就成了系统的"瓶颈”，尤其是通信频繁的系统。
 
+## 习题
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214150931.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214151008.png)
 
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214152157.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214152256.png)
+多CPU一般用于分布式系统
 
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214152940.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214153019.png)
 
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214153717.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214153739.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214144315.png)
+## 答案
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214144515.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214144607.png)
 

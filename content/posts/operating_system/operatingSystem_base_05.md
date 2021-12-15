@@ -237,4 +237,19 @@ SPOOLing技术是低速输入/输出设备与主机交换的一种技术， 其�
     - 实现了虚拟设备功能。多个进程同时使用一个独享设备，而对每一进程而言，都认为自已独占这一设备，从而实现了设备的虛拟分配。不过，该设备是逻辑上的设备。
     - SPOOLing除了是一种速度匹配技术外，也是一种虚拟设备技术。它用一种物理设备模拟另一类物理设备，使各作业在执行期间只使用虚拟的设备，而不直接使用物理的独占设备。这种技术可使独占的设备变成可共享的设备，使得设备的利用率和系统效率都能得到提高。
 
+## 习题
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231336.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231632.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231718.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231823.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231842.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232043.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232150.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232246.png)
+
 
