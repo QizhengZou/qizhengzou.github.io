@@ -342,4 +342,50 @@
 - 缺页率
     - 假定一个作业共有n页，系统分配给该作业m页的空间(m≤n)。如果该作业在运行中共需要访问A次页面(即引用串长度为A),其中所要访问页面不在内存，需要将所需页调入内存的次数为F，则缺页率定义为f=F/A，命中率即为1-f。缺页率是衡量页面置换算法的重要指标。通常缺页率会受置换算法、分配的页面数量、页面大小等因素的影响。缺页率对于请求分页管理系统是很重要的，如果缺页率过高，会直接导致读取页面的平均时间增加，会使进程执行速度显著降低。因此，如何降低缺页率是一项非常重要的工作。
 
+## 习题
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211625.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211654.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212106.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212838.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212904.png)
+“大哥，注意单位！”
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213153.png)
+
+*
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213333.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213446.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213750.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213844.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214143.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214201.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214313.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214736.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214752.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214816.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215017.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215222.png)
+
+静态重定位是在程序运行之前由装入程序完成的(即装入内存时进行的)。而页式存储管理方案在运行过程中可能改变程序位置，静态重定位不能满足其要求。
+
+只有FIFO算法会导致Belady异常。
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215836.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215858.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220128.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220145.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220505.png)
+
+
 

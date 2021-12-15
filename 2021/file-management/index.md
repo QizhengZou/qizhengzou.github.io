@@ -253,3 +253,43 @@
     - 由于硬件有移动部件且容错能力差，因此容易导致一个或多个扇区损坏。根据所使用的磁盘和控制器，对这些块有多种处理方式。对于简单磁盘，如电子集成驱动器(IDE)， 坏扇区可手工处理，如MS-DOS的Format命令执行逻辑格式化时会扫描磁盘检查坏扇区。坏扇区在FAT. 上会标明，因此程序不会使用。
     - 对于复杂的磁盘，如小型计算机系统接口(SCSD), 其控制器维护一个磁盘坏块链表。该链表在出厂前进行低级格式化时就初始化了，并在磁盘的整个使用过程中不断更新。低级格式化将一些块保留作为备用，对操作系统透明。控制器可以用备用块来逻辑地替代坏块，这种方案称为扇区备用。
 
+## 习题
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214221209.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214221401.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214221842.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214221903.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214222238.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214223738.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224054.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224126.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224306.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224433.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224626.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225114.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225129.png)
+
+磁盘的物理格式化和逻辑格式化：
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225249.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225311.png)
+
+*
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225945.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230013.png)
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230351.png)
+
+位示图是磁盘空闲管理中的一种方式，其做法是为文件存储器建立--张位示图(尽管称其为图，其实就是一连串的二进制位)，以反映整个存储空间的分配情况。故选C。
+
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230744.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230802.png)
+![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230831.png)
+
