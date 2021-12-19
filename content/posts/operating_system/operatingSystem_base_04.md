@@ -294,7 +294,7 @@ draft: false
 
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230351.png)
 
-位示图是磁盘空闲管理中的一种方式，其做法是为文件存储器建立--张位示图(尽管称其为图，其实就是一连串的二进制位)，以反映整个存储空间的分配情况。故选C。
+位示图是磁盘空闲管理中的一种方式，其做法是为文件存储器建立--张位示图(尽管称其为图，其实就是一连串的二进制位)，以反映整个存储空间的分配情况。
 
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230744.png)
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230802.png)
