@@ -55,7 +55,7 @@ Difficulties for and threats to distributed systems:
         - Need to added capabilities such as service discovery and support for spontaneous interoperation
         - Emergence of cloud computing and ubiquitous computing
 - Distributed system of systems
-    - Emergence of ultra-large-scale (ULS) distributed systems 
+    - Emergence of ultra-large-scale (ULS) distributed systems
     - Complex systems consisting of a series of subsystems that are systems in their own right and that come together to perform particular task or tasks
     - Example: environmental management system for flood prediction
         - Consists of sensor networks deployed to monitor the state of various environmental parameters
@@ -80,7 +80,7 @@ An architectural model of a distributed system simplifies and abstracts the func
 - Problem-oriented perspective
     - Objects
         - Computation consists of a number of interacting objects representing units of decomposition for the problem domain.
-        - Objects are accessed via interfaces. 
+        - Objects are accessed via interfaces.
     - Components
         - Resemble objects in that they offer problem-oriented abstractions, also accessed via interfaces.
         - Specify not only their interfaces but also the assumptions they make in terms of other components/interfaces that must be present for a component to fulfil its function.
@@ -99,7 +99,7 @@ Interprocess communication:
 
 Remote invocation:
 - Covering a range of techniques based on a two-way exchange between communicating entities.
-- Resulting in the calling of a remote operation, procedure or method 
+- Resulting in the calling of a remote operation, procedure or method
     - Request-reply protocols: more a pattern imposed on an underlying message-parsing service to support client-server computing
     - Remote procedure calls: procedures in processes on remote computers can be called as if they are procedures in the local address space
     - Remote method invocation: a calling object can invoke a method in a remote object
@@ -175,13 +175,171 @@ Proxy server and caches:
     - If copy is not available,  this copy is fetched.
     - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211203153946.png)
 
-Mobile code:
+Mobile code:A typical well-known and widely-used example for mobile code are applets.![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101152842.png)
+
+Mobile agents:
+- A mobile agent is a running program (both code and data) that travels from one computer to another in a network carrying out a task on someone’s behalf, e.g. collecting information.
+- Benefits agents provide for creating distributed systems (Lange & Oshima, 1999)
+    - They reduce the network load.
+    - They overcome network latency.
+    - They encapsulate protocols.
+    - They execute asynchronously and autonomously.
+    - They adapt dynamically.
+    - They are naturally heterogeneous.
+    - They are robust and fault-tolerant.
+- examples?
+
+
 
 ### Architectural patterns
+Concept of layering:
+- Vertical organization of services into a service layers.
+- Distributed services can be provided by one or more server processes, interacting with each other and with client processes in order to maintain a consistent system-wide view of the service’s resources.
+
+Example
+- Network time service is implemented on the Internet based on the Network Time Protocol (NTP) by server processes running on hosts throughout the Internet that supply current time to any client that request it.
+
+Software and hardware service layers:
+- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101153136.png)
+
+Platform:
+- Lowest level hardware and software layers for distributed systems and applications
+- Characteristics
+    - provide services to the layers above them
+    - implemented independently in each computer
+    - Bringing the system’s programming interface up to a level that facilitates communication and coordination between processes
+- Examples
+    - x86/Windows, intel x86/Solaris, PowerPC/Mac OS X, Intel x86/Linux
+
+Middleware:
+- Is a layer of software whose purpose is to mask heterogeneity and to provide a convenient programming model to application programmers.
+- is represented by processes or objects in a set of computers that interact with each other to implement communication and resource-sharing support.
+- Is concerned with providing useful building blocks for the construction of software components that can work with one another
+- Limitations of middleware
+    - Many distributed applications rely entirely on services provided by middleware to support their needs for communication and data sharing
+    - Example, application that is suited to the client-server model such a database of names and addresses  rely on middleware that provides only remote method invocation.
+
+Vertical Distribution (Multi-Tier):
+- An extension of the client-server architecture.
+- Distributes the traditional server functionality over multiple servers.
+- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101153355.png)
+
+Communication in a multi-tier system:
+- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101153447.png)
+
+Horizontal Distribution:
+- Involves replicating a server’s functionality over multiple computers.
+- Typical example: replicated Web server
+    - Each server machine contains a complete copy of all hosted Web pages.
+    - Client requests are passed on to the servers in a round robin fashion.
+- Is used to improve scalability (by reducing the load on individual servers) and reliability (by providing redundancy)
+- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101153625.png)
+
+Thin and fat client implementations:
+- Decomposed a typical client-server application into three logical parts
+    - the interface part.
+    - the application logic part, and.
+    - the data part.
+- Thin client implementation
+    - Provides a minimal user interface layer, and leave everything else to the server.
+- Fat client implementation
+    - Include all of the user interface and application logic in the client.
+    - Rely only on the server to store and provide access to data.
+- Implementations in between will split up the interface or application logic parts over the clients and server in different ways.
 
 ## Fundamental model（基础模型）
+Requirements on the fundamental model:
+- Questions that should be addressed by a system model
+    1. What are the main entities of the system?
+    2. How do they interact?
+    3. What are the characteristics that affect their individual and collective behavior?
+- Aspects of distributed systems that are considered are
+    - Interaction
+    - Failure
+    - Security
 ### Interaction model （交互模型）	
-### Failure model （故障模型）
-### Security model （安全模型）
+Performance of communication channels:
+- Latency
+    - Delay between the start of a message’s transmission from one process and the beginning of its receipt by another
+    - It includes:
+        - Time taken for the first string of bits transmitted through a network to reach its destination.
+        - Delay in accessing the network.
+        - Time taken by the operating system communication services at both the sending and the receiving processes.
+- Bandwidth
+    - total amount of information that can be transmitted over a computer network in a given time.
+- Jitter
+    - Variation in the time taken to deliver a series of messages.
 
+Two variants of the interaction model:
+- Synchronous distributed systems
+    - The following bounds are defined:
+        - The time to execute each step of a process has known lower and upper bounds
+        - Each message transmitted over a channel is received within a known bounded time.
+        - Each process has a local clock whose drift rate from real time has known bound.
+- Asynchronous distributed system:
+    - There are no bounds on:
+        - Process execution speed
+        - Message transmission delays
+        - Clock drift rate
+
+Event ordering:
+- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101154228.png)
+
+### Failure model （故障模型）
+Introducing the failure model:
+- The failure model defines ways in which failure may occur in order to provide an understanding of the effects of failure.
+- Taxonomy of failures of processes and communication channels (Hadzilacos & Toueg, 1994)
+    - Omission failures.
+    - Arbitrary failures.
+    - Timing failures.
+
+Processes and channels:
+- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101154329.png)
+
+Omission failures:
+- Class of failure---Affects---Description
+- Fail-stop---Process---Process halts and remains halted. Other processes maydetect this state.
+- Crash---Process---Process halts and remains halted. Other processes may
+not be able to detect this state.
+- Omission---Channel---A message inserted in an outgoing message buffer never
+arrives at the other end's incoming message buffer.
+- Send-omission---Process---A process completes a send, but the message is not put in its outgoing message buffer.
+- Receive-omission---Process---A message is put in a process 's incoming messagebuffer, but that process does not receive it.
+- Arbitrary---Process or Process/channel---exhibits arbitrary behaviour: it may(Byzantine)channelsend/transmit arbitrary messages at arbitrary times,commit omissions; a process may stop or take anincorrect step .
+
+Arbitrary failures:
+- Often called Byzantine failure.
+- This is the worst possible failure semantics, in which any type of error may occur.
+- Example of an arbitrary failure of a process.
+    - A process arbitrarily omits intended processes steps or takes unintendedprocessing steps.
+- Example of an arbitrary failure of a communication channel
+    - Message content may be corrupted, nonexistent messages may be delivered or
+- real messages may be delivered more than once.
+    - Solutions: checksum to detect corrupted messages and message sequence numbers to detect nonexistent and duplicated messages.
+
+
+Timing failures:
+- Class of Failure---Affects---Description
+- Clock---Process---Process's local clock exceeds the bounds on its
+rate of drift from real time.
+- Performance---Process---Process exceeds the bounds on the interval
+between two steps.
+- Performance---Channel---A message 's transmission takes longer than the
+stated bound.
+- Result response being unavaible to clients
+
+### Security model （安全模型）
+Introducing the security model:
+- The security of a distributed system can be archived by securing the processes and the channels used for their interactions and by protecting the objects that they encapsulate against unauthorized access.
+
+## Summary
+- Three generations of distributed systems and the emergence of ultra-large-scale(ULS) distributed systems.
+- Types of communication paradigms:
+    - Interprocess communication
+    - Remote invocation
+    - Indirect communication
+- Architectural styles: client-server and peer-to-peer
+- Vertical distribution (Multi-Tier) and horizontal distribution of c/s systems
+- Characteristics of synchronous distributed systems and asynchronous distributed system
+- Omission failures, arbitrary failures, timing failure in distributed systems
 
