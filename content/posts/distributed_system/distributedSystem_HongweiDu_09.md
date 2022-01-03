@@ -110,7 +110,7 @@ Achieving atomicity：
         - If it restarts, will it know to process the message?
     - What if the sender (or coordinator) dies partway through the protocol?
 
-Achieving atomicity–example 1：
+**Achieving atomicity–example 1**：
 - Retry through network failures & system downtime
     - Sender & receivers maintain a persistent log
     - Each message has a unique ID so we can discard duplicates
@@ -126,7 +126,7 @@ Achieving atomicity–example 1：
 - **NEVER GIVE UP!**
     - Assume that dead senders or receivers will be rebooted and will restart where they left off
 
-Achieving atomicity–example 2：
+**Achieving atomicity–example 2**：
 - Redefine the group
     - If some members failed to receive the message:
         - Remove the failed members from the group

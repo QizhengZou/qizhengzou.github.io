@@ -2,7 +2,7 @@
 title: "CA_base_01"
 date: 2021-11-29T14:19:01+08:00
 lastmod: 2021-11-29
-tags: [computer architecture]
+tags: [computer_architecture]
 categories: [School Courses]
 slug: CA Intro
 draft: false

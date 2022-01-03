@@ -2,7 +2,7 @@
 title: "ISC_base_07"
 date: 2021-11-21T11:36:12+08:00
 lastmod: 2021-12-21
-tags: [Information Security Conspectus]
+tags: [information_security_conspectus]
 categories: [School Courses]
 slug: Network defense
 draft: false

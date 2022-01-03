@@ -2,7 +2,7 @@
 title: "ISC_base_02"
 date: 2021-11-21T11:35:51+08:00
 lastmod: 2021-11-23
-tags: [Information Security Conspectus]
+tags: [information_security_conspectus]
 categories: [School Courses]
 slug: Foundations of Cryptography
 draft: false

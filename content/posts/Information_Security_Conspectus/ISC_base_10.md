@@ -2,7 +2,7 @@
 title: "ISC_base_10"
 date: 2021-12-21T19:38:13+08:00
 lastmod: 2021-12-21
-tags: [Information Security Conspectus]
+tags: [information_security_conspectus]
 categories: [School Courses]
 slug: Information security management
 draft: false

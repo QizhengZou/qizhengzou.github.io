@@ -4,10 +4,10 @@ date: 2022-01-01T15:21:34+08:00
 lastmod: 2022-01-01
 tags: [distributed_system]
 categories: [School Courses]
-slug: Unix File Systems
+slug: Unix File Systems and Distributed File Systems
 draft: false
 ---
-# Unix File Systems文件系统
+## Unix File Systems文件系统
 File Systems：
 - File system provides the most fundamental service for building any information systems.
     - file storage, management and retrieve service.

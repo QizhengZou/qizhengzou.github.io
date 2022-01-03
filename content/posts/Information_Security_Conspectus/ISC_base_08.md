@@ -2,7 +2,7 @@
 title: "ISC_base_08"
 date: 2021-11-21T11:36:15+08:00
 lastmod: 2021-12-21
-tags: [Information Security Conspectus]
+tags: [information_security_conspectus]
 categories: [School Courses]
 slug: network security protocol
 draft: false

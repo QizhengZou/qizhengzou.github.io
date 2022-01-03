@@ -153,7 +153,7 @@ Berkeley Algorithm:
 
 Berkeley Algorithm: example:
 - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143658.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143727.png
+- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143727.png)
 - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143759.png)
 
 Network Time Protocol (NTP):

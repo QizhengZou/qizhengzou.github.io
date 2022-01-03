@@ -2,7 +2,7 @@
 title: "ISC_base_05"
 date: 2021-11-21T11:36:04+08:00
 lastmod: 2021-12-07
-tags: [Information Security Conspectus]
+tags: [information_security_conspectus]
 categories: [School Courses]
 slug: access control
 draft: false

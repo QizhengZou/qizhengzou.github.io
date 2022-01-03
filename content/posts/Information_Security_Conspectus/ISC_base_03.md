@@ -2,7 +2,7 @@
 title: "ISC_base_03"
 date: 2021-11-21T11:35:55+08:00
 lastmod: 2021-12-07
-tags: [Information Security Conspectus]
+tags: [information_security_conspectus]
 categories: [School Courses]
 slug: physical security
 draft: false
