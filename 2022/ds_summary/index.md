@@ -1,9 +1,9 @@
-# DistributedSystem_HongweiDu_14
+# DistributedSystem_HongweiDu_catalogue
 
 # topics
 Understanding lecture notes and tutorial questions.
 ## 1.Introduction
-- Distributed system is everywhere.
+- A distributed system is defined as one in which components at networked computers communicate and coordinate their actions only by passing messages.
 - The motivation of constructing a distributed system is resource sharing and collaborative computing
 - Distributed system features.
     - Concurrency
@@ -21,20 +21,83 @@ Understanding lecture notes and tutorial questions.
 
 ## 2.System Model
 - Difficulties for and threats to distributed systems
+    - Widely varying mode of use
+    - Wide range of system environments
+    - Internal threats
+    - External threats
 - Physical Model
     - Three generations of distributed systems and the emergence of ultra-large-scale (ULS) distributed systems.
 - Architectural Model 
+    - An architectural model of a distributed system simplifies and abstracts the functions of the individual components of a distributed system
     - Entities that are communicating in the distributed system 
+        - 进程、线程、传感器节点或者说对象、组件、网页服务
     - Types of communication paradigms:
         - Interprocess communication
         - Remote invocation
         - Indirect communication
-    - Architectural styles: client-server and peer-to-peer
-    - Vertical distribution (Multi-Tier) and horizontal distribution of c/s systems
+            - Group communication
+                - Broadcast (message sent to everyone)
+                - Multicast (message sent to specific group)
+                - Used for:
+                    - Replication of services
+                    - Replication of data
+                    - Service discovery
+                    - Event notification
+            - Publish-subscribe-systems
+                - Communication through propagation of events
+                - Generally associated with publish/subscribe systems
+                - Sender process publishes events
+                - Receiver process subscribes to events and receives only the ones it is interested in
+            - Message queues
+    - Architectural styles: 
+        - client-server：it scales poorly 
+            - Decomposed a typical client-server application into three logical parts
+                - the interface part.
+                - the application logic part, and.
+                - the data part.
+            - Thin client implementation
+                - Provides a minimal user interface layer, and leave everything else to the server.
+            - Fat client implementation
+                - Include all of the user interface and application logic in the client.
+                - Rely only on the server to store and provide access to data.
+            - Implementations in between will split up the interface or application logic parts over the clients and server in different ways.
+        - peer-to-peer
+            - Is composed of a large number of peer processes running on separate computers.
+            - All processes have client and server roles.
+            - Patterns of communication between them depends entirely on application requirements.
+            - Storage, processing and communication loads for accessing objects are distributed across computers and network links.
+            - Each object is replicated in several computers to further distribute the load and to provide resilience in the event of disconnection of individual computers.
+            - Need to place and retrieve individual computers is more complex then in client-server architecture.
+                - placement one:Servers partition a set of objects in which the service is based and distribute them between themselves.
+                - placement two:Server maintain replicated copies of them on several hosts.
+    - Vertical distribution (Multi-Tier) and horizontal distribution of c/s systems in Architectural patterns
+        - Middleware:Is a layer of software whose purpose is to mask heterogeneity and to provide a convenient programming model to application programmers.
+        - Vertical Distribution (Multi-Tier):
+            - An extension of the client-server architecture.
+            - Distributes the traditional server functionality over multiple servers.
+        - Horizontal Distribution:
+            - Involves replicating a server’s functionality over multiple computers.
+            - Typical example: replicated Web server
+                - Each server machine contains a complete copy of all hosted Web pages.
+                - Client requests are passed on to the servers in a round robin fashion.
+            - Is used to improve scalability (by reducing the load on individual servers) and reliability (by providing redundancy)
 - Fundamental Model
     - Characteristics of synchronous distributed systems and asynchronous distributed system(Interaction model)
-
+        - Two variants of the interaction model:
+        - Synchronous distributed systems
+            - The following bounds are defined:
+                - The time to execute each step of a process has known lower and upper bounds
+                - Each message transmitted over a channel is received within a known bounded time.
+                - Each process has a local clock whose drift rate from real time has known bound.
+        - Asynchronous distributed system:
+            - There are no bounds on:
+                - Process execution speed
+                - Message transmission delays
+                - Clock drift rate
+    - Failure model
+    - Security model
 ## 3.Physical Clock Synchronization
+Adjustment changes slope of system time: Linear compensating function （线性补偿函数）
 ### 3.1Cristian’s algorithm: 
 synchronize clocks with a UTC server 
 - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102082432.png)
@@ -42,13 +105,15 @@ synchronize clocks with a UTC server
 synchronize a set of clocks as close as possible
 - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102082505.png)
 ## 4.NTP Symmetric mode
+- 如何计算偏移量、准确值、延迟、传输时间。
+- used to synchronize between the time servers (peer-peer)
 - There can be a non-negligible delay between the arrival of one message and the dispatch of the next
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102082646.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102150951.png)
 - Delay = total transmission time of the two messages
 $$d_i = (T_i – T_{i-3} ) – (T_{i-1}– T_{i-2})$$
 - Offset of clock A relative to clock B:  
-    - Offset of clock A: $o_i =((T_i-2 – T_i-3 ) + ( T_i-1 – T_i))/2
-    - Accuracy bound: d_i /2
+    - Offset of clock A: $o_i =((T_{i-2} – T_{i-3} ) + ( T_{i-1} – T_i))/2$
+    - Accuracy bound: $d_i /2$
 
 ## 5.Logical Clock Synchronization:
 - Event ordering: happened before (->), concurrent (||)
@@ -95,11 +160,11 @@ $$d_i = (T_i – T_{i-3} ) – (T_{i-1}– T_{i-2})$$
 - Sequential---All processes see all shared accesses in the **same order**. Accesses are not ordered in time
 - Causal---All processes see **causally-related** shared accesses in the same order.
 - FIFO---All processes see writes from each other **in the order they were used**. Writes from different processes may not always be seen in that order
+- Consistency models **not using synchronization** operations.
+
 - Weak---Shared data can be counted on to be consistent **only after a synchronization** is done
 - Release---Shared data are made consistent when a **critical region is exited**
 - Entry---Shared data **pertaining to a critical region** are made consistent when a **critical region is entered.**
-
-- Consistency models **not using synchronization** operations.
 - Models **with synchronization** operations.
 
 ## 11.Client Centric Consistency
@@ -159,4 +224,10 @@ $$d_i = (T_i – T_{i-3} ) – (T_{i-1}– T_{i-2})$$
 - FAN - WebPage Ranking
 - Inverted File: indexing for search
 
-
+## 20春
+- 问题1。[10马克]详细解释NAT（网络地址转换）的工作原理。使用图表帮助您进行解释。假设组织使用一个外部IP地址168.12.0.4，并且组织内部的一个主机（内部IP地址为12.0.60.4，端口号为1234）向外部web服务器发送一个IP数据包，目标IP地址为125.12.4.16。
+- 问题2。[10标记]NTP服务器B在16:34:23.480接收服务器A的消息，该消息带有时间戳16:34:13.430，并回复该消息。A在16:34:15.725接收消息，带有B的时间戳16:34:25.7。估计B和A之间的偏移量以及估计的准确性。（10分）
+- 问题3。[10标记]在UNIX文件系统中，用户打开文件“/hitsz/ds/code/example/exam.txt”。假设根目录的inode（即“/”）已经在inode表中（内存中）。
+    - a） 列出解析路径名“/hitsz/ds/code/example/exam.txt”并将文件的inode加载到inode表中的步骤。
+    - b） 需要多少次磁盘访问？
+- 问题4。[10马克]分布式文件系统和事务处理系统之间的区别是什么？

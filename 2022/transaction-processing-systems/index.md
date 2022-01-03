@@ -246,7 +246,7 @@ Timestamp Ordering (Cont’d) :
     - if T aborts, all tentative data and rts created by T are removed.
 
 Rules for Write:
-- W1: T  rt and T > wt, a tentative value is created. 
+- W1: T >= rt and T > wt, a tentative value is created. 
 - W2: T < rt (including tentative rt) or T < wt, abort.
 -                        T1 < T2 < T3 < T4
 - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101223354.png)
