@@ -3,7 +3,8 @@ title: "Cry_catalogue"
 date: 2021-12-16T15:27:36+08:00
 lastmod: 2021-12-16
 tags: [catalogue]
-categories: [School Courses' list]slug: Cry_Catalogue
+categories: [School Courses' list]
+slug: Cry_Catalogue
 draft: false
 ---
 - [base_01](https://qizhengzou.github.io/2021/cryptography-intro/)
