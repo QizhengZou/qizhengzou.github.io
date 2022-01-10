@@ -5,7 +5,7 @@ lastmod: 2021-11-15
 tags: [big_data]
 categories: [School Courses]
 slug: Structured representation of data
-draft: false
+draft: true
 ---
 ## 数据的属性类型
 - 结构化数据

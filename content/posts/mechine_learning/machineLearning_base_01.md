@@ -5,7 +5,7 @@ lastmod: 2022-01-01
 tags: [machine_learning]
 categories: [School Courses]
 slug: machine learning review
-draft: false
+draft: true
 
 ---
 
@@ -265,7 +265,7 @@ draft: false
 - 距离加权k-NN对噪声有鲁棒性
   - 可以平滑掉孤立的噪声样例的影响
 - k-近邻的归纳偏置
-  - xq的类别与在欧式空间中它附近的实例的类别相似
+  - $x_q$的类别与在欧式空间中它附近的实例的类别相似
 - k-近邻实践中的问题: 维度灾难(curse of dimensionality)
   - 基于实例的所有属性计算距离
   - 实际中分类相关属性只占少数

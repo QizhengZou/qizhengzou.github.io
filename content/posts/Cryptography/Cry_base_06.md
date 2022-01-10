@@ -2,7 +2,7 @@
 title: "Cry_base_06"
 date: 2021-12-16T15:24:04+08:00
 lastmod: 2021-12-16
-tags: [Cryptography]
+tags: [cryptography]
 categories: [School Courses]
 slug: Public key encryption
 draft: false

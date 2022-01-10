@@ -1,0 +1,33 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Jefo | Jefo</title>
+        <link>https://qizhengzou.github.io/</link>
+        <description>Jefo | Jefo</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Jan 2022 08:17:33 +0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/" rel="self" type="application/rss+xml" /><item>
+                <title>Posts</title>
+                <link>https://qizhengzou.github.io/posts/</link>
+                <pubDate>Thu, 06 Jan 2022 08:17:33 +0800</pubDate><guid>https://qizhengzou.github.io/posts/</guid>
+                <description></description>
+            </item><item>
+                <title>About</title>
+                <link>https://qizhengzou.github.io/about/</link>
+                <pubDate>Sat, 06 Nov 2021 00:00:00 +0000</pubDate><guid>https://qizhengzou.github.io/about/</guid>
+                <description>&lt;h2 id=&#34;关于网站&#34;&gt;关于网站&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;个人博客,学习笔记&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
+&lt;p&gt;哈尔滨工业大学（深圳）19 级计算机本科生，01 年出生，籍贯江西，共青团员，目前坐标深圳。&lt;/p&gt;
+&lt;p&gt;&lt;font color=gree&gt;&lt;strong&gt;菜鸡一枚，争取持续学习就好&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关于博客笔记&#34;&gt;关于博客笔记&lt;/h2&gt;
+&lt;p&gt;我将大多数博客标题规格化，虽无法直接从标题获取具体内容，但方便管理。
+将某tag所有博客的目录放在单独的一个markdown文件里：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有利于复习&lt;/li&gt;
+&lt;li&gt;有利于该方向所有博客的知识体系框架的建立&lt;/li&gt;
+&lt;li&gt;查找相关内容时更方便&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;致谢&#34;&gt;致谢&lt;/h2&gt;
+&lt;p&gt;本站图片部分来自互联网以及哈尔滨工业大学（深圳）教学课件，仅供公益性的学习参考，在此表示感谢！此类图片的原版权所有者可在任何时候、以任何理由要求本站停止使用有关图片，其中包括被本站编辑（比如加注中文说明）过的图片， 联系方式见本站首页。&lt;/p&gt;
+&lt;p&gt;转载注明来源为本站首页网址 &lt;a href=&#34;https://qizhengzou.github.io/&#34; target=&#34;_blank&#34;&gt;qizhengzou.github.io&lt;/a&gt;，或所转内容在本站的完整网址&lt;/p&gt;
+</description>
+            </item></channel>
+</rss>

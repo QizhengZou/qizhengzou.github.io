@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data structure on Jefo</title>
+    <link>https://qizhengzou.github.io/tags/data-structure/</link>
+    <description>Recent content in data structure on Jefo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 06 Jan 2022 08:17:33 +0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm_array</title>
+      <link>https://qizhengzou.github.io/2022/array-algorithm/</link>
+      <pubDate>Thu, 06 Jan 2022 08:17:33 +0800</pubDate>
+      
+      <guid>https://qizhengzou.github.io/2022/array-algorithm/</guid>
+      <description>数组 数组基础 数组是存放在连续内存空间上的相同类型数据的集合。 因为数组的在内存空间的地址是连续的，所以我们在删除或者增添元素的时候，就难免要移</description>
+    </item>
+    
+  </channel>
+</rss>

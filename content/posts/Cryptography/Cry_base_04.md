@@ -2,7 +2,7 @@
 title: "Cry_base_04"
 date: 2021-12-16T15:23:56+08:00
 lastmod: 2021-12-16
-tags: [Cryptography]
+tags: [cryptography]
 categories: [School Courses]
 slug: Mathematical principles
 draft: false

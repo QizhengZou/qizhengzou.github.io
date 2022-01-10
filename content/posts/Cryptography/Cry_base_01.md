@@ -2,7 +2,7 @@
 title: "Cry_base_01"
 date: 2021-12-16T14:32:42+08:00
 lastmod: 2021-12-16
-tags: [Cryptography]
+tags: [cryptography]
 categories: [School Courses]
 slug: cryptography intro
 draft: false

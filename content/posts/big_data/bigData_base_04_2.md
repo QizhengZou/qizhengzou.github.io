@@ -5,7 +5,7 @@ lastmod: 2021-11-15
 tags: [big_data]
 categories: [School Courses]
 slug: Understanding data
-draft: false
+draft: true
 ---
 ## 数据理解的主要任务
 数据理解在统计学中称为exploratory data analysis（EDA）：    

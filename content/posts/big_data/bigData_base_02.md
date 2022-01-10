@@ -5,7 +5,7 @@ lastmod: 2021-11-08
 tags: [big_data]
 categories: [School Courses]
 slug: hadoop
-draft: false
+draft: true
 ---
 ## hadoop 入门
 ### 引例：web搜索引擎

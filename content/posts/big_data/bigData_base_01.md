@@ -5,7 +5,7 @@ lastmod: 2021-11-08
 tags: [big_data]
 categories: [School Courses]
 slug: big data
-draft: false
+draft: true
 ---
 ### 先修课程
 高等数学、代数与几何、概率论与数理统计、高级语言程序设计

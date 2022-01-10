@@ -1,0 +1,16 @@
+---
+title: "Algorithm_array"
+date: 2022-01-06T08:17:33+08:00
+lastmod: 2022-01-06
+tags: [data structure]
+categories: [Coding]
+slug: array algorithm 
+draft: false
+---
+# 数组
+## 数组基础
+数组是存放在连续内存空间上的相同类型数据的集合。 
+
+因为数组的在内存空间的地址是连续的，所以我们在删除或者增添元素的时候，就难免要移动其他元素的地址。
+
+数组元素无法删除，只能覆盖。

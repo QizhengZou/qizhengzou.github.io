@@ -2,7 +2,7 @@
 title: "Cry_base_05"
 date: 2021-12-16T15:24:00+08:00
 lastmod: 2021-12-19
-tags: [Cryptography]
+tags: [cryptography]
 categories: [School Courses]
 slug: Sequence cipher
 draft: false

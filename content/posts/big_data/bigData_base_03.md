@@ -5,7 +5,7 @@ lastmod:
 tags: [big_data]
 categories: [School Courses]
 slug: hdfs
-draft: false
+draft: true
 ---
 ## 深入理解HDFS
 关于数据存储方法的说明

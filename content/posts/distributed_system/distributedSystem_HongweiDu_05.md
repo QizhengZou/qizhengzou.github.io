@@ -8,7 +8,7 @@ slug: Mutual  Exclusion  & Election  Algorithms
 draft: false
 ---
 # Mutual  Exclusion  & Election  Algorithms(互斥算法 & 选举算法)
-## 互斥算法
+## Mutual Exclusion
 Process Synchronization:
 - Techniques to coordinate execution among processes
     - One process may have to wait for another
@@ -142,7 +142,7 @@ Lamport’s Mutual Exclusion:
         - Removes request for that process from its queue
         - This may cause its own entry have the earliest timestamp in the queue, enabling it to access the critical section
 
-## 选举算法
+## Election  Algorithms
 Elections：
 - Need one process to act as coordinator
 - Processes have no distinguishing characteristics
