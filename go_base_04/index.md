@@ -323,7 +323,7 @@ func main() {
     fmt.Println(m.User.ToString())
 }  
 output:
-Manager: 0xc420074180, &{{1 Tom} Administrator}
+Manager: 0xc420074180, &\{\{1 Tom} Administrator}
     User: 0xc420074180, &{1 Tom} 
 ```
 ## 方法集
