@@ -643,7 +643,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
     <span class=nx>t</span><span class=p>.</span><span class=nf>Close</span><span class=p>(</span><span class=p>)</span>
 <span class=p>}</span>
 <span class=kd>func</span> <span class=nf>main</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
-    <span class=nx>ts</span> <span class=o>:=</span> <span class=p>[</span><span class=p>]</span><span class=nx>Test</span><span class=p>{</span><span class=p>{</span><span class=s>&#34;a&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;b&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;c&#34;</span><span class=p>}</span><span class=p>}</span>
+    <span class=nx>ts</span> <span class=o>:=</span> <span class=p>[</span><span class=p>]</span><span class=nx>Test</span><span class=s>&#34;a&#34;</span><span class=p>,</span> <span class=s>&#34;b&#34;</span><span class=p>,</span> <span class=s>&#34;c&#34;</span><span class=p>}</span>
     <span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>t</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>ts</span> <span class=p>{</span>
         <span class=k>defer</span> <span class=nf>Close</span><span class=p>(</span><span class=nx>t</span><span class=p>)</span>
     <span class=p>}</span>
