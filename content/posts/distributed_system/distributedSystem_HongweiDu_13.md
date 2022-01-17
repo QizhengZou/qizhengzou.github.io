@@ -278,7 +278,7 @@ WebPage Ranking:
     - Suppose page A has pages T1...Tn that point to it (i.e., back links).
     - d is a factor between 0 and 1 (usually set to 0.85).
     - C(T) is the number of outgoing links of page T. 
-- $PR_{(A)}=(1-d)+d \times\left(\frac{PR_{\left(T_{1}\right)}}{C_{\left(T_{1}\right)}}+\ldots+\frac{PR_{\left(T_{n}\right)}}{C_{\left(T_{n}\right)}}\right)$
+- $PR_{(A)}=(1-d)+d \times\left(\frac{PR_{\left(T_{1}\right)} }{C_{\left(T_{1}\right)} }+\ldots+\frac{PR_{\left(T_{n}\right)} }{C_{\left(T_{n}\right)} }\right)$
 
 Page Rank Calculation :
 - The definition of PR(A) is cyclic, i.e., the rank of a page depends on the ranks of other pages. However, page ranks can be computed by a simple iterative algorithm. 

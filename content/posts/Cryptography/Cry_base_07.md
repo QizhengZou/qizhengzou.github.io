@@ -58,7 +58,7 @@ draft: false
         - 4) $y=g^xmod p$公钥
     - 签名
         - 1) $\operatorname{sig}(\mathrm{m}, \mathrm{k})=(\mathrm{r}, \mathrm{s}), \mathrm{k} \in \mathrm{Z}_{\mathrm{p}-1}^{*}$ is random
-        - 2) $\mathrm{r}=\mathrm{g}^{\mathrm{k}} \bmod \mathrm{p}$
+        - 2) $\mathrm{r}=\mathrm{g}^{\mathrm{k} } \bmod \mathrm{p}$
         - 3) $s=k^{-1}(H(m)-x r) \bmod (p-1)$
 - Schnorr签名（略）
 - DSS（略）

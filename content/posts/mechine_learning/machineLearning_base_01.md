@@ -43,7 +43,7 @@ draft: true
 
 - Find-S 和候选消除算法在训练数据有噪声时性能较差
 
-- **变型空间**：与训练样例一致的所有假设构成的集合$\mathrm{VS}_{\mathrm{H}, \mathrm{D}}=\{\mathrm{h} \in \mathrm{H} \mid$ Consistent $(\mathrm{h}, \mathrm{D})\}$
+- **变型空间**：与训练样例一致的所有假设构成的集合$\mathrm{VS}_{\mathrm{H}, \mathrm{D} }=\{\mathrm{h} \in \mathrm{H} \mid$ Consistent $(\mathrm{h}, \mathrm{D})\}$
   - 什么是一致、什么是满足（），其差别
     - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220104184200.png)
 
