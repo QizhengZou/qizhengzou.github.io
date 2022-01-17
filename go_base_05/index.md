@@ -28,17 +28,17 @@ func main() {
     s1 := Student{Person{"5lmh", "man", 20}, 1, "bj"}
     fmt.Println(s1)
 
-    s2 := Student{Person: Person{"5lmh", "man", 20}}
+    s2 := Student{Person: Person{"5lmh", "man", 20} }
     fmt.Println(s2)
 
-    s3 := Student{Person: Person{name: "5lmh"}}
+    s3 := Student{Person: Person{name: "5lmh"} }
     fmt.Println(s3)
 }
 output：
 
-    {{5lmh man 20} 1 bj}
-    {{5lmh man 20} 0 }
-    {{5lmh  0} 0 }
+    { {5lmh man 20} 1 bj}
+    { {5lmh man 20} 0 }
+    { {5lmh  0} 0 }
 ```
 同名字段的情况
 ```go
@@ -72,8 +72,8 @@ func main() {
     fmt.Println(s)
 }
 output：
-    {{  0} 0  5lmh}
-    {{枯藤  0} 0  5lmh}
+    { {  0} 0  5lmh}
+    { {枯藤  0} 0  5lmh}
 ```
 所有的内置类型和自定义类型都是可以作为匿名字段去使用
 ```go
@@ -103,7 +103,7 @@ func main() {
     fmt.Println(s1)
 }
 output：
-    {{5lmh man 18} 1 bj}
+    { {5lmh man 18} 1 bj}
 ```
 指针类型匿名字段
 ```go

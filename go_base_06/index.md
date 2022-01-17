@@ -607,14 +607,14 @@ type connection struct {
 }
 
 var wu = &websocket.Upgrader{ReadBufferSize: 512,
-    WriteBufferSize: 512, CheckOrigin: func(r *http.Request) bool { return true }}
+    WriteBufferSize: 512, CheckOrigin: func(r *http.Request) bool { return true } }
 
 func myws(w http.ResponseWriter, r *http.Request) {
     ws, err := wu.Upgrade(w, r, nil)
     if err != nil {
         return
     }
-    c := &connection{sc: make(chan []byte, 256), ws: ws, data: &Data{}}
+    c := &connection{sc: make(chan []byte, 256), ws: ws, data: &Data{} }
     h.r <- c
     go c.writer()
     c.reader()

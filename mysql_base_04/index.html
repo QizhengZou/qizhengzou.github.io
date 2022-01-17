@@ -76,9 +76,9 @@ end;
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>GRANT {all PRIVILEGES | privilege {,privilege…}}
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>GRANT {all PRIVILEGES | privilege {,privilege…} }
 ON [TABLE] tablename | viewname
-TO {public | user-id {, user-id…}}
+TO {public | user-id {, user-id…} }
 [WITH GRANT OPTION];
 </code></pre></td></tr></table></div></div><ul><li>user-id, 某一个用户帐户，由DBA创建的合法帐户</li><li>public, 允许所有有效用户使用授予的权利</li><li>privilege 是下面的权利<ul><li>SELECT | INSERT | UPDATE | DELETE | ALL PRIVILEDGES</li></ul></li><li>WITH GRANT OPTION选项是允许被授权者传播这些权利</li><li>注意授权的传播范围问题：</li><li>传播范围包括两个方面：水平传播数量和垂直传播数量<ul><li>水平传播数量是授权者的再授权用户数目(树的广度)</li><li>垂直传播数量是授权者传播给被授权者，再被传播给另一个被授权者, …传播的深度(树的深度)</li></ul></li><li>有些系统提供了传播范围控制，有些系统并没有提供，SQL标准中也并没有限制。</li></ul></li><li>收回授权命令<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2

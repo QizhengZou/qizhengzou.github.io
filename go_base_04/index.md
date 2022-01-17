@@ -283,7 +283,7 @@ func (self *User) ToString() string { // receiver = &(Manager.User)
 }
 
 func main() {
-    m := Manager{User{1, "Tom"}}
+    m := Manager{User{1, "Tom"} }
     fmt.Printf("Manager: %p\n", &m)
     fmt.Println(m.ToString())
 }  
@@ -419,7 +419,7 @@ func (t T) testT() {
 }
 
 func main() {
-    s1 := S{T{1}}
+    s1 := S{T{1} }
     s2 := &s1
     fmt.Printf("s1 is : %v\n", s1)
     s1.testT()
@@ -427,9 +427,9 @@ func main() {
     s2.testT()
 }
 output：
-    s1 is : {{1}}
+    s1 is : { {1} }
     如类型 S 包含匿名字段 T，则 S 和 *S 方法集包含 T 方法。
-    s2 is : &{{1}}
+    s2 is : &{ {1} }
     如类型 S 包含匿名字段 T，则 S 和 *S 方法集包含 T 方法。 
 ```
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T + *T 方法。
@@ -458,7 +458,7 @@ func (t *T) testP() {
 }
 
 func main() {
-    s1 := S{T{1}}
+    s1 := S{T{1} }
     s2 := &s1
     fmt.Printf("s1 is : %v\n", s1)
     s1.testT()
@@ -468,10 +468,10 @@ func main() {
     s2.testP()
 }
 output：
-s1 is : {{1}}
+s1 is : { {1} }
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T 方法
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 *T 方法
-s2 is : &{{1}}
+s2 is : &{ {1} }
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T 方法
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 *T 方法 
 ```

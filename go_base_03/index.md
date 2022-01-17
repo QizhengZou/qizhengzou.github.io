@@ -1394,10 +1394,10 @@ func TestSplit(t *testing.T) {
     }
     // 定义一个存储测试用例的切片
     tests := []test{
-        {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"}},
-        {input: "a:b:c", sep: ",", want: []string{"a:b:c"}},
-        {input: "abcd", sep: "bc", want: []string{"a", "d"}},
-        {input: "枯藤老树昏鸦", sep: "老", want: []string{"枯藤", "树昏鸦"}},
+        {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"} },
+        {input: "a:b:c", sep: ",", want: []string{"a:b:c"} },
+        {input: "abcd", sep: "bc", want: []string{"a", "d"} },
+        {input: "枯藤老树昏鸦", sep: "老", want: []string{"枯藤", "树昏鸦"} },
     }
     // 遍历切片，逐一执行测试用例
     for _, tc := range tests {
@@ -1453,10 +1453,10 @@ func TestSplit(t *testing.T) {
         want  []string
     }
     tests := map[string]test{ // 测试用例使用map存储
-        "simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"}},
-        "wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"}},
-        "more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"}},
-        "leading sep": {input: "枯藤老树昏鸦", sep: "老", want: []string{"枯藤", "树昏鸦"}},
+        "simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"} },
+        "wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"} },
+        "more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"} },
+        "leading sep": {input: "枯藤老树昏鸦", sep: "老", want: []string{"枯藤", "树昏鸦"} },
     }
     for name, tc := range tests {
         got := Split(tc.input, tc.sep)
@@ -1475,10 +1475,10 @@ func TestSplit(t *testing.T) {
         want  []string
     }
     tests := map[string]test{ // 测试用例使用map存储
-        "simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"}},
-        "wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"}},
-        "more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"}},
-        "leading sep": {input: "枯藤老树昏鸦", sep: "老", want: []string{"枯藤", "树昏鸦"}},
+        "simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"} },
+        "wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"} },
+        "more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"} },
+        "leading sep": {input: "枯藤老树昏鸦", sep: "老", want: []string{"枯藤", "树昏鸦"} },
     }
     for name, tc := range tests {
         t.Run(name, func(t *testing.T) { // 使用t.Run()执行子测试
@@ -1513,10 +1513,10 @@ func TestSplit(t *testing.T) {
 func TestSplit(t *testing.T) {
     ...
     tests := map[string]test{ // 测试用例使用map存储
-        "simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"}},
-        "wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"}},
-        "more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"}},
-        "leading sep": {input: "枯藤老树昏鸦", sep: "老", want: []string{"", "枯藤", "树昏鸦"}},
+        "simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"} },
+        "wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"} },
+        "more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"} },
+        "leading sep": {input: "枯藤老树昏鸦", sep: "老", want: []string{"", "枯藤", "树昏鸦"} },
     }
     ...
 }
@@ -1798,10 +1798,10 @@ func TestSplit(t *testing.T) {
         want  []string
     }
     tests := map[string]test{ // 测试用例使用map存储
-        "simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"}},
-        "wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"}},
-        "more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"}},
-        "leading sep": {input: "枯藤老树昏鸦", sep: "老", want: []string{"", "枯藤", "树昏鸦"}},
+        "simple":      {input: "a:b:c", sep: ":", want: []string{"a", "b", "c"} },
+        "wrong sep":   {input: "a:b:c", sep: ",", want: []string{"a:b:c"} },
+        "more sep":    {input: "abcd", sep: "bc", want: []string{"a", "d"} },
+        "leading sep": {input: "枯藤老树昏鸦", sep: "老", want: []string{"", "枯藤", "树昏鸦"} },
     }
     teardownTestCase := setupTestCase(t) // 测试之前执行setup操作
     defer teardownTestCase(t)            // 测试之后执行testdoen操作
