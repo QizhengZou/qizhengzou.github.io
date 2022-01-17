@@ -445,7 +445,7 @@ func Close(t Test) {
     t.Close()
 }
 func main() {
-    ts := []Test{{"a"}, {"b"}, {"c"}}
+    ts := []Test"a", "b", "c"}
     for _, t := range ts {
         defer Close(t)
     }
