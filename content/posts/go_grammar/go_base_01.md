@@ -31,33 +31,34 @@ Go的函数、变量、常量、自定义类型、包(package)的命名方式遵
     const        fallthrough  if           range        type
     continue     for          import       return       var
 ```
+
 - select和switch:select只能应用于channel的操作，既可以用于channel的数据接收，也可以用于channel的数据发送。如果select的多个分支都满足条件，则会随机的选取其中一个满足条件的分支。而switch用于一般的分支判断，顺序执行。
-    - 
-    ```go
-    package main
-    import "time"
-    import "fmt"
-    func main() {
-        c1 := make(chan string)
-        c2 := make(chan string)
-        go func() {
-            time.Sleep(time.Second * 1)
-            c1 <- "one"
-        }()
-        go func() {
-            time.Sleep(time.Second * 2)
-            c2 <- "two"
-        }()
-        for i := 0; i < 2; i++ {
-            select {
-            case msg1 := <-c1:
-                fmt.Println("received", msg1)
-            case msg2 := <-c2:
-                fmt.Println("received", msg2)
-            }
+
+```go
+package main
+import "time"
+import "fmt"
+func main() {
+    c1 := make(chan string)
+    c2 := make(chan string)
+    go func() {
+        time.Sleep(time.Second * 1)
+        c1 <- "one"
+    }()
+    go func() {
+        time.Sleep(time.Second * 2)
+        c2 <- "two"
+    }()
+    for i := 0; i < 2; i++ {
+        select {
+        case msg1 := <-c1:
+            fmt.Println("received", msg1)
+        case msg2 := <-c2:
+            fmt.Println("received", msg2)
         }
     }
-    ```
+}
+```
 
 - fallthrough:可以使用fallthrough强制执行该case执行完下一条case代码，fallthrough不会判断下一条case的判断结果是否为true。
 37个保留字：
@@ -256,7 +257,7 @@ Go 语言内置的运算符有：
     - /=	相除后再赋值
     - %=	求余后再赋值
     - <<=	左移后赋值
-    - >>=	右移后赋值
+    - \>\>=	右移后赋值
     - &=	按位与后赋值
     - l=	按位或后赋值
     - ^=	按位异或后赋值

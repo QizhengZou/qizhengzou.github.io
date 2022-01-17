@@ -1,30 +1,22 @@
-@import "_home";
-@import "_404";
-
 .page {
   position: relative;
-  width: 100%;
-  max-width: 980px;
+  max-width: 800px;
+  width: 60%;
   margin: 0 auto;
-  padding-top: 6rem;
 
-  @import "_post";
-  @import "_posts";
-}
-
-.archive {
-  .post-title {
-    text-align: right;
-    padding-bottom: 2rem;
+  [header-desktop] & {
+    padding-top: $header-height;
   }
 
-  @import "_terms";
-  @import "_tags";
+  [header-desktop=normal] & {
+    padding-top: 0;
+  }
+
+  @include blur;
 }
 
-.single {
-  .post-title {
-    text-align: right;
-    padding-bottom: 2rem;
-  }
-}
+@import "_single";
+@import "_special";
+@import "_archive";
+@import "_home";
+@import "_404";
