@@ -7,9 +7,8 @@ categories: [advanced learning]
 slug: why OS?
 draft: false
 ---
-```
-极客时间操作系统学习笔记
-```
+> 极客时间操作系统学习笔记
+
 ## 为什么要把操作系统学好？
 
 内存为什么会泄漏、服务进程为什么会 dang 掉、文件为什么打不开等一系列“基础”问题

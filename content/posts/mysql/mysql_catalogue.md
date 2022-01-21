@@ -7,6 +7,7 @@ categories: [School Courses' list]
 slug: Mysql_catalogue
 draft: false
 ---
+>base笔记来自哈工大深圳数据库理论课授课老师：刘圣鑫
 * [base_01](https://qizhengzou.github.io/2021/mysql-conceptual-structure/)（数据库概念结构）
     * 基本概念
         * 什么是数据库及为什么要学数据库？

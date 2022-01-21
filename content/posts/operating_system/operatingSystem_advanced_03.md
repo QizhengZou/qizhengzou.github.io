@@ -7,6 +7,8 @@ categories: [advanced learning]
 slug: Kernel structure and design
 draft: true
 ---
+> 极客时间操作系统学习笔记
+
 # 内核结构与设计 内核架构
 ## 内核结构与设计
 - 先搞清楚内核之中有些什么东西
