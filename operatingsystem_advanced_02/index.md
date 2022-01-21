@@ -1,8 +1,7 @@
 # OperatingSystem_advanced_02
 
-```
-极客时间操作系统学习笔记
-```
+> 极客时间操作系统学习笔记
+
 # 程序运行过程 实现一个简单内核
 ## 程序编译过程
 使用 GCC 相关的工具链。那么使用命令：gcc HelloWorld.c -o HelloWorld 或者 gcc ./HelloWorld.c -o ./HelloWorld ，就可以编译这段代码。其实，GCC 只是完成编译工作的驱动程序，它会根据编译流程分别调用预处理程序（->HelloWorld.i）、编译程序（->HelloWorld.s）、汇编程序（->HelloWorld.o）、链接程序(将HelloWorld.o与其他的库进行链接形成可执行文件)来完成具体工作。
