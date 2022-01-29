@@ -1,0 +1,957 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Create_type - Jefo</title><meta name=Description content="Jefo"><meta property="og:title" content="Create_type"><meta property="og:description" content="simple factory go 语言没有构造函数一说，所以一般会定义NewXXX函数来初始化相关类。 NewXXX 函数返回接口时就是简单工厂模式，也就是说Golang的一般推荐做"><meta property="og:type" content="article"><meta property="og:url" content="https://qizhengzou.github.io/create_type/"><meta property="og:image" content="https://qizhengzou.github.io/logo.png"><meta property="article:published_time" content="2022-01-22T09:19:30+08:00"><meta property="article:modified_time" content="2022-01-22T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://qizhengzou.github.io/logo.png"><meta name=twitter:title content="Create_type"><meta name=twitter:description content="simple factory go 语言没有构造函数一说，所以一般会定义NewXXX函数来初始化相关类。 NewXXX 函数返回接口时就是简单工厂模式，也就是说Golang的一般推荐做"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://qizhengzou.github.io/create_type/><link rel=prev href=https://qizhengzou.github.io/musk/><link rel=next href=https://qizhengzou.github.io/behavioral_type/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Create_type","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/create_type\/"},"image":["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"design mode","wordcount":2226,"url":"https:\/\/qizhengzou.github.io\/create_type\/","datePublished":"2022-01-22T09:19:30+08:00","dateModified":"2022-01-22T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Jefo","logo":"https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Jefo"},"description":""}</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>All posts </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=/about/>About </a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>All posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a><a class=menu-item href=/about/>About</a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Create_type</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/coding/><i class="far fa-folder fa-fw"></i>Coding</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-22 09:19:30">2022-01-22 09:19:30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2226 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id=busuanzi_container_page_pv>
+<i class="far fa-eye fa-fw"></i>&nbsp;<span id=busuanzi_value_page_pv></span>&nbsp;次阅读量</span></span></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#simple-factory>simple factory</a></li><li><a href=#factory-method>factory method</a></li><li><a href=#abstract-factory>abstract factory</a></li><li><a href=#builder>builder</a></li><li><a href=#prototype>prototype</a></li><li><a href=#singleton>singleton</a></li></ul></nav></div></div><div class=content id=content><h2 id=simple-factory>simple factory</h2><p>go 语言没有构造函数一说，所以一般会定义NewXXX函数来初始化相关类。 NewXXX 函数返回接口时就是简单工厂模式，也就是说Golang的一般推荐做法就是简单工厂。</p><p>在这个simplefactory包中只有API 接口和NewAPI函数为包外可见，封装了实现细节。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>simplefactory</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=c1>//API is interface
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>API</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Say</span><span class=p>(</span><span class=nx>name</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=c1>//NewAPI return Api instance by type
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>NewAPI</span><span class=p>(</span><span class=nx>t</span> <span class=kt>int</span><span class=p>)</span> <span class=nx>API</span> <span class=p>{</span>
+	<span class=k>if</span> <span class=nx>t</span> <span class=o>==</span> <span class=mi>1</span> <span class=p>{</span>
+		<span class=k>return</span> <span class=o>&amp;</span><span class=nx>hiAPI</span><span class=p>{</span><span class=p>}</span>
+	<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=nx>t</span> <span class=o>==</span> <span class=mi>2</span> <span class=p>{</span>
+		<span class=k>return</span> <span class=o>&amp;</span><span class=nx>helloAPI</span><span class=p>{</span><span class=p>}</span>
+	<span class=p>}</span>
+	<span class=k>return</span> <span class=kc>nil</span>
+<span class=p>}</span>
+
+<span class=c1>//hiAPI is one of API implement
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>hiAPI</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=c1>//Say hi to name
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>hiAPI</span><span class=p>)</span> <span class=nf>Say</span><span class=p>(</span><span class=nx>name</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;Hi, %s&#34;</span><span class=p>,</span> <span class=nx>name</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//HelloAPI is another API implement
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>helloAPI</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=c1>//Say hello to name
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>helloAPI</span><span class=p>)</span> <span class=nf>Say</span><span class=p>(</span><span class=nx>name</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;Hello, %s&#34;</span><span class=p>,</span> <span class=nx>name</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>simplefactory</span>
+
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+
+<span class=c1>//TestType1 test get hiapi with factory
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>TestType1</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>api</span> <span class=o>:=</span> <span class=nf>NewAPI</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+	<span class=nx>s</span> <span class=o>:=</span> <span class=nx>api</span><span class=p>.</span><span class=nf>Say</span><span class=p>(</span><span class=s>&#34;Tom&#34;</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>s</span> <span class=o>!=</span> <span class=s>&#34;Hi, Tom&#34;</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;Type1 test fail&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>TestType2</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>api</span> <span class=o>:=</span> <span class=nf>NewAPI</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+	<span class=nx>s</span> <span class=o>:=</span> <span class=nx>api</span><span class=p>.</span><span class=nf>Say</span><span class=p>(</span><span class=s>&#34;Tom&#34;</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>s</span> <span class=o>!=</span> <span class=s>&#34;Hello, Tom&#34;</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;Type2 test fail&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=factory-method>factory method</h2><p>工厂方法模式使用子类的方式延迟生成对象到子类中实现。</p><p>Go中不存在继承 所以使用匿名组合来实现</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>factorymethod</span>
+
+<span class=c1>//Operator 是被封装的实际类接口
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>Operator</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>SetA</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span>
+	<span class=nf>SetB</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span>
+	<span class=nf>Result</span><span class=p>(</span><span class=p>)</span> <span class=kt>int</span>
+<span class=p>}</span>
+
+<span class=c1>//OperatorFactory 是工厂接口
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>OperatorFactory</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Create</span><span class=p>(</span><span class=p>)</span> <span class=nx>Operator</span>
+<span class=p>}</span>
+
+<span class=c1>//OperatorBase 是Operator 接口实现的基类，封装公用方法
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>OperatorBase</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>a</span><span class=p>,</span> <span class=nx>b</span> <span class=kt>int</span>
+<span class=p>}</span>
+
+<span class=c1>//SetA 设置 A
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=o>*</span><span class=nx>OperatorBase</span><span class=p>)</span> <span class=nf>SetA</span><span class=p>(</span><span class=nx>a</span> <span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>o</span><span class=p>.</span><span class=nx>a</span> <span class=p>=</span> <span class=nx>a</span>
+<span class=p>}</span>
+
+<span class=c1>//SetB 设置 B
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=o>*</span><span class=nx>OperatorBase</span><span class=p>)</span> <span class=nf>SetB</span><span class=p>(</span><span class=nx>b</span> <span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>o</span><span class=p>.</span><span class=nx>b</span> <span class=p>=</span> <span class=nx>b</span>
+<span class=p>}</span>
+
+<span class=c1>//PlusOperatorFactory 是 PlusOperator 的工厂类
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>PlusOperatorFactory</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>PlusOperatorFactory</span><span class=p>)</span> <span class=nf>Create</span><span class=p>(</span><span class=p>)</span> <span class=nx>Operator</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>PlusOperator</span><span class=p>{</span>
+		<span class=nx>OperatorBase</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>OperatorBase</span><span class=p>{</span><span class=p>}</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//PlusOperator Operator 的实际加法实现
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>PlusOperator</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=o>*</span><span class=nx>OperatorBase</span>
+<span class=p>}</span>
+
+<span class=c1>//Result 获取结果
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>PlusOperator</span><span class=p>)</span> <span class=nf>Result</span><span class=p>(</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>o</span><span class=p>.</span><span class=nx>a</span> <span class=o>+</span> <span class=nx>o</span><span class=p>.</span><span class=nx>b</span>
+<span class=p>}</span>
+
+<span class=c1>//MinusOperatorFactory 是 MinusOperator 的工厂类
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>MinusOperatorFactory</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>MinusOperatorFactory</span><span class=p>)</span> <span class=nf>Create</span><span class=p>(</span><span class=p>)</span> <span class=nx>Operator</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>MinusOperator</span><span class=p>{</span>
+		<span class=nx>OperatorBase</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>OperatorBase</span><span class=p>{</span><span class=p>}</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//MinusOperator Operator 的实际减法实现
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>MinusOperator</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=o>*</span><span class=nx>OperatorBase</span>
+<span class=p>}</span>
+
+<span class=c1>//Result 获取结果
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>MinusOperator</span><span class=p>)</span> <span class=nf>Result</span><span class=p>(</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>o</span><span class=p>.</span><span class=nx>a</span> <span class=o>-</span> <span class=nx>o</span><span class=p>.</span><span class=nx>b</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>factorymethod</span>
+
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+
+<span class=kd>func</span> <span class=nf>compute</span><span class=p>(</span><span class=nx>factory</span> <span class=nx>OperatorFactory</span><span class=p>,</span> <span class=nx>a</span><span class=p>,</span> <span class=nx>b</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+	<span class=nx>op</span> <span class=o>:=</span> <span class=nx>factory</span><span class=p>.</span><span class=nf>Create</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>op</span><span class=p>.</span><span class=nf>SetA</span><span class=p>(</span><span class=nx>a</span><span class=p>)</span>
+	<span class=nx>op</span><span class=p>.</span><span class=nf>SetB</span><span class=p>(</span><span class=nx>b</span><span class=p>)</span>
+	<span class=k>return</span> <span class=nx>op</span><span class=p>.</span><span class=nf>Result</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>TestOperator</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=p>(</span>
+		<span class=nx>factory</span> <span class=nx>OperatorFactory</span>
+	<span class=p>)</span>
+
+	<span class=nx>factory</span> <span class=p>=</span> <span class=nx>PlusOperatorFactory</span><span class=p>{</span><span class=p>}</span>
+	<span class=k>if</span> <span class=nf>compute</span><span class=p>(</span><span class=nx>factory</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>3</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;error with factory method pattern&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+
+	<span class=nx>factory</span> <span class=p>=</span> <span class=nx>MinusOperatorFactory</span><span class=p>{</span><span class=p>}</span>
+	<span class=k>if</span> <span class=nf>compute</span><span class=p>(</span><span class=nx>factory</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>2</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;error with factory method pattern&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=abstract-factory>abstract factory</h2><p>抽象工厂模式用于生成产品族的工厂，所生成的对象是有关联的。</p><p>如果抽象工厂退化成生成的对象无关联则成为工厂函数模式。</p><p>比如本例子中使用RDB和XML存储订单信息，抽象工厂分别能生成相关的主订单信息和订单详情信息。 如果业务逻辑中需要替换使用的时候只需要改动工厂函数相关的类就能替换使用不同的存储方式了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>abstractfactory</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=c1>//OrderMainDAO 为订单主记录
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>OrderMainDAO</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>SaveOrderMain</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//OrderDetailDAO 为订单详情纪录
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>OrderDetailDAO</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>SaveOrderDetail</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//DAOFactory DAO 抽象模式工厂接口
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>DAOFactory</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>CreateOrderMainDAO</span><span class=p>(</span><span class=p>)</span> <span class=nx>OrderMainDAO</span>
+	<span class=nf>CreateOrderDetailDAO</span><span class=p>(</span><span class=p>)</span> <span class=nx>OrderDetailDAO</span>
+<span class=p>}</span>
+
+<span class=c1>//RDBMainDAP 为关系型数据库的OrderMainDAO实现
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>RDBMainDAO</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=c1>//SaveOrderMain ...
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>RDBMainDAO</span><span class=p>)</span> <span class=nf>SaveOrderMain</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=s>&#34;rdb main save\n&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//RDBDetailDAO 为关系型数据库的OrderDetailDAO实现
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>RDBDetailDAO</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=c1>// SaveOrderDetail ...
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>RDBDetailDAO</span><span class=p>)</span> <span class=nf>SaveOrderDetail</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=s>&#34;rdb detail save\n&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//RDBDAOFactory 是RDB 抽象工厂实现
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>RDBDAOFactory</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>RDBDAOFactory</span><span class=p>)</span> <span class=nf>CreateOrderMainDAO</span><span class=p>(</span><span class=p>)</span> <span class=nx>OrderMainDAO</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>RDBMainDAO</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>RDBDAOFactory</span><span class=p>)</span> <span class=nf>CreateOrderDetailDAO</span><span class=p>(</span><span class=p>)</span> <span class=nx>OrderDetailDAO</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>RDBDetailDAO</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//XMLMainDAO XML存储
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>XMLMainDAO</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=c1>//SaveOrderMain ...
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>XMLMainDAO</span><span class=p>)</span> <span class=nf>SaveOrderMain</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=s>&#34;xml main save\n&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//XMLDetailDAO XML存储
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>XMLDetailDAO</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=c1>// SaveOrderDetail ...
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>XMLDetailDAO</span><span class=p>)</span> <span class=nf>SaveOrderDetail</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=s>&#34;xml detail save&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//XMLDAOFactory 是RDB 抽象工厂实现
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>XMLDAOFactory</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>XMLDAOFactory</span><span class=p>)</span> <span class=nf>CreateOrderMainDAO</span><span class=p>(</span><span class=p>)</span> <span class=nx>OrderMainDAO</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>XMLMainDAO</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>XMLDAOFactory</span><span class=p>)</span> <span class=nf>CreateOrderDetailDAO</span><span class=p>(</span><span class=p>)</span> <span class=nx>OrderDetailDAO</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>XMLDetailDAO</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>abstractfactory</span>
+
+<span class=kd>func</span> <span class=nf>getMainAndDetail</span><span class=p>(</span><span class=nx>factory</span> <span class=nx>DAOFactory</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>factory</span><span class=p>.</span><span class=nf>CreateOrderMainDAO</span><span class=p>(</span><span class=p>)</span><span class=p>.</span><span class=nf>SaveOrderMain</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>factory</span><span class=p>.</span><span class=nf>CreateOrderDetailDAO</span><span class=p>(</span><span class=p>)</span><span class=p>.</span><span class=nf>SaveOrderDetail</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>ExampleRdbFactory</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=nx>factory</span> <span class=nx>DAOFactory</span>
+	<span class=nx>factory</span> <span class=p>=</span> <span class=o>&amp;</span><span class=nx>RDBDAOFactory</span><span class=p>{</span><span class=p>}</span>
+	<span class=nf>getMainAndDetail</span><span class=p>(</span><span class=nx>factory</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// rdb main save
+</span><span class=c1></span>	<span class=c1>// rdb detail save
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>ExampleXmlFactory</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=nx>factory</span> <span class=nx>DAOFactory</span>
+	<span class=nx>factory</span> <span class=p>=</span> <span class=o>&amp;</span><span class=nx>XMLDAOFactory</span><span class=p>{</span><span class=p>}</span>
+	<span class=nf>getMainAndDetail</span><span class=p>(</span><span class=nx>factory</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// xml main save
+</span><span class=c1></span>	<span class=c1>// xml detail save
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=builder>builder</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>builder</span>
+
+<span class=c1>//Builder 是生成器接口
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>Builder</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Part1</span><span class=p>(</span><span class=p>)</span>
+	<span class=nf>Part2</span><span class=p>(</span><span class=p>)</span>
+	<span class=nf>Part3</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>Director</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>builder</span> <span class=nx>Builder</span>
+<span class=p>}</span>
+
+<span class=c1>// NewDirector ...
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>NewDirector</span><span class=p>(</span><span class=nx>builder</span> <span class=nx>Builder</span><span class=p>)</span> <span class=o>*</span><span class=nx>Director</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>Director</span><span class=p>{</span>
+		<span class=nx>builder</span><span class=p>:</span> <span class=nx>builder</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//Construct Product
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>d</span> <span class=o>*</span><span class=nx>Director</span><span class=p>)</span> <span class=nf>Construct</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>d</span><span class=p>.</span><span class=nx>builder</span><span class=p>.</span><span class=nf>Part1</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>d</span><span class=p>.</span><span class=nx>builder</span><span class=p>.</span><span class=nf>Part2</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>d</span><span class=p>.</span><span class=nx>builder</span><span class=p>.</span><span class=nf>Part3</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>Builder1</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>result</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>b</span> <span class=o>*</span><span class=nx>Builder1</span><span class=p>)</span> <span class=nf>Part1</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>b</span><span class=p>.</span><span class=nx>result</span> <span class=o>+=</span> <span class=s>&#34;1&#34;</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>b</span> <span class=o>*</span><span class=nx>Builder1</span><span class=p>)</span> <span class=nf>Part2</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>b</span><span class=p>.</span><span class=nx>result</span> <span class=o>+=</span> <span class=s>&#34;2&#34;</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>b</span> <span class=o>*</span><span class=nx>Builder1</span><span class=p>)</span> <span class=nf>Part3</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>b</span><span class=p>.</span><span class=nx>result</span> <span class=o>+=</span> <span class=s>&#34;3&#34;</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>b</span> <span class=o>*</span><span class=nx>Builder1</span><span class=p>)</span> <span class=nf>GetResult</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>b</span><span class=p>.</span><span class=nx>result</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>Builder2</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>result</span> <span class=kt>int</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>b</span> <span class=o>*</span><span class=nx>Builder2</span><span class=p>)</span> <span class=nf>Part1</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>b</span><span class=p>.</span><span class=nx>result</span> <span class=o>+=</span> <span class=mi>1</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>b</span> <span class=o>*</span><span class=nx>Builder2</span><span class=p>)</span> <span class=nf>Part2</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>b</span><span class=p>.</span><span class=nx>result</span> <span class=o>+=</span> <span class=mi>2</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>b</span> <span class=o>*</span><span class=nx>Builder2</span><span class=p>)</span> <span class=nf>Part3</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>b</span><span class=p>.</span><span class=nx>result</span> <span class=o>+=</span> <span class=mi>3</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>b</span> <span class=o>*</span><span class=nx>Builder2</span><span class=p>)</span> <span class=nf>GetResult</span><span class=p>(</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>b</span><span class=p>.</span><span class=nx>result</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>builder</span>
+
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+
+<span class=kd>func</span> <span class=nf>TestBuilder1</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>builder</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>Builder1</span><span class=p>{</span><span class=p>}</span>
+	<span class=nx>director</span> <span class=o>:=</span> <span class=nf>NewDirector</span><span class=p>(</span><span class=nx>builder</span><span class=p>)</span>
+	<span class=nx>director</span><span class=p>.</span><span class=nf>Construct</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>res</span> <span class=o>:=</span> <span class=nx>builder</span><span class=p>.</span><span class=nf>GetResult</span><span class=p>(</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>res</span> <span class=o>!=</span> <span class=s>&#34;123&#34;</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Builder1 fail expect 123 acture %s&#34;</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>TestBuilder2</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>builder</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>Builder2</span><span class=p>{</span><span class=p>}</span>
+	<span class=nx>director</span> <span class=o>:=</span> <span class=nf>NewDirector</span><span class=p>(</span><span class=nx>builder</span><span class=p>)</span>
+	<span class=nx>director</span><span class=p>.</span><span class=nf>Construct</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>res</span> <span class=o>:=</span> <span class=nx>builder</span><span class=p>.</span><span class=nf>GetResult</span><span class=p>(</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>res</span> <span class=o>!=</span> <span class=mi>6</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;Builder2 fail expect 6 acture %d&#34;</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=prototype>prototype</h2><p>原型模式使对象能复制自身，并且暴露到接口中，使客户端面向接口编程时，不知道接口实际对象的情况下生成新的对象。</p><p>原型模式配合原型管理器使用，使得客户端在不知道具体类的情况下，通过接口管理器得到新的实例，并且包含部分预设定配置。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>prototype</span>
+
+<span class=c1>//Cloneable 是原型对象需要实现的接口
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>Cloneable</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Clone</span><span class=p>(</span><span class=p>)</span> <span class=nx>Cloneable</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>PrototypeManager</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>prototypes</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=nx>Cloneable</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>NewPrototypeManager</span><span class=p>(</span><span class=p>)</span> <span class=o>*</span><span class=nx>PrototypeManager</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>PrototypeManager</span><span class=p>{</span>
+		<span class=nx>prototypes</span><span class=p>:</span> <span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=nx>Cloneable</span><span class=p>)</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>p</span> <span class=o>*</span><span class=nx>PrototypeManager</span><span class=p>)</span> <span class=nf>Get</span><span class=p>(</span><span class=nx>name</span> <span class=kt>string</span><span class=p>)</span> <span class=nx>Cloneable</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>p</span><span class=p>.</span><span class=nx>prototypes</span><span class=p>[</span><span class=nx>name</span><span class=p>]</span><span class=p>.</span><span class=nf>Clone</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>p</span> <span class=o>*</span><span class=nx>PrototypeManager</span><span class=p>)</span> <span class=nf>Set</span><span class=p>(</span><span class=nx>name</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>prototype</span> <span class=nx>Cloneable</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>p</span><span class=p>.</span><span class=nx>prototypes</span><span class=p>[</span><span class=nx>name</span><span class=p>]</span> <span class=p>=</span> <span class=nx>prototype</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>prototype</span>
+
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+
+<span class=kd>var</span> <span class=nx>manager</span> <span class=o>*</span><span class=nx>PrototypeManager</span>
+
+<span class=kd>type</span> <span class=nx>Type1</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>name</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>Type1</span><span class=p>)</span> <span class=nf>Clone</span><span class=p>(</span><span class=p>)</span> <span class=nx>Cloneable</span> <span class=p>{</span>
+	<span class=nx>tc</span> <span class=o>:=</span> <span class=o>*</span><span class=nx>t</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>tc</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>Type2</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>name</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>Type2</span><span class=p>)</span> <span class=nf>Clone</span><span class=p>(</span><span class=p>)</span> <span class=nx>Cloneable</span> <span class=p>{</span>
+	<span class=nx>tc</span> <span class=o>:=</span> <span class=o>*</span><span class=nx>t</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>tc</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>TestClone</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>t1</span> <span class=o>:=</span> <span class=nx>manager</span><span class=p>.</span><span class=nf>Get</span><span class=p>(</span><span class=s>&#34;t1&#34;</span><span class=p>)</span>
+
+	<span class=nx>t2</span> <span class=o>:=</span> <span class=nx>t1</span><span class=p>.</span><span class=nf>Clone</span><span class=p>(</span><span class=p>)</span>
+
+	<span class=k>if</span> <span class=nx>t1</span> <span class=o>==</span> <span class=nx>t2</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;error! get clone not working&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>TestCloneFromManager</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>c</span> <span class=o>:=</span> <span class=nx>manager</span><span class=p>.</span><span class=nf>Get</span><span class=p>(</span><span class=s>&#34;t1&#34;</span><span class=p>)</span><span class=p>.</span><span class=nf>Clone</span><span class=p>(</span><span class=p>)</span>
+
+	<span class=nx>t1</span> <span class=o>:=</span> <span class=nx>c</span><span class=p>.</span><span class=p>(</span><span class=o>*</span><span class=nx>Type1</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>t1</span><span class=p>.</span><span class=nx>name</span> <span class=o>!=</span> <span class=s>&#34;type1&#34;</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;error&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>init</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>manager</span> <span class=p>=</span> <span class=nf>NewPrototypeManager</span><span class=p>(</span><span class=p>)</span>
+
+	<span class=nx>t1</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>Type1</span><span class=p>{</span>
+		<span class=nx>name</span><span class=p>:</span> <span class=s>&#34;type1&#34;</span><span class=p>,</span>
+	<span class=p>}</span>
+	<span class=nx>manager</span><span class=p>.</span><span class=nf>Set</span><span class=p>(</span><span class=s>&#34;t1&#34;</span><span class=p>,</span> <span class=nx>t1</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=singleton>singleton</h2><p>使用懒惰模式的单例模式，使用双重检查加锁保证线程安全</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>singleton</span>
+
+<span class=kn>import</span> <span class=s>&#34;sync&#34;</span>
+
+<span class=c1>// Singleton 是单例模式接口，导出的
+</span><span class=c1></span><span class=c1>// 通过该接口可以避免 GetInstance 返回一个包私有类型的指针
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>Singleton</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>foo</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>// singleton 是单例模式类，包私有的
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>singleton</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>s</span> <span class=nx>singleton</span><span class=p>)</span> <span class=nf>foo</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span><span class=p>}</span>
+
+<span class=kd>var</span> <span class=p>(</span>
+	<span class=nx>instance</span> <span class=o>*</span><span class=nx>singleton</span>
+	<span class=nx>once</span>     <span class=nx>sync</span><span class=p>.</span><span class=nx>Once</span>
+<span class=p>)</span>
+
+<span class=c1>//GetInstance 用于获取单例模式对象
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>GetInstance</span><span class=p>(</span><span class=p>)</span> <span class=nx>Singleton</span> <span class=p>{</span>
+	<span class=nx>once</span><span class=p>.</span><span class=nf>Do</span><span class=p>(</span><span class=kd>func</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+		<span class=nx>instance</span> <span class=p>=</span> <span class=o>&amp;</span><span class=nx>singleton</span><span class=p>{</span><span class=p>}</span>
+	<span class=p>}</span><span class=p>)</span>
+
+	<span class=k>return</span> <span class=nx>instance</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>singleton</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;sync&#34;</span>
+	<span class=s>&#34;testing&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>const</span> <span class=nx>parCount</span> <span class=p>=</span> <span class=mi>100</span>
+
+<span class=kd>func</span> <span class=nf>TestSingleton</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>ins1</span> <span class=o>:=</span> <span class=nf>GetInstance</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>ins2</span> <span class=o>:=</span> <span class=nf>GetInstance</span><span class=p>(</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>ins1</span> <span class=o>!=</span> <span class=nx>ins2</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;instance is not equal&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>TestParallelSingleton</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>start</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>(</span><span class=kd>chan</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span><span class=p>)</span>
+	<span class=nx>wg</span> <span class=o>:=</span> <span class=nx>sync</span><span class=p>.</span><span class=nx>WaitGroup</span><span class=p>{</span><span class=p>}</span>
+	<span class=nx>wg</span><span class=p>.</span><span class=nf>Add</span><span class=p>(</span><span class=nx>parCount</span><span class=p>)</span>
+	<span class=nx>instances</span> <span class=o>:=</span> <span class=p>[</span><span class=nx>parCount</span><span class=p>]</span><span class=nx>Singleton</span><span class=p>{</span><span class=p>}</span>
+	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=nx>parCount</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+		<span class=k>go</span> <span class=kd>func</span><span class=p>(</span><span class=nx>index</span> <span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
+			<span class=c1>//协程阻塞，等待channel被关闭才能继续运行
+</span><span class=c1></span>			<span class=o>&lt;-</span><span class=nx>start</span>
+			<span class=nx>instances</span><span class=p>[</span><span class=nx>index</span><span class=p>]</span> <span class=p>=</span> <span class=nf>GetInstance</span><span class=p>(</span><span class=p>)</span>
+			<span class=nx>wg</span><span class=p>.</span><span class=nf>Done</span><span class=p>(</span><span class=p>)</span>
+		<span class=p>}</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+	<span class=p>}</span>
+	<span class=c1>//关闭channel，所有协程同时开始运行，实现并行(parallel)
+</span><span class=c1></span>	<span class=nb>close</span><span class=p>(</span><span class=nx>start</span><span class=p>)</span>
+	<span class=nx>wg</span><span class=p>.</span><span class=nf>Wait</span><span class=p>(</span><span class=p>)</span>
+	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=nx>parCount</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+		<span class=k>if</span> <span class=nx>instances</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>!=</span> <span class=nx>instances</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=p>{</span>
+			<span class=nx>t</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;instance is not equal&#34;</span><span class=p>)</span>
+		<span class=p>}</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><a href=https://github.com/senghoo/golang-design-pattern target=_blank rel="noopener noreffer">参考</a></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-01-22 00:00:00</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://qizhengzou.github.io/create_type/ data-title=Create_type data-hashtags="design mode"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://qizhengzou.github.io/create_type/ data-hashtag="design mode"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Reddit" data-sharer=reddit data-url=https://qizhengzou.github.io/create_type/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://qizhengzou.github.io/create_type/ data-title=Create_type><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://qizhengzou.github.io/create_type/ data-title=Create_type><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://qizhengzou.github.io/create_type/ data-title=Create_type><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/design-mode/>design mode</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/musk/ class=prev rel=prev title=MUSK><i class="fas fa-angle-left fa-fw"></i>MUSK</a>
+<a href=/behavioral_type/ class=next rel=next title=Behavioral_type>Behavioral_type<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=disqus_thread class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=https://jefos-blog.disqus.com/embed.js defer></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

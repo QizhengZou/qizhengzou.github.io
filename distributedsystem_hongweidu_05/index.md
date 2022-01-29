@@ -1,5 +1,7 @@
 # DistributedSystem_HongweiDu_05
 
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # Mutual  Exclusion  & Election  Algorithms(互斥算法 & 选举算法)
 ## Mutual Exclusion
 Process Synchronization:

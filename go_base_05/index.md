@@ -1,6 +1,14 @@
 # Go_base_05
 
+> 参考学习go语言中文网、C语言中文网、golang官方文档等
+
 # 面向对象
+
+Is Go an object-oriented language? 
+Yes and no. Although Go has types and methods and allows an object-oriented style of programming, there is no type hierarchy. **The concept of “interface” in Go provides a different approach that we believe is easy to use and in some ways more general.** Also, the lack of a type hierarchy makes “objects” in Go feel much more lightweight than in languages such as C++ or Java.
+
+个人认为官网的大致意思就是go算是面向对象语言，没有继承，但有更通用的“接口”，没有继承也使对象比某些语言更轻量。
+
 ## 匿名字段
 go支持只提供类型而不写字段名的方式，也就是匿名字段，也称为嵌入字段
 ```go
@@ -8,7 +16,7 @@ package main
 
 import "fmt"
 
-//    go支持只提供类型而不写字段名的方式，也就是匿名字段，也称为嵌入字段
+//-    go支持只提供类型而不写字段名的方式，也就是匿名字段，也称为嵌入字段
 
 //人
 type Person struct {
@@ -137,7 +145,7 @@ output：
     5lmh
 ```
 ## 接口
-接口（interface）定义了一个对象的行为规范，只定义规范不实现，由具体的对象来实现规范的细节。
+接口（interface）定义了一个对象的行为规范，只定义规范不实现，由具体的对象来实现规范的细节。（也可以说是定义对象之间交互的协议的）
 
 ### 接口
 #### 接口类型
@@ -145,7 +153,6 @@ output：
 
 interface是一组method的集合，是duck-type programming的一种体现。接口做的事情就像是定义一个协议（规则），只要一台机器有洗衣服和甩干的功能，我就称它为洗衣机。不关心属性（数据），只关心行为（方法）。
 
-为了保护你的Go语言职业生涯，请牢记接口（interface）是一种类型。
 
 #### 为什么要使用接口
 ```go
@@ -176,8 +183,8 @@ func main() {
 
 Go语言中为了解决类似上面的问题，就设计了接口这个概念。接口区别于我们之前所有的具体类型，接口是一种抽象的类型。当你看到一个接口类型的值时，你不知道它是什么，唯一知道的是通过它的方法能做什么。
 
-接口的定义
-Go语言提倡面向接口编程。
+接口的定义：
+（Go语言提倡面向接口编程。）
 ```
     接口是一个或多个方法签名的集合。
     任何类型的方法集中只要拥有该接口'对应的全部方法'签名。
@@ -307,6 +314,15 @@ func main() {
 } 
 ```
 此时实现Mover接口的是\*dog类型，所以不能给x传入dog类型的wangcai，此时x只能存储\*dog类型的值。
+
+#### 用接口实现多态
+
+#### 接口的最佳实践
+倾向于使⽤⼩的接⼝定义，很多接⼝只包含⼀个⽅法
+
+较⼤的接⼝定义，可以由多个⼩接⼝定义组合⽽成
+
+只依赖于必要功能的最小接口，这样方法的复用性更强。
 
 #### 下面的代码是一个比较好的面试题
 请问下面的代码是否能通过编译？

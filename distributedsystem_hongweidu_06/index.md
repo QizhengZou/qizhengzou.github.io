@@ -1,5 +1,7 @@
 # DistributedSystem_HongweiDu_06
 
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 ## Socket Communication套接字通信（直接通信)
 Clients and Servers：
 - A distributed system can be generally modeled by clients and servers (processes).

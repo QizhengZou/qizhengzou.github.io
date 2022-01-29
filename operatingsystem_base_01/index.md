@@ -1,5 +1,6 @@
 # OperatingSystem_base_01
 
+> 王道考研操作系统笔记
 # 绪论
 ## 操作系统(Operating System, OS)的概念、特征、功能和提供的服务
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211121145727.png)

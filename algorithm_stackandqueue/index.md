@@ -1,5 +1,6 @@
 # Algorithm_stackAndQueue
 
+> 学习[代码随想录](https://programmercarl.com/)笔记
 # 栈和队列
 需要知道栈和队列的底层实现，不同编程语言不同STL的实现原理都是不尽相同的。
 ## 理论基础(c++)

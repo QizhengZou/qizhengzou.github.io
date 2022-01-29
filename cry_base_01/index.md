@@ -1,5 +1,7 @@
 # Cry_base_01
 
+> 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
+
 # 课程简介
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211216143711.png)
 

@@ -1,0 +1,1037 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Structural_type - Jefo</title><meta name=Description content="Jefo"><meta property="og:title" content="Structural_type"><meta property="og:description" content="facade API 为facade 模块的外观接口，大部分代码使用此接口简化对facade类的访问。 facade模块同时暴露了a和b 两个Module 的NewX"><meta property="og:type" content="article"><meta property="og:url" content="https://qizhengzou.github.io/structural_type/"><meta property="og:image" content="https://qizhengzou.github.io/logo.png"><meta property="article:published_time" content="2022-01-22T09:21:00+08:00"><meta property="article:modified_time" content="2022-01-22T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://qizhengzou.github.io/logo.png"><meta name=twitter:title content="Structural_type"><meta name=twitter:description content="facade API 为facade 模块的外观接口，大部分代码使用此接口简化对facade类的访问。 facade模块同时暴露了a和b 两个Module 的NewX"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://qizhengzou.github.io/structural_type/><link rel=prev href=https://qizhengzou.github.io/behavioral_type/><link rel=next href=https://qizhengzou.github.io/cn_base_01/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Structural_type","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/structural_type\/"},"image":["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"design mode","wordcount":2397,"url":"https:\/\/qizhengzou.github.io\/structural_type\/","datePublished":"2022-01-22T09:21:00+08:00","dateModified":"2022-01-22T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Jefo","logo":"https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Jefo"},"description":""}</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>All posts </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=/about/>About </a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>All posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a><a class=menu-item href=/about/>About</a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Structural_type</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/coding/><i class="far fa-folder fa-fw"></i>Coding</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-22 09:21:00">2022-01-22 09:21:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2397 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id=busuanzi_container_page_pv>
+<i class="far fa-eye fa-fw"></i>&nbsp;<span id=busuanzi_value_page_pv></span>&nbsp;次阅读量</span></span></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#facade>facade</a></li><li><a href=#adapter>adapter</a></li><li><a href=#proxy>proxy</a></li><li><a href=#composite>composite</a></li><li><a href=#flyweight>flyweight</a></li><li><a href=#decorator>decorator</a></li><li><a href=#bridge>bridge</a></li></ul></nav></div></div><div class=content id=content><h2 id=facade>facade</h2><p>API 为facade 模块的外观接口，大部分代码使用此接口简化对facade类的访问。</p><p>facade模块同时暴露了a和b 两个Module 的NewXXX和interface，其它代码如果需要使用细节功能时可以直接调用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>facade</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=kd>func</span> <span class=nf>NewAPI</span><span class=p>(</span><span class=p>)</span> <span class=nx>API</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>apiImpl</span><span class=p>{</span>
+		<span class=nx>a</span><span class=p>:</span> <span class=nf>NewAModuleAPI</span><span class=p>(</span><span class=p>)</span><span class=p>,</span>
+		<span class=nx>b</span><span class=p>:</span> <span class=nf>NewBModuleAPI</span><span class=p>(</span><span class=p>)</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//API is facade interface of facade package
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>API</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Test</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=c1>//facade implement
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>apiImpl</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>a</span> <span class=nx>AModuleAPI</span>
+	<span class=nx>b</span> <span class=nx>BModuleAPI</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>a</span> <span class=o>*</span><span class=nx>apiImpl</span><span class=p>)</span> <span class=nf>Test</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=nx>aRet</span> <span class=o>:=</span> <span class=nx>a</span><span class=p>.</span><span class=nx>a</span><span class=p>.</span><span class=nf>TestA</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>bRet</span> <span class=o>:=</span> <span class=nx>a</span><span class=p>.</span><span class=nx>b</span><span class=p>.</span><span class=nf>TestB</span><span class=p>(</span><span class=p>)</span>
+	<span class=k>return</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;%s\n%s&#34;</span><span class=p>,</span> <span class=nx>aRet</span><span class=p>,</span> <span class=nx>bRet</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>//NewAModuleAPI return new AModuleAPI
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>NewAModuleAPI</span><span class=p>(</span><span class=p>)</span> <span class=nx>AModuleAPI</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>aModuleImpl</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//AModuleAPI ...
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>AModuleAPI</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>TestA</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>aModuleImpl</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>aModuleImpl</span><span class=p>)</span> <span class=nf>TestA</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=s>&#34;A module running&#34;</span>
+<span class=p>}</span>
+
+<span class=c1>//NewBModuleAPI return new BModuleAPI
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>NewBModuleAPI</span><span class=p>(</span><span class=p>)</span> <span class=nx>BModuleAPI</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>bModuleImpl</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//BModuleAPI ...
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>BModuleAPI</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>TestB</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>bModuleImpl</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>bModuleImpl</span><span class=p>)</span> <span class=nf>TestB</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=s>&#34;B module running&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>facade</span>
+
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+
+<span class=kd>var</span> <span class=nx>expect</span> <span class=p>=</span> <span class=s>&#34;A module running\nB module running&#34;</span>
+
+<span class=c1>// TestFacadeAPI ...
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>TestFacadeAPI</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>api</span> <span class=o>:=</span> <span class=nf>NewAPI</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>ret</span> <span class=o>:=</span> <span class=nx>api</span><span class=p>.</span><span class=nf>Test</span><span class=p>(</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>ret</span> <span class=o>!=</span> <span class=nx>expect</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;expect %s, return %s&#34;</span><span class=p>,</span> <span class=nx>expect</span><span class=p>,</span> <span class=nx>ret</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=adapter>adapter</h2><p>适配器模式用于转换一种接口适配另一种接口。</p><p>实际使用中Adaptee一般为接口，并且使用工厂函数生成实例。</p><p>在Adapter中匿名组合Adaptee接口，所以Adapter类也拥有SpecificRequest实例方法，又因为Go语言中非入侵式接口特征，其实Adapter也适配Adaptee接口。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>adapter</span>
+
+<span class=c1>//Target 是适配的目标接口
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>Target</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Request</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=c1>//Adaptee 是被适配的目标接口
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>Adaptee</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>SpecificRequest</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=c1>//NewAdaptee 是被适配接口的工厂函数
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>NewAdaptee</span><span class=p>(</span><span class=p>)</span> <span class=nx>Adaptee</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>adapteeImpl</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//AdapteeImpl 是被适配的目标类
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>adapteeImpl</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=c1>//SpecificRequest 是目标类的一个方法
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>adapteeImpl</span><span class=p>)</span> <span class=nf>SpecificRequest</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=s>&#34;adaptee method&#34;</span>
+<span class=p>}</span>
+
+<span class=c1>//NewAdapter 是Adapter的工厂函数
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>NewAdapter</span><span class=p>(</span><span class=nx>adaptee</span> <span class=nx>Adaptee</span><span class=p>)</span> <span class=nx>Target</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>adapter</span><span class=p>{</span>
+		<span class=nx>Adaptee</span><span class=p>:</span> <span class=nx>adaptee</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>//Adapter 是转换Adaptee为Target接口的适配器
+</span><span class=c1></span><span class=kd>type</span> <span class=nx>adapter</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>Adaptee</span>
+<span class=p>}</span>
+
+<span class=c1>//Request 实现Target接口
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>a</span> <span class=o>*</span><span class=nx>adapter</span><span class=p>)</span> <span class=nf>Request</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>a</span><span class=p>.</span><span class=nf>SpecificRequest</span><span class=p>(</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>adapter</span>
+
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+
+<span class=kd>var</span> <span class=nx>expect</span> <span class=p>=</span> <span class=s>&#34;adaptee method&#34;</span>
+
+<span class=kd>func</span> <span class=nf>TestAdapter</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>adaptee</span> <span class=o>:=</span> <span class=nf>NewAdaptee</span><span class=p>(</span><span class=p>)</span>
+	<span class=nx>target</span> <span class=o>:=</span> <span class=nf>NewAdapter</span><span class=p>(</span><span class=nx>adaptee</span><span class=p>)</span>
+	<span class=nx>res</span> <span class=o>:=</span> <span class=nx>target</span><span class=p>.</span><span class=nf>Request</span><span class=p>(</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>res</span> <span class=o>!=</span> <span class=nx>expect</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fatalf</span><span class=p>(</span><span class=s>&#34;expect: %s, actual: %s&#34;</span><span class=p>,</span> <span class=nx>expect</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=proxy>proxy</h2><p>代理模式用于延迟处理操作或者在进行实际操作前后进行其它处理。</p><p>代理模式的常见用法有</p><ul><li>虚代理</li><li>COW代理</li><li>远程代理</li><li>保护代理</li><li>Cache 代理</li><li>防火墙代理</li><li>同步代理</li><li>智能指引</li><li>等。。。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>proxy</span>
+
+<span class=kd>type</span> <span class=nx>Subject</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Do</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>RealSubject</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>RealSubject</span><span class=p>)</span> <span class=nf>Do</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=s>&#34;real&#34;</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>Proxy</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>real</span> <span class=nx>RealSubject</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>p</span> <span class=nx>Proxy</span><span class=p>)</span> <span class=nf>Do</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=nx>res</span> <span class=kt>string</span>
+
+	<span class=c1>// 在调用真实对象之前的工作，检查缓存，判断权限，实例化真实对象等。。
+</span><span class=c1></span>	<span class=nx>res</span> <span class=o>+=</span> <span class=s>&#34;pre:&#34;</span>
+
+	<span class=c1>// 调用真实对象
+</span><span class=c1></span>	<span class=nx>res</span> <span class=o>+=</span> <span class=nx>p</span><span class=p>.</span><span class=nx>real</span><span class=p>.</span><span class=nf>Do</span><span class=p>(</span><span class=p>)</span>
+
+	<span class=c1>// 调用之后的操作，如缓存结果，对结果进行处理等。。
+</span><span class=c1></span>	<span class=nx>res</span> <span class=o>+=</span> <span class=s>&#34;:after&#34;</span>
+
+	<span class=k>return</span> <span class=nx>res</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>proxy</span>
+
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+
+<span class=kd>func</span> <span class=nf>TestProxy</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=nx>sub</span> <span class=nx>Subject</span>
+	<span class=nx>sub</span> <span class=p>=</span> <span class=o>&amp;</span><span class=nx>Proxy</span><span class=p>{</span><span class=p>}</span>
+
+	<span class=nx>res</span> <span class=o>:=</span> <span class=nx>sub</span><span class=p>.</span><span class=nf>Do</span><span class=p>(</span><span class=p>)</span>
+
+	<span class=k>if</span> <span class=nx>res</span> <span class=o>!=</span> <span class=s>&#34;pre:real:after&#34;</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fail</span><span class=p>(</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=composite>composite</h2><p>组合模式统一对象和对象集，使得使用相同接口使用对象和对象集。</p><p>组合模式常用于树状结构，用于统一叶子节点和树节点的访问，并且可以用于应用某一操作到所有子节点。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span><span class=lnt>91
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>composite</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=kd>type</span> <span class=nx>Component</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Parent</span><span class=p>(</span><span class=p>)</span> <span class=nx>Component</span>
+	<span class=nf>SetParent</span><span class=p>(</span><span class=nx>Component</span><span class=p>)</span>
+	<span class=nf>Name</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span>
+	<span class=nf>SetName</span><span class=p>(</span><span class=kt>string</span><span class=p>)</span>
+	<span class=nf>AddChild</span><span class=p>(</span><span class=nx>Component</span><span class=p>)</span>
+	<span class=nf>Print</span><span class=p>(</span><span class=kt>string</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>const</span> <span class=p>(</span>
+	<span class=nx>LeafNode</span> <span class=p>=</span> <span class=kc>iota</span>
+	<span class=nx>CompositeNode</span>
+<span class=p>)</span>
+
+<span class=kd>func</span> <span class=nf>NewComponent</span><span class=p>(</span><span class=nx>kind</span> <span class=kt>int</span><span class=p>,</span> <span class=nx>name</span> <span class=kt>string</span><span class=p>)</span> <span class=nx>Component</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=nx>c</span> <span class=nx>Component</span>
+	<span class=k>switch</span> <span class=nx>kind</span> <span class=p>{</span>
+	<span class=k>case</span> <span class=nx>LeafNode</span><span class=p>:</span>
+		<span class=nx>c</span> <span class=p>=</span> <span class=nf>NewLeaf</span><span class=p>(</span><span class=p>)</span>
+	<span class=k>case</span> <span class=nx>CompositeNode</span><span class=p>:</span>
+		<span class=nx>c</span> <span class=p>=</span> <span class=nf>NewComposite</span><span class=p>(</span><span class=p>)</span>
+	<span class=p>}</span>
+
+	<span class=nx>c</span><span class=p>.</span><span class=nf>SetName</span><span class=p>(</span><span class=nx>name</span><span class=p>)</span>
+	<span class=k>return</span> <span class=nx>c</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>component</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>parent</span> <span class=nx>Component</span>
+	<span class=nx>name</span>   <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>component</span><span class=p>)</span> <span class=nf>Parent</span><span class=p>(</span><span class=p>)</span> <span class=nx>Component</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>c</span><span class=p>.</span><span class=nx>parent</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>component</span><span class=p>)</span> <span class=nf>SetParent</span><span class=p>(</span><span class=nx>parent</span> <span class=nx>Component</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>c</span><span class=p>.</span><span class=nx>parent</span> <span class=p>=</span> <span class=nx>parent</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>component</span><span class=p>)</span> <span class=nf>Name</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>c</span><span class=p>.</span><span class=nx>name</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>component</span><span class=p>)</span> <span class=nf>SetName</span><span class=p>(</span><span class=nx>name</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>c</span><span class=p>.</span><span class=nx>name</span> <span class=p>=</span> <span class=nx>name</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>component</span><span class=p>)</span> <span class=nf>AddChild</span><span class=p>(</span><span class=nx>Component</span><span class=p>)</span> <span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>component</span><span class=p>)</span> <span class=nf>Print</span><span class=p>(</span><span class=kt>string</span><span class=p>)</span> <span class=p>{</span><span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>Leaf</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>component</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>NewLeaf</span><span class=p>(</span><span class=p>)</span> <span class=o>*</span><span class=nx>Leaf</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>Leaf</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>Leaf</span><span class=p>)</span> <span class=nf>Print</span><span class=p>(</span><span class=nx>pre</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%s-%s\n&#34;</span><span class=p>,</span> <span class=nx>pre</span><span class=p>,</span> <span class=nx>c</span><span class=p>.</span><span class=nf>Name</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>Composite</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>component</span>
+	<span class=nx>childs</span> <span class=p>[</span><span class=p>]</span><span class=nx>Component</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>NewComposite</span><span class=p>(</span><span class=p>)</span> <span class=o>*</span><span class=nx>Composite</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>Composite</span><span class=p>{</span>
+		<span class=nx>childs</span><span class=p>:</span> <span class=nb>make</span><span class=p>(</span><span class=p>[</span><span class=p>]</span><span class=nx>Component</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>Composite</span><span class=p>)</span> <span class=nf>AddChild</span><span class=p>(</span><span class=nx>child</span> <span class=nx>Component</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>child</span><span class=p>.</span><span class=nf>SetParent</span><span class=p>(</span><span class=nx>c</span><span class=p>)</span>
+	<span class=nx>c</span><span class=p>.</span><span class=nx>childs</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>c</span><span class=p>.</span><span class=nx>childs</span><span class=p>,</span> <span class=nx>child</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>c</span> <span class=o>*</span><span class=nx>Composite</span><span class=p>)</span> <span class=nf>Print</span><span class=p>(</span><span class=nx>pre</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%s+%s\n&#34;</span><span class=p>,</span> <span class=nx>pre</span><span class=p>,</span> <span class=nx>c</span><span class=p>.</span><span class=nf>Name</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+	<span class=nx>pre</span> <span class=o>+=</span> <span class=s>&#34; &#34;</span>
+	<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>comp</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>c</span><span class=p>.</span><span class=nx>childs</span> <span class=p>{</span>
+		<span class=nx>comp</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=nx>pre</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>composite</span>
+
+<span class=kd>func</span> <span class=nf>ExampleComposite</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>root</span> <span class=o>:=</span> <span class=nf>NewComponent</span><span class=p>(</span><span class=nx>CompositeNode</span><span class=p>,</span> <span class=s>&#34;root&#34;</span><span class=p>)</span>
+	<span class=nx>c1</span> <span class=o>:=</span> <span class=nf>NewComponent</span><span class=p>(</span><span class=nx>CompositeNode</span><span class=p>,</span> <span class=s>&#34;c1&#34;</span><span class=p>)</span>
+	<span class=nx>c2</span> <span class=o>:=</span> <span class=nf>NewComponent</span><span class=p>(</span><span class=nx>CompositeNode</span><span class=p>,</span> <span class=s>&#34;c2&#34;</span><span class=p>)</span>
+	<span class=nx>c3</span> <span class=o>:=</span> <span class=nf>NewComponent</span><span class=p>(</span><span class=nx>CompositeNode</span><span class=p>,</span> <span class=s>&#34;c3&#34;</span><span class=p>)</span>
+
+	<span class=nx>l1</span> <span class=o>:=</span> <span class=nf>NewComponent</span><span class=p>(</span><span class=nx>LeafNode</span><span class=p>,</span> <span class=s>&#34;l1&#34;</span><span class=p>)</span>
+	<span class=nx>l2</span> <span class=o>:=</span> <span class=nf>NewComponent</span><span class=p>(</span><span class=nx>LeafNode</span><span class=p>,</span> <span class=s>&#34;l2&#34;</span><span class=p>)</span>
+	<span class=nx>l3</span> <span class=o>:=</span> <span class=nf>NewComponent</span><span class=p>(</span><span class=nx>LeafNode</span><span class=p>,</span> <span class=s>&#34;l3&#34;</span><span class=p>)</span>
+
+	<span class=nx>root</span><span class=p>.</span><span class=nf>AddChild</span><span class=p>(</span><span class=nx>c1</span><span class=p>)</span>
+	<span class=nx>root</span><span class=p>.</span><span class=nf>AddChild</span><span class=p>(</span><span class=nx>c2</span><span class=p>)</span>
+	<span class=nx>c1</span><span class=p>.</span><span class=nf>AddChild</span><span class=p>(</span><span class=nx>c3</span><span class=p>)</span>
+	<span class=nx>c1</span><span class=p>.</span><span class=nf>AddChild</span><span class=p>(</span><span class=nx>l1</span><span class=p>)</span>
+	<span class=nx>c2</span><span class=p>.</span><span class=nf>AddChild</span><span class=p>(</span><span class=nx>l2</span><span class=p>)</span>
+	<span class=nx>c2</span><span class=p>.</span><span class=nf>AddChild</span><span class=p>(</span><span class=nx>l3</span><span class=p>)</span>
+
+	<span class=nx>root</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=s>&#34;&#34;</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// +root
+</span><span class=c1></span>	<span class=c1>//  +c1
+</span><span class=c1></span>	<span class=c1>//   +c3
+</span><span class=c1></span>	<span class=c1>//   -l1
+</span><span class=c1></span>	<span class=c1>//  +c2
+</span><span class=c1></span>	<span class=c1>//   -l2
+</span><span class=c1></span>	<span class=c1>//   -l3
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=flyweight>flyweight</h2><p>享元模式从对象中剥离出不发生改变且多个实例需要的重复数据，独立出一个享元，使多个对象共享，从而节省内存以及减少对象数量。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>flyweight</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=kd>type</span> <span class=nx>ImageFlyweightFactory</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>maps</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=o>*</span><span class=nx>ImageFlyweight</span>
+<span class=p>}</span>
+
+<span class=kd>var</span> <span class=nx>imageFactory</span> <span class=o>*</span><span class=nx>ImageFlyweightFactory</span>
+
+<span class=kd>func</span> <span class=nf>GetImageFlyweightFactory</span><span class=p>(</span><span class=p>)</span> <span class=o>*</span><span class=nx>ImageFlyweightFactory</span> <span class=p>{</span>
+	<span class=k>if</span> <span class=nx>imageFactory</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
+		<span class=nx>imageFactory</span> <span class=p>=</span> <span class=o>&amp;</span><span class=nx>ImageFlyweightFactory</span><span class=p>{</span>
+			<span class=nx>maps</span><span class=p>:</span> <span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=o>*</span><span class=nx>ImageFlyweight</span><span class=p>)</span><span class=p>,</span>
+		<span class=p>}</span>
+	<span class=p>}</span>
+	<span class=k>return</span> <span class=nx>imageFactory</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>f</span> <span class=o>*</span><span class=nx>ImageFlyweightFactory</span><span class=p>)</span> <span class=nf>Get</span><span class=p>(</span><span class=nx>filename</span> <span class=kt>string</span><span class=p>)</span> <span class=o>*</span><span class=nx>ImageFlyweight</span> <span class=p>{</span>
+	<span class=nx>image</span> <span class=o>:=</span> <span class=nx>f</span><span class=p>.</span><span class=nx>maps</span><span class=p>[</span><span class=nx>filename</span><span class=p>]</span>
+	<span class=k>if</span> <span class=nx>image</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
+		<span class=nx>image</span> <span class=p>=</span> <span class=nf>NewImageFlyweight</span><span class=p>(</span><span class=nx>filename</span><span class=p>)</span>
+		<span class=nx>f</span><span class=p>.</span><span class=nx>maps</span><span class=p>[</span><span class=nx>filename</span><span class=p>]</span> <span class=p>=</span> <span class=nx>image</span>
+	<span class=p>}</span>
+
+	<span class=k>return</span> <span class=nx>image</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>ImageFlyweight</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>data</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>NewImageFlyweight</span><span class=p>(</span><span class=nx>filename</span> <span class=kt>string</span><span class=p>)</span> <span class=o>*</span><span class=nx>ImageFlyweight</span> <span class=p>{</span>
+	<span class=c1>// Load image file
+</span><span class=c1></span>	<span class=nx>data</span> <span class=o>:=</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;image data %s&#34;</span><span class=p>,</span> <span class=nx>filename</span><span class=p>)</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>ImageFlyweight</span><span class=p>{</span>
+		<span class=nx>data</span><span class=p>:</span> <span class=nx>data</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>i</span> <span class=o>*</span><span class=nx>ImageFlyweight</span><span class=p>)</span> <span class=nf>Data</span><span class=p>(</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>i</span><span class=p>.</span><span class=nx>data</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>ImageViewer</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=o>*</span><span class=nx>ImageFlyweight</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>NewImageViewer</span><span class=p>(</span><span class=nx>filename</span> <span class=kt>string</span><span class=p>)</span> <span class=o>*</span><span class=nx>ImageViewer</span> <span class=p>{</span>
+	<span class=nx>image</span> <span class=o>:=</span> <span class=nf>GetImageFlyweightFactory</span><span class=p>(</span><span class=p>)</span><span class=p>.</span><span class=nf>Get</span><span class=p>(</span><span class=nx>filename</span><span class=p>)</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>ImageViewer</span><span class=p>{</span>
+		<span class=nx>ImageFlyweight</span><span class=p>:</span> <span class=nx>image</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>i</span> <span class=o>*</span><span class=nx>ImageViewer</span><span class=p>)</span> <span class=nf>Display</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Display: %s\n&#34;</span><span class=p>,</span> <span class=nx>i</span><span class=p>.</span><span class=nf>Data</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>flyweight</span>
+
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+
+<span class=kd>func</span> <span class=nf>ExampleFlyweight</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>viewer</span> <span class=o>:=</span> <span class=nf>NewImageViewer</span><span class=p>(</span><span class=s>&#34;image1.png&#34;</span><span class=p>)</span>
+	<span class=nx>viewer</span><span class=p>.</span><span class=nf>Display</span><span class=p>(</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// Display: image data image1.png
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>TestFlyweight</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>viewer1</span> <span class=o>:=</span> <span class=nf>NewImageViewer</span><span class=p>(</span><span class=s>&#34;image1.png&#34;</span><span class=p>)</span>
+	<span class=nx>viewer2</span> <span class=o>:=</span> <span class=nf>NewImageViewer</span><span class=p>(</span><span class=s>&#34;image1.png&#34;</span><span class=p>)</span>
+
+	<span class=k>if</span> <span class=nx>viewer1</span><span class=p>.</span><span class=nx>ImageFlyweight</span> <span class=o>!=</span> <span class=nx>viewer2</span><span class=p>.</span><span class=nx>ImageFlyweight</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Fail</span><span class=p>(</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=decorator>decorator</h2><p>装饰模式使用对象组合的方式动态改变或增加对象行为。</p><p>Go语言借助于匿名组合和非入侵式接口可以很方便实现装饰模式。</p><p>使用匿名组合，在装饰器中不必显式定义转调原对象方法。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>decorator</span>
+
+<span class=kd>type</span> <span class=nx>Component</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Calc</span><span class=p>(</span><span class=p>)</span> <span class=kt>int</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>ConcreteComponent</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>ConcreteComponent</span><span class=p>)</span> <span class=nf>Calc</span><span class=p>(</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=mi>0</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>MulDecorator</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>Component</span>
+	<span class=nx>num</span> <span class=kt>int</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>WarpMulDecorator</span><span class=p>(</span><span class=nx>c</span> <span class=nx>Component</span><span class=p>,</span> <span class=nx>num</span> <span class=kt>int</span><span class=p>)</span> <span class=nx>Component</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>MulDecorator</span><span class=p>{</span>
+		<span class=nx>Component</span><span class=p>:</span> <span class=nx>c</span><span class=p>,</span>
+		<span class=nx>num</span><span class=p>:</span>       <span class=nx>num</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>d</span> <span class=o>*</span><span class=nx>MulDecorator</span><span class=p>)</span> <span class=nf>Calc</span><span class=p>(</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>d</span><span class=p>.</span><span class=nx>Component</span><span class=p>.</span><span class=nf>Calc</span><span class=p>(</span><span class=p>)</span> <span class=o>*</span> <span class=nx>d</span><span class=p>.</span><span class=nx>num</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>AddDecorator</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>Component</span>
+	<span class=nx>num</span> <span class=kt>int</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>WarpAddDecorator</span><span class=p>(</span><span class=nx>c</span> <span class=nx>Component</span><span class=p>,</span> <span class=nx>num</span> <span class=kt>int</span><span class=p>)</span> <span class=nx>Component</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>AddDecorator</span><span class=p>{</span>
+		<span class=nx>Component</span><span class=p>:</span> <span class=nx>c</span><span class=p>,</span>
+		<span class=nx>num</span><span class=p>:</span>       <span class=nx>num</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>d</span> <span class=o>*</span><span class=nx>AddDecorator</span><span class=p>)</span> <span class=nf>Calc</span><span class=p>(</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>d</span><span class=p>.</span><span class=nx>Component</span><span class=p>.</span><span class=nf>Calc</span><span class=p>(</span><span class=p>)</span> <span class=o>+</span> <span class=nx>d</span><span class=p>.</span><span class=nx>num</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>decorator</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=kd>func</span> <span class=nf>ExampleDecorator</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=nx>c</span> <span class=nx>Component</span> <span class=p>=</span> <span class=o>&amp;</span><span class=nx>ConcreteComponent</span><span class=p>{</span><span class=p>}</span>
+	<span class=nx>c</span> <span class=p>=</span> <span class=nf>WarpAddDecorator</span><span class=p>(</span><span class=nx>c</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+	<span class=nx>c</span> <span class=p>=</span> <span class=nf>WarpMulDecorator</span><span class=p>(</span><span class=nx>c</span><span class=p>,</span> <span class=mi>8</span><span class=p>)</span>
+	<span class=nx>res</span> <span class=o>:=</span> <span class=nx>c</span><span class=p>.</span><span class=nf>Calc</span><span class=p>(</span><span class=p>)</span>
+
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;res %d\n&#34;</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// res 80
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=bridge>bridge</h2><p>桥接模式分离抽象部分和实现部分。使得两部分独立扩展。</p><p>桥接模式类似于策略模式，区别在于策略模式封装一系列算法使得算法可以互相替换。</p><p>策略模式使抽象部分和实现部分分离，可以独立变化。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>bridge</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=kd>type</span> <span class=nx>AbstractMessage</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>SendMessage</span><span class=p>(</span><span class=nx>text</span><span class=p>,</span> <span class=nx>to</span> <span class=kt>string</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>MessageImplementer</span> <span class=kd>interface</span> <span class=p>{</span>
+	<span class=nf>Send</span><span class=p>(</span><span class=nx>text</span><span class=p>,</span> <span class=nx>to</span> <span class=kt>string</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>MessageSMS</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>ViaSMS</span><span class=p>(</span><span class=p>)</span> <span class=nx>MessageImplementer</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>MessageSMS</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>MessageSMS</span><span class=p>)</span> <span class=nf>Send</span><span class=p>(</span><span class=nx>text</span><span class=p>,</span> <span class=nx>to</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;send %s to %s via SMS&#34;</span><span class=p>,</span> <span class=nx>text</span><span class=p>,</span> <span class=nx>to</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>MessageEmail</span> <span class=kd>struct</span><span class=p>{</span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>ViaEmail</span><span class=p>(</span><span class=p>)</span> <span class=nx>MessageImplementer</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>MessageEmail</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=o>*</span><span class=nx>MessageEmail</span><span class=p>)</span> <span class=nf>Send</span><span class=p>(</span><span class=nx>text</span><span class=p>,</span> <span class=nx>to</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;send %s to %s via Email&#34;</span><span class=p>,</span> <span class=nx>text</span><span class=p>,</span> <span class=nx>to</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>CommonMessage</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>method</span> <span class=nx>MessageImplementer</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>NewCommonMessage</span><span class=p>(</span><span class=nx>method</span> <span class=nx>MessageImplementer</span><span class=p>)</span> <span class=o>*</span><span class=nx>CommonMessage</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>CommonMessage</span><span class=p>{</span>
+		<span class=nx>method</span><span class=p>:</span> <span class=nx>method</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>m</span> <span class=o>*</span><span class=nx>CommonMessage</span><span class=p>)</span> <span class=nf>SendMessage</span><span class=p>(</span><span class=nx>text</span><span class=p>,</span> <span class=nx>to</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>m</span><span class=p>.</span><span class=nx>method</span><span class=p>.</span><span class=nf>Send</span><span class=p>(</span><span class=nx>text</span><span class=p>,</span> <span class=nx>to</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>type</span> <span class=nx>UrgencyMessage</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>method</span> <span class=nx>MessageImplementer</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>NewUrgencyMessage</span><span class=p>(</span><span class=nx>method</span> <span class=nx>MessageImplementer</span><span class=p>)</span> <span class=o>*</span><span class=nx>UrgencyMessage</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=o>&amp;</span><span class=nx>UrgencyMessage</span><span class=p>{</span>
+		<span class=nx>method</span><span class=p>:</span> <span class=nx>method</span><span class=p>,</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>m</span> <span class=o>*</span><span class=nx>UrgencyMessage</span><span class=p>)</span> <span class=nf>SendMessage</span><span class=p>(</span><span class=nx>text</span><span class=p>,</span> <span class=nx>to</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>m</span><span class=p>.</span><span class=nx>method</span><span class=p>.</span><span class=nf>Send</span><span class=p>(</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;[Urgency] %s&#34;</span><span class=p>,</span> <span class=nx>text</span><span class=p>)</span><span class=p>,</span> <span class=nx>to</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>bridge</span>
+
+<span class=kd>func</span> <span class=nf>ExampleCommonSMS</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>m</span> <span class=o>:=</span> <span class=nf>NewCommonMessage</span><span class=p>(</span><span class=nf>ViaSMS</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+	<span class=nx>m</span><span class=p>.</span><span class=nf>SendMessage</span><span class=p>(</span><span class=s>&#34;have a drink?&#34;</span><span class=p>,</span> <span class=s>&#34;bob&#34;</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// send have a drink? to bob via SMS
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>ExampleCommonEmail</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>m</span> <span class=o>:=</span> <span class=nf>NewCommonMessage</span><span class=p>(</span><span class=nf>ViaEmail</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+	<span class=nx>m</span><span class=p>.</span><span class=nf>SendMessage</span><span class=p>(</span><span class=s>&#34;have a drink?&#34;</span><span class=p>,</span> <span class=s>&#34;bob&#34;</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// send have a drink? to bob via Email
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>ExampleUrgencySMS</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>m</span> <span class=o>:=</span> <span class=nf>NewUrgencyMessage</span><span class=p>(</span><span class=nf>ViaSMS</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+	<span class=nx>m</span><span class=p>.</span><span class=nf>SendMessage</span><span class=p>(</span><span class=s>&#34;have a drink?&#34;</span><span class=p>,</span> <span class=s>&#34;bob&#34;</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// send [Urgency] have a drink? to bob via SMS
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>ExampleUrgencyEmail</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>m</span> <span class=o>:=</span> <span class=nf>NewUrgencyMessage</span><span class=p>(</span><span class=nf>ViaEmail</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+	<span class=nx>m</span><span class=p>.</span><span class=nf>SendMessage</span><span class=p>(</span><span class=s>&#34;have a drink?&#34;</span><span class=p>,</span> <span class=s>&#34;bob&#34;</span><span class=p>)</span>
+	<span class=c1>// Output:
+</span><span class=c1></span>	<span class=c1>// send [Urgency] have a drink? to bob via Email
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><a href=https://github.com/senghoo/golang-design-pattern target=_blank rel="noopener noreffer">参考</a></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-01-22 00:00:00</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://qizhengzou.github.io/structural_type/ data-title=Structural_type data-hashtags="design mode"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://qizhengzou.github.io/structural_type/ data-hashtag="design mode"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Reddit" data-sharer=reddit data-url=https://qizhengzou.github.io/structural_type/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://qizhengzou.github.io/structural_type/ data-title=Structural_type><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://qizhengzou.github.io/structural_type/ data-title=Structural_type><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://qizhengzou.github.io/structural_type/ data-title=Structural_type><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/design-mode/>design mode</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/behavioral_type/ class=prev rel=prev title=Behavioral_type><i class="fas fa-angle-left fa-fw"></i>Behavioral_type</a>
+<a href=/cn_base_01/ class=next rel=next title=CN_base_01>CN_base_01<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=disqus_thread class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=https://jefos-blog.disqus.com/embed.js defer></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

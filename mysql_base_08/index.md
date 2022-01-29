@@ -1,5 +1,7 @@
 # Mysql_base_08
 
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 模式分解存在的问题
 ## 模式分解存在什么问题
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113100944.png)

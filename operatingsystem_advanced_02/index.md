@@ -1,6 +1,5 @@
 # OperatingSystem_advanced_02
 
-> 极客时间操作系统学习笔记
 
 # 程序运行过程 实现一个简单内核
 ## 程序编译过程
@@ -167,3 +166,5 @@ df /boot/后也可能是：
     - 第一步，用汇编程序初始化 CPU 的寄存器、设置 CPU 的工作模式和栈，最重要的是加入了 GRUB 引导协议头；
     - 第二步，切换到 C 语言，用 C 语言写好了主函数和控制显卡输出的函数，其间还了解了显卡的一些工作细节。
 - 最后，就是编译和安装 Hello OS 了。我们用了 make 工具编译整个代码，其实 make 会根据一些规则调用具体的 nasm、gcc、ld 等编译器，然后形成 Hello OS.bin 文件，你把这个文件写复制到 boot 分区，写好 GRUB 启动项，这样就好了。
+
+[参考](https://time.geekbang.org/column/intro/100078401?tab=catalog)

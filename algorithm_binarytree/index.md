@@ -1,5 +1,6 @@
 # Algorithm_binaryTree
 
+> 学习[代码随想录](https://programmercarl.com/)笔记
 # 二叉树
 ## 理论基础
 一般主要会碰到满二叉树以及完全二叉树。

@@ -91,3 +91,5 @@ ERROR 1142 (42000): SELECT command denied to user 'b'@'localhost' for table 'T'
 - 对于有索引的表，执行的逻辑也差不多。第一次调用的是“取满足条件的第一行”这个接口，之后循环取“满足条件的下一行”这个接口，这些接口都是引擎中已经定义好的。
 - 你会在数据库的慢查询日志中看到一个 rows_examined 的字段，表示这个语句执行过程中扫描了多少行。这个值就是在执行器每次调用引擎获取数据行的时候累加的。
 - 在有些场景下，执行器调用一次，在引擎内部则扫描了多行，因此引擎扫描行数跟 rows_examined 并不是完全相同的。
+
+[参考](https://time.geekbang.org/column/intro/100020801?tab=catalog)
