@@ -3,7 +3,7 @@ title: "Mysql_advanced_03"
 date: 2021-12-08T09:42:04+08:00
 lastmod: 2021-12-08
 tags: [mysql]
-categories: [advanced learning]
+categories: [Advanced learning]
 slug: transaction isolation
 draft: true
 ---
@@ -76,3 +76,5 @@ MySQL 的事务启动方式有以下几种：
 ```sql
 select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx_started))>60
 ```
+
+[参考](https://time.geekbang.org/column/intro/100020801?tab=catalog)

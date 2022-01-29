@@ -2,11 +2,13 @@
 title: "OperatingSystem_base_03"
 date: 2021-11-10T13:14:39+08:00
 lastmod: 2021-11-30
-tags: [operating_system]
-categories: [School Courses]
+tags: [operating system]
+categories: [School courses]
 slug: memory management
 draft: false
 ---
+> 王道考研操作系统笔记
+
 # 内存管理
 ## 内存管理基础
 ### 内存管理概念：程序装入与链接、逻辑地址与物理地址空间、内存保护。

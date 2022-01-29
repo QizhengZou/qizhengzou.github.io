@@ -2,11 +2,13 @@
 title: "ISC_base_07"
 date: 2021-11-21T11:36:12+08:00
 lastmod: 2021-12-21
-tags: [information_security_conspectus]
-categories: [School Courses]
+tags: [information security conspectus]
+categories: [School courses]
 slug: Network defense
 draft: false
 ---
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 网络防御
 ## 7.1 概述	
 网络防御是一个综合性的安全工程，不是几个网络安全产品能够完成的任务。

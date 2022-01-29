@@ -7,6 +7,7 @@ categories: [Coding]
 slug: dynamic programming
 draft: false
 ---
+> 学习[代码随想录](https://programmercarl.com/)笔记
 # 动态规划
 有很多重叠子问题，优先考虑使用动态规划。
 

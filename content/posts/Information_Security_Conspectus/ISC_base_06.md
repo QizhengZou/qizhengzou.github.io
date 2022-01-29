@@ -2,11 +2,13 @@
 title: "ISC_base_06"
 date: 2021-11-21T11:36:09+08:00
 lastmod: 2021-12-07
-tags: [information_security_conspectus]
-categories: [School Courses]
+tags: [information security conspectus]
+categories: [School courses]
 slug: cyber threats
 draft: false
 ---
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 网络威胁
 ## 6.1 概述	
 - 威胁：用威力逼迫恫吓使人屈服。

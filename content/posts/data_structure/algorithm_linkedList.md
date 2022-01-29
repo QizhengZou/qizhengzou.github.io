@@ -7,6 +7,7 @@ categories: [Coding]
 slug: linkedList
 draft: false
 ---
+> 学习[代码随想录](https://programmercarl.com/)笔记
 # 链表
 ## 链表理论基础
  循环链表可以用来解决约瑟夫环问题。

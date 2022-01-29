@@ -3,10 +3,12 @@ title: "Cry_base_02"
 date: 2021-12-16T15:23:51+08:00
 lastmod: 2021-12-16
 tags: [cryptography]
-categories: [School Courses]
+categories: [School courses]
 slug: classical cryptography
 draft: false
 ---
+> 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
+
 # 古典密码学
 ## 代换密码
 将明文中的每个字符代换成密文中的另一个字符，代换后的各字符位置不变。

@@ -2,11 +2,13 @@
 title: "OperatingSystem_base_02"
 date: 2021-11-10T13:14:32+08:00
 lastmod: 2021-11-22
-tags: [operating_system]
-categories: [School Courses]
+tags: [operating system]
+categories: [School courses]
 slug: Process management
 draft: false
 ---
+> 王道考研操作系统笔记
+
 # 进程管理
 ## 进程与线程
 ### 进程概念

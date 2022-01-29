@@ -2,11 +2,13 @@
 title: "ISC_base_02"
 date: 2021-11-21T11:35:51+08:00
 lastmod: 2021-11-23
-tags: [information_security_conspectus]
-categories: [School Courses]
+tags: [information security conspectus]
+categories: [School courses]
 slug: Foundations of Cryptography
 draft: false
 ---
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 密码学基础
 解决数据的机密性、完整性、不可否认性以及身份识别等问题均需要以密码为基础密码技术是保障信息安全的核心基础。
 

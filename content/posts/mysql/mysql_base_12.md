@@ -3,10 +3,12 @@ title: "Mysql_base_12"
 date: 2021-11-09T11:28:51+08:00
 lastmod: 2021-11-15
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Query optimization
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 数据查询优化
 在建表和建索引的时候，要更有意识地为将来的查询优化做综合考虑，比如确定是否使用递增主键、主键的列怎样选择，等等。
 ## 为什么要及什么是查询优化?

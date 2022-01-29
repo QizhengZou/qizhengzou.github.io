@@ -2,11 +2,13 @@
 title: "ISC_base_10"
 date: 2021-12-21T19:38:13+08:00
 lastmod: 2021-12-21
-tags: [information_security_conspectus]
-categories: [School Courses]
+tags: [information security conspectus]
+categories: [School courses]
 slug: Information security management
 draft: false
 ---
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 信息安全管理
 ## 10.1 概述 
 当今社会已经进入到信息化社会，其信息安全是建立在信息社会的基础设施及信息服务系统之间的互联、互通、互操作意义上的安全需求上。

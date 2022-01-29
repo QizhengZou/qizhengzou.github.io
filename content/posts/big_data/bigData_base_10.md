@@ -3,7 +3,7 @@ title: "BigData_base_10"
 date: 2021-12-06T16:20:14+08:00
 lastmod: 2021-12-06
 tags: [big_data]
-categories: [School Courses]
+categories: [School courses]
 slug: support vector machine
 draft: true
 ---

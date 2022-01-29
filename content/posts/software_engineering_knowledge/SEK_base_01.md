@@ -2,11 +2,12 @@
 title: "SEK_base_01"
 date: 2021-11-25T15:43:12+08:00
 lastmod: 2021-11-25
-tags: [software_engineering_knowledge]
-categories: [School Courses]
+tags: [software engineering knowledge]
+categories: [School courses]
 slug: software engineering introduction
 draft: false
 ---
+> 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
 ## 第一部分 软件工程概论
 ### 软件工程的产生与发展
 

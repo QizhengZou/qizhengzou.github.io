@@ -2,7 +2,7 @@
 title: "Performance_analysis"
 date: 2022-01-02T19:28:23+08:00
 lastmod: 2022-01-02
-tags: [data_structure]
+tags: [data structure]
 categories: [Coding]
 slug: performance_analysis
 draft: false

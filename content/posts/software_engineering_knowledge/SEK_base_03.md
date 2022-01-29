@@ -2,11 +2,13 @@
 title: "SEK_base_03"
 date: 2021-11-25T15:47:59+08:00
 lastmod: 2021-11-25
-tags: [software_engineering_knowledge]
-categories: [School Courses]
+tags: [software engineering knowledge]
+categories: [School courses]
 slug: software demand engineering
 draft: false
 ---
+> 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
+
 ## 软件需求工程
 ### 软件需求与需求工程
 #### 软件需求

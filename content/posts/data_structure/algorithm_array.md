@@ -7,6 +7,7 @@ categories: [Coding]
 slug: array algorithm 
 draft: false
 ---
+> 学习[代码随想录](https://programmercarl.com/)笔记
 # 数组
 ## 数组基础
 数组是存放在连续内存空间上的相同类型数据的集合。 

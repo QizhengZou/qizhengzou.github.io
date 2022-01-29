@@ -2,11 +2,13 @@
 title: "DistributedSystem_HongweiDu_10"
 date: 2021-12-03T14:36:30+08:00
 lastmod: 2022-01-01
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: Consistency and Replication
 draft: false
 ---
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # Consistency and Replication一致性和复制
 Replication of data:
 - Why?

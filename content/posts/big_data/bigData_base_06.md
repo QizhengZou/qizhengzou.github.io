@@ -3,7 +3,7 @@ title: "BigData_base_06"
 date: 2021-12-06T15:55:48+08:00
 lastmod: 2021-12-06
 tags: [big_data]
-categories: [School Courses]
+categories: [School courses]
 slug: classification base
 draft: true
 ---

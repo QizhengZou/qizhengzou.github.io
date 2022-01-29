@@ -3,10 +3,12 @@ title: "Go_base_07"
 date: 2022-01-06T09:16:49+08:00
 lastmod: 2022-01-06
 tags: [go grammar]
-categories: [go]
+categories: [Go]
 slug: Go_Concurrent_Programming
 draft: false
 ---
+> 参考学习go语言中文网、C语言中文网、golang官方文档等
+
 # 并发编程
 ## 并发介绍
 进程和线程

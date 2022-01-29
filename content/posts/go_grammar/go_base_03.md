@@ -3,10 +3,12 @@ title: "Go_base_03"
 date: 2022-01-06T09:16:34+08:00
 lastmod: 2022-01-06
 tags: [go grammar]
-categories: [go]
+categories: [Go]
 slug: Go_Function
 draft: false
 ---
+> 参考学习go语言中文网、C语言中文网、golang官方文档等
+
 # 函数
 ## 函数定义
 **go的函数特点：**
@@ -21,6 +23,7 @@ draft: false
 - 不支持 重载 (overload) （**区别于重写**，重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。最常用的地方就是构造器的重载。来自菜鸟教程java。）
 - 不支持 默认参数 (default parameter)。 
 - 没有函数体的函数声明，表示该函数不是以Go实现的。这样的声明定义了函数标识符。
+- **所有参数都是值传递：slice，map，channel 会有传引⽤的错觉**
 
 **函数是第一类对象，可作为参数传递。建议将复杂签名定义为函数类型，以便于阅读。**
 ```go
@@ -82,7 +85,7 @@ Golang 可变参数本质上就是 slice。只能有一个，且必须是最后�
 
 在参数赋值时可以不用用一个一个的赋值，可以直接传递一个数组或者切片，特别注意的是在参数后加上“…”即可。
 ```go
- func myfunc(args ...int) {    //0个或多个参数
+  func myfunc(args ...int) {    //0个或多个参数
   }
 
   func add(a int, args…int) int {    //1个或多个参数
@@ -371,9 +374,10 @@ go的递归和其他语言基本无差别。
 ## 延迟调用（defer）
 特性：
 1. 关键字 defer 用于注册延迟调用。
-2. 这些调用直到 return 前才被执。因此，可以用来做资源清理。
+2. 这些调用直到 return 前才被执行。因此，可以用来做资源清理。
 3. 多个defer语句，按**先进后出**的方式执行。（因为后面的defer可能会用到前面的资源）
 4. defer语句中的变量，在defer声明时就决定了。
+5. 发生panic依然会执行defer，但不是任何情况都会执行，比如：os.Exit()不会调用defer。os.Exit()退出时不输出当前调用栈信息。
 用途：
 1. 关闭文件句柄
 2. 锁资源释放
@@ -463,7 +467,7 @@ a  closed
 结论：
 defer后面的语句在执行的时候，函数调用的参数会被保存起来，但是不执行。也就是复制了一份。但是并没有说struct这里的this指针如何处理，通过这个例子可以看出go语言并没有把这个明确写出来的this指针当作参数来看待。
 
-多个 defer 注册，按 FILO 次序执行 ( 先进后出 )。哪怕函数或某个延迟调用发生错误，这些调用依旧会被执行。
+多个 defer 注册，按 FILO 次序执行 ( 先进后出 )。哪怕函数或某个延迟调用发生错误，比如发生panic，这些defer调用依旧会被执行。
 
 ```go
 package main
@@ -889,7 +893,9 @@ func main() {
     do()
 } 
 ```
-## 异常处理
+## 异常处理，错误处理
+提倡**及早失败，避免嵌套**
+
 Golang 没有结构化异常，使用 panic 抛出错误，recover 捕获错误。
 
 异常的使用场景简单描述：Go中可以抛出一个panic的异常，然后在defer中通过recover捕获这个异常，然后正常处理。
@@ -1040,7 +1046,7 @@ output：
 test panic
 ```
 
-如果需要保护代码 段，可将代码块重构成匿名函数，如此可确保后续代码被执 。
+如果需要保护代码段，可将代码块重构成匿名函数，如此可确保后续代码被执行。
 ```go
 package main
 
@@ -1071,13 +1077,13 @@ output：
 x / y = 0
 ```
 
-除用 panic 引发中断性错误外，还可返回 error 类型错误对象来表示函数调用状态。
+除用 panic 引发中断性错误外，还可返回 error 类型错误对象来表示函数调用状态。（error类型实现了error接口）
 ```go
 type error interface {
     Error() string
 } 
 ```
-标准库 errors.New 和 fmt.Errorf 函数用于创建实现 error 接口的错误对象。通过判断错误对象实例来确定具体错误类型。
+**标准库 errors.New 和 fmt.Errorf 函数用于创建实现 error 接口的错误对象。通过判断错误对象实例来确定具体错误类型。**
 
 ```go
 package main
@@ -1086,7 +1092,7 @@ import (
     "errors"
     "fmt"
 )
-
+//定义预置错误
 var ErrDivByZero = errors.New("division by zero")
 
 func div(x, y int) (int, error) {

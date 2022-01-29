@@ -3,7 +3,7 @@ title: "MUSK"
 date: 2022-01-19T19:49:08+08:00
 lastmod: 2022-01-19
 tags: [hero]
-categories: [hero]
+categories: [Hero]
 slug: Elon Musk
 draft: false
 ---

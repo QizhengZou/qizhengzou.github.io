@@ -3,7 +3,7 @@ title: "MachineLlearning_base_01"
 date: 2021-11-07T18:32:54+08:00
 lastmod: 2022-01-01
 tags: [machine_learning]
-categories: [School Courses]
+categories: [School courses]
 slug: machine learning review
 draft: true
 

@@ -3,10 +3,12 @@ title: "Cry_base_05"
 date: 2021-12-16T15:24:00+08:00
 lastmod: 2021-12-19
 tags: [cryptography]
-categories: [School Courses]
+categories: [School courses]
 slug: Sequence cipher
 draft: false
 ---
+> 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
+
 # 序列密码
 ## 概述
 - 序列密码，也称流密码，是对称密码中的一种

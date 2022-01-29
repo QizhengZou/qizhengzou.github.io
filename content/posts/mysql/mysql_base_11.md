@@ -3,10 +3,12 @@ title: "Mysql_base_11"
 date: 2021-11-09T11:28:46+08:00
 lastmod: 2021-11-15
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Database query implementation algorithm
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 数据库查询实现算法
 ## 数据库查询实现算法-I
 ### 数据库查询实现算法概述

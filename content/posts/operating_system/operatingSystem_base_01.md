@@ -2,11 +2,12 @@
 title: "OperatingSystem_base_01"
 date: 2021-11-10T13:14:26+08:00
 lastmod: 2021-11-21
-tags: [operating_system]
-categories: [School Courses]
+tags: [operating system]
+categories: [School courses]
 slug: Operating System Intro
 draft: false
 ---
+> 王道考研操作系统笔记
 # 绪论
 ## 操作系统(Operating System, OS)的概念、特征、功能和提供的服务
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211121145727.png)

@@ -3,7 +3,7 @@ title: "BigData_base_11"
 date: 2021-12-06T16:48:13+08:00
 lastmod: 2021-12-06
 tags: [big_data]
-categories: [School Courses]
+categories: [School courses]
 slug: Cluster analysis and outlier detection
 draft: true
 ---

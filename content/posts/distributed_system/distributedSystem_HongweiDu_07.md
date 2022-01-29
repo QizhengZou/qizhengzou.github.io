@@ -2,11 +2,13 @@
 title: "DistributedSystem_HongweiDu_07"
 date: 2021-12-03T14:36:03+08:00
 lastmod: 2021-12-22
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: Internetworking
 draft: false
 ---
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # Internetworking网际路由
 Internet Structure: Network of Networks：
 - Internet is in a hierarchical structure

@@ -3,10 +3,12 @@ title: "Go_base_02"
 date: 2022-01-06T09:16:07+08:00
 lastmod: 2022-01-06
 tags: [go grammar]
-categories: [go]
+categories: [Go]
 slug: Go_Process_Control
 draft: false
 ---
+> 参考学习go语言中文网、C语言中文网、golang官方文档等
+
 # 流程控制
 ## if
 Go 编程语言中 if 语句的语法如下：

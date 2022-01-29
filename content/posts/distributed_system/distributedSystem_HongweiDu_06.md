@@ -2,11 +2,13 @@
 title: "DistributedSystem_HongweiDu_06"
 date: 2021-12-03T14:35:58+08:00
 lastmod: 2021-12-22
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: Socket-RPC
 draft: false
 ---
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 ## Socket Communication套接字通信（直接通信)
 Clients and Servers：
 - A distributed system can be generally modeled by clients and servers (processes).

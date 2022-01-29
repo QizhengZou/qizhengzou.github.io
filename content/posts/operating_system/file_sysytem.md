@@ -2,9 +2,9 @@
 title: "File_sysytem"
 date: 2021-11-08T09:21:31+08:00
 lastmod:
-tags: [operating_system]
+tags: [operating system]
 categories: [大三上]
-slug: file_system,operating_system
+slug: file_system,operating system
 draft: true
 ---
 ## 文件（File）和目录（Directory）

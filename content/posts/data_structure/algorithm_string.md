@@ -7,6 +7,7 @@ categories: [Coding]
 slug: data structure string
 draft: false
 ---
+> 学习[代码随想录](https://programmercarl.com/)笔记
 # 字符串
 > 库函数是工具，基础更重要。
 ## 反转字符串

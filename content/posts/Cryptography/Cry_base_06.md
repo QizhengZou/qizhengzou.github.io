@@ -3,10 +3,12 @@ title: "Cry_base_06"
 date: 2021-12-16T15:24:04+08:00
 lastmod: 2021-12-16
 tags: [cryptography]
-categories: [School Courses]
+categories: [School courses]
 slug: Public key encryption
 draft: false
 ---
+> 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
+
 # 公钥加密（RSA，DH, ElGamal 与椭圆曲线）
 ## 公钥密码体制
 - 非对称密码：免去密钥分发、密钥管理简单

@@ -2,12 +2,11 @@
 title: "OperatingSystem_advanced_03"
 date: 2021-12-02T20:14:02+08:00
 lastmod: 2021-12-02
-tags: [operating_system]
-categories: [advanced learning]
+tags: [operating system]
+categories: [Advanced learning]
 slug: Kernel structure and design
 draft: true
 ---
-> 极客时间操作系统学习笔记
 
 # 内核结构与设计 内核架构
 ## 内核结构与设计
@@ -83,4 +82,10 @@ draft: true
 
 **eg**:MACH、MINIX、L4 系统，这些系统都是微内核，但是它们不是商业级的系统，商业级的系统不采用微内核主要还是因为性能差。
 ### 分离硬件的相关性
+
+
+
+
+
+[参考](https://time.geekbang.org/column/intro/100078401?tab=catalog)
 

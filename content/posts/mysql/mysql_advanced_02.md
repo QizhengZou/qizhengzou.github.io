@@ -3,7 +3,7 @@ title: "Mysql_advanced_02"
 date: 2021-12-01T23:43:29+08:00
 lastmod: 2021-12-01
 tags: [mysql]
-categories: [advanced learning]
+categories: [Advanced learning]
 slug: An update sentence
 draft: false
 ---
@@ -66,3 +66,5 @@ binlog 会记录所有的逻辑操作，并且是采用“追加写”的形式�
 ## 一天一备份和一周一备份的区别
 - 一天一备份“最长恢复时间”更短。
 - 频繁全量备份需要消耗更多存储空间，所以这个 RTO 是成本换来的，就需要你根据业务重要性来评估了。
+
+[参考](https://time.geekbang.org/column/intro/100020801?tab=catalog)

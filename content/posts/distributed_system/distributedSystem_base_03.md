@@ -2,8 +2,8 @@
 title: "DistributedSystem_base_03"
 date: 2021-11-17T08:46:02+08:00
 lastmod: 2021-12-03
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: Network and Internet Interconnection
 draft: true
 ---

@@ -3,10 +3,11 @@ title: "Mysql_base_01"
 date: 2021-11-07T09:14:50+08:00
 lastmod: 2021-11-07
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Mysql conceptual structure
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
 # 数据库概念结构
 ## 基本概念
 32

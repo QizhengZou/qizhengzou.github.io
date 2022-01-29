@@ -3,10 +3,12 @@ title: "Cry_base_03"
 date: 2021-12-16T15:23:53+08:00
 lastmod: 2021-12-16
 tags: [cryptography]
-categories: [School Courses]
+categories: [School courses]
 slug: block cipher
 draft: false
 ---
+> 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
+
 # 分组密码
 ## 对称加密分类
 - 分组密码/块密码（Block Cipher）

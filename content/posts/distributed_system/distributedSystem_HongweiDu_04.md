@@ -2,11 +2,13 @@
 title: "DistributedSystem_HongweiDu_04"
 date: 2021-12-03T14:35:49+08:00
 lastmod: 2021-12-10
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: Logical Time
 draft: false
 ---
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # Logical Time
 Motivation of logical clocks:
 - Cannot synchronize physical clocks perfectly in distributed systems. [Lamport 1978]

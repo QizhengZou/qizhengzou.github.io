@@ -3,10 +3,12 @@ title: "Go_base_04"
 date: 2022-01-06T09:16:37+08:00
 lastmod: 2022-01-06
 tags: [go grammar]
-categories: [go]
+categories: [Go]
 slug: Go_Method
 draft: false
 ---
+> 参考学习go语言中文网、C语言中文网、golang官方文档等
+
 # 方法
 ## 方法定义
 Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver)。
@@ -649,7 +651,7 @@ func test03() {
    // 延时执行匿名函数
    // 延时到何时？（1）程序正常结束   （2）发生异常时
    defer func() {
-      // recover() 复活 恢复
+      // recover() 恢复
       // 会返回程序为什么挂了
       if err := recover(); err != nil {
          fmt.Println(err)

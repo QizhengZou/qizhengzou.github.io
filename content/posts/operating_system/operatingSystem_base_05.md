@@ -2,11 +2,13 @@
 title: "OperatingSystem_base_05"
 date: 2021-11-30T18:26:58+08:00
 lastmod: 2021-11-30
-tags: [operating_system]
-categories: [School Courses]
+tags: [operating system]
+categories: [School courses]
 slug: equipmet management
 draft: false
 ---
+> 王道考研操作系统笔记
+
 # 设备管理
 ## I/O 管理概述
 ### I/O设备的分类与管理的任务

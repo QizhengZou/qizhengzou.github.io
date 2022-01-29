@@ -2,11 +2,13 @@
 title: "DistributedSystem_HongweiDu_11"
 date: 2022-01-01T15:21:34+08:00
 lastmod: 2022-01-01
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: Unix FS and Distributed FS
 draft: false
 ---
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 ## Unix File Systems文件系统
 File Systems：
 - File system provides the most fundamental service for building any information systems.

@@ -3,10 +3,12 @@ title: "Cry_base_01"
 date: 2021-12-16T14:32:42+08:00
 lastmod: 2021-12-16
 tags: [cryptography]
-categories: [School Courses]
+categories: [School courses]
 slug: cryptography intro
 draft: false
 ---
+> 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
+
 # 课程简介
 ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211216143711.png)
 

@@ -7,6 +7,7 @@ categories: [Coding]
 slug: back tracking algorithm 
 draft: false
 ---
+> 学习[代码随想录](https://programmercarl.com/)笔记
 # 回溯算法
 ## 理论基础
 也叫回溯搜索算法。

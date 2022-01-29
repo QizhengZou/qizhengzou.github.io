@@ -3,7 +3,7 @@ title: "BigData_base_09"
 date: 2021-12-06T16:19:58+08:00
 lastmod: 2021-12-06
 tags: [big_data]
-categories: [School Courses]
+categories: [School courses]
 slug: integrate learning
 draft: true
 ---

@@ -156,7 +156,7 @@ enableEmoji = true
         [languages.zh-cn.params.home.posts]
           enable = true
           # 主页每页显示文章数量
-          paginate = 6
+          paginate = 10
       # 主页的社交信息设置
       [languages.zh-cn.params.social]
         GitHub = "qizhengzou"

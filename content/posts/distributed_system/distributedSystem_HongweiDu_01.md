@@ -2,11 +2,13 @@
 title: "DistributedSystem_HongweiDu_01"
 date: 2021-12-03T14:35:31+08:00
 lastmod: 2021-12-03
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: DistributedSystem HongweiDu intro
 draft: false
 ---
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # Intr
 HongweiDu(堵宏伟)
 ## Topics

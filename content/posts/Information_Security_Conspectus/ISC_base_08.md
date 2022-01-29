@@ -2,11 +2,13 @@
 title: "ISC_base_08"
 date: 2021-11-21T11:36:15+08:00
 lastmod: 2021-12-21
-tags: [information_security_conspectus]
-categories: [School Courses]
+tags: [information security conspectus]
+categories: [School courses]
 slug: network security protocol
 draft: false
 ---
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 网络安全协议
 ## 8.1 概述	
 许多网络攻击都是由网络协议（如TCP/IP）的固有漏洞引起的，因此，为了保证网络传输和应用的安全，各种类型的网络安全协议不断涌现。

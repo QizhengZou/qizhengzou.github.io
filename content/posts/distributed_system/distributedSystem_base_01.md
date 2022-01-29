@@ -2,8 +2,8 @@
 title: "DistributedSystem_base_01"
 date: 2021-11-10T10:24:24+08:00
 lastmod: 2021-11-10
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: Characteristics of distributed system
 draft: false
 ---

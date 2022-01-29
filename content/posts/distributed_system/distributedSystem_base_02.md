@@ -2,8 +2,8 @@
 title: "DistributedSystem_base_02"
 date: 2021-11-17T08:45:55+08:00
 lastmod: 2021-12-01
-tags: [distributed_system]
-categories: [School Courses]
+tags: [distributed system]
+categories: [School courses]
 slug: system models
 draft: false
 ---

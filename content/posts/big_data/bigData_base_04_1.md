@@ -3,7 +3,7 @@ title: "BigData_base_04_1"
 date: 2021-11-15T15:54:08+08:00
 lastmod: 2021-11-15
 tags: [big_data]
-categories: [School Courses]
+categories: [School courses]
 slug: Structured representation of data
 draft: true
 ---

@@ -3,7 +3,7 @@ title: "Mysql_catalogue"
 date: 2021-11-08T16:43:15+08:00
 lastmod: 2021-11-09
 tags: [catalogue]
-categories: [School Courses' list]
+categories: [School courses' list]
 slug: Mysql_catalogue
 draft: false
 ---

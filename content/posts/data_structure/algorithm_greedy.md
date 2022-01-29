@@ -7,6 +7,7 @@ categories: [Coding]
 slug: data structure greedy
 draft: false
 ---
+> 学习[代码随想录](https://programmercarl.com/)笔记
 # 贪心算法
 ## 理论基础
 贪心算法一般分为如下四步：

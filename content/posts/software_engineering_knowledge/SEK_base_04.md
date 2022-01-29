@@ -2,11 +2,13 @@
 title: "SEK_base_04"
 date: 2021-11-25T15:48:03+08:00
 lastmod: 2021-12-28
-tags: [software_engineering_knowledge]
-categories: [School Courses]
+tags: [software engineering knowledge]
+categories: [School courses]
 slug: software design
 draft: false
 ---
+> 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
+
 # 软件设计
 ## 软件工程开发方法与软件设计
 ### 软件工程开发方法

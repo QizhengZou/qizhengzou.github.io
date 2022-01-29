@@ -3,7 +3,7 @@ title: "CA_base_02"
 date: 2021-12-13T14:00:38+08:00
 lastmod: 2021-12-13
 tags: [computer_architecture]
-categories: [School Courses]
+categories: [School courses]
 slug: Instruction system architecture
 draft: true
 ---

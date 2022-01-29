@@ -3,7 +3,7 @@ title: "SEK_catalogue"
 date: 2021-11-25T15:50:13+08:00
 lastmod: 2021-12-29
 tags: [catalogue]
-categories: [School Courses' list]
+categories: [School courses' list]
 slug: SEK_catalogue
 draft: false
 ---

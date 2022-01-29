@@ -3,10 +3,12 @@ title: "Mysql_base_14"
 date: 2021-11-21T10:18:45+08:00
 lastmod: 2021-11-21
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Fault recovery
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 故障恢复
 ## 数据库的故障类型及其影响
 DBMS的运行方式：

@@ -2,11 +2,12 @@
 title: "ISC_base_01"
 date: 2021-11-21T10:13:37+08:00
 lastmod: 2021-11-21
-tags: [information_security_conspectus]
-categories: [School Courses]
+tags: [information security conspectus]
+categories: [School courses]
 slug: Course overview
 draft: false
 ---
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
 # 信息安全课程概述
 ## 教学目的、目标与内容
 课程定位：信息安全领域基础课程

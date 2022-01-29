@@ -3,10 +3,12 @@ title: "Mysql_base_07"
 date: 2021-11-09T11:28:16+08:00
 lastmod: 2021-11-13
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Functional dependence and its axiom theorem
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 函数依赖及其公理定理
 ## 函数依赖
 定义：   

@@ -3,7 +3,7 @@ title: "Go_base_10"
 date: 2022-01-12T22:17:14+08:00
 lastmod: 2022-01-06
 tags: [go grammar]
-categories: [go]
+categories: [Go]
 slug: Go_Microservices
 draft: true
 ---

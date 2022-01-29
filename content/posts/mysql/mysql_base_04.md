@@ -3,10 +3,12 @@ title: "Mysql_base_04"
 date: 2021-11-09T11:17:14+08:00
 lastmod: 2021-11-11
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Database management and maintenance
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 数据库管理与维护
 ## 数据库完整性与安全性控制
 ### 数据库完整性的概念及分类

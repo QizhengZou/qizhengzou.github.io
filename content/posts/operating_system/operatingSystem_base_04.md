@@ -2,11 +2,13 @@
 title: "OperatingSystem_base_04"
 date: 2021-11-30T18:26:50+08:00
 lastmod: 2021-11-30
-tags: [operating_system]
-categories: [School Courses]
+tags: [operating system]
+categories: [School courses]
 slug: file management
 draft: false
 ---
+> 王道考研操作系统笔记
+
 # 文件管理
 ## 文件系统基础
 ### 文件的概念

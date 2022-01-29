@@ -2,11 +2,13 @@
 title: "ISC_base_09"
 date: 2021-12-21T19:37:20+08:00
 lastmod: 2021-12-21
-tags: [information_security_conspectus]
-categories: [School Courses]
+tags: [information security conspectus]
+categories: [School courses]
 slug: Content security
 draft: false
 ---
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 内容安全
 ## 9.1 概述
 信息内容安全有两方面内容:

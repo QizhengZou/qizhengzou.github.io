@@ -3,7 +3,7 @@ title: "Go_base_08"
 date: 2022-01-06T09:16:53+08:00
 lastmod: 2022-01-06
 tags: [go grammar]
-categories: [go]
+categories: [Go]
 slug: Go_Data_Operation
 draft: true
 ---

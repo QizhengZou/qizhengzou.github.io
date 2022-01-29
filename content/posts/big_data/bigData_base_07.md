@@ -3,7 +3,7 @@ title: "BigData_base_07"
 date: 2021-12-06T15:55:56+08:00
 lastmod: 2021-12-06
 tags: [big_data]
-categories: [School Courses]
+categories: [School courses]
 slug: basis of regression prediction
 draft: true
 ---

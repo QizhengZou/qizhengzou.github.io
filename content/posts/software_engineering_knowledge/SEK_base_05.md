@@ -2,11 +2,13 @@
 title: "SEK_base_05"
 date: 2021-11-25T15:48:07+08:00
 lastmod: 2021-12-28
-tags: [software_engineering_knowledge]
-categories: [School Courses]
+tags: [software engineering knowledge]
+categories: [School courses]
 slug: Software coding, testing and quality assurance
 draft: false
 ---
+> 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
+
 # 软件编码、测试和质量保障
 ## 5.1 软件编程
 软件编程是一个复杂而迭代的过程，它**不仅仅是编写代码，还应该包括代码审查、单元测试、代码优化、集成调试等**一系列工作。

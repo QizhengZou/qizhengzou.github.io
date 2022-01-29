@@ -3,10 +3,12 @@ title: "Cry_base_04"
 date: 2021-12-16T15:23:56+08:00
 lastmod: 2021-12-16
 tags: [cryptography]
-categories: [School Courses]
+categories: [School courses]
 slug: Mathematical principles
 draft: false
 ---
+> 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
+
 # 数学原理
 ## 模运算
 - 费马小定理

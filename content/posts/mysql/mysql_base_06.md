@@ -3,10 +3,12 @@ title: "Mysql_base_06"
 date: 2021-11-09T11:28:11+08:00
 lastmod: 2021-11-11
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Database Design
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 数据库设计
 ## 强弱实体的个人理解
 在正文之前，我总结一下我对**强弱实体**的个人理解：

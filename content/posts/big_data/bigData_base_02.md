@@ -3,7 +3,7 @@ title: "BigData_base_02"
 date: 2021-11-08T17:28:47+08:00
 lastmod: 2021-11-08
 tags: [big_data]
-categories: [School Courses]
+categories: [School courses]
 slug: hadoop
 draft: true
 ---

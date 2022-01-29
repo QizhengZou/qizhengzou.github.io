@@ -2,11 +2,13 @@
 title: "SEK_base_02"
 date: 2021-11-25T15:47:55+08:00
 lastmod: 2021-11-25
-tags: [software_engineering_knowledge]
-categories: [School Courses]
+tags: [software engineering knowledge]
+categories: [School courses]
 slug: software engineering procedure and management
 draft: false
 ---
+> 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
+
 ## 第二部分 软件项目开发过程与管理
 ### 2.1 软件项目开发过程
 - 为什么要将软件开发过程划分为多个阶段？

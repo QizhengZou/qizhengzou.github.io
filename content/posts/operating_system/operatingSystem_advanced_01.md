@@ -2,14 +2,12 @@
 title: "OperatingSystem_advanced_01"
 date: 2021-12-01T11:08:12+08:00
 lastmod: 2021-12-01
-tags: [operating_system]
-categories: [advanced learning]
+tags: [operating system]
+categories: [Advanced learning]
 slug: why OS?
 draft: false
 ---
-> 极客时间操作系统学习笔记
 
-## 为什么要把操作系统学好？
 
 内存为什么会泄漏、服务进程为什么会 dang 掉、文件为什么打不开等一系列“基础”问题
 
@@ -27,3 +25,5 @@ MySQL 的 I/O 性能还能不能再提升？网络服务为什么会掉线？Red
 - 然后，开始建设中枢的各级部门，它们分别是内存管理部门、进程管理部门、I/O 管理部门、文件管理部门、通信管理部门。
 - 最后将这些部门组合在一起，就形成了计算机操作系统。
 - 最终实现一个基于 x86 平台的 64 位多进程的操作系统——Cosmos。
+
+[参考](https://time.geekbang.org/column/intro/100078401?tab=catalog)

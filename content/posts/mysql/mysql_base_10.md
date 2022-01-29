@@ -3,10 +3,12 @@ title: "Mysql_base_10"
 date: 2021-11-09T11:28:43+08:00
 lastmod: 2021-11-13
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Database index
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 数据库索引
 ## 为什么需要索引与什么是索引
 索引：定义在存储表(Table)基础之上，无需检查所有记录，快速定位所需记录的一种辅助存储结构，由一系列存储在磁盘上的索引项(index

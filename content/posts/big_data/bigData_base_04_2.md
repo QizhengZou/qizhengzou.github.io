@@ -3,7 +3,7 @@ title: "BigData_base_04_2"
 date: 2021-11-15T15:54:13+08:00
 lastmod: 2021-11-15
 tags: [big_data]
-categories: [School Courses]
+categories: [School courses]
 slug: Understanding data
 draft: true
 ---

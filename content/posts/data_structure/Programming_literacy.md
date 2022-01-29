@@ -2,7 +2,7 @@
 title: "Programming_literacy"
 date: 2022-01-02T18:57:57+08:00
 lastmod: 2022-01-02
-tags: [data_structure]
+tags: [data structure]
 categories: [Coding]
 slug: Programming Literacy
 draft: false

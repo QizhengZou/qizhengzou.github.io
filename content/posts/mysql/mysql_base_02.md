@@ -3,10 +3,12 @@ title: "Mysql_base_02"
 date: 2021-11-07T09:18:21+08:00
 lastmod: 2021-11-09
 tags: [mysql]
-categories: [School Courses]
+categories: [School courses]
 slug: Mysql relational model and relational operation.
 draft: false
 ---
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 关系模型与关系运算
 ## 关系模型与关系运算简述
 ### 关系模型的提出与作用

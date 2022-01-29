@@ -2,11 +2,13 @@
 title: "SEK_base_06"
 date: 2021-11-25T15:48:12+08:00
 lastmod: 2021-12-28
-tags: [software_engineering_knowledge]
-categories: [School Courses]
+tags: [software engineering knowledge]
+categories: [School courses]
 slug: Software implementation, maintenance and evolution
 draft: false
 ---
+> 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
+
 # 软件实施、维护和演化 19：52
 ## 6.1 敏捷开发
 ### 敏捷方法概述 
