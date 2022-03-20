@@ -99,7 +99,7 @@ Where T1.Salary > T2.Salary;
 ```
 * SQL提供了五个作用在简单列值集合上的内置聚集函数agfunc, 分别是：COUNT、SUM、AVG、MAX、MIN
 * SQL聚集函数的参数类型、结果类型与作用如下：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109234009.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109234009.png)
 * eg:   
 ```
 Select Sum(Salary) From Teacher;
@@ -114,7 +114,7 @@ Select 列名 | expr | agfunc(列名) [[, 列名 | expr | agfunc(列名) ] … ]
 From 表名1 [, 表名2 … ]
 [ Where 检索条件 ]
 [ Group by 分组条件(列名) ];
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109234447.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109234447.png)
 
 若要对集合(即分组)进行条件过滤，可使用Having子句   
 Having子句，又称为分组过滤子句。需要有Group by子句支持，换句话说，没有Group by子句，便不能有Having子句。   
@@ -195,7 +195,7 @@ From 表名1 [NATURAL]
 { ON 连接条件 | Using (Colname {, Colname …}) }
 [ Where 检索条件 ] …   
 连接运算由两部分构成：连接类型和连接条件    
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211110000120.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211110000120.png)
 * Inner Join: 即关系代数中的-连接运算
 * Left Outer Join, Right Outer Join, Full Outer Join: 即关系代数中的外连接运算
     * 如“表1 Left Outer Join 表2”，则连接后，表1的任何元组t都会出现在结果表中，如表2中有满足连接条件的元组s, 则t与s连接；否则t与空值元组连接；

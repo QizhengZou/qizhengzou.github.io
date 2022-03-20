@@ -102,15 +102,15 @@ Understanding lecture notes and tutorial questions.
 Adjustment changes slope of system time: Linear compensating function （线性补偿函数）
 ### 3.1Cristian’s algorithm: 
 synchronize clocks with a UTC server 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102082432.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220102082432.png)
 ### 3.2Berkeley Algorithm: 
 synchronize a set of clocks as close as possible
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102082505.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220102082505.png)
 ## 4.NTP Symmetric mode
 - 如何计算偏移量、准确值、延迟、传输时间。
 - used to synchronize between the time servers (peer-peer)
 - There can be a non-negligible delay between the arrival of one message and the dispatch of the next
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102150951.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220102150951.png)
 - Delay = total transmission time of the two messages
 $$d_i = (T_i – T_{i-3} ) – (T_{i-1}– T_{i-2})$$
 - Offset of clock A relative to clock B:  
@@ -142,7 +142,7 @@ $$d_i = (T_i – T_{i-3} ) – (T_{i-1}– T_{i-2})$$
 - Client-server interactions in RPC 
 
 ## 8.Group Communication
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102083158.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220102083158.png)
 
 ## 9.Mutual Exclusion & Election Algorithm
 - Mutual Exclusion 

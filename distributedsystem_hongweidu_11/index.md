@@ -9,7 +9,7 @@ File Systems：
 - We look at two file operations:
     - fp = open (“cs4274/exam”, r, 0);
 	- r = read (fp, n, buf); 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101202700.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101202700.png)
 
 Hard disk Structure：
 - Head, cylinder, sector
@@ -20,13 +20,13 @@ Hard disk Structure：
     - 40 tracks-per-disk (cylinders)
     - 32 sectors-per-track
     - 512 bytes/sector
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101202947.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101202947.png)
 
 Data Block and Block Number：
 - File system uses block as a data unit for disk operation
     - Usually a block size is 1K (>=  sector size)
     - Disk block is referenced by its block #
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101205249.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101205249.png)
 - Block # to Physical Address Translation
     - sectors = blk_num  (#sects-per-blk)
     - cyld_num = sectors  (#sects-per-cyld)
@@ -45,12 +45,12 @@ Internal File Structure :
 - An inode is referenced by its inode #
 
 Diagram of data index in inode :
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101210530.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101210530.png)
 
 Unix Directory File :
 - Directory files are ordinary files consisting of entries mapping names to i-node #, e.g., directory file /etc
 - After BSD4.3, file names are of variable length (upto 255 bytes). Each entry has the entry-length, name & inode #.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101210607.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101210607.png)
 
 Directory structure and name resolution:
 - Directories are in a tree structure.
@@ -73,7 +73,7 @@ Directory structure and name resolution:
 
 
 Disk Management (inode # -> i-nodes):
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101211558.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101211558.png)
 
 Super block 超级块:
 - Each file system has a super block which contains:
@@ -91,7 +91,7 @@ Calculate an inode address by inode number :
 - blk_num = (inode_num -1) / #inodes-per-blk + st-addr-inodes
 - byte_offset = ((inode_num -1) mod (#inodes-per-blk))*inode-size
 - N.B. In UNIX, inode-size = 64,  #inodes-per-blk = 16
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101211936.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101211936.png)
 
 Summary on address translations:
 ```
@@ -104,7 +104,7 @@ pathname 	-> 	inode #
 ```
 
 Internal Structure for File Accesses :
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101212105.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101212105.png)
 
 Pseudo-code for open operation :
 ```
@@ -142,10 +142,10 @@ Global File Organization :
 Mount/umount operations :
 - mount(dev_name, dir_name, options);   umount(dev_name)
 	- e.g., mount(“/dev/dsk1”, “/usr”, 0)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101212314.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101212314.png)
 
 Mount table:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101212339.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101212339.png)
 
 Name resolution cross mount point:
 ```
@@ -177,11 +177,11 @@ Distributed File System Components :
 - Flat file service: offer a simple set of general operations to access attributes and data of files, indexed by UFIDs.
 - Directory service: map text names to UFIDs.
 - Client module: allow access to file & directory service under a single application programming interface. 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101212656.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101212656.png)
 
 
 Distributed File System Interface:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101212718.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101212718.png)
 
 Flat file service operations:
 - read(UFID,i n) -> Data   If1≤i≤Length(File), read a sequence of up to n items from a file starting at item i and returns it in Data.
@@ -194,7 +194,7 @@ Flat file service operations:
 - setlttributes(UFID, Attr)   Set file attributes.
 
 Directory service operations:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101213441.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101213441.png)
 
 Constructing a Hierarchical FS at Client Module:
 - A hierarchical file naming system can be constructed by the client module by using file & directory services.
@@ -217,7 +217,7 @@ Capabilities and Access Control :
 - Clients interacts with dir-server and file-server via RPCs. There is a security loophole, allowing unauthorized user to use other’s ID to access files illegally. 
 - Capability (in the form of a UFID) is a digital key used to identify and access file by clients in distributed FS.
 - A capability includes information of file location (groupID), FID, and access control. 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101213614.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101213614.png)
 - Directory server generates the capability of a file based on to client’s ID and access permission.
 - Capabilities is used for access control to the file.
 - A capability must have an encrypted field to prevent it from being modified or mis-used by others. The encryption key is usually shared between the directory server and file server.
@@ -242,7 +242,7 @@ Google File System (an example):
 - The client requests the master (directory server) with file-name and chunk index (translated from user’s byte-offset within a file and the fixed chunk size, 64MB).
 - The master replies with the chunk handle and location of the replicas.
 - The client requests one of the replicas (chunkserver, i.e., data server) with chunk handle and a byte-range within the chunk for data-access.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101215407.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101215407.png)
 
 Sun Network File System (NFS) :
 - The Network File System (NFS) was developed to allow machines to mount a local directory to a remote file system as if it were on a local disk. It facilitates fast and seamless sharing of files across a network.
@@ -250,10 +250,10 @@ Sun Network File System (NFS) :
 It follows the abstract file service model defined for Distributed File Systems.
 
 NFS server operations (RFC1813, 1995):
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101215604.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101215604.png)
 
 NFS architecture:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101215629.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101215629.png)
 
 NFS Structure:
 - NFS client module resides in the UNIX kernel. It emulates exactly the semantics of UNIX file system. 
@@ -270,7 +270,7 @@ NFS Virtual File System :
 - FileSystem ID----i-node number----i-node generation number
 
 Mount remote file systems to client in NFS:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101215932.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101215932.png)
 - Note: The file system mounted at /usr/students in Client is a sub-tree located at /export/people in Server 1; 
 - The file system mounted at /usr/staff in Client is the sub-tree located at /nfs/users in Server 2.
 

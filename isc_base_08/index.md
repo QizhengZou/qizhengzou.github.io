@@ -39,7 +39,7 @@ IPSec协议的优点：
 - IPSec可以为个体用户提供安全保障，可以保护企业内部的敏感信息。
 
 IPSec协议族的体系结构：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221161608.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221161608.png)
 - Encapsulating Security Payload（ESP，封装安全有效负载协议）
 - Authentication Header（AH，认证头协议）
 
@@ -83,7 +83,7 @@ IPSec基本条件：
 - 在SA对IP数据包处理的过程中，有两个重要的数据库起到了关键作用。
     - 安全策略数据库（SPD，Security Policy Database）：保存着定义的处理策略，每条策略指出以何种方式对IP数据报文提供何种服务。
     - 安全关联数据库（SAD，Security Association Database）：保存应用实体中所有的SA。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165238.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165238.png)
 - SAD中的SA是通过三元组<安全参数索引，IP目的地址，安全协议标识>来标识。
     - SPI（Security Parameter Index）：是一个与SA相关联的位串。一般在IKE 确立一个SA时，产生一个伪随机导数作为该SA的SPI。SPI 也可以人为设定。
     - IP目的地址：目前IPSec仅支持使用单播地址来表示SA的目的地址。
@@ -117,27 +117,27 @@ SAD:
 
 ### 8.2.2 IPSec协议的工作方式
 IPv4与IPv6数据包结构：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165651.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165651.png)
 - IPv6增加了扩展头，其原理为：大多数IP包只需要简单的处理，因此有基本报头的信息就足够了。当网络层存在需要额外信息的信息包时，就可以把这些信息编码到扩展报头上。
 - 在实施IPSec时，IPv4和IPv6存在着一些区别，主要集中在对两种协议数据包的封装上。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165727.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165727.png)
 
 IPSec的工作模式：
 - IPSec 标准定义了 IPSec 操作的两种不同模式：
     - 传输模式（Transport Mode）和隧道模式（Tunnel Mode）；
     - 安全协议AH和ESP，都可以以这两种模式工作。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165803.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165803.png)
 - 传输模式：只对IP数据包的有效负载进行加密或认证；继续使用以前的IP头部，只对IP头部的部分域进行修改。
 - 隧道模式：对整个IP数据包进行加密或认证；需要新产生一个IP头部，IPSec头部放在新产生的IP头部和以前的IP数据包之间。
 
 认证头AH：
 - AH的工作原理：可变内容一般被填充“0”后参与计算。
 - 目前计算认证数据的算法主要有MD5算法和SHA-1算法等。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165911.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165911.png)
 - IP包中的部分域（如生存周期，即IPv4中的TTL，IPv6中称为跳数）、AH校验值等是可变化的，因此只对在传输过程中不变的内容或可以预测变化的内容进行认证。
 
 AH头格式：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165949.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165949.png)
 - 下一个头（8位）：用来标记下一个扩展头的类型；
 - 载荷长度（8位）：表示认证头数据的长度减2，以字（字长32位）来计；
 - 保留（16位）：备用；
@@ -151,10 +151,10 @@ AH头格式：
 
 封装安全有效负荷ESP：
 - 工作方式分传输模式和隧道模式。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170128.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170128.png)
 
 ESP的封装格式：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170155.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170155.png)
 - 传输模式：需对IP数据包的负载部分进行有效填充，并添加ESP尾，构造成长度为字长整数倍的规整数据块。
 - 隧道模式：需对整个原始IP数据包进行有效填充。
 - ESP封装包主要包括七个部分：
@@ -187,7 +187,7 @@ ESP的封装格式：
 
 抗重放窗口：
 - 抗重放窗口W实际上就是某个特定时间接收到的数据包序号是否合法的上、下界，同时窗口具有滑动功能
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170507.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170507.png)
 ### 8.2.3 Internet秘钥交换协议
 IPsec在提供认证或加密服务之前，必须针对安全协议、加密算法和密钥等内容进行协商，并建立SA，这个过程可以手工进行和自动完成。
 
@@ -217,7 +217,7 @@ IKE建立SA的过程分为两个阶段：
 
 第一阶段:
 - IKE定义了两种信息交换模式：主模式（Main Mode）、野蛮模式（Aggressive Mode）。
-- 主模式协商过程：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170708.png)
+- 主模式协商过程：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170708.png)
     - 第一步：策略协商，即确定IKE SA中所必需的有关算法和参数，包括加密算法、散列算法、认证方法以及DH组的选择。
 
     - 第二步，秘钥交换，即双方交换DH算法所需要的秘钥生成基本材料，即DH公开值gx ，还有用于防范重放攻击的一次性随机数nonce 。
@@ -226,7 +226,7 @@ IKE建立SA的过程分为两个阶段：
         - 认证者是通信双方使用前两步协商得到的秘钥对双方交换的信息进行散列计算得到的散列值（或经过数字签名）。
         - 双方交换的信息包括DH公开值、Nonce、SA内容以及身份标识符ID等。
 - 野蛮协商过程：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170844.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170844.png)
     - 验证载荷是使用协商得到的安全参数及秘钥对接收到的所有信息进行加密散列计算，得到的数据结果即为可验证信息，可作为发送方现场操作的证据。
 
 第二阶段：
@@ -240,7 +240,7 @@ IKE建立SA的过程分为两个阶段：
 #### 快速模式
 快速模式主要用于交换IPSec SA信息。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221171044.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221171044.png)
 #### 新组模式和ISAKMP信息交换
 新组模式主要**用于实现通信双方交换协商新的Diffie－Hellman组**，属于一种请求/响应交换。
 - 发送方发送提议的DH组的标识符及其特征，如果响应方能够接收提议，就用完全一样的消息应答。
@@ -259,7 +259,7 @@ SSL协议提供的服务主要有：
 - 加密数据以防止数据中途被窃取； 
 - 维护数据的完整性，确保数据在传输过程中不被改变。
 ### 8.3.1 SSL协议的体系结构
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190543.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190543.png)
 
 SSL协议族由4个协议组成：
 - 记录协议 Record Protocol、握手协议 Handshake Protocol、转换密码规范协议 Change Cipher Spec Protocol和报警协议Alert Protocol。
@@ -275,7 +275,7 @@ SSL连接和SSL会话：
         - 连接依赖于一定的规范，而这些规范会在一个会话中被描述，即每个连接与一个会话有关。
     - SSL会话是发起方和接收方之间的安全关联，它描述了一个（或多个）连接共享的安全参数集合。
         - 会话是SSL握手协议创建的，一个会话可以为多个连接共享。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190729.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190729.png)
 - SSL会话与多种状态相关，状态可以理解为描述特定过程的特征信息集合。
 - SSL协议中，最主要的两个状态就是会话状态和连接状态。
 - 会话状态包含标识会话特征的信息和握手协议的协商结果，用来描述一个SSL会话的特征参数。
@@ -283,10 +283,10 @@ SSL连接和SSL会话：
     - 客户端和服务器只需在一个连接存在时记录该连接的状态，连接状态提供的参数为SSL记录协议层使用。
 
 SSL会话状态参数定义：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191037.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191037.png)
 
 SSL连接状态参数定义：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191113.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191113.png)
 
 待用状态和当前操作状态：
 - SSL会话还定义了当前操作状态和待用状态。
@@ -303,11 +303,11 @@ SSL记录协议：
     - 消息完整性：握手协议定义了共享的、可用来形成报文的鉴别码（MAC）的秘钥。
 - SSL记录协议的功能是根据当前会话状态指定的参数以及连接状态中指定的参数等内容，对当前的连接中要传送的高层数据实施压缩与解压缩、加密与解密、计算与校验MAC等操作。
 - SSL记录协议对应用层数据文件的处理过程分为5个步骤。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191247.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191247.png)
 
 SSL记录格式：
 - 完整的SSL记录格式包括六个部分。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191327.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191327.png)
 - 内容类型（8位）：用来指明封装数据的类型， 已定义的类型包括转换密码规范协议、报警协议、握手协议和应用数据四类。
 - 主版本（8位）：指明SSL使用的主版本。
 - 从版本（8位）：指明SSL使用的从版本。
@@ -323,14 +323,14 @@ SSL握手协议：
     - 类型（1字节）：为10种报文类型中的一种。
     - 长度（3字节）：以字节为单位的报文长度。
     - 内容（大于等于1字节）：与报文类型相关的参数。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191500.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191500.png)
 
 SSL握手协议的报文类型：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191528.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191528.png)
 
 SSL握手协议操作的整个过程：
 - SSL握手协议通过在客户端和服务器之间传递消息报文，完成会话协商谈判。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191606.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191606.png)
 
 SSL转换密码规范协议：
 - 目的是通知对方将已挂起（或新协商）的状态复制到当前状态中，用于更新当前连接使用的密码规范。
@@ -343,7 +343,7 @@ SSL报警协议：
     - 第一个字节的值是警报级别，分为致命错误和警告两级。
         - 如果级别是致命错误，SSL将立刻中止该连接。
     - 第二个字节给出特定警报的代码信息。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191732.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191732.png)
 - 致命错误：
     - 意外消息：接收到不正确的信息；
     - MAC记录出错：接收到不正确的MAC；
@@ -394,7 +394,7 @@ HTTPS的主要作用：
 目前，多数用户的CA证书都是备份在U盘（即U盾中），并经过特殊的强加密处理及相应的密码身份验证来确保其安全性。
 
 HTTPS协议处理过程：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192104.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192104.png)
 ## 8.4 安全电子交易协议
 SET（Secure Electronic Transaction），Visa和MasterCard发起，联合IBM、Microsoft、Netscape、GTE等公司，于1997年6月1日推出的用于电子商务的行业规范。
 
@@ -409,7 +409,7 @@ SET已获得IETF标准的认可，是电子商务的发展方向。
 
 电子商务提供网上交易和管理等全过程的服务，包括广告洽谈、网上交易和服务传递三部分，其中网上交易是其核心。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192222.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192222.png)
 
 安全问题及安全技术：
 - 面临的安全问题
@@ -435,7 +435,7 @@ SET安全协议的目标：
 SET的组件结构：
 - SET的六组件
     - Cardholder、Merchant、Issuer、Acquirer、Payment Gateway、Certificate Authority
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192443.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192443.png)
 
 基于SET的网络交易流程：
 - 顾客（持卡人）通过Internet选定物品，填写并提交订货单。
@@ -473,14 +473,14 @@ CA证书：
 - SET协议使用电子信封来传递更新的密钥。
 - 电子信封涉及到两个密钥：一个是接收方的公开密钥；另一个是发送方生成的临时密钥（对称密钥）。
     - 发送方使用接收方的公钥加密临时密钥，一般将这个被加密的秘钥称为电子信封，接收方用其私钥解密出临时秘钥。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192735.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192735.png)
 
 双重签名：
 - SET协议核心内容是订购信息OI和支付信息PI。
 - DS（Dual Signature）技术将OI和PI这两部分的摘要信息绑定，确保电子交易的有效性和公正性。
 - 分离PI与OI，确保商家不知道顾客的支付卡信息，银行不知道顾客的订购细节。
 - DS = EKRc [ H（H（PI）II H（OI））]
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192813.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192813.png)
 
 双重签名的使用过程：
 - 顾客针对PI和OI生成DS，将DS、OI和PIMD发送给商家。
@@ -493,9 +493,9 @@ CA证书：
 - SET协议为电子商务交易设计了多种类型的交易处理。
 - 这些交易处理可以各自完成相应的功能，相互衔接配合，共同构建了一个完整的电子商务交易业务平台。
 - 在处理中，持卡人注册和商家注册是进行安全交易的前提，购买请求、支付授权和支付获取是进行交易的核心。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192958.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192958.png)
 
-交易处理：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221193023.png)
+交易处理：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221193023.png)
 
 购买请求：
 - 初始请求是顾客为了建立与商家之间的基本信任关系而发出的第一个消息。

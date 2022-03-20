@@ -22,9 +22,9 @@
 关系演算：元组演算和域演算   
 关系代数示例：基于集合的运算   
 元组演算示例：检索出课程都及格的所有同学：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093528.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093528.png)
 域演算示例：检索出不是03系的所有学生:   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093944.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093944.png)
 ## 关系与关系模型
 ### 关系
 * 域 (Domain)
@@ -97,26 +97,26 @@
 - 笛卡尔积：又叫cross join，是SQL中两表连接的一种方式。 假如A表中的数据为m行，B表中的数据有n行，那么A和B做笛卡尔积，结果为m*n行。 通常我们都要在实际SQL中避免直接使用笛卡尔积，因为它会使“数据爆炸”，尤其是数据量很大的时候。 但某些时候，巧妙的使用笛卡尔积，反而能快速帮助我们解决实际问题。[笛卡尔积参考](https://zhuanlan.zhihu.com/p/133539313)
 
 * 选择   
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103642.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103642.png)
 * 投影   
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103823.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103823.png)
 * 连接
     * θ-连接
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104047.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104047.png)
     注：上式p SC1 (SC)表更名操作，即将表SC更名为SC1，当一个表需要和其自身进行连接运算时，通常要使用更名操作。   
     在讲解θ-连接操作时，使用笛卡尔积然后再进行选择来得到θ- 连接结果。这主要是方便大家理解。但当引入连接操作后，DBMS可直接进行连接操作，而不必先形成笛卡尔积
     * 等值连接
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104413.png)   
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104413.png)   
      θ -连接的特例
     * 自然连接   
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104530.png)   
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104530.png)   
     自然连接=特殊的等值连接+去除重复属性组。
 * 组合示例
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109105046.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109105046.png)
 * 除
     * 前提条件：给定关系R(A1 ,A2 , … ,An)为n度关系和关系S(B1 ,B2 , …,Bm)为m度关系，如果可以进行关系R与关系S的除运算，当且仅当：属性集{ B1 ,B2, … ,Bm}是属性集{ A1 ,A2, … ,An}的真子集，即m < n   
     * 示例   
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109110840.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109110840.png)
 * 外连接 
     * 定义：两个关系R与S进行连接时，如果关系R(或S)中的元组在S(或R)中找不到相匹配的元组，则为了避免该元组信息丢失，从而将该元组与S(或R)中假定存在的全为空值的元组形成连接，放置在结果关系中，这种连接称之为外连接(Outer Join)
     * 外连接 = 自然连接 (或 连接) + 失配的元组(与全空元组形成的连接)

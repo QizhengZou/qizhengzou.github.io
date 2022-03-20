@@ -1,10 +1,10 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Go_base_01 - Jefo</title><meta name=Description content="Jefo"><meta property="og:title" content="Go_base_01"><meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 关于Unicode和UTF-8： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 func TestString(t *testing.T) { var"><meta property="og:type" content="article"><meta property="og:url" content="https://qizhengzou.github.io/go_base_01/"><meta property="og:image" content="https://qizhengzou.github.io/logo.png"><meta property="article:published_time" content="2021-11-09T20:55:59+08:00"><meta property="article:modified_time" content="2021-11-09T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://qizhengzou.github.io/logo.png"><meta name=twitter:title content="Go_base_01"><meta name=twitter:description content="参考学习go语言中文网、C语言中文网、golang官方文档等 关于Unicode和UTF-8： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 func TestString(t *testing.T) { var"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://qizhengzou.github.io/go_base_01/><link rel=prev href=https://qizhengzou.github.io/mysql_base_13/><link rel=next href=https://qizhengzou.github.io/distributedsystem_base_01/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Go_base_01","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/go_base_01\/"},"image":["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"go grammar","wordcount":16939,"url":"https:\/\/qizhengzou.github.io\/go_base_01\/","datePublished":"2021-11-09T20:55:59+08:00","dateModified":"2021-11-09T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Jefo","logo":"https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Jefo"},"description":""}</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Go_base_01 - Jefo</title><meta name=Description content="Jefo"><meta property="og:title" content="Go_base_01"><meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 前言 计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCI"><meta property="og:type" content="article"><meta property="og:url" content="https://qizhengzou.github.io/go_base_01/"><meta property="og:image" content="https://qizhengzou.github.io/logo.png"><meta property="article:published_time" content="2021-11-09T20:55:59+08:00"><meta property="article:modified_time" content="2021-11-09T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://qizhengzou.github.io/logo.png"><meta name=twitter:title content="Go_base_01"><meta name=twitter:description content="参考学习go语言中文网、C语言中文网、golang官方文档等 前言 计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCI"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://qizhengzou.github.io/go_base_01/><link rel=prev href=https://qizhengzou.github.io/mysql_base_13/><link rel=next href=https://qizhengzou.github.io/distributedsystem_base_01/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Go_base_01","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/go_base_01\/"},"image":["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"go grammar","wordcount":19412,"url":"https:\/\/qizhengzou.github.io\/go_base_01\/","datePublished":"2021-11-09T20:55:59+08:00","dateModified":"2021-11-09T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Jefo","logo":"https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Jefo"},"description":""}</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>All posts </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=/about/>About </a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>All posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a><a class=menu-item href=/about/>About</a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Go_base_01</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/go/><i class="far fa-folder fa-fw"></i>Go</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09 20:55:59">2021-11-09 20:55:59</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 16939 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 34 分钟&nbsp;<span id=busuanzi_container_page_pv>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Go_base_01</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/go/><i class="far fa-folder fa-fw"></i>Go</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09 20:55:59">2021-11-09 20:55:59</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 19412 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 39 分钟&nbsp;<span id=busuanzi_container_page_pv>
 <i class="far fa-eye fa-fw"></i>&nbsp;<span id=busuanzi_value_page_pv></span>&nbsp;次阅读量</span></span></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#go起源>go起源</a></li><li><a href=#环境相关>环境相关</a></li><li><a href=#主要特征>主要特征</a></li><li><a href=#内置类型与函数>内置类型与函数</a></li><li><a href=#init--main>init & main</a></li><li><a href=#go命令>go命令</a><ul><li><a href=#go-env>go env</a></li><li><a href=#go-run命令>go run命令</a></li><li><a href=#go-get>go get</a></li><li><a href=#go-build命令>go build命令</a></li><li><a href=#go-install>go install</a></li><li><a href=#go-clean命令>go clean命令</a></li><li><a href=#go-doc命令>go doc命令</a></li><li><a href=#go-test命令>go test命令</a><ul><li><a href=#基准测试获得代码内存占用和运行效率的性能数据>基准测试——获得代码内存占用和运行效率的性能数据</a></li></ul></li><li><a href=#go-list命令>go list命令</a></li><li><a href=#go-fix>go fix</a></li><li><a href=#go-vet>go vet</a></li><li><a href=#go-tool-pprof命令>go tool pprof命令</a></li><li><a href=#go-modules>go modules</a></li></ul></li><li><a href=#运算符>运算符</a></li><li><a href=#下划线>下划线</a></li><li><a href=#格式占位符>格式占位符%……</a></li><li><a href=#变量和常量>变量和常量</a></li><li><a href=#基本类型>基本类型</a></li><li><a href=#string>string：</a></li><li><a href=#数组>数组</a></li><li><a href=#切片>切片</a><ul><li><a href=#切片底层实现>切片底层实现</a></li><li><a href=#创建切片>创建切片</a><ul><li><a href=#空切片和nil切片>空切片和nil切片</a></li><li><a href=#扩容策略>扩容策略</a></li></ul></li><li><a href=#切片拷贝>切片拷贝</a></li></ul></li><li><a href=#指针>指针</a></li><li><a href=#map>map</a><ul><li><a href=#map实现原理>map实现原理</a></li><li><a href=#go中map的实现原理>go中map的实现原理</a></li><li><a href=#map与工厂模式>map与工厂模式</a></li></ul></li><li><a href=#set>set</a></li><li><a href=#结构体>结构体</a><ul><li><a href=#类型别名和自定义类型>类型别名和自定义类型</a></li></ul></li><li><a href=#结构体-1>结构体</a><ul><li><a href=#方法和接收者>方法和接收者</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=content id=content><blockquote><p>参考学习go语言中文网、C语言中文网、golang官方文档等
-关于Unicode和UTF-8：</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#前言>前言</a></li><li><a href=#go起源>go起源</a></li><li><a href=#环境相关>环境相关</a></li><li><a href=#主要特征>主要特征</a></li><li><a href=#内置类型与函数>内置类型与函数</a></li><li><a href=#init--main>init & main</a></li><li><a href=#go命令>go命令</a><ul><li><a href=#go-env>go env</a></li><li><a href=#go-run命令>go run命令</a></li><li><a href=#go-get>go get</a></li><li><a href=#go-build命令>go build命令</a></li><li><a href=#go-install>go install</a></li><li><a href=#go-clean命令>go clean命令</a></li><li><a href=#go-doc命令>go doc命令</a></li><li><a href=#go-test命令>go test命令</a><ul><li><a href=#基准测试获得代码内存占用和运行效率的性能数据>基准测试——获得代码内存占用和运行效率的性能数据</a></li></ul></li><li><a href=#go-list命令>go list命令</a></li><li><a href=#go-fix>go fix</a></li><li><a href=#go-vet>go vet</a></li><li><a href=#go-tool-pprof命令>go tool pprof命令</a><ul><li><a href=#runtimepprof>runtime/pprof</a></li><li><a href=#nethttppprof>net/http/pprof</a></li></ul></li><li><a href=#go-modules>go modules</a></li></ul></li><li><a href=#运算符>运算符</a></li><li><a href=#下划线>下划线</a></li><li><a href=#格式占位符>格式占位符%…</a></li><li><a href=#变量和常量>变量和常量</a></li><li><a href=#基本类型>基本类型</a></li><li><a href=#string>string：</a></li><li><a href=#数组>数组</a></li><li><a href=#列表list>列表list</a></li><li><a href=#切片>切片</a><ul><li><a href=#slice切片底层实现>slice切片底层实现</a></li><li><a href=#创建切片>创建切片</a><ul><li><a href=#空切片和nil切片>空切片和nil切片</a></li><li><a href=#扩容策略>扩容策略</a></li></ul></li><li><a href=#切片拷贝>切片拷贝</a></li></ul></li><li><a href=#指针>指针</a></li><li><a href=#map>map</a><ul><li><a href=#map实现原理>map实现原理</a></li><li><a href=#go中map的实现原理>go中map的实现原理</a></li><li><a href=#map与工厂模式>map与工厂模式</a></li></ul></li><li><a href=#set>set</a></li><li><a href=#结构体>结构体</a><ul><li><a href=#类型别名和自定义类型>类型别名和自定义类型</a></li><li><a href=#结构体-1>结构体</a><ul><li><a href=#方法和接收者>方法和接收者</a></li></ul></li></ul></li><li><a href=#高可用性服务设计>高可用性服务设计</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=content id=content><blockquote><p>参考学习go语言中文网、C语言中文网、golang官方文档等</p></blockquote><h2 id=前言>前言</h2><p>计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCII是<strong>简单字符集编码模型</strong>，定义了这个字符集里包含的字符以及其映射成的8位比特值。
+关于<strong>现代编码模型</strong>：</p><ul><li>一个字符如何映射成有限长度的比特值？<ul><li>需要表示字符的范围&ndash;<strong>字符表</strong>（character repertoire）</li><li>CR映射到一个整数集，称映射为<strong>编码字符集</strong>（coded character set），也就是Unicode的概念，那些整数称为码点（code point）</li><li>将CCS里的整数映射成有限长度的比特值，这个对应关系称为<strong>字符编码表</strong>（character encoding form），比如UTF-8，UTF-16。（Unicode Transformation Format，8或者16是指码元的大小，码元是一个已编码文本中具有最短的比特组合的单元，即最小单位是一个字节或者两个字节）</li></ul></li><li>UTF-8是完全兼容ASCII的，多字节表示一个字符时Unicode码点范围以及对应的bit组合：<ul><li>一字节：U+00~U+7F&mdash;&mdash;&mdash;&mdash;&ndash;UTF-8字节流（二进制）：0xxxxxxx</li><li>二字节：U+80~U+7FF&mdash;&mdash;&mdash;&mdash;-UTF-8字节流（二进制）：110xxxxx 10xxxxxx</li><li>三字节：U+800~U+7FFF&mdash;&mdash;&mdash;&ndash;UTF-8字节流（二进制）：1110xxxx 10xxxxxx 10xxxxxx</li><li>四字节：U+10000~U+10FFFF&mdash;&mdash;-UTF-8字节流（二进制）：11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</li><li>汉字大多是三字节</li></ul></li></ul><p>关于Unicode和UTF-8：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -70,7 +70,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 --- PASS: TestString (0.00s)
 PASS
 ok      code/code/ch9/string    0.514s
-</code></pre></td></tr></table></div></div><h2 id=go起源>go起源</h2><p>07年 三位大牛 解决三个困难：多核硬件架构、超大规模的分布式计算集群、如今使用的web开发模式导致的前所未有的开发规模和更新速度</p><h2 id=环境相关>环境相关</h2><p>go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用，挖个坑，今天填……</p><h2 id=主要特征>主要特征</h2><ol><li>自动立即回收。(自带GC)</li><li>更丰富的内置类型。</li><li>函数多返回值。</li><li>错误处理。</li><li>匿名函数和闭包。</li><li>类型和接口。</li><li>并发编程。</li><li>反射。</li><li>有复合，无继承（因为复合大于继承，干脆不要继承）</li></ol><p>Go的函数、变量、常量、自定义类型、包(package)的命名方式遵循以下规则：</p><ul><li>1）首字符可以是任意的Unicode字符（一种字符集，一个字符两个字节，表示包括了每种语言）或者下划线</li><li>2）剩余字符可以是Unicode字符、下划线、数字</li><li>3）字符长度不限</li></ul><p>25关键字：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h2 id=go起源>go起源</h2><p>07年 三位大牛 解决三个困难：多核硬件架构、超大规模的分布式计算集群、如今使用的web开发模式导致的前所未有的开发规模和更新速度</p><h2 id=环境相关>环境相关</h2><p>go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用，挖个坑</p><h2 id=主要特征>主要特征</h2><ol><li>自动立即回收。(自带GC)</li><li>更丰富的内置类型。</li><li>函数多返回值。</li><li>错误处理。</li><li>匿名函数和闭包。</li><li>类型和接口。</li><li>并发编程。</li><li>反射。</li><li>有复合，无继承（因为复合大于继承，干脆不要继承）</li></ol><p>Go的函数、变量、常量、自定义类型、包(package)的命名方式遵循以下规则：</p><ul><li>1）首字符可以是任意的Unicode字符（一种字符集，一个字符两个字节，表示包括了每种语言）或者下划线</li><li>2）剩余字符可以是Unicode字符、下划线、数字</li><li>3）字符长度不限</li></ul><p>25关键字：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -164,9 +164,11 @@ ok      code/code/ch9/string    0.514s
 </code></pre></td></tr></table></div></div><p><strong>引用类型</strong>（声明的同时需要分配内存空间，不然会引发panic，分配内存可以用new或者make）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
+</span><span class=lnt>4
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=nx>slice</span>
 <span class=kd>map</span>
 <span class=kd>chan</span>
+<span class=err>…</span><span class=err>…</span>
 </code></pre></td></tr></table></div></div><p>内置函数（无需导入即可使用）:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -190,10 +192,10 @@ ok      code/code/ch9/string    0.514s
 <span class=nx>make</span>            <span class=o>--</span> <span class=nx>用来分配内存</span><span class=err>，</span><span class=nx>返回Type本身</span><span class=p>(</span><span class=nx>只能应用于slice</span><span class=p>,</span> <span class=kd>map</span><span class=p>,</span> <span class=nx>channel</span><span class=p>)</span> <span class=nx>make</span> <span class=nx>函数允许在运行期动态指定数组长度</span><span class=err>，</span><span class=nx>绕开了数组类型必须使用编译期常量的限制</span><span class=err>。</span>
 <span class=nx>new</span>                <span class=o>--</span> <span class=nx>用来分配内存</span><span class=err>，</span><span class=nx>主要用来分配值类型</span><span class=err>，</span><span class=nx>比如int</span><span class=err>、</span><span class=kd>struct</span><span class=err>。</span><span class=nx>返回指向Type的指针</span>
 <span class=nx>cap</span>                <span class=o>--</span> <span class=nx>capacity是容量的意思</span><span class=err>，</span><span class=nx>用于返回某个类型的最大容量</span><span class=err>（</span><span class=nx>只能用于切片和</span> <span class=kd>map</span><span class=err>）</span>
-<span class=nx>copy</span>            <span class=o>--</span> <span class=nx>用于复制和连接slice</span><span class=err>，</span><span class=nx>返回复制的数目</span>
+<span class=nx>copy</span>            <span class=o>--</span> <span class=nx>用于复制和连接slice</span><span class=err>，</span><span class=nx>返回复制的数目</span><span class=err>，</span><span class=nb>copy</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span><span class=nx>b</span><span class=p>)</span> <span class=nx>只有</span> <span class=nf>min</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=nx>a</span><span class=p>)</span><span class=p>,</span><span class=nb>len</span><span class=p>(</span><span class=nx>b</span><span class=p>)</span><span class=p>)</span><span class=nx>个元素会被成功拷贝</span><span class=err>。</span>
 <span class=nx>len</span>                <span class=o>--</span> <span class=nx>用来求长度</span><span class=err>，</span><span class=nx>比如string</span><span class=err>、</span><span class=nx>array</span><span class=err>、</span><span class=nx>slice</span><span class=err>、</span><span class=kd>map</span><span class=err>、</span><span class=nx>channel</span> <span class=err>，</span><span class=nx>返回长度</span>
 <span class=nx>print</span><span class=err>、</span><span class=nx>println</span>     <span class=o>--</span> <span class=nx>底层打印函数</span><span class=err>，</span><span class=nx>在部署环境中建议使用</span> <span class=nx>fmt</span> <span class=nx>包</span>
-</code></pre></td></tr></table></div></div><p>内直接口error：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p>内置接口error：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=kt>error</span> <span class=kd>interface</span> <span class=p>{</span> <span class=c1>//只要实现了Error()函数，返回值为String的都实现了err接口（鸭子类型）
@@ -209,7 +211,7 @@ ok      code/code/ch9/string    0.514s
     <span class=c1>//通过os.Args获取参数eg:os.Args[0]
 </span><span class=c1></span>    <span class=c1>//不支持返回值，可以通过os.Exit()来返回状态
 </span><span class=c1></span><span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>init函数和main函数的异同：</p><ul><li>同<ul><li>两个函数在定义时不能有任何的参数和返回值，且Go程序自动调用。</li></ul></li><li>异<ul><li>init可以应用于任意包中，且可以重复定义多个。</li><li>main函数只能用于main包中，且只能定义一个。</li></ul></li></ul><p>执行顺序：</p><ul><li>对同一个go文件的init()调用顺序是从上到下的。</li><li>对同一个package中不同文件是按<strong>文件名字符串比较“从小到大”顺序</strong>调用各文件中的init()函数。</li><li>对于不同的package，如果不相互依赖的话，按照main包中”先import的后调用”的顺序调用其包中的init()，如果package存在依赖，则先调用最早被依赖的package中的init()，最后调用main函数。</li><li>如果init函数中使用了println()或者print()你会发现在执行过程中这两个不会按照你想象中的顺序执行。这两个函数官方只推荐在测试环境中使用，对于正式环境不要使用。</li></ul><h2 id=go命令>go命令</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>init函数和main函数的异同：</p><ul><li>同<ul><li>两个函数在定义时不能有任何的参数和返回值，且Go程序自动调用。</li></ul></li><li>异<ul><li>init可以应用于任意包中，且可以重复定义多个。</li><li>main函数只能用于main包中，且只能定义一个。</li></ul></li></ul><p>init()执行顺序：</p><ul><li>对同一个go文件的init()调用顺序是从上到下的。</li><li>对同一个package中不同文件是按<strong>文件名字符串比较“从小到大”顺序</strong>调用各文件中的init()函数。</li><li>对于不同的package，如果不相互依赖的话，按照main包中”先import的后调用”的顺序调用其包中的init()，如果package存在依赖，则先调用最早被依赖的package中的init()，最后调用main函数。</li><li>同一个包被多次调用只会执行一次init()函数</li><li>如果init函数中使用了println()或者print()你会发现在执行过程中这两个不会按照你想象中的顺序执行。这两个函数官方只推荐在测试环境中使用，对于正式环境不要使用。</li></ul><h2 id=go命令>go命令</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -322,7 +324,7 @@ ok      code/code/ch9/string    0.514s
 -cover 开启测试覆盖率；
 -run regexp 只运行 regexp 匹配的函数，例如 -run=Array 那么就执行包含有 Array 开头的函数；
 -v 显示测试的详细命令。
-</code></pre></td></tr></table></div></div><p>单元测试源码文件可以由多个测试用例组成，每个测试用例函数需要以Test为前缀。测试用例文件不会参与正常源码编译，不会被包含到可执行文件中。测试用例文件使用go test指令来执行，没有也不需要 main() 作为函数入口。所有在以_test结尾的源码内以Test开头的函数会自动被执行。测试用例可以不传入 *testing.T 参数。</p><p>运行指定示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p>单元测试源码文件可以由多个测试用例组成，每个测试用例函数需要以Test为前缀。**测试用例文件不会参与正常源码编译，不会被包含到可执行文件中。**测试用例文件使用go test指令来执行，没有也不需要 main() 作为函数入口。所有在以_test结尾的源码内以Test开头的函数会自动被执行。测试用例可以不传入 *testing.T 参数。单元（功能）测试以testing.T为参数，性能（压力）测试以testing.B为参数。</p><p>运行指定示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -347,6 +349,62 @@ Error	打印错误日志
 Errorf	格式化打印错误日志
 Fatal	打印致命日志
 Fatalf	格式化打印致命日志
+</code></pre></td></tr></table></div></div><p>单元测试使用示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=c1>//demo.go
+</span><span class=c1></span><span class=kn>package</span> <span class=nx>demo</span>
+<span class=c1>// 冒泡排序
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>BubbleSort</span><span class=p>(</span><span class=nx>list</span> <span class=p>[</span><span class=p>]</span><span class=kt>int</span><span class=p>)</span> <span class=p>[</span><span class=p>]</span><span class=kt>int</span> <span class=p>{</span>
+	<span class=nx>n</span> <span class=o>:=</span> <span class=nb>len</span><span class=p>(</span><span class=nx>list</span><span class=p>)</span>
+	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=nx>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&gt;</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span><span class=o>--</span> <span class=p>{</span>
+		<span class=k>for</span> <span class=nx>j</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span> <span class=p>&lt;</span> <span class=nx>i</span><span class=p>;</span> <span class=nx>j</span><span class=o>++</span> <span class=p>{</span>
+			<span class=k>if</span> <span class=nx>list</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=p>&gt;</span> <span class=nx>list</span><span class=p>[</span><span class=nx>j</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=p>{</span>
+				<span class=nx>list</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span><span class=p>,</span> <span class=nx>list</span><span class=p>[</span><span class=nx>j</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=p>=</span> <span class=nx>list</span><span class=p>[</span><span class=nx>j</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span><span class=p>,</span> <span class=nx>list</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span>
+			<span class=p>}</span>
+		<span class=p>}</span>
+	<span class=p>}</span>
+	<span class=k>return</span> <span class=nx>list</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=c1>//demo_test.go
+</span><span class=c1></span><span class=kn>package</span> <span class=nx>demo</span>
+<span class=kn>import</span> <span class=s>&#34;testing&#34;</span>
+<span class=kd>func</span> <span class=nf>TestBubbleSort</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>area</span> <span class=o>:=</span> <span class=nf>BubbleSort</span><span class=p>(</span><span class=p>[</span><span class=p>]</span><span class=nx>list</span><span class=p>{</span><span class=mi>2</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>65</span><span class=p>,</span><span class=mi>13</span><span class=p>,</span><span class=mi>22</span><span class=p>}</span><span class=p>)</span>
+    <span class=k>if</span> <span class=nx>area</span> <span class=o>!=</span> <span class=p>{</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>13</span><span class=p>,</span><span class=mi>22</span><span class=p>,</span><span class=mi>65</span><span class=p>}</span> <span class=p>{</span>
+        <span class=nx>t</span><span class=p>.</span><span class=nf>Error</span><span class=p>(</span><span class=s>&#34;测试失败&#34;</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>执行：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>PS D:\code&gt; go test -v
+=== RUN   TestGetArea
+--- PASS: TestGetArea (0.00s)
+PASS
+ok      _/D_/code       0.435s
 </code></pre></td></tr></table></div></div><h4 id=基准测试获得代码内存占用和运行效率的性能数据>基准测试——获得代码内存占用和运行效率的性能数据</h4><p>使用者无须准备高精度的计时器和各种分析工具，基准测试本身即可以打印出非常标准的测试报告。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -437,7 +495,83 @@ ok          command-line-arguments        2.311s
         <span class=nx>n</span><span class=o>++</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>从 Benchmark() 函数开始，Timer 就开始计数。计数器内部不仅包含耗时数据，还包括内存分配的数据。</p><h3 id=go-list命令>go list命令</h3><p>作用是列出指定的代码包的信息。</p><h3 id=go-fix>go fix</h3><p>会把指定代码包的所有Go语言源码文件中的旧版本代码修正为新版本的代码。</p><h3 id=go-vet>go vet</h3><p>是一个用于检查Go语言源码中静态错误的简单工具。</p><h3 id=go-tool-pprof命令>go tool pprof命令</h3><p>交互式的访问概要文件的内容。</p><h3 id=go-modules>go modules</h3><p>go modules 是 golang 1.11 新加的特性</p><ul><li>go<ul><li>download<ul><li>download modules to local cache(下载依赖包)</li></ul></li><li>edit<ul><li>edit go.mod from tools or scripts（编辑go.mod）</li></ul></li><li>graph<ul><li>print module requirement graph (打印模块依赖图)</li></ul></li><li>init<ul><li>initialize new module in current directory（在当前目录初始化mod）</li></ul></li><li>tidy<ul><li>add missing and remove unused modules(拉取缺少的模块，移除不用的模块)</li></ul></li><li>vendor<ul><li>make vendored copy of dependencies(将依赖复制到vendor下)</li></ul></li><li>verify<ul><li>verify dependencies have expected content (验证依赖是否正确</li></ul></li><li>why<ul><li>explain why packages or modules are needed(解释为什么需要依赖)</li></ul></li></ul></li><li>go.mod文件一旦创建后，它的内容将会被go toolchain全面掌控。go toolchain会在各类命令执行时，比如go get、go build、go mod等修改和维护go.mod文件。</li></ul><h2 id=运算符>运算符</h2><p>Go 语言内置的运算符有：</p><ul><li>算术运算符<ul><li>++ &ndash;<em><em>只有后置的，没有前置的</em>，只作为语句，不作为表达式</em>*</li></ul></li><li>关系运算符</li><li>逻辑运算符</li><li>位运算符<ul><li><strong>按位置零运算符 x &^ y &mdash;&mdash;如果y非零，则z为0；如果y为零，则z为x</strong></li></ul></li><li>赋值运算符（<strong>一个赋值语句可以给多个变量进行赋值，多重赋值时，变量的左值和右值按从左到右的顺序赋值。多重赋值在 Go 语言的错误处理和函数返回值中会大量地使用。</strong>）<ul><li>= 简单的赋值运算符，将一个表达式的值赋给一个左值</li><li>+= 相加后再赋值</li><li>-= 相减后再赋值</li><li>*= 相乘后再赋值</li><li>/= 相除后再赋值</li><li>%= 求余后再赋值</li><li>&#171;= 左移后赋值</li><li>>>= 右移后赋值</li><li>&= 按位与后赋值</li><li>l= 按位或后赋值</li><li>^= 按位异或后赋值</li></ul></li></ul><h2 id=下划线>下划线</h2><p>“_”是特殊标识符，用来忽略结果。</p><ul><li>下划线在import中<ul><li>import 下划线（如：import _ hello/imp）的作用：当导入一个包时，该包下的文件里所有init()函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行init()函数而已。这个时候就可以使用 import _ 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数。</li></ul></li><li>下划线在代码中<ul><li>作为占位符</li></ul></li></ul><h2 id=格式占位符>格式占位符%……</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>从 Benchmark() 函数开始，Timer 就开始计数。计数器内部不仅包含耗时数据，还包括内存分配的数据。</p><h3 id=go-list命令>go list命令</h3><p>作用是列出指定的代码包的信息。</p><h3 id=go-fix>go fix</h3><p>会把指定代码包的所有Go语言源码文件中的旧版本代码修正为新版本的代码。</p><h3 id=go-vet>go vet</h3><p>是一个用于检查Go语言源码中静态错误的简单工具。</p><h3 id=go-tool-pprof命令>go tool pprof命令</h3><p>交互式的访问概要文件的内容。监测进程的运行数据，用于监控程序的性能，对内存使用和CPU使用的情况统信息进行分析。官方提供了两个包：runtime/pprof和net/http/pprof，前者用于普通代码的性能分析，后者用于web服务器的性能分析。</p><h4 id=runtimepprof>runtime/pprof</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>PS D:\Go\Go_WorkSpace\go_learning-master\code\ch46\tools\file&gt; go tool pprof prof cpu.prof
+prof: open prof: The system cannot find the file specified.
+Fetched 1 source profiles out of 2
+Type: cpu
+Time: Mar 10, 2022 at 10:41am (CST)
+Duration: 2.77s, Total samples = 1.70s (61.39%)
+Entering interactive mode (type &#34;help&#34; for commands, &#34;o&#34; for options)
+(pprof) top
+Showing nodes accounting for 1.67s, 98.24% of 1.70s total
+Showing top 10 nodes out of 34
+      flat  flat%   sum%        cum   cum%
+     0.49s 28.82% 28.82%      1.62s 95.29%  main.fillMatrix
+     0.35s 20.59% 49.41%      1.13s 66.47%  math/rand.(*Rand).Intn
+     0.33s 19.41% 68.82%      0.78s 45.88%  math/rand.(*Rand).Int31n
+     0.14s  8.24% 77.06%      0.14s  8.24%  math/rand.(*rngSource).Uint64 (inline)
+     0.13s  7.65% 84.71%      0.45s 26.47%  math/rand.(*Rand).Int31 (inline)
+     0.10s  5.88% 90.59%      0.24s 14.12%  math/rand.(*rngSource).Int63
+     0.08s  4.71% 95.29%      0.32s 18.82%  math/rand.(*Rand).Int63
+     0.02s  1.18% 96.47%      0.02s  1.18%  main.calculate
+     0.02s  1.18% 97.65%      0.02s  1.18%  runtime.stdcall1
+     0.01s  0.59% 98.24%      0.01s  0.59%  runtime.lock2
+(pprof) list fillMatrix
+Total: 1.70s
+ROUTINE ======================== main.fillMatrix in D:\go\Go_WorkSpace\go_learning-master\code\ch46\tools\file\prof.go
+     490ms      1.62s (flat, cum) 95.29% of Total
+         .          .     16:
+         .          .     17:func fillMatrix(m *[row][col]int) {
+         .          .     18:   s := rand.New(rand.NewSource(time.Now().UnixNano()))
+         .          .     19:
+         .          .     20:   for i := 0; i &lt; row; i++ {
+      20ms       20ms     21:           for j := 0; j &lt; col; j++ {
+     470ms      1.60s     22:                   m[i][j] = s.Intn(100000)
+         .          .     23:           }
+         .          .     24:   }
+         .          .     25:}
+         .          .     26:
+         .          .     27:func calculate(m *[row][col]int) {
+(pprof) 
+</code></pre></td></tr></table></div></div><p>top/tree/web</p><ul><li>top [n]，查看排名前n个数据，默认为10。（这个函数本身占用的时间，以及这个函数包括调用其他函数的时间）</li><li>tree [n]，以树状图形式显示，默认显示10个。</li></ul><h4 id=nethttppprof>net/http/pprof</h4><h3 id=go-modules>go modules</h3><p>go modules 是 golang 1.11 新加的特性</p><ul><li>go<ul><li>download<ul><li>download modules to local cache(下载依赖包)</li></ul></li><li>edit<ul><li>edit go.mod from tools or scripts（编辑go.mod）</li></ul></li><li>graph<ul><li>print module requirement graph (打印模块依赖图)</li></ul></li><li>init<ul><li>initialize new module in current directory（在当前目录初始化mod）</li></ul></li><li>tidy<ul><li>add missing and remove unused modules(拉取缺少的模块，移除不用的模块)</li></ul></li><li>vendor<ul><li>make vendored copy of dependencies(将依赖复制到vendor下)</li></ul></li><li>verify<ul><li>verify dependencies have expected content (验证依赖是否正确</li></ul></li><li>why<ul><li>explain why packages or modules are needed(解释为什么需要依赖)</li></ul></li></ul></li><li>go.mod文件一旦创建后，它的内容将会被go toolchain全面掌控。go toolchain会在各类命令执行时，比如go get、go build、go mod等修改和维护go.mod文件。</li></ul><h2 id=运算符>运算符</h2><p>Go 语言内置的运算符有：</p><ul><li>算术运算符<ul><li>++ <strong>只有后置的，没有前置的，只作为语句，不作为表达式</strong></li></ul></li><li>关系运算符</li><li>逻辑运算符</li><li>位运算符<ul><li><strong>按位置零运算符 x &^ y &mdash;&mdash;如果y非零，则z为0；如果y为零，则z为x（先非再与）</strong></li></ul></li><li>赋值运算符（<strong>一个赋值语句可以给多个变量进行赋值，多重赋值时，变量的左值和右值按从左到右的顺序赋值。多重赋值在 Go 语言的错误处理和函数返回值中会大量地使用。</strong>）<ul><li>= 简单的赋值运算符，将一个表达式的值赋给一个左值</li><li>+= 相加后再赋值</li><li>-= 相减后再赋值</li><li>*= 相乘后再赋值</li><li>/= 相除后再赋值</li><li>%= 求余后再赋值</li><li>&#171;= 左移后赋值</li><li>>>= 右移后赋值</li><li>&= 按位与后赋值</li><li>l= 按位或后赋值</li><li>^= 按位异或后赋值</li></ul></li></ul><h2 id=下划线>下划线</h2><p>“_”是特殊标识符，用来忽略结果。</p><ul><li>下划线在import中<ul><li>import 下划线（如：import _ hello/imp）的作用：当导入一个包时，该包下的文件里所有init()函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行init()函数而已。这个时候就可以使用 import _ 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数。</li><li>注意区别于.在import中，它是指import进来的package里的所有的方法是在当前的名字空间的，使用其方法时直接使用即可。</li></ul></li><li>下划线在代码中<ul><li>作为占位符</li></ul></li></ul><h2 id=格式占位符>格式占位符%…</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -494,6 +628,7 @@ ok          command-line-arguments        2.311s
 </span><span class=lnt>55
 </span><span class=lnt>56
 </span><span class=lnt>57
+</span><span class=lnt>58
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=nx>普通占位符</span>
 <span class=nx>占位符</span>     <span class=nx>说明</span>                           <span class=nx>举例</span>                   <span class=nx>输出</span>
 <span class=o>%</span><span class=nx>v</span>      <span class=nx>相应值的默认格式</span><span class=err>。</span>            <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%v&#34;</span><span class=p>,</span> <span class=nx>people</span><span class=p>)</span>   <span class=p>{</span><span class=nx>zhangsan</span><span class=p>}</span><span class=err>，</span>
@@ -511,11 +646,12 @@ ok          command-line-arguments        2.311s
 <span class=o>%</span><span class=nx>b</span>      <span class=nx>二进制表示</span>                             <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%b&#34;</span><span class=p>,</span> <span class=mi>5</span><span class=p>)</span>             <span class=mi>101</span>
 <span class=o>%</span><span class=nx>c</span>      <span class=nx>相应Unicode码点所表示的字符</span>              <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%c&#34;</span><span class=p>,</span> <span class=mh>0x4E2D</span><span class=p>)</span>        <span class=nx>中</span>
 <span class=o>%</span><span class=nx>d</span>      <span class=nx>十进制表示</span>                             <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=mh>0x12</span><span class=p>)</span>          <span class=mi>18</span>
-<span class=o>%</span><span class=nx>o</span>      <span class=nx>八进制表示</span>                             <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>            <span class=mi>12</span>
+<span class=o>%</span><span class=nx>o</span>      <span class=nx>八进制表示</span>                             <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%o&#34;</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>            <span class=mi>12</span>
 <span class=o>%</span><span class=nx>q</span>      <span class=nx>单引号围绕的字符字面值</span><span class=err>，</span><span class=nx>由Go语法安全地转义</span> <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%q&#34;</span><span class=p>,</span> <span class=mh>0x4E2D</span><span class=p>)</span>        <span class=sc>&#39;中&#39;</span>
 <span class=o>%</span><span class=nx>x</span>      <span class=nx>十六进制表示</span><span class=err>，</span><span class=nx>字母形式为小写</span> <span class=nx>a</span><span class=o>-</span><span class=nx>f</span>         <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%x&#34;</span><span class=p>,</span> <span class=mi>13</span><span class=p>)</span>             <span class=nx>d</span>
 <span class=o>%</span><span class=nx>X</span>      <span class=nx>十六进制表示</span><span class=err>，</span><span class=nx>字母形式为大写</span> <span class=nx>A</span><span class=o>-</span><span class=nx>F</span>         <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%x&#34;</span><span class=p>,</span> <span class=mi>13</span><span class=p>)</span>             <span class=nx>D</span>
-<span class=o>%</span><span class=nx>U</span>      <span class=nx>Unicode格式</span><span class=err>：</span><span class=nx>U</span><span class=o>+</span><span class=mi>1234</span><span class=err>，</span><span class=nx>等同于</span> <span class=s>&#34;U+%04X&#34;</span>   <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%U&#34;</span><span class=p>,</span> <span class=mh>0x4E2D</span><span class=p>)</span>         <span class=nx>U</span><span class=o>+</span><span class=mf>4E2</span><span class=nx>D</span>
+<span class=o>%</span><span class=nx>U</span>      <span class=nx>Unicode格式</span><span class=err>：</span><span class=nx>U</span><span class=o>+</span><span class=mi>1234</span><span class=err>，</span><span class=nx>等同于</span> <span class=s>&#34;U+%04X&#34;</span>   
+<span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%U&#34;</span><span class=p>,</span> <span class=mh>0x4E2D</span><span class=p>)</span>         <span class=nx>U</span><span class=o>+</span><span class=mf>4E2</span><span class=nx>D</span>
 
 <span class=nx>浮点数和复数的组成部分</span><span class=err>（</span><span class=nx>实部和虚部</span><span class=err>）</span>
 <span class=nx>占位符</span>     <span class=nx>说明</span>                              <span class=nx>举例</span>            <span class=nx>输出</span>
@@ -597,7 +733,7 @@ ok          command-line-arguments        2.311s
 </span><span class=c1></span>            <span class=nx>c</span><span class=p>,</span> <span class=nx>d</span>                      <span class=c1>//2,3
 </span><span class=c1></span>            <span class=nx>e</span><span class=p>,</span> <span class=nx>f</span>                      <span class=c1>//3,4
 </span><span class=c1></span>        <span class=p>)</span>
-</code></pre></td></tr></table></div></div><h2 id=基本类型>基本类型</h2><table><thead><tr><th align=left>类型</th><th align=left>长度(字节)</th><th align=left>默认值</th><th align=left>说明</th></tr></thead><tbody><tr><td align=left>bool</td><td align=left>1</td><td align=left><strong>false</strong></td><td></td></tr><tr><td align=left>byte</td><td align=left>1</td><td align=left>0</td><td align=left>uint8，一个ASCII字符</td></tr><tr><td align=left>rune</td><td align=left>4</td><td align=left>0</td><td align=left>Unicode Code Point，int32，一个utf-8字符,<strong>c:=[]rune(s)//指将字符串s转化为rune的切片</strong></td></tr><tr><td align=left>int, uint</td><td align=left>4或8</td><td align=left>0</td><td align=left>由操作系统位数(32/64)决定</td></tr><tr><td align=left>int8, uint8</td><td align=left>1</td><td align=left>0</td><td align=left>-128 ~ 127, 0 ~ 255，<strong>byte是uint8 的别名</strong></td></tr><tr><td align=left>int16, uint16</td><td align=left>2</td><td align=left>0</td><td align=left>-32768 ~ 32767, 0 ~ 65535</td></tr><tr><td align=left>int32, uint32</td><td align=left>4</td><td align=left>0</td><td align=left>-21亿~ 21亿, 0 ~ 42亿，<strong>rune是int32 的别名</strong></td></tr><tr><td align=left>int64, uint64</td><td align=left>8</td><td align=left>0</td><td></td></tr><tr><td align=left>float32</td><td align=left>4</td><td align=left>0.0</td><td></td></tr><tr><td align=left>float64</td><td align=left>8</td><td align=left>0.0</td><td></td></tr><tr><td align=left>complex64</td><td align=left>8</td><td></td><td></td></tr><tr><td align=left>complex128</td><td align=left>16</td><td></td><td></td></tr><tr><td align=left>uintptr</td><td align=left>4或8</td><td align=left></td><td align=left>以存储指针的 uint32 或 uint64 整数</td></tr><tr><td align=left>array</td><td align=left></td><td align=left></td><td align=left>值类型</td></tr><tr><td align=left>struct</td><td align=left></td><td align=left></td><td align=left>值类型</td></tr><tr><td align=left>string</td><td align=left></td><td align=left>“”</td><td align=left>UTF-8 字符串</td></tr><tr><td align=left>slice</td><td align=left></td><td align=left>nil</td><td align=left>引用类型</td></tr><tr><td align=left>map</td><td align=left></td><td align=left>nil</td><td align=left>引用类型</td></tr><tr><td align=left>channel</td><td align=left></td><td align=left>nil</td><td align=left>引用类型</td></tr><tr><td align=left>interface</td><td align=left></td><td align=left>nil</td><td align=left>接口</td></tr><tr><td align=left>function</td><td align=left></td><td align=left>nil</td><td align=left>函数</td></tr></tbody></table><ul><li>uintptr 实际上就是一个 uint 用来表示地址，go 的指针和 c 不一样不能进行偏移操作，如果非要偏移的话就需要 unsafe.Pointer 和 uintptr 配合来实现。uintptr 不是一个指针 所以 GC 时也不会处理 uintptr 的引用。如果不涉及地址偏移时没有必要使用 uintptr 。&mdash;&mdash;<a href=https://www.zhihu.com/question/439659823 target=_blank rel="noopener noreffer">来自知乎回答</a></li><li>标准库 math 定义了各数字类型取值范围。</li><li>空指针值 nil，而非C/C++ NULL。golang中有多种引用类型：pointer、interface、slice、map、channel、function。go作为一个强类型语言，不同引用类型的判空（nil）规则是不同的；比如：interface的判空规则是，需要判断类型和值是否都为nil(interface的底层是有类型和值构成的)slice的判空，需要判断slice引用底层数组的指针为空，容量和size均为0。</li><li>不允许将整型强制转换为布尔型。</li><li>字符串的内部实现使用UTF-8编码。（UTF-8是Unicode的存储实现，转化为字节序列的规则）</li><li>只有显示类型转化。</li></ul><h2 id=string>string：</h2><p>值类型，空值是空字符串而不是nil。本质就是个只读的（不可变的）byte切片。</p><ul><li>多行字符串，用反引号`</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h2 id=基本类型>基本类型</h2><table><thead><tr><th align=left>类型</th><th align=left>长度(字节)</th><th align=left>默认值</th><th align=left>说明</th></tr></thead><tbody><tr><td align=left>bool</td><td align=left>1</td><td align=left><strong>false</strong></td><td></td></tr><tr><td align=left>byte</td><td align=left>1</td><td align=left>0</td><td align=left>uint8，一个ASCII字符</td></tr><tr><td align=left>rune</td><td align=left>4</td><td align=left>0</td><td align=left>Unicode Code Point，int32，一个utf-8字符,<strong>c:=[]rune(s)//指将字符串s转化为rune的切片</strong></td></tr><tr><td align=left>int, uint</td><td align=left>4或8</td><td align=left>0</td><td align=left>由操作系统位数(32/64)决定</td></tr><tr><td align=left>int8, uint8</td><td align=left>1</td><td align=left>0</td><td align=left>-128 ~ 127, 0 ~ 255，<strong>byte是uint8 的别名</strong></td></tr><tr><td align=left>int16, uint16</td><td align=left>2</td><td align=left>0</td><td align=left>-32768 ~ 32767, 0 ~ 65535</td></tr><tr><td align=left>int32, uint32</td><td align=left>4</td><td align=left>0</td><td align=left>-21亿~ 21亿, 0 ~ 42亿，<strong>rune是int32 的别名</strong></td></tr><tr><td align=left>int64, uint64</td><td align=left>8</td><td align=left>0</td><td></td></tr><tr><td align=left>float32</td><td align=left>4</td><td align=left>0.0</td><td></td></tr><tr><td align=left>float64</td><td align=left>8</td><td align=left>0.0</td><td></td></tr><tr><td align=left>complex64</td><td align=left>8</td><td></td><td></td></tr><tr><td align=left>complex128</td><td align=left>16</td><td></td><td></td></tr><tr><td align=left>uintptr</td><td align=left>4或8</td><td align=left></td><td align=left>以存储指针的 uint32 或 uint64 整数</td></tr><tr><td align=left>array</td><td align=left></td><td align=left></td><td align=left>值类型</td></tr><tr><td align=left>struct</td><td align=left></td><td align=left></td><td align=left>值类型</td></tr><tr><td align=left>string</td><td align=left></td><td align=left>“”</td><td align=left>UTF-8 字符串</td></tr><tr><td align=left>slice</td><td align=left></td><td align=left>nil</td><td align=left>引用类型</td></tr><tr><td align=left>map</td><td align=left></td><td align=left>nil</td><td align=left>引用类型</td></tr><tr><td align=left>channel</td><td align=left></td><td align=left>nil</td><td align=left>引用类型</td></tr><tr><td align=left>interface</td><td align=left></td><td align=left>nil</td><td align=left>接口</td></tr><tr><td align=left>function</td><td align=left></td><td align=left>nil</td><td align=left>函数</td></tr></tbody></table><ul><li>uintptr 实际上就是一个 uint 用来表示地址，go 的指针和 c 不一样不能进行偏移操作，如果非要偏移的话就需要 unsafe.Pointer 和 uintptr 配合来实现。uintptr 不是一个指针 所以 GC 时也不会处理 uintptr 的引用。如果不涉及地址偏移时没有必要使用 uintptr 。&mdash;&mdash;<a href=https://www.zhihu.com/question/439659823 target=_blank rel="noopener noreffer">来自知乎回答</a></li><li>标准库 math 定义了各数字类型取值范围。</li><li>空指针值 nil，而非C/C++ NULL。golang中有多种引用类型：pointer、interface、slice、map、channel、function。go作为一个强类型语言（类型是定义好的无法改变，不像c，你定义一个short可以当成char用，因为可以直接操作内存），不同引用类型的判空（nil）规则是不同的；比如：interface的判空规则是，需要判断类型和值是否都为nil(interface的底层是有类型和值构成的)slice的判空，需要判断slice引用底层数组的指针为空，容量和size均为0。</li><li>不允许将整型强制转换为布尔型。</li><li>字符串的内部实现使用UTF-8编码。（UTF-8是Unicode的存储实现，转化为有限长度比特组合的规则）</li><li>只有显示类型转化。</li></ul><h2 id=string>string：</h2><p>值类型，空值是空字符串而不是nil。本质就是个只读的（不可变的）byte切片。</p><ul><li>多行字符串，用反引号`</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -637,7 +773,44 @@ ok          command-line-arguments        2.311s
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>74(J) 101(e) 70(F) 111(o) 231(ç) 154() 132(
                                            ) 229(å) 141() 154() 229(å) 174(®) 162(¢) 
 74(J) 101(e) 70(F) 111(o) 30340(的) 21338(博) 23458(客)
-</code></pre></td></tr></table></div></div><p>修改字符串：</p><ul><li>要修改字符串，需要先将其转换成[]rune或[]byte，完成后再转换为string。无论哪种转换，<strong>都会重新分配内存，并复制字节数组。</strong></li></ul><h2 id=数组>数组</h2><ul><li>数组可以通过下标进行访问，下标是从0开始，最后一个元素下标是：len-1</li><li>支持 &ldquo;==&rdquo;、"!=&rdquo; 操作符，因为内存总是被初始化过的。<ul><li>相同类型的数组之间可以使用 == 或 != 进行比较，但不可以使用 &lt; 或 >，也可以相互赋值。</li><li>长度不同类型也不同。</li></ul></li><li>指针数组 [n]*T，数组指针 *[n]T。</li><li>多维数组除了第一维，初始化时都不能用[&mldr;]省略长度声明。</li><li>值拷贝行为会造成性能问题，通常会建议使用 slice，或数组指针。</li></ul><h2 id=切片>切片</h2><p>只能和nil进行比较。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p>修改字符串：</p><ul><li>要修改字符串，需要先将其转换成[]rune或[]byte，完成后再转换为string。无论哪种转换，<strong>都会重新分配内存，并复制字节数组。</strong></li></ul><h2 id=数组>数组</h2><ul><li>数组可以通过下标进行访问，下标是从0开始，最后一个元素下标是：len-1</li><li>支持 &ldquo;==&rdquo;、"!=&rdquo; 操作符，因为内存总是被初始化过的。<ul><li>相同类型的数组之间可以使用 == 或 != 进行比较，但不可以使用 &lt; 或 >，也可以相互赋值。</li><li>长度不同类型也不同。</li></ul></li><li>指针数组 [n]*T，数组指针 *[n]T。</li><li>多维数组除了第一维，初始化时都不能用[&mldr;]省略长度声明。</li><li>值拷贝行为会造成性能问题，通常会建议使用 slice，或数组指针。</li></ul><h2 id=列表list>列表list</h2><p>初始化：</p><ul><li>通过 container/list 包的 New() 函数初始化 list。变量名 := list.New()</li><li>通过 var 关键字声明初始化 list 。var 变量名 list.List
+列表与切片和 map 不同的是，列表并没有具体元素类型的限制，因此，列表的元素可以是任意类型，这既带来了便利，也引来一些问题，例如给列表中放入了一个 interface{} 类型的值，取出值后，如果要将 interface{} 转换为其他类型将会发生宕机。</li></ul><p>源码数据结构：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>Element</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=c1>// Next and previous pointers in the doubly-linked list of elements.
+</span><span class=c1></span>	<span class=c1>// To simplify the implementation, internally a list l is implemented
+</span><span class=c1></span>	<span class=c1>// as a ring, such that &amp;l.root is both the next element of the last
+</span><span class=c1></span>	<span class=c1>// list element (l.Back()) and the previous element of the first list
+</span><span class=c1></span>	<span class=c1>// element (l.Front()).
+</span><span class=c1></span>	<span class=nx>next</span><span class=p>,</span> <span class=nx>prev</span> <span class=o>*</span><span class=nx>Element</span>
+
+	<span class=c1>// The list to which this element belongs.
+</span><span class=c1></span>	<span class=nx>list</span> <span class=o>*</span><span class=nx>List</span>
+
+	<span class=c1>// The value stored with this element.
+</span><span class=c1></span>	<span class=nx>Value</span> <span class=kd>interface</span><span class=p>{</span><span class=p>}</span>
+<span class=p>}</span>
+<span class=kd>type</span> <span class=nx>List</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>root</span> <span class=nx>Element</span> <span class=c1>// sentinel list element, only &amp;root, root.prev, and root.next are used
+</span><span class=c1></span>	<span class=nx>len</span>  <span class=kt>int</span>     <span class=c1>// current list length excluding (this) sentinel element
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>其他源码列出稍冗长，root.prev可以视作尾节点，root.next相当于头节点，不过这些是透明的，被封装好的。</p><p>在列表中插入元素删除元素都有简便方法。</p><h2 id=切片>切片</h2><p>只能和nil进行比较。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -695,6 +868,22 @@ ok          command-line-arguments        2.311s
 <span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;slice e : %v\n&#34;</span><span class=p>,</span> <span class=nx>e</span><span class=p>)</span>
 <span class=nx>slice</span> <span class=o>:=</span> <span class=nb>append</span><span class=p>(</span><span class=p>[</span><span class=p>]</span><span class=nb>byte</span><span class=p>(</span><span class=s>&#34;hello &#34;</span><span class=p>)</span><span class=p>,</span> <span class=s>&#34;world&#34;</span><span class=o>...</span><span class=p>)</span><span class=c1>//注意是字节数组和字符串。
 </span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;slice slice : %v\n&#34;</span><span class=p>,</span> <span class=nx>slice</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>TestOne</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>q</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>(</span><span class=p>[</span><span class=p>]</span><span class=kt>int</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+	<span class=nx>w</span> <span class=o>:=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>q</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+	<span class=nx>t</span><span class=p>.</span><span class=nf>Log</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=nx>w</span><span class=p>)</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=nx>q</span><span class=p>)</span><span class=p>)</span>
+	<span class=nx>e</span> <span class=o>:=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>q</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+	<span class=c1>//append是加在该切片的len后面，但不是最后一个元素后面，因为底层数组会被改变，而切片变量的结构体所记录的信息是固定的。
+</span><span class=c1></span>	<span class=nx>t</span><span class=p>.</span><span class=nf>Log</span><span class=p>(</span><span class=nx>q</span><span class=p>,</span> <span class=nx>w</span><span class=p>,</span> <span class=nx>e</span><span class=p>)</span>
+<span class=p>}</span>
 </code></pre></td></tr></table></div></div><ul><li>超出原 slice.cap 限制，就会重新分配底层数组，即便原数组并未填满。</li><li>通常以 2 倍容量重新分配底层数组。在大批量添加数据时，建议一次性分配足够大的空间，以减少内存分配和数据复制开销。或初始化足够长的 len 属性，改用索引号进行操作。</li><li>及时释放不再使用的 slice 对象，避免持有过期数组，造成 GC 无法回收。</li></ul><p>切片resize:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -730,7 +919,17 @@ ok          command-line-arguments        2.311s
 slice b : [3] , len(b) : 1
 slice c : [4 5] , len(c) : 2
 </code></pre></td></tr></table></div></div><p>string & slice :
-string底层就是一个byte的数组，因此，也可以进行切片操作。</p><h3 id=切片底层实现>切片底层实现</h3><p>切片的设计想法是由动态数组概念而来，为了开发者可以更加方便的使一个数据结构可以自动增加和减少。但是切片本身并不是动态数据或者数组指针。切片常见的操作有 <strong>reslice、append、copy</strong>。与此同时，切片还具有<strong>可索引，可迭代</strong>的优秀特性。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+string底层就是一个byte的数组，因此，也可以进行切片操作。</p><p>二维切片：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=err>…</span><span class=err>…</span>
+ <span class=nx>a</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>(</span><span class=p>[</span><span class=p>]</span><span class=p>[</span><span class=p>]</span><span class=kt>int</span><span class=p>,</span><span class=nx>dy</span><span class=p>)</span>
+ <span class=k>for</span> <span class=nx>i</span> <span class=p>=</span> <span class=k>range</span> <span class=nx>a</span> <span class=p>{</span>
+     <span class=nx>a</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=p>=</span> <span class=nb>make</span><span class=p>(</span><span class=p>[</span><span class=p>]</span><span class=kt>int</span><span class=p>,</span> <span class=nx>dx</span><span class=p>)</span>
+ <span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=slice切片底层实现>slice切片底层实现</h3><p>切片的设计想法是由动态数组概念而来，为了开发者可以更加方便的使一个数据结构可以自动增加和减少。但是切片本身并不是动态数据或者数组指针。切片常见的操作有 <strong>reslice、append、copy</strong>。与此同时，切片还具有<strong>可索引，可迭代</strong>的优秀特性。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -773,7 +972,7 @@ slice数据结构源码：</li></ul><div class=highlight><div class=chroma><tabl
 </span><span class=c1></span>	<span class=nx>len</span>   <span class=kt>int</span> <span class=c1>// 切片长度 
 </span><span class=c1></span>	<span class=nx>cap</span>   <span class=kt>int</span> <span class=c1>// 切片容量
 </span><span class=c1></span><span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>如果想从 slice 中得到一块内存地址，可以这样做：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p><strong>注意</strong>：Golang 语言是没有操作原始内存的指针的，所以 <strong>unsafe 包</strong>提供相关的对内存指针的操作，一般情况下非专业人员勿用</p><p>如果想从 slice 中得到一块内存地址，可以这样做：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=nx>s</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>(</span><span class=p>[</span><span class=p>]</span><span class=kt>byte</span><span class=p>,</span> <span class=mi>200</span><span class=p>)</span>
 <span class=nx>ptr</span> <span class=o>:=</span> <span class=nx>unsafe</span><span class=p>.</span><span class=nf>Pointer</span><span class=p>(</span><span class=o>&amp;</span><span class=nx>s</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=p>)</span>
@@ -904,7 +1103,8 @@ nil 切片被用在很多标准库和内置函数中，描述一个不存在的�
 <span class=p>}</span>
 </code></pre></td></tr></table></div></div><p>map删除键值对：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=nb>delete</span><span class=p>(</span><span class=kd>map</span><span class=p>,</span><span class=nx>key</span><span class=p>)</span>
-</code></pre></td></tr></table></div></div><h3 id=map实现原理>map实现原理</h3><p>map底层存储方式为（结构体）数组，在存储时key不能重复，当key重复时，value进行覆盖，<strong>我们通过key进行hash运算（可以简单理解为把key转化为一个整形数字）然后对数组的长度取余，得到key存储在数组的哪个下标位置，最后将key和value组装为一个结构体，放入数组下标处</strong>。</p><p>哈希冲突：即不同key经哈希映射后得到相同的数组下标。</p><ul><li>解决办法：开放定址法：<ul><li>发现hashkey(key)的下标已经被别key占用的时候，在这个数组中空间中重新找一个没被占用的存储这个冲突的key。寻找方式有很多。常见的有线性探测法，线性补偿探测法，随机探测法。<ul><li>线性探测法：<ul><li>从冲突的下标处开始往后探测，到达数组末尾时，从数组开始处探测，直到找到一个空位置存储这个key，当数组都找不到的情况下会扩容（事实上当数组容量快满的时候就会扩容了）</li><li>查找某一个key的时候，找到key对应的下标，比较key是否相等，如果相等直接取出来，否则按照顺寻探测直到碰到一个空位置，说明key不存在。</li></ul></li><li>拉链法：<ul><li>当key的hash冲突时，我们在冲突位置的元素上形成一个链表，通过指针互连接。</li><li>当查找时，发现key冲突，顺着链表一直往下找，直到链表的尾节点，找不到则返回空</li></ul></li></ul></li><li>开放定址法的优缺点：<ul><li>由上面可以看出拉链法比线性探测处理简单</li><li>线性探测查找是会被拉链法会更消耗时间</li><li>线性探测会更加容易导致扩容，而拉链不会</li><li>拉链存储了指针，所以空间上会比线性探测占用多一点</li><li>拉链是动态申请存储空间的，所以更适合链长不确定的</li></ul></li></ul></li></ul><h3 id=go中map的实现原理>go中map的实现原理</h3><p>在go1.16中，map也是数组存储的的，每个数组下标处存储的是一个bucket,这个bucket的类型见下面代码，每个bucket中可以存储8个kv键值对，当每个bucket存储的kv对到达8个之后，会通过overflow指针指向一个新的bucket，从而形成一个链表,看bmap的结构</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><h3 id=map实现原理>map实现原理</h3><p>map底层存储方式为（结构体）数组，在存储时key不能重复，当key重复时，value进行覆盖，<strong>我们通过key进行hash运算（可以简单理解为把key转化为一个整形数字）然后对数组的长度取余，得到key存储在数组的哪个下标位置，最后将key和value组装为一个结构体，放入数组下标处</strong>。</p><p>哈希冲突：即不同key经哈希映射后得到相同的数组下标。</p><ul><li>解决办法：开放定址法：<ul><li>发现hashkey(key)的下标已经被别key占用的时候，在这个数组中空间中重新找一个没被占用的存储这个冲突的key。寻找方式有很多。常见的有线性探测法，线性补偿探测法，随机探测法。<ul><li>线性探测法：<ul><li>从冲突的下标处开始往后探测，到达数组末尾时，从数组开始处探测，直到找到一个空位置存储这个key，当数组都找不到的情况下会扩容（事实上当数组容量快满的时候就会扩容了）</li><li>查找某一个key的时候，找到key对应的下标，比较key是否相等，如果相等直接取出来，否则按照顺序探测直到碰到一个空位置，说明key不存在。</li></ul></li><li>拉链法：<ul><li>当key的hash冲突时，我们在冲突位置的元素上形成一个链表，通过指针互连接。</li><li>当查找时，发现key冲突，顺着链表一直往下找，直到链表的尾节点，找不到则返回空</li></ul></li></ul></li><li>开放定址法的优缺点：<ul><li>由上面可以看出拉链法比线性探测处理简单</li><li>线性探测查找是会被拉链法会更消耗时间</li><li>线性探测会更加容易导致扩容，而拉链不会</li><li>拉链存储了指针，所以空间上会比线性探测占用多一点</li><li>拉链是动态申请存储空间的，所以更适合链长不确定的</li></ul></li></ul></li></ul><h3 id=go中map的实现原理>go中map的实现原理</h3><p>go里面map并不是线程安全的，在1.9版本之前用map加互斥锁来解决此问题，之后加了sync.map性能稍微高了一些，因为它有一块只读的buffer，相当于由两个buffer组成，一块只读，一块读写。sync.map更适合于读非常多，能够占到90%以上的情况。如果读写差不多或者说写更多的话，sync.map的性能就比较差了。
+在读写对半的情况下，可以考虑引入concurrent_map包。（go get -u +包地址）</p><p>在go1.16中，map也是数组存储的的，每个数组下标处存储的是一个bucket,这个bucket的类型见下面代码，每个bucket中可以存储8个kv键值对，当每个bucket存储的kv对到达8个之后，会通过overflow指针指向一个新的bucket，从而形成一个链表,看bmap的结构</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -1248,7 +1448,7 @@ nil 切片被用在很多标准库和内置函数中，描述一个不存在的�
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=c1>//将MyInt作为为int类型的昵称
 </span><span class=c1></span>    <span class=kd>type</span> <span class=nx>MyInt</span> <span class=p>=</span> <span class=kt>int</span> 
-</code></pre></td></tr></table></div></div><h2 id=结构体-1>结构体</h2><p>本质上是一种聚合型的数据类型。</p><p>通过struct可以实现面向对象。</p><p>定义的时候，同样类型的字段也可以写在一行。</p><p>只有结构体被实例化时，才会真正被分配内存。</p><p>匿名结构体：定义临时数据结构时可能会用到。</p><p>语法糖：Go语言中支持对结构体指针直接使用.来访问结构体的成员，在使用new分配内存后得到的便是结构体指针。</p><p><strong>使用&对结构体进行取地址操作相当于对该结构体类型进行了一次new实例化操作。</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h3 id=结构体-1>结构体</h3><p>本质上是一种聚合型的数据类型。</p><p>通过struct可以实现面向对象。</p><p>定义的时候，同样类型的字段也可以写在一行。</p><p>只有结构体被实例化时，才会真正被分配内存。</p><p>匿名结构体：定义临时数据结构时可能会用到。</p><p>语法糖：Go语言中支持对结构体指针直接使用.来访问结构体的成员，在使用new分配内存后得到的便是结构体指针。</p><p><strong>使用&对结构体进行取地址操作相当于对该结构体类型进行了一次new实例化操作。</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=nx>p</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>person</span><span class=p>{</span><span class=p>}</span>
 </code></pre></td></tr></table></div></div><p>初始化（没有指定初始值的字段的值就是该字段类型的零值）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -1294,7 +1494,7 @@ nil 切片被用在很多标准库和内置函数中，描述一个不存在的�
         <span class=nx>age</span><span class=p>:</span>  <span class=nx>age</span><span class=p>,</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></td></tr></table></div></div><h3 id=方法和接收者>方法和接收者</h3><p>Go语言中的方法（Method）是一种作用于特定类型变量的函数。这种特定类型变量叫做接收者（Receiver）。<strong>接收者的概念就类似于其他语言中的this或者 self。</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h4 id=方法和接收者>方法和接收者</h4><p>Go语言中的方法（Method）是一种作用于特定类型变量的函数。这种特定类型变量叫做接收者（Receiver）。<strong>接收者的概念就类似于其他语言中的this或者 self。</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -1412,7 +1612,7 @@ Go语言中使用结构体也可以实现其他编程语言中面向对象的继
     <span class=nx>d1</span><span class=p>.</span><span class=nf>wang</span><span class=p>(</span><span class=p>)</span> <span class=c1>//旺财会汪
 </span><span class=c1></span>    <span class=nx>d1</span><span class=p>.</span><span class=nf>move</span><span class=p>(</span><span class=p>)</span> <span class=c1>//旺财会动！
 </span><span class=c1></span><span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>结构体中字段大写开头表示可公开访问，小写表示私有（<strong>仅在定义当前结构体的包中可访问</strong>）。</p><p><strong>结构体与JSON序列化</strong>：</p><ul><li>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON键值对是用来保存JS对象的一种方式，键/值对组合中的键名写在前面并用双引号””包裹，使用冒号:分隔，然后紧接着值；多个键值之间使用英文,分隔。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>结构体中字段大写开头表示可公开访问，小写表示私有（<strong>仅在定义当前结构体的包中可访问</strong>）。</p><p><strong>结构体与JSON序列化</strong>：</p><ul><li>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON键值对是用来保存JS对象的一种方式，键/值对组合中的键名写在前面并用双引号””包裹，使用冒号:分隔，然后紧接着值；多个键值之间使用英文,分隔。</li><li>应用于远程的过程调用、webservice、程序配置等</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -1541,5 +1741,95 @@ Tag是结构体的元信息，可以在运行的时候通过反射的机制读�
     <span class=p>}</span>
     <span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;json str:%s\n&#34;</span><span class=p>,</span> <span class=nx>data</span><span class=p>)</span> <span class=c1>//json str:{&#34;id&#34;:1,&#34;Gender&#34;:&#34;女&#34;}
 </span><span class=c1></span><span class=p>}</span> 
-</code></pre></td></tr></table></div></div><h2 id=参考>参考</h2><ul><li><a href=https://cloud.tencent.com/developer/article/1526095>https://cloud.tencent.com/developer/article/1526095</a></li><li><a href=https://www.topgoer.cn/docs/golang/chapter02>https://www.topgoer.cn/docs/golang/chapter02</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-11-09 00:00:00</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01 data-hashtags="go grammar"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://qizhengzou.github.io/go_base_01/ data-hashtag="go grammar"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Reddit" data-sharer=reddit data-url=https://qizhengzou.github.io/go_base_01/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/go-grammar/>go grammar</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/mysql_base_13/ class=prev rel=prev title=Mysql_base_13><i class="fas fa-angle-left fa-fw"></i>Mysql_base_13</a>
+</code></pre></td></tr></table></div></div><p><strong>内置JSON解析</strong>：</p><ul><li>利⽤反射实现，通过FeildTag来标识对应的json 值（性能较低）</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>jsontest</span>
+
+<span class=kd>type</span> <span class=nx>BasicInfo</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>Name</span> <span class=kt>string</span> <span class=s>`</span><span class=s>json:&#34;name&#34;</span><span class=s>`</span>
+	<span class=nx>Age</span>  <span class=kt>int</span>    <span class=s>`</span><span class=s>json:&#34;age&#34;</span><span class=s>`</span>
+<span class=p>}</span>
+<span class=kd>type</span> <span class=nx>JobInfo</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>Skills</span> <span class=p>[</span><span class=p>]</span><span class=kt>string</span> <span class=s>`</span><span class=s>json:&#34;skills&#34;</span><span class=s>`</span>
+<span class=p>}</span>
+<span class=kd>type</span> <span class=nx>Employee</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>BasicInfo</span> <span class=nx>BasicInfo</span> <span class=s>`</span><span class=s>json:&#34;basic_info&#34;</span><span class=s>`</span>
+	<span class=nx>JobInfo</span>   <span class=nx>JobInfo</span>   <span class=s>`</span><span class=s>json:&#34;job_info&#34;</span><span class=s>`</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>jsontest</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;encoding/json&#34;</span>
+	<span class=s>&#34;fmt&#34;</span>
+	<span class=s>&#34;testing&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>var</span> <span class=nx>jsonStr</span> <span class=p>=</span> <span class=s>`</span><span class=s>{</span><span class=s>
+</span><span class=s>	&#34;basic_info&#34;:</span><span class=s>{</span><span class=s>
+</span><span class=s>	  	&#34;name&#34;:&#34;Mike&#34;,
+</span><span class=s>		&#34;age&#34;:30
+</span><span class=s>	},
+</span><span class=s>	&#34;job_info&#34;:</span><span class=s>{</span><span class=s>
+</span><span class=s>		&#34;skills&#34;:[&#34;Java&#34;,&#34;Go&#34;,&#34;C&#34;]
+</span><span class=s>	}
+</span><span class=s>}	</span><span class=s>`</span>
+
+<span class=kd>func</span> <span class=nf>TestEmbeddedJson</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span> <span class=p>{</span>
+	<span class=nx>e</span> <span class=o>:=</span> <span class=nb>new</span><span class=p>(</span><span class=nx>Employee</span><span class=p>)</span>
+	<span class=nx>err</span> <span class=o>:=</span> <span class=nx>json</span><span class=p>.</span><span class=nf>Unmarshal</span><span class=p>(</span><span class=p>[</span><span class=p>]</span><span class=nb>byte</span><span class=p>(</span><span class=nx>jsonStr</span><span class=p>)</span><span class=p>,</span> <span class=nx>e</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Error</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+	<span class=p>}</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=o>*</span><span class=nx>e</span><span class=p>)</span>
+	<span class=k>if</span> <span class=nx>v</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>json</span><span class=p>.</span><span class=nf>Marshal</span><span class=p>(</span><span class=nx>e</span><span class=p>)</span><span class=p>;</span> <span class=nx>err</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
+		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nb>string</span><span class=p>(</span><span class=nx>v</span><span class=p>)</span><span class=p>)</span>
+	<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+		<span class=nx>t</span><span class=p>.</span><span class=nf>Error</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+	<span class=p>}</span>
+
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><strong>easyjson</strong>:</p><ul><li>更快的JSON解析</li><li>EasyJSON 采⽤代码⽣成⽽⾮反射</li><li>见ch43</li></ul><h2 id=高可用性服务设计>高可用性服务设计</h2><h2 id=参考>参考</h2><ul><li><a href=https://cloud.tencent.com/developer/article/1526095>https://cloud.tencent.com/developer/article/1526095</a></li><li><a href=https://www.topgoer.cn/docs/golang/chapter02>https://www.topgoer.cn/docs/golang/chapter02</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-11-09 00:00:00</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01 data-hashtags="go grammar"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://qizhengzou.github.io/go_base_01/ data-hashtag="go grammar"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Reddit" data-sharer=reddit data-url=https://qizhengzou.github.io/go_base_01/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/go-grammar/>go grammar</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/mysql_base_13/ class=prev rel=prev title=Mysql_base_13><i class="fas fa-angle-left fa-fw"></i>Mysql_base_13</a>
 <a href=/distributedsystem_base_01/ class=next rel=next title=DistributedSystem_base_01>DistributedSystem_base_01<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=disqus_thread class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=https://jefos-blog.disqus.com/embed.js defer></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

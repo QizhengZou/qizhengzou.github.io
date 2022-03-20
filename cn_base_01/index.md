@@ -1,7 +1,18 @@
 # CN_base_01
 
-> 笔记来自 中科大郑烇 计网PPT，改编自计算机网络-自顶向下 第七版
+> 来自 中科大郑烇计网PPT，哈工大深圳堵宏伟计网PPT，改编自计算机网络-自顶向下 第七版
 # 概论
+10%+15%+15%+60%
+
+计算机网络是通信技术与计算机技术紧密结合的产物，就是一种通信网络，是是互连的、自治的计算机集合。
+
+通信系统模型：
+```
+信源-》发送设备-》信道-》接收设备-》信宿
+                   ^
+                   |
+                噪声源
+```
 ## 1.1 什么是Internet?
 
 具体构成角度：
@@ -141,6 +152,7 @@ Internet标准：
 - 所有的链路速率为1.536 Mbps
 - 每条链路使用时隙数为24的TDM
 - 建立端-端的电路需500 m
+
 解：
 - 每条链路的速率（一个时间片）：1.536Mbps/24=64kbps
 - 传输事件：640kb/64kps=10s
@@ -171,14 +183,14 @@ Internet标准：
             - 数据报工作原理：
                 - 在通信之前,无须建立起一个连接,有数据就传输
                 - 每一个分组都独立路由(路径不一样,可能会失序)
-                - 路由器根据分组的目标地址进行路
+                - 路由器根据分组的目标地址进行路由
             - 分组的目标地址决定下一跳 
             - 在不同的阶段，路由可以改变 
             - 类似：问路 
             - Internent
         - 虚电路网络： 
             - 虚电路工作原理：
-            ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123134658.png)
+            ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123134658.png)
             - 每个分组都带标签（虚电路标识 VC ID），标签决定下一跳 
             - 在呼叫建立时决定路径，在整个呼叫中路径保持不变 
             - 路由器维持每个呼叫的状态信息 
@@ -203,17 +215,29 @@ Internet标准：
         - 保证音频/视频应用需要的带宽
         - 一个仍未解决的问题(chapter 7)
 
+报文交换：
+- 报文：源（应用）发送信息整体，比如一个文件
+
+报文交换VS分组交换
+- 报文交换:
+    - 报文长度为M bits
+    - 链路带宽为R bps
+    - 每次传输报文需要M/R秒
+- 分组交换:
+    - 报文被拆分为多个分组
+    - 分组长度为L bits
+    - 每个分组传输时延为L/R秒
 ## 1.4 接入网和物理媒体
 ### 接入网
 接入网：digital subscriber line (DSL,数字用户线)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123135824.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123135824.png)
 
 接入网：线缆网络
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123135926.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123140015.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123135926.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123140015.png)
 
 接入网：家庭网络
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123140121.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123140121.png)
 
 怎样将端系统和边缘路由器连接？
 - 住宅接入网络（调制解调器modem）
@@ -226,12 +250,12 @@ Internet标准：
         - 56Kbps 的速率直接接入路由器(通常更低)
         - 不能同时上网和打电话：不能总是在线
     - 电缆模式
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123140230.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123140230.png)
 
 - 单位接入网络 （学校、公司）
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123140310.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123140310.png)
 - 无线接入网络
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123140331.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123140331.png)
 注意：
 - 接入网络的带宽 (bits per second) 
 - 共享/专用
@@ -292,24 +316,24 @@ Internet标准：
 - 让我们采用渐进方法来描述当前互联网的结构
 
 给定数百万接入ISPs，如何将它们互联到一起？
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123142814.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123142848.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123142814.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123142848.png)
 - 但是，如果全局ISP是可行的业务，那会有竞争者有利可图，一定会有竞争。与此同时，通过ISP之间的合作可以完成业务的扩展，肯定会有互联，对等互联的结算关系
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143046.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143046.png)
 - 然后业务会细分（全球接入和区域接入），区域网络将出现，用与将接入ISPs连接到全局ISPs
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143129.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143129.png)
 - 然后内容提供商网络(Internet Content Providers,e.g., Google,Microsoft，Akamai) 可能会构建它们自己的网络，将它们的服务、内容更加靠近端用户，向用户提供更好的服务,减少自己的运营支出
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143255.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143336.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143602.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143619.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143648.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143255.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143336.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143602.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143619.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143648.png)
 - 很多内容提供商(如：Google, Akamai )可能会部署自己的网络,连接自己的在各地的DC（数据中心），走自己的数据
 - 连接若干local ISP和各级（包括一层）ISP,更加靠近用户
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143838.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143838.png)
 
 **ISP之间的连接**
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123143952.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123143952.png)
 - POP: 高层ISP面向客户网络的接入点，涉及费用结算 
     - 如一个低层ISP接入多个高层ISP，多宿（multi home）
 - 对等接入：2个ISP对等互接，不涉及费用结算
@@ -321,7 +345,7 @@ Internet标准：
 - 在路由器缓冲区的分组队列
     - 分组到达链路的速率超过了链路输出的能力
     - 分组等待排到队头、被传输
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123144141.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123144141.png)
 
 四种分组延时：
 - 1. 节点处理延时： 
@@ -340,8 +364,8 @@ Internet标准：
     - s = 在媒体上的传播速度(~2x108 m/sec)
     - 传播延时 = d/s
 
-车队类比：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123144751.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123144818.png)
+车队类比：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123144751.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123144818.png)
 
 节点延时：
 - $d_{nodal}=d_{proc}+d_{queue}+d_{trans}+d_{prop}$
@@ -354,7 +378,7 @@ Internet标准：
 - $d_{prop}$ = 传播延时 
     - 几微秒到几百毫秒
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123145426.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123145426.png)
 
 Internet的延时和路由
 - Internet 的延时和路由是什么样的呢? 
@@ -363,8 +387,8 @@ Internet的延时和路由
         - 沿着目的的路径，向每个路由器发送3个探测分组
         - 路由器 i 将向发送方返回一个分组
         - 发送方对发送和回复之间间隔计时
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123145646.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123145725.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123145646.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123145725.png)
 
 关于traceroute
 - 在Windows系统下
@@ -380,16 +404,16 @@ Internet的延时和路由
 - 链路的队列缓冲区容量有限
 - 当分组到达一个满的队列时，该分组将会丢失
 - 丢失的分组可能会被前一个节点或源端系统重传，或根本不重传
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123150111.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123150111.png)
 
 吞吐量：
 - 吞吐量: 在源端和目标端之间传输的速率（数据量/单位时间）
     - 瞬间吞吐量: 在一个时间点的速率
     - 平均吞吐量: 在一个长时间内平均值
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123150204.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123150244.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123150311.png)
-- 互联网场景：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123150515.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123150204.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123150244.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123150311.png)
+- 互联网场景：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123150515.png)
 ## 1.7 协议层次及服务模型
 网络是一个复杂的系统! 
 - 网络功能繁杂：数字信号的物理信号承载、点到点、路由、rdt、进程区分、应用等
@@ -452,8 +476,8 @@ Internet的延时和路由
     - 本层实体通过协议为上层提供更高级的服务
 
 数据单元（DU）
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123152136.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123152156.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123152136.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123152156.png)
 
 分层处理和实现复杂系统的好处：
 - 对付复杂的系统
@@ -487,10 +511,10 @@ ISO/OSI 参考模型:
 - 会话层: 数据交换的同步，检查点，恢复
 - 互联网协议栈没有这两层!
     - 这些服务，如果需要的话，必须被应用实现
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123153351.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123153351.png)
 
-封装和解封装：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123153432.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123153519.png)
+封装和解封装：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123153432.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123153519.png)
 
 **各层次的协议数据单元**
 - 应用层：报文(message)
@@ -499,7 +523,7 @@ ISO/OSI 参考模型:
 - 数据链路层：帧(frame)
 - 物理层：位(bit)
 ## 1.8 历史
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123153636.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123153636.png)
 ## 回顾与小结
 - 什么是Internet ?
 - 什么是协议?

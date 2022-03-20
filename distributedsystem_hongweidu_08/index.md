@@ -127,20 +127,20 @@ Name Servers (NS):
 DNS: Root name servers:
 - Root NS is contacted by local name servers when they cannot resolve names
 - It knows the authoritative name servers at the top level
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101155844.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101155844.png)
 
 Simple DNS example (recursive query):
 - host cslab.cs.cityu.edu.hk wants IP address of www.cs.iit.edu
 1. Contacts its local DNS server, dns.cs.cityu.edu.hk
 2. dns.cs.cityu.edu.hk requests root name server, if necessary
 3. root name server requests authoritative name server, dns.iit.edu, if necessary
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101160015.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101160015.png)
 
 DNS example (iterative query):
 - Root name server:
     - may not know the dest NS for a name
     - but knows intermediate NS: who to contact to find the next level of dest NS
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101160113.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101160113.png)
 
 Recursive Query vs. Iterative Query:
 - DNS standard supports both recursive query and iterative query. When a DNS server makes a resolution-request, it needs to specify if it’s recursive or iterative.

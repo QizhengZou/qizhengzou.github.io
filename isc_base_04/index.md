@@ -87,10 +87,10 @@ Needham-Schroeder公钥认证：
 - 基于CA数字证书的认证协议属于公开秘钥的认证协议范畴，只是引入了一个可信的第三方来管理公钥并提供仲裁。在实际的网络环境中，公钥是采用数字证书（Certificate）的形式来完成发布的。
 - 数字证书是一个经过权威的、可信赖的、公正的第三方机构（即CA认证中心，Certificate Authority）签名的包含拥有者信息及公开密钥的文件。
 - X. 509 V3证书格式：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207091217.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207091217.png)
 
 基于数字证书进行身份认证的过程：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207091311.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207091311.png)
 - 通过5个环节，B可以确认A的身份及其签名的信息。
     - A提交资料，申请证书。
     - CA审核A的资料，颁发用CA私钥签过名的数字证书。
@@ -128,7 +128,7 @@ PKI平台包括以上四个基本功能模块和一个应用接口模块。
 
 X.509的CA目录的层次结构：
 - 基于X. 509的层次型认证机构分布：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092017.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092017.png)
 - 用户a的证书链可以使用下面的形式表达：
     - KRA《CAB》KRB《CAC》KRC《CAD》KRD《CAa》
     - KRX表示X的私钥签名，CAX表示X的证书。
@@ -140,7 +140,7 @@ X.509的CA目录的层次结构：
         - 用户在使用CA证书之前必须先下载安装A的证书，同时系统会自动加载保存认证机构A的公钥。
 
 一个典型的PKI模型：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092249.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092249.png)
 
 PKI系统功能：
 - 接收验证用户数字证书的申请；

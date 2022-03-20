@@ -5,7 +5,7 @@
 # 软件编码、测试和质量保障
 ## 5.1 软件编程
 软件编程是一个复杂而迭代的过程，它**不仅仅是编写代码，还应该包括代码审查、单元测试、代码优化、集成调试等**一系列工作。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228142530.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228142530.png)
 
 软件设计描述SDD(逻辑概念)---->程序代码Program code（物理实体）
 
@@ -31,7 +31,7 @@
     - 唯一能完整并正确地描述代码的文档是代码本身
     - 编写可以阅读的代码，其本身简单易懂
 
-**程序模板**：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228143105.png)
+**程序模板**：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228143105.png)
 
 **注释**：
 - 学会只编写够用的注释，过犹不及，重视质量而不是数量。应该把时间花在编写不需要大量注释支持的代码上，即让代码自文档化。
@@ -42,8 +42,8 @@
     - 当修改代码时，维护代码周围的所有注释
 - 形式1：由 # 开头的“真正的”注释，说明选择当前实现的原因以及这种实现的原理和难点；
 - 形式2：文档字符串，说明如何使用包、模块、类、函数（方法），甚至包括使用示例和单元测试。
-- 例子：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228143548.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228143608.png)
+- 例子：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228143548.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228143608.png)
 
 **函数编写的第一条规则是短小，第二条规则是更短小。函数应该做一件事，做好这件事，并且只做这件事。**
 
@@ -181,14 +181,14 @@
     - 类仅有字段构成，或者只有简单的赋值方法和取值方法构成。
 
 1. **抽取方法**：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228151111.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228151137.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228151111.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228151137.png)
 2. **引入解释性变量**：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228151242.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228151255.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228151242.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228151255.png)
 3. **简化条件表达式**
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229211757.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229211839.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229211757.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229211839.png)
 ## 5.2 软件测试
 ### 软件测试概述 
 #### 软件缺陷术语 
@@ -217,8 +217,8 @@ IEEE：测试是使用人工和自动手段来运行或检测某个系统的过�
 - 测试作用的间接性
 
 **用Venn Diagram来理解测试**：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228153934.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228154012.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228153934.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228154012.png)
 #### 软件测试基本原则 
 **缺陷的集群性**：
 - 软件错误具有聚集性，对存在错误的部分应重点测试。
@@ -230,7 +230,7 @@ IEEE：测试是使用人工和自动手段来运行或检测某个系统的过�
 软件测试团队的任务：
 - 软件测试与质量保证合二为一
 
-举例：微软研发团队：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228154455.png)
+举例：微软研发团队：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228154455.png)
 ### 软件测试策略
 #### 软件测试对象 
 **软件测试并不等于程序测试，应贯穿于软件定义与开发的各个阶段**。
@@ -347,7 +347,7 @@ IEEE：测试是使用人工和自动手段来运行或检测某个系统的过�
         - 对那种不稳定软件的测试、开发周期很短的软件、一次性的软件等不适合自动化测试；
         - 工具本身并没有想象力和灵活性，一般自动化测试只能发现15~30%的缺陷，而手工测试可以发现70~85%的缺陷；自动化测试工具在进行功能测试时，其准确的含义是回归测试工具
 
-**测试的V模型**：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228163103.png)
+**测试的V模型**：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228163103.png)
 
 #### 测试用例
 设计良好的测试用例：
@@ -414,8 +414,8 @@ IEEE：测试是使用人工和自动手段来运行或检测某个系统的过�
 - 判定/条件覆盖
 - 条件组合覆盖
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228215912.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228215932.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228215912.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228215932.png)
 
 白盒测试方案技术之二：控制结构测试
 - 基本路径测试

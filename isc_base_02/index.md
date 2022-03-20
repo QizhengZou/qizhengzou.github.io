@@ -155,11 +155,11 @@ S-DES加密算法：
     - 与密钥变换有关的两个置换函数：P8、P10；与密钥变换有关的循环移位函数Shift。
     - 用于数据加密变换的4个基本函数：初始置换IP、复合函数fk、转换函数SW、末尾置换IP-1。
 - 解密与加密基本一致。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123093957.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123093957.png)
 - P10=(3,5,2,7,4,10,1,9,8,6)
 - 循环左移函数LS
 - P8=(6,3,7,4,8,5,10,9)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123094038.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123094038.png)
 - IP=(2,6,3,1,4,8,5,7)
 - IP-1=(4,1,3,5,7,2,8,6)
 - E/P=（4,1,2,3,2,3,4,1）
@@ -176,7 +176,7 @@ S-DES加密算法：
     - 例如：
         - L’=（l0, l1, l2, l3）=（0，1，0，0）， （i，j）=（0, 2）
         - 在S0中确定系数3，则S0的输出为11B。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123094315.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123094315.png)
 - DES的安全问题
     - 1977年，人们估计要耗资两千万美元建成一个专门计算机用于DES的破译，而且需要12个小时的破解才能得到结果。
     - 1994年世界密码大会，M. Matsui提出线性分析方法，利用243个已知明文，成功破译DES。
@@ -217,13 +217,13 @@ S-DES加密算法：
         - 对于函数y≡gx mod p，其中，g为素数p的原根，y与x均为正整数，已知g、x、p，计算y是容易的；而已知y、g、p，计算x是困难的，即求解y的离散对数x是困难的。
         - 注：离散对数的求解为数学界公认的困难问题。
     - Alice和Bob协商好一个大素数p，和一个大的整数g，1 < g < p，g是p的原根。p和g无须保密，可为网络上的所有用户共享。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123095634.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123095634.png)
 
 - RSA公开密钥算法
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123095726.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123095726.png)
 
 - 大整数因子分解
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123095851.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123095851.png)
 
 - RSA密码算法
     - RSA密码体制：

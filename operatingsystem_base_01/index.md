@@ -3,7 +3,7 @@
 > 王道考研操作系统笔记
 # 绪论
 ## 操作系统(Operating System, OS)的概念、特征、功能和提供的服务
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211121145727.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211121145727.png)
 
 引入操作系统的目的是：
 - 提供一个计算机用户与计算机硬件系统之间的接口，使计算机系统更易于使用;
@@ -74,21 +74,21 @@
 - 无操作系统阶段
     - 第一代计算机的主要元器件是电子管，人们采用手工操作方式操作计算机。但后来cpu速度越来越快，而手工的慢速便与其形成了“人机矛盾”。cpu与io设备的速度不匹配同样日益突出，为了缓和此矛盾，先后出现了通道技术和缓冲技术，但都未能很好地解决上述矛盾，直到后来引入脱机输入/输出技术，才获得了较为满意的效果。
     - 脱机输入/输出技术是为了解决CPU和I/O设备之间速度不匹配的矛盾而提出的，此技术减少了CPU的空闲等待时间，提高了IO速度。其输入/输出方式如图1-3 所示。
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211121155522.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211121155522.png)
     为解决低速输入设备与CPU速度不匹配的问题，可以将用户程序和数据在一台外围机(又称卫星机)的控制下，预先从低速输入设备(纸带机)输入到输入带上，当CPU需要这些程序和数据时，再直接从输入带高速输入到内存，从而大大加快输入速度，减少CPU等待输入的时间，这就是脱机输入技术。
     - 类似地，当程序运行完毕或告一段落，当CPU需要输出时，无须直接把计算结果送至低速输出设备(图1-3中为打印机)，而是高速地把结果送到输出带上，然后在外围机的控制下，把磁带上的计算结果由相应的输出设备输出，这就是脱机输出技术。若输入/输出操作在主机控制下进行，则称为联机输入/输出。采用脱机输入/输出技术后，低速I/O设备.上数据的输入/输出都在外围机的控制下进行，而CPU只与高速的输入带及输出带打交道，从而有效地减少了CPU等待慢速设备输入/输出的时间。
     - 详细说明本方法的目的在于使我们了解脱机输入/输出的模型，因为之后的缓冲区技术以及SPOOLing技术等，都是基于这种原理产生的。理解了这个模型，对之后学习类似技术有较大的帮助。
 - 单道批处理系统
     - 单道批处理系统是最早出现的一种操作系统，严格地说，它只能算作是操作系统的前身而并非是现在人们所理解的操作系统。早期的计算机系统非常昂贵，为了能充分利用，应尽量使系统连续运行，以减少空闲时间。为此，通常是把一批作业以脱机输入方式输入到磁带上，并在系统中配置监督程序(管理作业的运行，负责装入和运行各种系统程序来完成作业的自动过渡)，在其控制下，先把磁带上的第一个作业传送到内存，并把运行的控制权交给第一个作业，当第一个作业处理完后又把控制权交还给监督程序，由监督程序再把第二个作业调入内存。计算机系统按这种方式对磁带上的作业自动地一个接一个进行处理，直至把磁带上的所有作业全部处理完毕，这样便形成了早期的批处理系统。
     - 图1-4给出了单道批处理系统工作示例。
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211121160103.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211121160103.png)
     - 从图1-4中可以看出，每当程序发出I/O请求时，CPU便处于等待I/O完成的状态，致使CPU空闲。
     - 单道批处理系统主要有如下特点:
         - 自动性。在顺利的情况下，在磁带上的一批作业能自动地依次运行，而无须人工干预
         - 顺序性。 磁带上的各道作业顺序地进入内存，各道作业的完成顺序与它们进入内存的顺序在正常情况下应完全相同，亦即先调入内存的作业先完成。
         - 单道性。内存中仅有一道程序运行， 即监督程序每次从磁带上只调入一道程序进入内存运行，当该程序完成或发生异常情况时，才换入其后继程序进入内存运行。
 - 多道批处理系统
-    - 为进一步提高CPU的利用率，引入了多道程序设计技术，由此而形成了多道批处理系统。多道程序设计技术是“将一个以上的作业存放在主存中，并且同时处于运行状态。这些作业共享处理器、外设以及其他资源”。现代计算机系统一般都基于多道程序设计技术。图1-5给出了多道程序工作示例。![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211121160413.png)
+    - 为进一步提高CPU的利用率，引入了多道程序设计技术，由此而形成了多道批处理系统。多道程序设计技术是“将一个以上的作业存放在主存中，并且同时处于运行状态。这些作业共享处理器、外设以及其他资源”。现代计算机系统一般都基于多道程序设计技术。图1-5给出了多道程序工作示例。![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211121160413.png)
     - 在单处理器系统中，多道程序运行的特点如下:
         - 多道。计算机内存中同时存放多道相互独立的程序。
         - 宏观上并行。同时进入系统的几道程序都处于运行过程中，即它们先后开始了各自的运行，但都未运行完毕。
@@ -161,7 +161,7 @@
 操作系统的主要功能是为应用程序的运行创建良好的环境。为了达到这个目的，内核提供了一系列具备预定功能的内核函数，通过一组称为系统调用(System Call) 的接口呈现给用户。系统调用把应用程序的请求传给内核，调用相应的内核函数完成所需的处理，并将处理结果返回给应用程序。如果没有系统调用和内核函数，用户将不能编写大型应用程序。操作系统提供的系统调用通常包括进程控制、文件系统控制(文件读写操作和文件系统操作)、系统控制、内存管理、网络管理、socket控制、用户管理以及进程间通信(信号、消息、管道、信号量和共享内存)。
 
 操作系统执行系统调用的流程如图1-6 所示。用户需要执行系统调用时，首先准备并传递系统调用所需的参数，通过陷入(trap)指令进入操作系统的系统内核，此时将从用户态进入内核态;之后执行相应的系统调用函数，使用特定的系统内核功能;最后将处理结果返回给用户进程，此时将从内核态返回用户态。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211121163420.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211121163420.png)
 ## 操作系统的体系结构
 操作系统的体系结构就是操作系统的组成结构。操作系统的体系结构主要包括模块组合结构、层次结构和微内核结构。
 - 模块组合结构：
@@ -179,22 +179,22 @@
     - 缺点: 这种结构的操作系统效率不高，因为所有用户进程都要通过微内核相互通信，所以微内核本身就成了系统的"瓶颈”，尤其是通信频繁的系统。
 
 ## 习题
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214150931.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214151008.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214150931.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214151008.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214152157.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214152256.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214152157.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214152256.png)
 多CPU一般用于分布式系统
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214152940.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214153019.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214152940.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214153019.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214153717.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214153739.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214153717.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214153739.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214144315.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214144315.png)
 ## 答案
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214144515.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214144607.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214144515.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214144607.png)
 
 

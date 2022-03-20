@@ -129,20 +129,47 @@ func main() {
 ```
 ### goroutine与线程
 #### 可增长的栈
-OS线程（操作系统线程）一般都有固定的栈内存（通常为2MB）,一个goroutine的栈在其生命周期开始时只有很小的栈（典型情况下2KB），goroutine的栈不是固定的，他可以按需增大和缩小，goroutine的栈大小限制可以达到1GB，虽然极少会用到这个大。所以在Go语言中一次创建十万左右的goroutine也是可以的。
+OS线程（操作系统线程）一般都有固定的栈内存（通常为2MB）,一个goroutine的栈在其生命周期开始时只有很小的栈（典型情况下2KB），goroutine的栈不是固定的，他可以按需增大和缩小，goroutine的栈大小限制可以达到1GB，虽然极少会用到这么大。所以在Go语言中一次创建十万左右的goroutine也是可以的。
 
 #### goroutine调度
 GPM是Go语言运行时（runtime）层面的实现，是go语言自己实现的一套调度系统。区别于操作系统调度OS线程。
 
 1. G很好理解，就是个goroutine的，里面除了存放本goroutine信息外 还有与所在P的绑定等信息。
-2. P管理着一组goroutine队列，P里面会存储当前goroutine运行的上下文环境（函数指针，堆栈地址及地址边界），P会对自己管理的goroutine队列做一些调度（比如把占用CPU时间较长的goroutine暂停、运行后续的goroutine等等）当自己的队列消费完了就去全局队列里取，如果全局队列里也消费完了会去其他P的队列里抢任务。
-3. M（machine）是Go运行时（runtime）对操作系统内核线程的虚拟， M与内核线程一般是一一映射的关系， 一个groutine最终是要放到M上执行的；
+2. P是go语言实现的协程处理器，管理着一组goroutine队列，P里面会存储当前goroutine运行的上下文环境（函数指针，堆栈地址及地址边界），P会对自己管理的goroutine队列做一些调度（比如把占用CPU时间较长的goroutine暂停，或者阻塞的协程进行跳过（有一个守护线程会记录每个processor完成的协程的数量，如果有个P完成的协程的数量一直不变，说明被阻塞了，守护线程会往这个协程的用户栈里插入一个特殊的标记，当协程运行内敛函数时会读到这个标记，会把自己中断下来，然后查找等候协程队列的队尾，然后切换成别的线程进一步运行）、运行后续的goroutine等等）当自己的队列消费完了就去全局队列里取，如果全局队列里也消费完了会去其他P的队列里抢任务。
+3. 另一个提高整个并发能力的机制：当某一个协程被系统中断了，比如一些IO操作，需要等待的时候，为了提高整体的并发，processor会把自己移到另一个可使用的系统进程当中，继续执行它所挂的队列里的其他的协程，当被中断的协程被唤醒，会把自己加入到某一个pocessor的协程等待队列里，或者加入到全局等待队列当中。需要注意的一点：当一个协程被中断的时候，其在寄存器里的运行状态也会保存到这个协程对象里，当协程再次获得运行的机会，这些又会重新写入寄存器继续运行。
+4. go的协程机制与系统线程的这种多对多的关系以及它是如何来高效地利用系统线程来尽量多的运行并发的协程任务的。
+5. M（machine）是Go运行时（runtime）对操作系统内核线程的虚拟， M与内核线程一般是一一映射的关系，也可以是多对一， 一个groutine最终是要放到M上执行的；
 
-P与M一般也是一一对应的。他们关系是： P管理着一组G挂载在M上运行。当一个G长久阻塞在一个M上时，runtime会新建一个M，阻塞G所在的P会把其他的G 挂载在新建的M上。当旧的G阻塞完成或者认为其已经死掉时 回收旧的M。
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220227215827.png)
+
+P与M一般也是一一对应的。他们关系是： P管理着一组G挂载在M上运行。当一个G长久阻塞在一个M上时，runtime会新建一个M，阻塞G所在的P会把其他的G 挂载在新建的M上。当旧的G阻塞完成或者认为其已经死掉时回收旧的M。
 
 P的个数是通过runtime.GOMAXPROCS设定（最大256），Go1.5版本之后默认为物理线程数。 在并发量大的时候会增加一些P和M，但不会太多，切换太频繁的话得不偿失。
 
 单从线程调度讲，Go语言相比起其他语言的优势在于OS线程是由OS内核来调度的，goroutine则是由Go运行时（runtime）自己的调度器调度的，这个调度器使用一个称为m:n调度的技术（复用/调度m个goroutine到n个OS线程）。 其一大特点是goroutine的调度是在用户态下完成的， 不涉及内核态与用户态之间的频繁切换，包括内存的分配与释放，都是在用户态维护着一块大的内存池， 不直接调用系统的malloc函数（除非内存池需要改变），成本比调度OS线程低很多。 另一方面充分利用了多核的硬件资源，近似的把若干goroutine均分在物理线程上， 再加上本身goroutine的超轻量，以上种种保证了go调度方面的性能。
+
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220129201758.png)
+- kernel space entity 系统线程或者说内核对象，内核对象切换的消耗很大。
+- 多个协程对应于一个内核线程时，这些协程切换时消耗较少。
+```go
+package groutine_test
+
+import (
+	"fmt"
+	"testing"
+	"time"
+)
+
+func TestGroutine(t *testing.T) {
+	for i := 0; i < 10; i++ {
+		go func(i int) {
+			time.Sleep(time.Second * 1)
+			fmt.Println(i)
+		}(i)
+	}
+	time.Sleep(time.Millisecond * 50)
+}
+```
 ## runtime包
 ### runtime.Gosched()
 让出CPU时间片，重新等待安排任务(大概意思就是本来计划的好好的周末出去烧烤，但是你妈让你去相亲,两种情况第一就是你相亲速度非常快，见面就黄不耽误你继续烧烤，第二种情况就是你相亲速度特别慢，见面就是你侬我侬的，耽误了烧烤，但是还馋就是耽误了烧烤你还得去烧烤)
@@ -247,6 +274,81 @@ Go语言中的操作系统线程和goroutine的关系：
 1. 一个操作系统线程对应用户态多个goroutine。
 2. go程序可以同时使用多个操作系统线程。
 3. goroutine和OS线程是多对多的关系，即m:n。
+## 共享内存机制
+使用锁来实现并发控制
+
+```go
+package share_mem
+
+import (
+	"sync"
+	"testing"
+	"time"
+)
+
+func TestCounter(t *testing.T) {
+
+	counter := 0
+	for i := 0; i < 5000; i++ {
+		go func() {
+			counter++
+		}()
+	}
+	time.Sleep(1 * time.Second)
+	t.Logf("counter = %d", counter)
+
+}
+//使用锁实现线程安全
+func TestCounterThreadSafe(t *testing.T) {
+	var mut sync.Mutex
+	counter := 0
+	for i := 0; i < 5000; i++ {
+		go func() {
+			defer func() {
+				mut.Unlock()
+			}()
+			mut.Lock()
+			counter++
+		}()
+	}
+	time.Sleep(1 * time.Second)
+	t.Logf("counter = %d", counter)
+
+}
+//是要弄WaitGroup实现
+func TestCounterWaitGroup(t *testing.T) {
+	var mut sync.Mutex
+	var wg sync.WaitGroup
+	counter := 0
+	for i := 0; i < 5000; i++ {
+		wg.Add(1)
+		go func() {
+			defer func() {
+				mut.Unlock()
+			}()
+			mut.Lock()
+			counter++
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+	t.Logf("counter = %d", counter)
+
+}
+
+```
+## CSP 并发机制
+communicating sequential processes通信顺序进程。
+
+依赖于通道来完成两个通信实体之间的协调。
+
+CSP VS Actor Model
+- 和Actor的直接通讯不同，CSP模式则是通过Channel进⾏通讯的，更松耦合⼀些。
+- Go中channel是有容量限制并且独⽴于处理Groutine，⽽如Erlang，Actor模式中的mailbox容量是⽆限的，接收进程也总是被动地处理消息
+
+可利用channel实现异步返回。
+
+
 ## Channel
 ### channel
 单纯地将函数并发执行是没有意义的。函数与函数间需要交换数据才能体现并发执行函数的意义。
@@ -299,18 +401,18 @@ ch6 := make(chan []int)
 ```go
 ch := make(chan int)    
 ```
-### 发送
+#### 发送
 将一个值发送到通道中。
 ```go
 ch <- 10 // 把10发送到ch中   
 ```
-### 接收
+#### 接收
 从一个通道中接收值。
 ```go
 x := <- ch // 从ch中接收值并赋值给变量x
 <-ch       // 从ch中接收值，忽略结果   
 ```
-### 关闭
+#### 关闭
 我们通过调用内置的close函数来关闭通道。
 ```go
     close(ch)   
@@ -322,8 +424,156 @@ x := <- ch // 从ch中接收值并赋值给变量x
 2. 对一个关闭的通道进行接收会一直获取值直到通道为空。
 3. 对一个关闭的并且没有值的通道执行接收操作会得到对应类型的零值。
 4. 关闭一个已经关闭的通道会导致panic。  
+
+v, ok <-ch; ok 为 bool 值，true 表示正常接受，false 表示通道关闭
+
+所有的 channel 接收者都会在 channel 关闭时，⽴刻从阻塞等待中返回且上
+述 ok 值为 false。**这个⼴播机制常被利⽤，进⾏向多个订阅者同时发送信号。如：退出信号**
+
+```go
+package channel_close
+
+import (
+	"fmt"
+	"sync"
+	"testing"
+)
+
+func dataProducer(ch chan int, wg *sync.WaitGroup) {
+	go func() {
+		for i := 0; i < 10; i++ {
+			ch <- i
+		}
+		close(ch)
+
+		wg.Done()
+	}()
+
+}
+
+func dataReceiver(ch chan int, wg *sync.WaitGroup) {
+	go func() {
+		for {
+			if data, ok := <-ch; ok {
+				fmt.Println(data)
+			} else {
+				break
+			}
+		}
+		wg.Done()
+	}()
+
+}
+
+func TestCloseChannel(t *testing.T) {
+	var wg sync.WaitGroup
+	ch := make(chan int)
+	wg.Add(1)
+	dataProducer(ch, &wg)
+	wg.Add(1)
+	dataReceiver(ch, &wg)
+	// wg.Add(1)
+	// dataReceiver(ch, &wg)
+	wg.Wait()
+
+}
+
+```
+### 任务的返回
+```go
+package concurrency
+
+import (
+	"fmt"
+	"testing"
+	"time"
+)
+
+func isCancelled(cancelChan chan struct{}) bool {
+	select {
+	case <-cancelChan:
+		return true
+	default:
+		return false
+	}
+}
+
+func cancel_1(cancelChan chan struct{}) {
+	cancelChan <- struct{}{}
+}
+
+func cancel_2(cancelChan chan struct{}) {
+	close(cancelChan)
+}
+
+func TestCancel(t *testing.T) {
+	cancelChan := make(chan struct{}, 0)
+	for i := 0; i < 5; i++ {
+		go func(i int, cancelCh chan struct{}) {
+			for {
+				if isCancelled(cancelCh) {
+					break
+				}
+				time.Sleep(time.Millisecond * 5)
+			}
+			fmt.Println(i, "Cancelled")
+		}(i, cancelChan)
+	}
+	cancel_2(cancelChan)
+	time.Sleep(time.Second * 1)
+}
+
+```
+### context与任务的取消
+关联任务的取消。
+
+go1.9以后，把context正式并入到golang正式的一个包里面了。
+
+context：
+- 根 Context：通过 context.Background () 创建
+- ⼦ Context：context.WithCancel(parentContext) 创建
+- ctx, cancel := context.WithCancel(context.Background())
+- 当前 Context 被取消时，基于他的⼦ context 都会被取消
+- 接收取消通知 <-ctx.Done()
+```go
+package cancel
+
+import (
+	"context"
+	"fmt"
+	"testing"
+	"time"
+)
+
+func isCancelled(ctx context.Context) bool {
+	select {
+	case <-ctx.Done():
+		return true
+	default:
+		return false
+	}
+}
+
+func TestCancel(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	for i := 0; i < 5; i++ {
+		go func(i int, ctx context.Context) {
+			for {
+				if isCancelled(ctx) {
+					break
+				}
+				time.Sleep(time.Millisecond * 5)
+			}
+			fmt.Println(i, "Cancelled")
+		}(i, ctx)
+	}
+	cancel()
+	time.Sleep(time.Second * 1)
+}
+
+```
 ### 无缓冲的通道
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113171554.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113171554.png)
 
 无缓冲的通道又称为阻塞的通道。我们来看一下下面的代码：
 ```go
@@ -366,7 +616,7 @@ func main() {
 
 有缓冲的通道
 解决上面问题的方法还有一种就是使用有缓冲区的通道。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172559.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172559.png)
 
 我们可以在使用make函数初始化通道的时候为其指定通道的容量，例如：
 ```go
@@ -479,8 +729,48 @@ func main() {
 
 ### 通道总结
 channel常见的异常总结，如下图：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172726.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172726.png)
 注意:关闭已经关闭的channel也会引发panic。
+
+## 用多路选择实现超时控制
+多路选择select
+
+```go
+package select_test
+
+import (
+	"fmt"
+	"testing"
+	"time"
+)
+
+func service() string {
+	time.Sleep(time.Millisecond * 500)
+	return "Done"
+}
+
+func AsyncService() chan string {
+	retCh := make(chan string, 1)
+	//retCh := make(chan string, 1)
+	go func() {
+		ret := service()
+		fmt.Println("returned result.")
+		retCh <- ret
+		fmt.Println("service exited.")
+	}()
+	return retCh
+}
+
+func TestSelect(t *testing.T) {
+	select {
+	case ret := <-AsyncService():
+		t.Log(ret)
+	case <-time.After(time.Millisecond * 100):
+		t.Error("time out")
+	}
+}
+
+```
 ## Goroutine池
 ### worker pool（goroutine池）
 - 本质上是生产者消费者模型
@@ -489,7 +779,7 @@ channel常见的异常总结，如下图：
     - 计算一个数字的各个位数之和，例如数字123，结果为1+2+3=6
     - 随机生成数字进行计算
 - 控制台输出结果如下：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172848.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172848.png)
 
 ```go
 package main
@@ -1112,7 +1402,7 @@ atomic包提供了底层的原子级内存操作，对于同步算法的实现�
 我们知道，一切的软件都是跑在操作系统上，真正用来干活 (计算) 的是 CPU。早期的操作系统每个程序就是一个进程，知道一个程序运行完，才能进行下一个进程，就是 “单进程时代”
 
 一切的程序只能串行发生。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180801.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180801.png)
 
 
 早期的单进程操作系统，面临 2 个问题：
@@ -1124,7 +1414,7 @@ atomic包提供了底层的原子级内存操作，对于同步算法的实现�
 后来操作系统就具有了最早的并发能力：多进程并发，当一个进程阻塞的时候，切换到另外等待执行的进程，这样就能尽量把 CPU 利用起来，CPU 就不浪费了。
 
 #### 多进程 / 线程时代有了调度器需求
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180920.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180920.png)
 
 在多进程 / 多线程的操作系统中，就解决了阻塞的问题，因为一个进程阻塞 cpu 可以立刻切换到其他进程中去执行，而且调度 cpu 的算法可以保证在运行的进程都可以被分配到 cpu 的运行时间片。这样从宏观来看，似乎多个进程是在同时被运行。
 
@@ -1133,7 +1423,7 @@ atomic包提供了底层的原子级内存操作，对于同步算法的实现�
 怎么才能提高 CPU 的利用率呢？
 
 但是对于 Linux 操作系统来讲，cpu 对进程的态度和线程的态度是一样的。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180946.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180946.png)
 
 很明显，CPU 调度切换的是进程和线程。尽管线程看起来很美好，但实际上多线程开发设计会变得更加复杂，要考虑很多同步竞争等问题，如锁、竞争冲突等。
 
@@ -1146,10 +1436,10 @@ atomic包提供了底层的原子级内存操作，对于同步算法的实现�
 好了，然后工程师们就发现，其实一个线程分为 “内核态 “线程和” 用户态 “线程。
 
 一个 “用户态线程” 必须要绑定一个 “内核态线程”，但是 CPU 并不知道有 “用户态线程” 的存在，它只知道它运行的是一个 “内核态线程”(Linux 的 PCB 进程控制块)。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181037.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181037.png)
 
 这样，我们再去细化去分类一下，内核线程依然叫 “线程 (thread)”，用户线程叫 “协程 (co-routine)”.
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181059.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181059.png)
 
 看到这里，我们就要开脑洞了，既然一个协程 (co-routine) 可以绑定一个线程 (thread)，那么能不能多个协程 (co-routine) 绑定一个或者多个线程 (thread) 上呢。
 
@@ -1164,7 +1454,7 @@ N 个协程绑定 1 个线程，优点就是协程在用户态线程即完成切
 缺点：
 - 某个程序用不了硬件的多核加速能力
 - 一旦某协程阻塞，造成线程阻塞，本进程的其他协程都无法执行了，根本就没有并发的能力了。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181150.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181150.png)
 ```
 s="default">
 1:1 关系
@@ -1173,13 +1463,13 @@ s="default">
 
 缺点：
 - 协程的创建、删除和切换的代价都由 CPU 完成，有点略显昂贵了。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181232.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181232.png)
 ```
 s="default">
 M:N 关系
 ```
 M 个协程绑定 1 个线程，是 N:1 和 1:1 类型的结合，克服了以上 2 种模型的缺点，但实现起来最为复杂。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181305.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181305.png)
 
 协程跟线程是有区别的，线程由 CPU 调度是抢占式的，协程由用户态调度是协作式的，一个协程让出 CPU 后，才执行下一个协程。
 
@@ -1197,10 +1487,10 @@ Goroutine 特点：
 Go 目前使用的调度器是 2012 年重新设计的，因为之前的调度器性能存在问题，所以使用 4 年就被废弃了，那么我们先来分析一下被废弃的调度器是如何运作的？
 
 大部分文章都是会用 G 来表示 Goroutine，用 M 来表示线程，那么我们也会用这种表达的对应关系。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181400.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181400.png)
 
 下面我们来看看被废弃的 golang 调度器是如何实现的？
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181442.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181442.png)
 
 M 想要执行、放回 G 都必须访问全局 G 队列，并且 M 有多个，即多线程访问同一资源需要加锁进行保证互斥 / 同步，所以全局 G 队列是有互斥锁进行保护的。
 
@@ -1212,13 +1502,13 @@ M 想要执行、放回 G 都必须访问全局 G 队列，并且 M 有多个，
 面对之前调度器的问题，Go 设计了新的调度器。
 
 在新调度器中，出列 M (thread) 和 G (goroutine)，又引进了 P (Processor)。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181541.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181541.png)
 
 Processor，它包含了运行 goroutine 的资源，如果线程想运行 goroutine，必须先获取 P，P 中还包含了可运行的 G 队列。
 
 #### GMP 模型
 在 Go 中，线程是运行 goroutine 的实体，调度器的功能是把可运行的 goroutine 分配到工作线程上。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181610.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181610.png)
 - 全局队列（Global Queue）：存放等待运行的 G。
 - P 的本地队列：同全局队列类似，存放的也是等待运行的 G，存的数量有限，不超过 256 个。新建 G’时，G’优先加入到 P 的本地队列，如果队列满了，则会把本地队列中一半的 G 移动到全局队列。
 - P 列表：所有的 P 都在程序启动时创建，并保存在数组中，最多有 GOMAXPROCS(可配置) 个。
@@ -1258,7 +1548,7 @@ P 和 M 何时会被创建：
 全局 G 队列：在新的调度器中依然有全局 G 队列，但功能已经被弱化了，当 M 执行 work stealing 从其他 P 偷不到 G 时，它可以从全局 G 队列获取 G。
 
 #### go func () 调度流程
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182007.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182007.png)
 从上图我们可以分析出几个结论：
 1. 我们通过 go func () 来创建一个 goroutine；
 2. 有两个存储 G 的队列，一个是局部调度器 P 的本地队列、一个是全局 G 队列。新创建的 G 会先保存在 P 的本地队列中，如果 P 的本地队列已经满了就会保存在全局的队列中；
@@ -1268,7 +1558,7 @@ P 和 M 何时会被创建：
 6. 当 M 系统调用结束时候，这个 G 会尝试获取一个空闲的 P 执行，并放入到这个 P 的本地队列。如果获取不到 P，那么这个线程 M 变成休眠状态， 加入到空闲线程中，然后这个 G 会被放入全局队列中。
 
 #### 调度器的生命周期
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182240.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182240.png)
 
 特殊的 M0 和 G0
 
@@ -1357,13 +1647,13 @@ $ go tool trace trace.out
 2020/02/23 10:44:11 Opening browser. Trace viewer is listening on http://127.0.0.1:33479
 ```
 我们可以通过浏览器打开 http://127.0.0.1:33479 网址，点击 view trace 能够看见可视化的调度流程。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182553.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182612.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182553.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182612.png)
 
 G 信息
 
 点击 Goroutines 那一行可视化的数据条，我们会看到一些详细的信息。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182640.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182640.png)
 
 ```
 一共有两个G在程序中，一个是特殊的G0，是每个M必须有的一个初始化的G，这个我们不必讨论。
@@ -1373,13 +1663,13 @@ G 信息
 M 信息
 
 点击 Threads 那一行可视化的数据条，我们会看到一些详细的信息。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182737.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182737.png)
 
 
 一共有两个 M 在程序中，一个是特殊的 M0，用于初始化使用，这个我们不必讨论。
 
 P 信息
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182805.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182805.png)
 
 
 G1 中调用了 main.main，创建了 trace goroutine g18。G1 运行在 P1 上，G18 运行在 P0 上。
@@ -1387,11 +1677,11 @@ G1 中调用了 main.main，创建了 trace goroutine g18。G1 运行在 P1 上�
 这里有两个 P，我们知道，一个 P 必须绑定一个 M 才能调度 G。
 
 我们在来看看上面的 M 信息。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182825.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182825.png)
 
 
 我们会发现，确实 G18 在 P0 上被运行的时候，确实在 Threads 行多了一个 M 的数据，点击查看如下：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182839.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182839.png)
 
 
 多了一个 M2 应该就是 P0 为了执行 G18 而动态创建的 M2.
@@ -1443,18 +1733,18 @@ Hello World
 #### 场景 1
 
 P 拥有 G1，M1 获取 P 后开始运行 G1，G1 使用 go func() 创建了 G2，为了局部性 G2 优先加入到 P1 的本地队列。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183007.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183007.png)
 
 #### 场景 2
 
 G1 运行完成后 (函数：goexit)，M 上运行的 goroutine 切换为 G0，G0 负责调度时协程的切换（函数：schedule）。从 P 的本地队列取 G2，从 G0 切换到 G2，并开始运行 G2 (函数：execute)。实现了线程 M1 的复用。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183027.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183027.png)
 
 
 #### 场景 3
 
 假设每个 P 的本地队列只能存 3 个 G。G2 要创建了 6 个 G，前 3 个 G（G3, G4, G5）已经加入 p1 的本地队列，p1 本地队列满了。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183047.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183047.png)
 
 
 #### 场景 4
@@ -1463,7 +1753,7 @@ G2 在创建 G7 的时候，发现 P1 的本地队列已满，需要执行负载
 ```
 （实现中并不一定是新的 G，如果 G 是 G2 之后就执行的，会被保存在本地队列，利用某个老的 G 替换新 G 加入全局队列）
 ```
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183102.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183102.png)
 
 
 这些 G 被转移到全局队列时，会被打乱顺序。所以 G3,G4,G7 被转移到全局队列。
@@ -1471,7 +1761,7 @@ G2 在创建 G7 的时候，发现 P1 的本地队列已满，需要执行负载
 #### 场景 5
 
 G2 创建 G8 时，P1 的本地队列未满，所以 G8 会被加入到 P1 的本地队列。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183218.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183218.png)
 
 
 G8 加入到 P1 点本地队列的原因还是因为 P1 此时在与 M1 绑定，而 G2 此时是 M1 在执行。所以 G2 创建的新的 G 会优先放置到自己的 M 绑定的 P 上。
@@ -1479,7 +1769,7 @@ G8 加入到 P1 点本地队列的原因还是因为 P1 此时在与 M1 绑定�
 #### 场景 6
 
 规定：在创建 G 时，运行的 G 会尝试唤醒其他空闲的 P 和 M 组合去执行。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183240.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183240.png)
 
 
 假定 G2 唤醒了 M2，M2 绑定了 P2，并运行 G0，但 P2 本地队列没有 G，M2 此时为自旋线程（没有 G 但为运行状态的线程，不断寻找 G）。
@@ -1491,7 +1781,7 @@ M2 尝试从全局队列 (简称 “GQ”) 取一批 G 放到 P2 的本地队列
 n = min(len(GQ)/GOMAXPROCS + 1, len(GQ/2))
 ```
 至少从全局队列取 1 个 g，但每次不要从全局队列移动太多的 g 到 p 本地队列，给其他 p 留点。这是从全局队列到 P 本地队列的负载均衡。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183310.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183310.png)
 
 
 假定我们场景中一共有 4 个 P（GOMAXPROCS 设置为 4，那么我们允许最多就能用 4 个 P 来供 M 使用）。所以 M2 只从能从全局队列取 1 个 G（即 G3）移动 P2 本地队列，然后完成从 G0 到 G3 的切换，运行 G3。
@@ -1499,7 +1789,7 @@ n = min(len(GQ)/GOMAXPROCS + 1, len(GQ/2))
 #### 场景 8
 
 假设 G2 一直在 M1 上运行，经过 2 轮后，M2 已经把 G7、G4 从全局队列获取到了 P2 的本地队列并完成运行，全局队列和 P2 的本地队列都空了，如场景 8 图的左半部分。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183338.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183338.png)
 
 
 全局队列已经没有 G，那 m 就要执行 work stealing (偷取)：从其他有 G 的 P 哪里偷取一半 G 过来，放到自己的 P 本地队列。P2 从 P1 的本地队列尾部取一半的 G，本例中一半则只有 1 个 G8，放到 P2 的本地队列并执行。
@@ -1507,25 +1797,310 @@ n = min(len(GQ)/GOMAXPROCS + 1, len(GQ/2))
 #### 场景 9
 
 G1 本地队列 G5、G6 已经被其他 M 偷走并运行完成，当前 M1 和 M2 分别在运行 G2 和 G8，M3 和 M4 没有 goroutine 可以运行，M3 和 M4 处于自旋状态，它们不断寻找 goroutine。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183401.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183401.png)
 
 
 为什么要让 m3 和 m4 自旋，自旋本质是在运行，线程在运行却没有执行 G，就变成了浪费 CPU. 为什么不销毁现场，来节约 CPU 资源。因为创建和销毁 CPU 也会浪费时间，我们希望当有新 goroutine 创建时，立刻能有 M 运行它，如果销毁再新建就增加了时延，降低了效率。当然也考虑了过多的自旋线程是浪费 CPU，所以系统中最多有 GOMAXPROCS 个自旋的线程 (当前例子中的 GOMAXPROCS=4，所以一共 4 个 P)，多余的没事做线程会让他们休眠。
 
 #### 场景 10
 假定当前除了 M3 和 M4 为自旋线程，还有 M5 和 M6 为空闲的线程 (没有得到 P 的绑定，注意我们这里最多就只能够存在 4 个 P，所以 P 的数量应该永远是 M>=P, 大部分都是 M 在抢占需要运行的 P)，G8 创建了 G9，G8 进行了阻塞的系统调用，M2 和 P2 立即解绑，P2 会执行以下判断：如果 P2 本地队列有 G、全局队列有 G 或有空闲的 M，P2 都会立马唤醒 1 个 M 和它绑定，否则 P2 则会加入到空闲 P 列表，等待 M 来获取可用的 p。本场景中，P2 本地队列有 G9，可以和其他空闲的线程 M5 绑定。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183428.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183428.png)
 
 
 (11) 场景 11
 
 G8 创建了 G9，假如 G8 进行了非阻塞系统调用。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183451.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183451.png)
 
 M2 和 P2 会解绑，但 M2 会记住 P2，然后 G8 和 M2 进入系统调用状态。当 G8 和 M2 退出系统调用时，会尝试获取 P2，如果无法获取，则获取空闲的 P，如果依然没有，G8 会被记为可运行状态，并加入到全局队列，M2 因为没有 P 的绑定而变成休眠状态 (长时间休眠等待 GC 回收销毁)。
 
 ### 四、小结
 总结，Go 调度器很轻量也很简单，足以撑起 goroutine 的调度工作，并且让 Go 具有了原生（强大）并发的能力。Go 调度本质是把大量的 goroutine 分配到少量线程上去执行，并利用多核并行，实现更强大的并发。
+## 典型并发任务
+### 只运行一次
+在多线程的环境下，某一段代码只执行一次。
+
+也就是单例模式。
+
+在go语言里有个专门的方法 `sync.Once`
+```go
+package once_test
+
+import (
+	"fmt"
+	"sync"
+	"testing"
+	"unsafe"
+)
+
+type Singleton struct {
+	data string
+}
+
+var singleInstance *Singleton
+var once sync.Once
+
+func GetSingletonObj() *Singleton {
+	once.Do(func() {
+		fmt.Println("Create Obj")
+		singleInstance = new(Singleton)
+	})
+	return singleInstance
+}
+
+func TestGetSingletonObj(t *testing.T) {
+	var wg sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go func() {
+			obj := GetSingletonObj()
+			fmt.Printf("%X\n", unsafe.Pointer(obj))
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+}
+```
+```
+PS D:\Go\Go_WorkSpace\go_learning-master\code\ch23\singleton> go test -v -run TestGetSingletonObj once_test.go
+=== RUN   TestGetSingletonObj
+Create Obj
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+--- PASS: TestGetSingletonObj (0.00s)
+PASS
+ok      command-line-arguments  0.550s
+```
+### 仅需任意任务完成
+eg:并行执行很多任务，当一个任务返回的时候就可以返回给用户了。像搜索引擎返回搜索结果。
+
+go的CSP的并发控制机制能够简单快速地实现这样的模式。
+```go
+package concurrency
+
+import (
+	"fmt"
+	"runtime"
+	"testing"
+	"time"
+)
+
+func runTask(id int) string {
+	time.Sleep(10 * time.Millisecond)
+	return fmt.Sprintf("The result is from %d", id)
+}
+
+func FirstResponse() string {
+	numOfRunner := 10
+	ch := make(chan string, numOfRunner)
+	for i := 0; i < numOfRunner; i++ {
+		go func(i int) {
+			ret := runTask(i)
+			ch <- ret
+		}(i)
+	}
+	return <-ch
+}
+
+func TestFirstResponse(t *testing.T) {
+	t.Log("Before:", runtime.NumGoroutine())
+	t.Log(FirstResponse())
+	time.Sleep(time.Second * 1)
+	t.Log("After:", runtime.NumGoroutine())
+
+}
+
+```
+### 所有任务完成
+sync package 里的WaitGroup即可实现。
+
+另一种方式：在CSP模式下如何利用channel实现？
+```go
+package util_all_done
+
+import (
+	"fmt"
+	"runtime"
+	"testing"
+	"time"
+)
+
+func runTask(id int) string {
+	time.Sleep(10 * time.Millisecond)
+	return fmt.Sprintf("The result is from %d", id)
+}
+
+
+
+func AllResponse() string {
+	numOfRunner := 10
+	ch := make(chan string, numOfRunner)
+	for i := 0; i < numOfRunner; i++ {
+		go func(i int) {
+			ret := runTask(i)
+			ch <- ret
+		}(i)
+	}
+	finalRet := ""
+	for j := 0; j < numOfRunner; j++ {
+		finalRet += <-ch + "\n"
+	}
+	return finalRet
+}
+
+func TestAllResponse(t *testing.T) {
+	t.Log("Before:", runtime.NumGoroutine())
+	t.Log(AllResponse())
+	time.Sleep(time.Second * 1)
+	t.Log("After:", runtime.NumGoroutine())
+
+}
+
+```
+
+### 对象池
+很多场景可能会遇到对象池，比如创建一些代价比较高的对象。数据库连接、网络连接。通常会将这些对象进行池化以避免重复创建
+
+简单地可以使用buffered channel实现对象池。在select时需要有一个**超时控制**（高可用系统里有个金句：slow response比quick failure更糟糕）
+
+当然可以用空接口来实现对象池里有不同类型的对象，但每次取出对象时需要断言来确认对象的类型。实际运用时建议不同类型用不同缓冲池。
+```go
+package object_pool
+
+import (
+	"errors"
+	"time"
+)
+
+type ReusableObj struct {
+}
+
+type ObjPool struct {
+	bufChan chan *ReusableObj //用于缓冲可重用对象
+}
+
+func NewObjPool(numOfObj int) *ObjPool {
+	objPool := ObjPool{}
+	objPool.bufChan = make(chan *ReusableObj, numOfObj)
+	for i := 0; i < numOfObj; i++ {
+		objPool.bufChan <- &ReusableObj{}
+	}
+	return &objPool
+}
+
+func (p *ObjPool) GetObj(timeout time.Duration) (*ReusableObj, error) {
+	select {
+	case ret := <-p.bufChan:
+		return ret, nil
+	case <-time.After(timeout): //超时控制
+		return nil, errors.New("time out")
+	}
+
+}
+
+func (p *ObjPool) ReleaseObj(obj *ReusableObj) error {
+	select {
+    //channel被阻塞会立即返回default
+	case p.bufChan <- obj:
+		return nil
+	default:
+		return errors.New("overflow")
+	}
+}
+
+```
+### sync.pool对象缓存
+注意与buffered channel区别。
+
+sync.Pool对象获取：
+- 尝试从私有对象获取
+- 私有对象不存在，尝试从当前 Processor 的共享池获取
+- 如果当前 Processor 共享池也是空的，那么就尝试去其他Processor 的共享池获取
+- 如果所有⼦池都是空的，最后就⽤⽤户指定的 New 函数产⽣⼀个新的对象返回
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220306094445.png)
+
+对象放回：
+- 如果私有对象不存在则保存为私有对象
+- 如果私有对象存在，放⼊当前 Processor ⼦池的共享池中
+```go
+……
+pool := &sync.Pool{
+    New: func() interface{} {
+        return 0
+        },
+    }
+arry := pool.Get().(int)
+ …
+pool.Put(10)
+
+```
+**为什么sync.Pool不能拿来当对象池用？**
+- sync.Pool对象的生命周期
+    - GC 会清除 sync.pool 缓存的对象（GC是通过系统来调度的，没办法去干预，如果要长时间的去控制一个连接的生命周期就难以做到）
+    - 对象的缓存有效期为下⼀次GC 之前
+```go
+package object_pool
+
+import (
+	"fmt"
+	"runtime"
+	"sync"
+	"testing"
+)
+
+func TestSyncPool(t *testing.T) {
+	pool := &sync.Pool{
+		New: func() interface{} {
+			fmt.Println("Create a new object.")
+			return 100
+		},
+	}
+
+	v := pool.Get().(int)
+	fmt.Println(v)
+	pool.Put(3)
+	runtime.GC() //GC 会清除sync.pool中缓存的对象
+	v1, _ := pool.Get().(int)
+	fmt.Println(v1)
+}
+
+func TestSyncPoolInMultiGroutine(t *testing.T) {
+	pool := &sync.Pool{
+		New: func() interface{} {
+			fmt.Println("Create a new object.")
+			return 10
+		},
+	}
+
+	pool.Put(100)
+	pool.Put(100)
+	pool.Put(100)
+
+	var wg sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go func(id int) {
+			fmt.Println(pool.Get())
+			wg.Done()
+		}(i)
+	}
+	wg.Wait()
+}
+```
+
+**sync.Pool总结**：
+- 适合于通过复⽤，降低复杂对象的创建和 GC 代价
+- 协程安全，会有锁的开销
+- ⽣命周期受 GC 影响，不适合于做连接池等，需⾃⼰管理⽣命周期的资源的池化
+
 ## 爬虫小案例
 ### 爬虫步骤
 - 明确目标（确定在哪个网站搜索）

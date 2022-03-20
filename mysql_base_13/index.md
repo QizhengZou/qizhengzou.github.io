@@ -5,9 +5,9 @@
 # 事务处理
 ## 为什么需要并发控制
 并发控制的缘由:   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115213756.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115213756.png)
 并发控制及相应的事务处理技术是DBMS的核心技术:
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115213906.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115213906.png)
 ## 事务调度及可串行性
 **事务**是数据库管理系统提供的控制数据操作的一种手段，通过这一手段，应用程序员将一系列的数据库操作组合在一起作为一个整体进行操作和控制，以便数据库管理系统能够提供一致性状态转换的保证.
 
@@ -34,7 +34,7 @@ End Transaction
 - 具有ACID特性的若干数据库基本操作的组合体被称为事务
 
  DBMS对事务的控制:
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115214503.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115214503.png)
 
 事务调度与可串行性:   
 - 事务调度(schedule)：一组事务的基本步(读、写、其他控制操作如加锁、解锁等)的一种执行顺序称为对这组事务的一个调度。 并发(或并行)调度：多个事务从宏观上看是并行执行的，但其微观上的基本 操作(读、写)则是交叉执行的。
@@ -50,7 +50,7 @@ End Transaction
     - 冲突：调度中一对连续的动作：如果它们的顺序交换，那么涉及的事务中至少有一个事务的行为会改变。
     - 有冲突的两个操作是不能交换次序的，没有冲突的两个事务是可交换的
     - 几种冲突的情况：
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115215140.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115215140.png)
     - 冲突可串行性： 一个调度，如果通过交换相邻两个无冲突的操作能够转换到某一个串行的调度，则称此调度为冲突可串行化的调度
     - 冲突可串行性是比可串行性要严格的概念
     - 满足冲突可串行性，一定满足可串行性；反之不然
@@ -88,11 +88,11 @@ End Transaction
     - 增量锁I (Incremental lock)
         - 增量更新(例如A=A+x) 区分增量更新和其他类型的更新
 - 封锁协议之相容性矩阵
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115220735.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115220735.png)
     - 当某事务对一数据对象持有一种锁时，另一事务再申请对该对象加某一类型的锁，是允许(是)还是不允许(否)
 - 封锁协议需要考虑什么?
     - 封锁协议之加锁/解锁时机
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115220858.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115220858.png)
     - SQL之隔离性级别(允许程序员选择使用) 
         - 读未提交(read uncommitted) 
         - 读已提交(read committed) 
@@ -146,7 +146,7 @@ End Transaction
         - 事务的时间戳
             - TS(T): 即TimeStam
         
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115222650.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115222650.png)
 
     - 基于时间戳的另一种调度规则
         - 需要解决的问题：如何放行一些事实上可实现的冲突?—托马斯写规则
@@ -235,7 +235,7 @@ End Transaction
             因FIN(V)>VAL(W),需检测WS(V) ∩ WS(W)
             检测结果：不全为空,则W不能确认,W被回滚。
 ## 总结
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115224634.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115224634.png)
 
 
 

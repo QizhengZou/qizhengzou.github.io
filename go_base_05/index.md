@@ -184,7 +184,7 @@ func main() {
 Go语言中为了解决类似上面的问题，就设计了接口这个概念。接口区别于我们之前所有的具体类型，接口是一种抽象的类型。当你看到一个接口类型的值时，你不知道它是什么，唯一知道的是通过它的方法能做什么。
 
 接口的定义：
-（Go语言提倡面向接口编程。）
+（**Go语言提倡面向接口编程。**）
 ```
     接口是一个或多个方法签名的集合。
     任何类型的方法集中只要拥有该接口'对应的全部方法'签名。
@@ -552,7 +552,7 @@ w = os.Stdout
 w = new(bytes.Buffer)
 w = nil 
 ```
-请看下图分解（来自go中文文档）：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113164832.png)
+请看下图分解（来自go中文文档）：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113164832.png)
 
 想要判断空接口中的值这个时候就可以使用类型断言，其语法格式：
 ```

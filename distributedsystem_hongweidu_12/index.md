@@ -4,7 +4,7 @@
 
 # Transaction Processing Systems事务处理系统
 File operations and Transaction operations：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101220659.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101220659.png)
 
 Definitions of Atomic Transactions ：
 - Atomic Transaction: a sequence of data access operations that are atomic in the sense of:
@@ -21,10 +21,10 @@ What makes Database inconsistent?：
 - Failures of servers
 - Two well-known problems caused by concurrency:
 - **Lost update problem**
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101220857.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101220857.png)
 
 Inconsistent Retrieval Problem：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101220928.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101220928.png)
 
 Problem Caused by Server Failures：
 - Transaction: transfer(A, B, 100)
@@ -110,14 +110,14 @@ Example of recovery:
 - T: transfer (A, B, $20)
 - U: transfer (C, B, $22)
 - Recovery: remove tentative data created by U (p5 & p6) and commit the data updated by T (p1 & p2) to database.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101221702.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101221702.png)
 
 Shadow Version Approach (failure recovery) :
 - When a transaction modifies a file or data item, it creates a shadow (tentative) version of the file. 
 - The subsequent Twrite/Tread are performed on the shadow version.
 - At closeTrans, it detects version conflict with other concurrent transactions (done by concurrency control).
 - If no conflict, the shadow version is merged with other concurrent versions already committed; otherwise it is aborted.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101221737.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101221737.png)
 
 Implementation of Shadow Version Approach:
 - A copy of the file index block is created at the first Twrite of a transaction.
@@ -134,16 +134,16 @@ Serializability (Serially Equivalent) :
     3. T cannot see any effect of U
 
 Absolute Sequential Execution:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101222016.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101222016.png)
 
 Serial Equivalence:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101222049.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101222049.png)
 
 Non-serial Equivalence :
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101222127.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101222127.png)
 
 Non-serial Equivalence of Lost Update and Inconsistent Retrievals:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101222249.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101222249.png)
 
 Serializability of Transactions :
 - Conflicting operations: Two operations access the same data item and one of them is write.
@@ -201,7 +201,7 @@ lock(b);write(b); unlock(a, b)
 
 Serializability of 2-Phase Locking:
 - Serializability: All transactions are serialized in the order of the time they obtain locks on data items. 
-- Lock compatibility:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101222824.png)
+- Lock compatibility:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101222824.png)
 
 Implementation of Locking:
 - Lock manager: a module of a server program. It maintains a table of locks for the data items of the server.Each entry in the table of locks has:
@@ -251,7 +251,7 @@ Rules for Write:
 - W1: T >= rt and T > wt, a tentative value is created. 
 - W2: T < rt (including tentative rt) or T < wt, abort.
 -                        T1 < T2 < T3 < T4
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101223354.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101223354.png)
 
 Rules for Read:
 - R1: T >= wt  
@@ -259,7 +259,7 @@ Rules for Read:
     - if there are tentative values whose timestamps are earlier than T, wait for the tentative values committed; otherwise: 
     - read data immediately.
 - R2: T < wt,  abort. 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101223512.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101223512.png)
 
 Commitment of Transactions:
 - The commit of a tentative value (including a tentative rt of a data object) has to wait for the commit of tentative values of earlier transactions. 
@@ -271,18 +271,18 @@ Multiversion Timestamp Ordering ;
 - A read that arrives too late need not be rejected. It returns the data whose version has the largest wt that is less than the transaction. A read still need to wait for a tentative version to commit/abort.
 - There is no conflict between write operations, bcs each transaction writes on its own version of the data. But a write will be rejected if the data was read by a later transaction.
 - A commit does not need to wait for earlier transactions (bcs multi-versions can co-exist) if it does not read data from earlier versions.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101223611.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101223611.png)
 
 Multiversion Timestamp Ordering: late read / write:
 - In multiversion timestamp ordering, a read operation can always proceed (provided the old version is still kept)
 - But a write operation arrived too late can still be rejected. 
 - Example: after T3 read & write…. (cont’d)..
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101223652.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101223652.png)
 
 Multiversion Timestamp Ordering: late read/write (cont’d):
 - Ater T5 reads the data and committed, if T4-write arrives, it’ll be aborted; otherwise you have conflict of T4 & T5.
 - Rule: a write operation arrived too late can still be rejected.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101223725.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101223725.png)
 
 Discussions on Timestamp Ordering:
 - Advantages: 
@@ -305,7 +305,7 @@ read(t1, b) 	 <- T will abort (unnecessarily)
 Optimistic Method (Optimistic Timestamp Ordering) :
 - Observation: the possibility of conflicts of two transactions is low. Transactions are allowed to progress as if there were no conflict at all. 
 - A transaction has three phases: tentative, validation and commit. 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101223902.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101223902.png)
 - Tentative phase: read and write are returned immediately (write is to a tentative version). Read set (RS) and Write set (WS) of the trans are recorded.
 - Validation phase: detect the conflicts with other concurrent transactions and decide commit/abort as the result.
 - Commit phase: commit tentative values made by the transaction.
@@ -313,28 +313,28 @@ Note: transactions are serialized in the order of their close time.
 
 Validation Condition :
 - When validating Ti, system checks each Tj which is concurrent with Ti (i.e. Ti starts in between the start and completion of Tj).
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101224000.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101224000.png)
 
 Implementation Details :
 - Three important time points of a transaction: 
 - start_t, finish_t and commit_t.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101224053.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101224053.png)
 - validation_set: a set of transactions being in validation. 
 - Note: start_t is the time of “openTrans”, finish_t is the time of “closeTrans”.
 
 Validation, Write, and Commit of Transaction Ti；
 1. When a Ti enters validation, record time finish_t,  make a copy of validation_set and add Ti into validation_set.
     - transactions whose commit_t is in between start_t and finish_t of Ti are concurrent in tentative phase but serial in validation phase with Ti.
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101224154.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101224154.png)
     - transactions in validation_set are concurrent in validation phase with Ti.
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101224215.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101224215.png)
 2. If Ti passes validation, it enters write-phase. 
 3. Ti's commit_t is recorded and Ti is removed from validation_set.
 
 How long we need to keep information of Ti：
 - Information of committed transactions should be kept for other transactions validation: 
     - the information of a transaction can be removed when its commit_t < start_t of any uncommitted transaction in the system.
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101224304.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101224304.png)
 
 Discussions on Optimistic Method：
 - Serializability

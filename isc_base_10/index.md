@@ -12,7 +12,7 @@
 
 信息安全管理体系ISMS：
 - 信息安全管理体系ISMS（Information Security Management System）是从管理学惯用的过程模型PDCA（Plan、Do、Check、Act）发展演化而来。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221200253.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221200253.png)
 
 ISMS:
 - 信息安全管理体系（ISMS）是一个系统化、过程化的管理体系，体系的建立不可能一蹴而就，需要全面、系统、科学的风险评估、制度保证和有效监督机制。
@@ -74,7 +74,7 @@ ISMS:
 
 信息安全风险因素及相互关系：
 - 风险因素之间相互作用、相互影响；安全风险随各因素的变化呈现动态调整演变趋势。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221201036.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221201036.png)
 
 风险可以描述成关于威胁发生概率和发生时的破坏程度的函数，用数学符号描述如下：
 $R_{i}\left(A_{i}, T_{i}, V_{i}\right)=P\left(T_{i}\right) \times F\left(T_{i}\right)$
@@ -132,7 +132,7 @@ $R_{\text {总 } }=\sum_{i=1}^{n} R_{i}(A, T, V)=\sum_{i=1}^{n} P\left(T_{i}\rig
     - 风险转移是指通过使用其它措施来补偿损失，从而转移风险，如购买保险等。
 - 一般来说，风险控制措施是以消除安全风险产生条件、切断风险形成的路线为基本手段，最终阻止风险的发生或将风险降低到可接受水平。
 
-安全风险系统判断过程：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221201628.png)
+安全风险系统判断过程：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221201628.png)
 
 风险控制具体做法：
 - 风险控制具体做法：
@@ -141,7 +141,7 @@ $R_{\text {总 } }=\sum_{i=1}^{n} R_{i}(A, T, V)=\sum_{i=1}^{n} P\left(T_{i}\rig
     - 当攻击成本小于攻击可能的获利时，运用保护措施，通过提高攻击者成本来降低攻击者的攻击动机，如加强访问控制，限制系统用户的访问对象和行为，降低攻击获利；
     - 当风险预期损失较大时，优化系统设计、加强容错容灾以及运用非技术类保护措施来限制攻击的范围，从而将风险降低到可接受范围。
 
-具体的风险控制措施：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221201733.png)
+具体的风险控制措施：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221201733.png)
 
 NIST SP800系列标准：
 - 实施风险控制措施是一个系统化工程，美国NIST制定的NIST SP800系列标准中给出了较详细的具体实施流程，包括七个步骤。
@@ -173,7 +173,7 @@ NIST SP800系列标准：
 ### 10.3.2 信息技术安全性评估通用准则（CC）
 信息安全产品标准CC：
 - CC标准是“The Common Criteria for Information Technology security Evaluation”的缩写，《信息技术安全性通用评估标准》，在美国和欧洲等推出的测评准则上发展起来的。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221202129.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221202129.png)
 
 CC文档结构：
 - CC标准提倡安全工程的思想，通过信息安全产品的开发、评价、使用全过程的各个环节的综合考虑来确保产品的安全性。
@@ -194,7 +194,7 @@ CC标准的内容：
 
 安全需求的定义：
 - 在CC标准中，安全需求以类、族、组件的形式进行定义，给出了对安全需求进行分组归类的方法。对全部安全需求进行分析，根据不同的侧重点，划分成若干大组，每个大组就称为一个类。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221202324.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221202324.png)
 
 需求定义的用法：
 - 安全需求定义中的“类、族、组件”体现的是分类方法，安全需求由组件体现，选择需求组件等同选择安全需求。
@@ -203,7 +203,7 @@ CC标准的内容：
     - 保护轮廓定义是一份安全需求说明书，是针对某一类安全环境确立相应的安全目标，进而定义为实现这些安全目标所需要的安全需求，保护轮廓定义的主要内容包括定义简述、产品说明、安全环境、安全目标、安全需求、应用注释和理论依据等。
     - 安全对象定义是一份安全需求与概要设计说明书，不同的是安全对象定义的安全需求是为某一特定的安全产品而定义的，具体的安全需求可通过引用一个或多个保护轮廓定义来定义，也可从头定义。安全对象定义的组成部分主要包括定义简述、产品说明、安全环境、安全目标、安全需求、产品概要说明、保护轮廓定义的引用声明和理论依据等。
 
-安全可信度级别：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221202420.png)
+安全可信度级别：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221202420.png)
 
 安全产品的开发：
 - CC标准体现了软件工程与安全工程相结合思想。
@@ -254,7 +254,7 @@ CC标准的内容：
 - 同时，公安部、国家保密局、国家密码管理委员会等相继制定、颁布了一批信息安全的行业标准，为推动信息安全技术在各行业的应用和普及发挥了积极的作用。
 
 国家信息安全标准体系：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221202920.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221202920.png)
 - 基础标准主要定义或描述信息安全领域的安全术语、体系结构、模型、框架等内容。
 - 技术与机制标准主要包括标识与鉴别、授权与访问控制、实体管理、物理安全等内容。
 - 管理标准主要包括管理基础、管理要素、管理支撑技术、工程与服务等内容。

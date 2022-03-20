@@ -39,7 +39,7 @@ Computer Clocks:
     - e.g., 60 or 100 interrupts per second
     - Programmable Interrupt Controller (PIC)
     - Interrupt service routine increments the “clock” by 1 for each interrupt
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210142038.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210142038.png)
 
 Clock drift and clock skew:
 - Clock Drift 时钟漂移
@@ -49,16 +49,16 @@ Clock drift and clock skew:
     - Create ever-widening gap in perceived time
 - Clock Skew (offset)  时钟偏移
     - Difference between two clocks at one point in time
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210142249.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210142249.png)
 
 Perfect clock:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210142339.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210142339.png)
 
 Drift with a slow computer clock:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210142418.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210142418.png)
 
 Drift with a fast computer clock:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210142452.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210142452.png)
 
 Dealing with drift:
 - No good to set a clock backward
@@ -71,7 +71,7 @@ Linear compensating function:
 - OS can do this: Change the frequency of clock interrupts
     - e.g.: if the system generates an interrupt every 17 ms but clock is too slow: generates an interrupt at (e.g.) 15 ms
 - Adjustment changes slope of system time: Linear compensating function （线性补偿函数）
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210142708.png) 
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210142708.png) 
 
 Resynchronization:
 - After synchronization period is reached
@@ -103,11 +103,11 @@ Synchronizing Clocks by using RPC:
 - Simplest synchronization technique
     - Make an RPC to obtain time from the server
     - Set the local clock to the server time
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143116.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210143116.png)
 - Does not count network or processing latency
 
 Cristian’s algorithm:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143221.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210143221.png)
 
 Cristian’s algorithm: example:
 - Send request at 5:08:15.100 (T0)
@@ -119,11 +119,11 @@ Cristian’s algorithm: example:
 - Set the local time to Tserver + round-trip-time/2
 	- 5:09:25.300 + 400 = 5:09.25.700
 - Accuracy: ± round-trip-time/2
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143355.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210143355.png)
 
 Cristian’s algorithm: error bound:
 - Tmin: Minimum message travel time
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143435.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210143435.png)
 
 Problems with Cristian’s algorithm:
 - Server might fail
@@ -147,9 +147,9 @@ Berkeley Algorithm:
 - Any slave can take over the master if master fails
 
 Berkeley Algorithm: example:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143658.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143727.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143759.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210143658.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210143727.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210143759.png)
 
 Network Time Protocol (NTP):
 - NTP is the most commonly used Internet time protocol and the one provides best accuracy (RFC 1305, http://tf.nist.gov/service/its.htm ). 
@@ -158,7 +158,7 @@ Network Time Protocol (NTP):
 - Many NTP client software for PC only gets time from a single server (no averaging). The client is called SNTP (Simple Network Time Protocol, RFC 2030), a simple version of NTP.
 
 NTP synchronization subnet:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210143913.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210143913.png)
 - 1st stratum: machines connected directly to accurate time source
 - 2nd stratum: machines synchronized from 1st stratum machines
 -  …
@@ -187,13 +187,13 @@ NTP Synchronization Modes:
 
 Symmetric mode:
 - The delay between the arrival of a request (at server B) and the dispatch of the reply is NOT negligible:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210144218.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210144218.png)
 
 Symmetric mode (another expression):
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210144256.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210144256.png)
 
 Symmetric NTP example:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210144452.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210144452.png)
 
 Improving accuracy:
 - Data filtering from a single source
