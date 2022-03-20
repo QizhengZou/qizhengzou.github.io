@@ -13,22 +13,22 @@ draft: false
 ## 数据库查询实现算法-I
 ### 数据库查询实现算法概述
 查询实现&查询优化：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113162053.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113162053.png)
 查询实现算法总览：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113162151.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113162151.png)
 ### 以连接操作为例看逻辑实现算法与物理实现算法
 连接操作的逻辑实现算法：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113162320.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113162320.png)
 物理算法需要考虑：关系是存储在磁盘上的，磁盘是以磁盘块为操作单位，首先要被装载进内存(I/O操作)，然后再进行元组的处理
 
 连接操作的基本实现算法：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113162715.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113162715.png)
 连接操作的全主存实现算法：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113162906.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113162906.png)
 连接操作的半主存实现算法：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113163002.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113163002.png)
 连接操作的大关系实现算法：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113163055.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113163055.png)
 
 连接操作的其他物理实现算法：   
 - 表空间扫描法
@@ -47,9 +47,9 @@ draft: false
 
 ### 利用迭代器构造查询实现算法
 例如：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211114102441.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211114102441.png)
 迭代器算法流水线计算策略：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211114102549.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211114102549.png)
 迭代器：迭代的读取一个集合中的每一个元素，而封装其读取细节
 
 有一个抽象类：
@@ -100,7 +100,7 @@ Close() {
 R.Close();
 }
 ```
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211114103220.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211114103220.png)
 PROJECTION(SELECTION(R)):
 ```
 Open() {
@@ -183,34 +183,34 @@ R.Close(); S.Close();
     - 聚簇和非聚簇索引，使用时其效率是不一样的。
     - 如何通过索引来判断范围性的条件？
     - 索引应用分析示例
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115103611.png)
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115103722.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115103611.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115103722.png)
 - 基于有序索引的连接算法--Zig-Zag连接算法   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115103949.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115103949.png)
 ### 总结
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115115125.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115115125.png)
 ## 数据库查询实现算法-II
 ### 为什么需要两趟算法? 
 - 整个关系操作存在的问题?
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115104438.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115104438.png)
 - 两趟算法的基本思路?
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115104538.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115104538.png)
 ### 两阶段多路归并排序TPMMS
 - 内排序和外排序问题
     - 内排序问题: 待排序的数据可一次性地装入内存中，即排序者可以完整地看到和操纵所有数据。内存中数据的排序算法：插入排序算法、选择排序算法、冒泡排序算法…。 
     - 外排序问题: 待排序的数据不能一次性装入内存，即排序者不能一次完整地看到和操纵所有数据，需要将数据分批装入内存分批处理的排序问题；
 - 外排序问题分析
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115113454.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115113454.png)
 - 算法基本思想
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115113626.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115113626.png)
 ### 基于排序的两趟扫描算法
 - 去重复操作
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115113809.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115113809.png)
 - 分组聚集操作
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115113853.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115113853.png)
 - 基于排序的并、交和差
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115113952.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115114054.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115113952.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115114054.png)
 对于集合差：R - S，当且仅当t出现在R中但不出现在S中时输出
 - 基于排序的连接运算
     - 第一趟：划分R和S的子表并进行子表排序，排序均基于Y属性排序。
@@ -219,16 +219,16 @@ R.Close(); S.Close();
     - SORT-JOIN， MERGE-JOIN， SORT-MERGE-JOIN
 ### 基于散列的两趟扫描算法
 - 基本思想
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115114512.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115114512.png)
 - 去重复操作
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115114623.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115114623.png)
 - 分组聚集操作
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115114811.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115114811.png)
 - 基于散列的并、交和差操作
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115114912.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115114912.png)
 - 基于散列的连接操作
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115114947.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115114947.png)
 ### 总结
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115115033.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115115033.png)
 
 

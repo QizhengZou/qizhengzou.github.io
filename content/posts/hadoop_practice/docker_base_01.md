@@ -44,5 +44,5 @@ passwd命令用不了安装：yum install -y passwd sudo
 hadoop_single容器里hadoop用户密码就是hadoop
 HDFS是hadoop最主要的守护进程
 启动HDFS后用jps查看java进程：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123211252.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123211252.png)
 因为我用的linux系统是centos8不带桌面环境，不然可以从http://172.17.0.2:9870/查看HDFS面板及详细信息

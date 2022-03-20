@@ -115,7 +115,7 @@ draft: false
             - 链接指针。 设置分别指向空闲链表和散列队列的指针。
 - 单级目录结构
     - 单级目录结构(或称为一级目录结构)是最简单的目录结构。在整个文件系统中，单级目录结构只建立一张目录表，每个文件占据其中的一个表目，如图4-1所示。
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130185824.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130185824.png)
     - 当建立一个新文件时，首先应确定该文件名在目录中是否唯一，若与已有文件名没有冲突，则从目录表中找出一个空表目，将新文件的相关信息填入其中。在删除文件时，系统先从目录表中找到该文件的目录项，从中找到该文件的物理地址，对文件占用的存储空间进行回收，然后再清除它所占用的目录项。当对文件进行访问时，系统先根据文件名去查找目录表以确定该文件是否存在，若文件存在，则找出文件的物理地址，进而完成对文件的操作。单级目录结构的优点是易于实现，管理简单，但是存在以下缺点。
         - 不允许文件重名 (这个很显然)。单级目录下的文件，不允许和另一个文件有相同的名字。但对于多用户系统来说，这又是很难避免的。即使是单用户环境，当文件数量很大时,也很难弄清到底有哪些文件，这就导致文件系统极难管理。
         - 文件查找速度慢。 对稍具规模的文件系统来说，由于其拥有大量的目录项，因此查找一个指定的目录项可能花费较长的时间。
@@ -142,7 +142,7 @@ draft: false
     - 先前已经介绍过了，索引结点是把FCB中的文件描述信息单独构成一个数据结构，也就是说，物理块的信息在索引结点中。此时，目录项中只有文件名和指向索引结点的指针，两个不同的目录项只需要指向相同的索引结点即可实现共享，即一个共享文件只有一个索引结点。如果不同文件名的目录项需要共享该文件，只需目录项中的指针都指向该索引结点即可。
     - 在索引结点中再增加一个计数值来统计指向该索引结点的目录项的个数，这样一来就需要在删除该文件时可以先判断计数值，只有计数值为1时才删除该索引结点，若计数值大于1,则把计数值减1即可。这种方法能够实现文件的异名共享，但当文件被多个用户共享时，文件拥有者不能删除文件。
 - 利用符号链实现文件共享(软链接)
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130190836.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130190836.png)
     - 如图4-6所示，该方法是创建一个称为链接的新目录项。例如，为了使得用户B能共享用户C的一个文件，可以由系统为用户B建立一个指向该文件的新目录项，并放在用户B的目录下，在新目录项中包含了被共享文件的路径名，可以是绝对路径或者相对路径。当需要访问一个文件时，就搜索目录表，如果目录项标记为链接，那么就可以获取真正文件(或目录)的名称，再搜索目录。链接可以通过使用目录项格式(或通过特殊类型)而加以标记，其实际上是具有名称的间接指针。在遍历目录树时，系统忽略这些链接以维护系统的无环结构。在利用符号链方式实现文件共享时，只有文件拥有者才拥有指向其索引结点的指针;而共享该文件的其他用户只有该文件的路径名，并不拥有指向其索引结点的指针。这样就不会发生在文件拥有者删除共享文件后留下悬空指针的情况。当文件拥有者把一个共享文件删除后，其他用户试图通过符号链去访问一个已被删除的共享文件时，会因系统找不到该文件而使访问失败，于是再将符号链删除，此时不会产生任何影响。符号链方式有一个很大的优点，就是它能够用于链接(通过计算机网络)世界上任何地方的计算机中的文件，此时只需提供该文件所在机器的网络地址以及该机器中的文件路径即可。
     - 这种方法解决了基于索引结点共享方法中文件拥有者不能删除共享文件的问题，但是当其他用户要访问共享文件时，需要逐层查找目录，开销较大。
 ### 文件保护：访问类型、访问控制。
@@ -157,7 +157,7 @@ draft: false
 ## 文件系统实现
 ### 文件系统层次结构
 文件系统是指操作系统中与文件管理有关的软件和数据的集合。从系统角度看，文件系统是对文件的存储空间进行组织和分配，负责文件的存储并对存入文件进行保护和检索的系统。具体来说，它负责为用户建立、撤销、读写、修改和复制文件。从用户角度看，文件系统主要实现了按名存取。也就是说，当用户要求系统保存一个已命名文件时，文件系统根据一定的格式将用户的文件存放到文件存储器中适当的地方;当用户要求使用文件时，系统根据用户所给的文件名能够从文件存储器中找到所要的文件。如图4-7所示，文件系统一种合理的层次结构可分为用户接口、文件目录系统、存取控制验证、逻辑文件系统与文件信息缓冲区和物理文件系统。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130191305.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130191305.png)
 - 用户接口。 操作系统通常使用图形桌面作为一个接口，当然还有Windows下的黑黑的cmd以及Linux, Mac. 上好用的命令窗口，都是用户接口。这个用户是广义的概念，不仅仅指代程序员。比如查看文件F的内容，那么通过接口操作，向操作系统发出命令，这就是第一层，最抽象的也是最顶层的面对用户的接口，连接的是现实世界与虚拟世界。
 - 文件目录系统。 操作系统得到命令后要干的事情是查找目录，得到文件F的索引信息，这个索引信息可以通过FCB，也可以通过索引结点。前面讨论过抽出文件名得到的i结点，按名存取时找到i结点指针。一个文件有一个FCB或一个i结点(索引结点)，这便是在第二层:文件目录系统做的事情。
 - 存取控制验证。 找到FCB后，不是所有人都有资格见到F文件，还需要考察你的资质。好像你前面费了一番心思到了一个景区，想去看看，得验证你是不是有票，票即资格。FCB.上有你是不是可以访问此文件的权限信息，这便是存取控制验证。现在假定的任务是读,也即取，写入是存。存取这个名称也是可以再掰开体会的。
@@ -176,37 +176,37 @@ draft: false
     - 一般来说，外存的分配采用两种方式:静态分配和动态分配。静态分配是在文件建立时一次性分配所需的全部空间;而动态分配则是根据动态增长的文件长度进行分配，甚至可以一次分配一个物理块。在分配区域大小上，也可以采用不同方法。可以为文件分配一个完整的区域以装下整个文件，这就是文件的连续分配。但文件存储空间的分配通常以块或簇(几个连续物理块称为簇，一般是固定大小) 为单位。常用的外存分配方法有连续分配、链接分配和索引分配。
     - (1)连续分配
         - 连续分配是最简单的磁盘空间分配策略，该方法要求为文件分配连续的磁盘区域，如图4-8所示。在这种分配算法中，用户必须在分配前说明待创建文件所需的存储空间大小，然后系统查找空闲区的管理表格，查看是否有足够大的空闲区供其使用。如果有，就给文件分配所需的存储空间;如果没有，该文件就不能建立，用户进程必须等待。
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130191803.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130191803.png)
         - 采用连续分配方式时，可把逻辑文件中的记录顺序地存储到相邻的物理盘块中，这样所形成的文件结构称为顺序文件结构，此时的物理文件称为顺序文件。这种分配方式保证了逻辑文件中的记录顺序与存储器中文件占用盘块的顺序一致。
         - 连续分配的优点是查找速度比其他方法快(只需要起始块号和文件大小)，目录中关于文件物理存储位置的信息也比较简单。其主要缺点是容易产生碎片，需要定期进行存储空间的紧缩。很显然，这种分配方法不适合文件随时间动态增长和减少的情况，也不适合用户事先不知道文件大小的情况。
     - (2)链接分配
         - 对于文件长度需要动态增减以及用户事先不知道文件大小的情况，往往采用链接分配。这种分配策略有以下两种实现方案。
         - 隐式链接。 该实现方案用于链接物理块的指针隐式地放在每个物理块中，目录项中有指向索引顺序文件的第一块盘块和最后-块盘块的指针，此外每个盘块中都含有指向下一盘块的指针，如图4-9所示。若要访问某一个盘块，需要从第一个盘块开始一个个盘块都读出指针来，所以存在随机访问效率低的问题;由于其中任何一个盘块的指针错误都会导致后面的盘块的位置丢失，因此这种实现方案可靠性较差。
         - 显式链接。 该实现方案用于链接物理块的指针显式存放在内存的一张链接表中，每个磁盘设置一张链接表， 如图4-10所示。这个表又称为文件分配表(File Allocation Table,FAT)，MS-DOS、Windows和OS/2等操作系统都用了FAT。由于还是链接方式，因此在FAT中找一个记录的对应物理块地址时还是需要一个个找下去，不能随机查找。但是与隐式链接相比，该方案是在内存中而非在磁盘中查找，所以能节省不少时间。
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130191958.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130191958.png)
         - 链接分配的优点是简单(只需起始位置)，文件创建与增长容易实现。其缺点是不能随机访问盘块，链接指针会占用一些存储空间，而且存在可靠性问题。
     - (3)索引分配
         - 链接分配方式虽然解决了连续分配方式中存在的问题，但又出现了新的问题。首先，当要求随机访问文件中的一个记录时，需要按照链接指针依次进行查找，这样查找十分缓慢。其次，链接指针要占用一定数量的磁盘空间。为了解决这些问题，引入了索引分配方式。在索引分配方式中，系统为每个文件分配一个索引块，索引块中存放索引表，索引表中的每个表项对应分配给该文件的一个物理块，如图4-11所示。
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130192111.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130192111.png)
         - 索引分配方式不仅支持直接访问，而且不会产生外部碎片，文件长度受限制的问题也得到了解决。其缺点是由于索引块的分配，增加了系统存储空间的开销。对于索引分配方式，索引块的大小选择是一个很重要的问题。为了节约磁盘空间，希望索引块越小越好，但索引块太小则无法支持大文件，所以要采用一些技术来解决这个问题。另外，存取文件需要两次访问外存一首 先读取索引块的内容,其次再访问具体的磁盘块，因而降低了文件的存取速度。
         - 为了更有效地使用索引表，避免访问索引文件时两次访问外存，可以在访问文件时先将索引表调入内存中，这样，文件的存取就只需要访问一次外存 了。当文件很大时，文件的索引表会很大。如果索引表的大小超过了一个物理块，可以将索引表本身作为一个文件，再为其建立一个“索引表”，这个“索引表”作为文件索引的索引，从而构成了二级索引。第一级索引表的表目指向第二级索引，第二级索引表的表目指向文件信息所在的物理块号。依次类推，可逐级建立索引，进而构成多级索引。
         - 索引分配支持直接访问，而且没有外部碎片，但是索引块本身会占用空间。
         - 1)单级索引分配。单级索引分配方法就是将每个文件所对应的盘块号集中放在一起，为每个文件分配一个索引块(表),再把分配给该文件的所有盘块号都记录在该索引块中，因而该索引块就是一个包含多个盘块号的数组。
         - 图4-12为test 文件分配的盘块，依次是9、16、 1、10。建立一个索引块，其盘块号为19，则在目录文件中该表项的块序号为19， 并在19号盘块中建立其分配盘块号的索引。图4-12中表示test文件分配的第1个盘块号为9,第2个盘块号为16,依次类推(-1表示结束)。
         - 2)两级索引分配。当文件较大，一个索引块放不下文件的块序列时，可以对索引块再建立索引，这样构成二级索引，如图4-13所示，test 文件的目录项的索引地址为主索引的块号，主索引中的各块号是第二级索引的块号，第二级索引中的块号才构成文件的块号序列。
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130192333.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130192333.png)
         - 若盘块的大小为4KB，每个表项大小为4B，采用单级索引时允许的最大文件长度为Nx4KB= 4MB (其中N=4KB/4B=1K);而采用两级索引时所允许的最大文件长度为NxNx4KB=4GB，可见采用多级索引时可以大大提高文件的最大长度。这种思维可以推广到三级以及三级以上的索引分配，统称为多级索引分配。
         - 3)混合索引分配。所谓混合索引分配，是指将多种索引分配方式相结合而形成的一种分配方式。例如，系统既采用了直接地址，又采用了单级索引分配方式或两级索引分配方式，甚至多级索引分配方式。图4-14所示的是一种混合索引分配方式，假设每个盘块大小为4KB,描述盘块的盘块号需要4B。
         - 直接地址。 为了提高文件的检索速度，在索引结点中可设置10个直接地址项。这里每项中存放的是该文件所在盘块的盘块号，当文件不大于40KB时，便可以直接从索引结点中读出该文件的全部盘块号( 10x4KB- 40KB)。
         - 一次间接地址。对于较大的文件，索引结点提供了一次间接地址，其实质就是一级索引分配方式。在一次间接地址中可以存放1K个盘块号，因此允许文件长达4MB (1Kx4KB- 4MB)。若既采用直接地址，又采用一次间接地址，允许文件长达4MB+40KB。
         - 二次间接地址。当文件很大时，系统应采用二级间接地址。该方式实质上是两级索引分配方式，此时系统是在二次间接地址块中记入所有一次间接地址块的盘号。在采用二级间接地址方式时，文件最大长度可达到4GB (1Kx1K*4KB=4GB)。 如果同时采用直接地址、一次间接地址和二次间接地址，允许文件长达4GB+4MB+40KB.
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130192529.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130192529.png)
         - 这种思想可以推广到三级间接地址等。当采用三级间接地址时，所允许的最大文件长度为4TB+4GB+4MB+40KB。
 - 文件存储空间管理
     - 为了实现空闲存储空间的管理，系统应该记录空闲存储空间的情况，以便实施存储空间的分配。下面介绍几种常用的空闲存储空间管理方法。
     - (1)空闲文件表法
         - 文件存储设备上的一个连续空闲区可以看作一个空闲文件(又称为空白文件或自由文件)。空闲文件表方法为所有空闲文件单独建立一个目录,每个空闲文件在这个目录中占一个表目。表目的内容包括第一个空闲块号、物理块号和空闲块数目，见表4-1。
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130192731.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130192731.png)
         - 当某用户请求分配存储空间时，系统依次扫描空闲文件目录，直到找到一个满足要求的空闲文件为止。当用户撤销一个文件时，系统回收该文件所占用的空间。这时也需要顺序扫描空闲文件目录，寻找一个空表目，并将释放空间的第一个物理块 号及它所占的块数填到这个表目中。
         - 这种空闲文件目录方法类似于内存动态分区的管理。当请求的块数正好等于某个目录表目中的空闲块数时，就把这些块全部分配给该文件并把该表目标记为空。若该项中的块数多于请求的块数，则把多余的块号留在表中，并修改该表目中的各项。同样，在释放过程中, 若被释放的物理块号与某一目录项中的物理块号相邻，则还要进行空闲文件的合并。
         - 仅当文件存储空间中只有少量空闲文件时，这种方法才有较好的效果。若存储空间中有大量的小空闲文件，则空闲文件目录将变得很大，其效率将大为降低。这种管理方法仅适用于连续文件。
@@ -219,7 +219,7 @@ draft: false
     - (4)成组链接法(UNIX的文件存储空间管理方法)
         - 成组链接法适用于大型文件系统。该方法将一个文件的所有空闲块按每组100块分成若干组，把每一组的盘块数目和该组的所有盘块号记入到前一组的第一个盘块中，第一组的盘块数目和第一组的所有盘块号记入到超级块中，如图4-16所示。这样每组的第一个盘块就链接成了一个链表，而组内的多个盘块形成了堆栈。每组的第一块是存放 下一组的块号的堆栈，堆栈是临界资源，每次只能允许一个进程访问，所以系统设置了一把锁来对其互斥地访问。
         - 1)分配空闲盘块的方法。当系统要为文件分配空闲盘块时，先查找第一组的盘块数，若不止一块，则将超级块中的空闲盘块数减1，将栈顶的盘块分配出去。若第一组只剩下一块(是放置下一组的盘块数和盘块号的那个块,不是空闲块)且栈顶的盘块号不是结束标记0(说明这一组不是最后一组)，则先将该块的内容读到超级块中(下一组成了第一组，所以下一组的盘块数和盘块号需要放到超级块中)，然后再将该块分配出去(该块中的信息不再有用，这一块成了空闲块);若栈顶的盘块号是结束标记0,则表示磁盘已无空闲盘块，分配不成功。
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130193359.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130193359.png)
         - 2)空闲盘块回收的方法。当系统回收空闲块时，若第一组不满 100块，则只要在超级块的空闲盘块的栈顶放入该空闲盘块的块号，并将其中的空闲盘块数加1即可;若第一组已经有100块了，则先将第一组中的盘块数和盘块号写入到该空闲盘块中,然后将“盘块数=1及栈顶块号=该空闲盘块块号”写入到超级块中(该空闲盘块成了新的第一组， 原本的第一组成了第二组)。成组链接法占用的空间小，而且超级块不大，可以放在内存中，这样使得大多数分配和.回收空闲盘块的工作在内存中进行，提高了效率。
 ## 磁盘组织与管理
 ### 磁盘的结构
@@ -263,41 +263,41 @@ draft: false
     - 对于复杂的磁盘，如小型计算机系统接口(SCSD), 其控制器维护一个磁盘坏块链表。该链表在出厂前进行低级格式化时就初始化了，并在磁盘的整个使用过程中不断更新。低级格式化将一些块保留作为备用，对操作系统透明。控制器可以用备用块来逻辑地替代坏块，这种方案称为扇区备用。
 
 ## 习题
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214221209.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214221401.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214221209.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214221401.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214221842.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214221903.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214221842.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214221903.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214222238.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214222238.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214223738.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214223738.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224054.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214224054.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224126.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214224126.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224306.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214224306.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224433.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214224433.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214224626.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214224626.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225114.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225129.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214225114.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214225129.png)
 
 磁盘的物理格式化和逻辑格式化：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225249.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225311.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214225249.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214225311.png)
 
 *
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214225945.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230013.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214225945.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214230013.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230351.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214230351.png)
 
 位示图是磁盘空闲管理中的一种方式，其做法是为文件存储器建立--张位示图(尽管称其为图，其实就是一连串的二进制位)，以反映整个存储空间的分配情况。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230744.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230802.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214230831.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214230744.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214230802.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214230831.png)

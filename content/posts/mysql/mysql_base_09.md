@@ -23,7 +23,7 @@ draft: false
 - CPU与内存直接交换信息，按存储单元(存储字)进行访问
 - 外存按存储块进行访问，其信息需先装入内存，才能被CPU处理
 ### 不同层次存储的访问时间上的差异
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113113036.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113113036.png)
 ### 操作系统如何管理磁盘和数据
 操作系统对数据的组织：   
 FAT(文件分配表-File Allocation Table)-目录(文件夹)-磁盘块/簇
@@ -62,12 +62,12 @@ RAID技术: Redundant Array of Independent Disk
 
 ## DBMS数据存储与查询实现的基本思想
 数据存储的映射关系示意：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141415.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141415.png)
 数据存储与查询实现的基本框架示意：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141607.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141607.png)
 ## 数据库之表和记录与磁盘块的映射
 数据库概念与磁盘相关概念的映射示意：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141859.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141859.png)
 数据库中记录的区分及记录内属性值的区分：   
 数据库记录在磁盘上的存储，定长记录，还是变长记录(靠分隔符区分开始与结束)
 
@@ -110,7 +110,7 @@ RAID技术: Redundant Array of Independent Disk
     - 用于进行散列函数计算的属性通常称为散列字段(Hash field)，散列字段通常也采用关系中的主码，所以又称散列码(hash key)
     - 不同记录可能被hash成同一桶号，此时需在桶内顺序检索出某一记录
     - 链接法处理溢出
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113143656.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113143656.png)
     - 散列还有许多问题及许多的处理技巧, 如散列桶的数目以及桶的大小，动态散列技术等等
 - 文件组织方法之四：聚簇文件(Clustering file)
     - 聚簇：将具有相同或相似属性值的记录存放于连续的磁盘簇块中

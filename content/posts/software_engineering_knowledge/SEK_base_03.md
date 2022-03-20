@@ -142,7 +142,7 @@ draft: false
         - 是状态图的一个变种
         - 活动图的目的是描述动作及动作的结果
         - 活动图中的动作可以放在“泳道中”，泳道聚合一组活动，通常根据活动的功能来组合活动。
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211126110133.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211126110133.png)
 
 ### 需求规格说明
 **软件需求规格说明书SRS** (Software Requirements Specification)：

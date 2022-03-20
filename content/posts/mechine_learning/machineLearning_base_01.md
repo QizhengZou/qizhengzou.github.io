@@ -35,7 +35,7 @@ draft: true
 - 假设的一般到特殊序
 - Find-S:
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226211459.png)   ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226211551.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226211459.png)   ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226211551.png)
 
 - Find-S输出的假设只是H中能够拟合训练样例的多个假设中的一个，而在候选消除算法中，输出的是与训练样例一致的所有假设的集合。
 
@@ -45,12 +45,12 @@ draft: true
 
 - **变型空间**：与训练样例一致的所有假设构成的集合$\mathrm{VS}_{\mathrm{H}, \mathrm{D} }=\{\mathrm{h} \in \mathrm{H} \mid$ Consistent $(\mathrm{h}, \mathrm{D})\}$
   - 什么是一致、什么是满足（），其差别
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220104184200.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220104184200.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101081722.png)正例 S → 一般化
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101081722.png)正例 S → 一般化
   反例 G → 特殊化
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101082759.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101082759.png)
 
 
 
@@ -92,7 +92,7 @@ draft: true
   - 如果不可能发生(或概率极低)，则该消息的信息量为无穷大
   - 熵(Entropy)概念最早出现在热力学,热熵表示分子状态混乱程度的物理量。在这就是一个用来描述离散变量不确定性的概念
   - 香农将热力学的熵引入到信息论领域，并提出“信息熵”概念，用于表示信息不确定性的一种度量。无论是热熵还是信息熵都是表达事物的混乱程度，越高越混乱，越低与有序
-  - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226214658.png)
+  - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226214658.png)
 
 - 信息增益表示在知道某个特征之后使得的不确定性减少的程度
   
@@ -100,23 +100,23 @@ draft: true
   - 根据某个变量将样本划分为多个子集，分割前后样本数据的熵之差为信息增益，也即不确定性的减少量
   - 信息增益越高，表示该变量对样本数据的分类效果越好
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226215849.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226215849.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226220130.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226220130.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226220956.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226220956.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226223025.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226223025.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226223121.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226223121.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226223141.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226223141.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226223219.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226223219.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226223435.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226223435.png)
 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211226223457.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211226223457.png)
 
 - **ID3 vs. 候选消除算法(C-E)**
   - ID3搜索一个完整的假设空间，但不完全搜索这个空间。
@@ -132,7 +132,7 @@ draft: true
 - 过拟合现象：
   - **什么是过拟合，必考**：
     - 假设 h属于H 过拟合 训练数据，如果存在一个可替换其他假设h’属于H 满足
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220104192047.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220104192047.png)
   - 什么导致了过拟合
     - 训练样例中的随机错误或噪声
     - 无噪声，但少量样例被关联到叶子结点
@@ -201,9 +201,9 @@ draft: true
     - 线性不可分的布尔函数(例如异或)是不可表示的
   - 要解决非线性可分问题，就需要使用多层功能神经元。比如两层感知器，输入层与输出层之间的一层神经元，被称为隐含层，隐含层和输出层神经元都是拥有激活函数的功能神经元。
 
-- 感知器法则：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211227151138.png)
+- 感知器法则：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211227151138.png)
 
-- 感知器法则vsDelta法则：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211231163532.png)
+- 感知器法则vsDelta法则：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211231163532.png)
 
 - 多层前馈神经网络的定义：
   
@@ -249,7 +249,7 @@ draft: true
   - 某学习算法被称为一致学习器，说明它输出的假设在训练例上有零错误率。
   - 如果假定 H 上有均匀的先验概率（即P(hi)=P(hj)，对所有的i,j），且训练数据是确定性的和无噪声的（即当D和h一致时，P(D|h)=1），否则为 0）时，任意一致学习器将输出一个 MAP 假设。
 - 三道作业题
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101104945.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101104945.png)
 
 ## 6. 基于实例的学习:
 
@@ -283,7 +283,7 @@ draft: true
     - 删除𝑓መ(𝑥𝑞) 
 - 径向基函数：
   - 用于函数逼近、类似于局部加权回归、ANN
-  - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101111531.png)
+  - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101111531.png)
 - 消极学习和积极学习：
   - 三种消极学习（lazy learning）方法：k-近邻算法、局部加权回归和基于案例的推理
   - 之所以称这些方法是消极的，是因为它们延迟了如何从训练数据中泛化的决策，直到遇到一个新的查询。
@@ -298,7 +298,7 @@ draft: true
 ## 7. 遗传算法（GA）:
 - 定义及演化。基本思路与基本架构。研究了什么问题。最佳假设拥有最优的**适应度**。如何设计适应度函数。怎么去评估。遗传算法的两个算子（**交叉、变异，表达的是什么意思**）。**算法流程（重点）**。遗传算法基本原型：**流程图需要背下来，核心点**表示假设，遗传算子。适应度函数和假设选择。**什么是拥挤，怎么解决拥挤**
 - 遗传算法
-  - 算法基本流程：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101113051.png)
+  - 算法基本流程：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101113051.png)
   - 研究的问题：搜索候选假设空间并确定最佳假设
   - 最佳假设：最优的适应度
   - 共同结构：迭代更新一个假设池，评估适应度、生成新群体
@@ -312,7 +312,7 @@ draft: true
     - 交叉
       - 二进制交叉：是指二进制编码情况下所采用的交叉操作，它主要包括单点交叉、两点交叉和均匀交叉等方法
       - 实值交叉
-      - **交叉算子**：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101114047.png)
+      - **交叉算子**：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101114047.png)
     - 变异
       - 二进制变异：该变异方法是先随机地产生一个变异位，然后将该变异位置上的基因值由“0”变为“1”，或由“1”变为“0”，产生一个新的个体。例如：设变异前的个体为A=0 0 1 1 0 1，若随机产生的变异位置是2，则该个体的第2位由“0”变为“1”。 变异后的新的个体是A'= 0 1 1 1 0 1 。
       - 变异算子：
@@ -321,7 +321,7 @@ draft: true
         - 变异经常是应用了交叉之后进行的
   - 适应度函数和假设选择方式
     - 适应度函数定义了候选假设的排序标准
-    - 选择某假设概率的一个可能的方法：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101114251.png)
+    - 选择某假设概率的一个可能的方法：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101114251.png)
 - 假设空间搜索（拥挤）
   - 降低拥挤的策略
     - 修改选择函数

@@ -3,7 +3,7 @@ title: "ISC_catalogue"
 date: 2021-11-21T11:39:55+08:00
 lastmod: 2021-12-22
 tags: [catalogue]
-categories: [School courses' list]
+categories: [Catalogue]
 slug: ISA_catalogue
 draft: false
 ---

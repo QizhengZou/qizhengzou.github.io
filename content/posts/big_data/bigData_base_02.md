@@ -17,8 +17,8 @@ draft: true
 Hadoop：实现高效数据存储、处理的一种分布式框架。可以解决PB级别的数据存储与计算问题。基于Java语言开发：具有很好的跨平台性
 #### Hadoop分布式框架的基本思想
 Master-slave架构，分布式存储：HDFS，分布式计算：Mapreduce，存储与处理的一体化！
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108185129.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108185218.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108185129.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108185218.png)
 
 #### HDFS    
 “高容错、低成本的分布式大磁盘”设计需求：    
@@ -34,8 +34,8 @@ HDFS文件的“分块”存储思想:
 个大规模文件被切分成不同的块，每个块尽可能地存储于不同的数据节点中。
 * 块的大小远远大于普通文件系统，可以最小化寻址开销
 * 支持大规模文件存储、简化系统设计、适合数据备份
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108190014.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108192232.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108190014.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108192232.png)
 
 #### MapReduce    
 MapReduce是一个统一的分布式并行计算软件框架，可以实现：
@@ -54,7 +54,7 @@ MapReduce的基本思想:
 * Reduce函数：
     * 整理（全局的）中间结果
     * 产生最终结果输出
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108190837.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108190837.png)
 
 MapReduce 1.0既是一个计算框架也是一个资源管理调度框架，存在一些缺陷:    
 * 存在单点故障
@@ -63,7 +63,7 @@ MapReduce 1.0既是一个计算框架也是一个资源管理调度框架，存�
 * 资源划分不合理（强制划分Map slot和Reduce slot）
 #### YARN
 Hadoop2.0以后， MapReduce1.0中的资源管理调度功能被单独分离出来形成了YARN，它是一个纯粹的资源管理调度框架,MapReduce2.0成为了运行在YARN之上的一个纯粹的计算框架
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108185129.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108185129.png)
 
 YARN的基本框架:    
 * ResourceManager

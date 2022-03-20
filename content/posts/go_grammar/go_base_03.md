@@ -917,6 +917,7 @@ recover:
 1. 利用recover处理panic指令，defer 必须放在 panic 之前定义，另外 recover 只有在 defer 调用的函数中才有效。否则当panic时，recover无法捕获到panic，无法防止panic扩散。
 2. recover 处理异常后，逻辑并不会恢复到 panic 那个点去，函数跑到 defer 之后的那个点。
 3. 多个 defer 会形成 defer 栈，后定义的 defer 语句会被最先调用。
+4. **当心recoer成为恶魔**，因为recover并不会检测发生了什么错误。可能是系统的某些核心资源消耗完了，强制恢复之后系统依然无法正常工作的。还会导致一些健康检查程序无法检测出错误，health check无法检测出错误（很多health check程序只是检查这个进程在还是不在），形成僵尸服务进程（存在着但不能提供服务）。不如采用一种可恢复的设计模式，“Let it Crash”，干脆让进程crash掉，然后就会帮我们重新把服务进程提起来，如同重启。（重启是恢复不确定性最好的方法）
 ```go
 package main
 
@@ -1229,6 +1230,39 @@ test
       |
        —— calc_test.go
 ```
+### 性能分析工具
+可以安装go-torch
+```
+通过⽂件⽅式输出 Profile
+- 灵活性⾼，适⽤于特定代码段的分析
+- 通过⼿动调⽤ runtime/pprof 的 API
+- API 相关⽂档 https://studygolang.com/static/pkgdoc/pkg/runtime_pprof.htm
+- go tool pprof [binary] [binary.prof]
+
+通过 HTTP ⽅式输出 Profile
+- 简单，适合于持续性运⾏的应⽤
+- 在应⽤程序中导⼊ import _ "net/http/pprof"，并启动 http server 即可
+- http://<host>:<port>/debug/pprof/
+- go tool pprof http://<host>:<port>/debug/pprof/profile?seconds=10 （默认值为30秒）
+- go-torch -seconds 10 http://<host>:<port>/debug/pprof/profile
+
+Go ⽀持的多种 Profile
+go help testflag
+https://golang.org/src/runtime/pprof/pprof.go
+```
+#### 性能调优
+性能调优过程：
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220316154210.png)
+
+常⻅分析指标
+- Wall Time
+- CPU Time
+- Block Time
+- Memory allocation
+- GC times/time spent
+
+ch47
+
 ### 测试函数
 #### 测试函数的格式
 每个测试函数必须导入testing包，测试函数的基本格式（签名）如下：
@@ -1289,7 +1323,7 @@ func Split(s, sep string) (result []string) {
     return
 }
 ```
-在当前目录下，我们创建一个split_test.go的测试文件，并定义一个测试函数如下：
+在当前目录下，我们创建一个split_test.go的测试文件，并定义一个测试函数如下：（表格测试法）
 ```go
 // split/split_test.go
 
@@ -2016,6 +2050,11 @@ func Test_Division_2(t *testing.T) {
     PASS
     ok      gotest    0.013s   
 ```
+```
+//一般
+go test -v -run funcName fileName.go
+go test -v -cover -run funcName fileName.go
+```
 ### 如何编写压力测试
 压力测试用来检测函数(方法）的性能，和编写单元功能测试的方法类似,此处不再赘述，但需要注意以下几点：
 
@@ -2060,5 +2099,45 @@ func Benchmark_TimeConsumingFunction(b *testing.B) {
     ok      gotest    9.364s   
 ```
 上面的结果显示我们没有执行任何TestXXX的单元测试函数，显示的结果只执行了压力测试函数，第一条显示了Benchmark_Division执行了500000000次，每次的执行平均时间是7.76纳秒，第二条显示了Benchmark_TimeConsumingFunction执行了500000000，每次的平均执行时间是7.80纳秒。最后一条显示总共的执行时间。
-### 小结
-通过上面对单元测试和压力测试的学习，我们可以看到testing包很轻量，编写单元测试和压力测试用例非常简单，配合内置的go test命令就可以非常方便的进行测试，这样在我们每次修改完代码,执行一下go test就可以简单的完成回归测试了。
+## BDD
+Behavior Driven Development行为驱动开发
+
+行为驱动开发（Behavior-Driven Development）（简写BDD），在软件工程中，BDD是一种敏捷软件开发的技术。行为驱动开发(BDD)是测试驱动开发的延伸，开发使用简单的，特定于领域的脚本语言。这些DSL将结构化自然语言语句转换为可执行测试。结果是与给定功能的验收标准以及用于验证该功能的测试之间的关系更密切。因此，它一般是测试驱动开发(TDD)测试的自然延伸。（摘自[百度百科](https://baike.baidu.com/item/%E8%A1%8C%E4%B8%BA%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91/9424963)）
+
+
+BDD in Go 一个测试框架
+```
+项⽬⽹站
+https://github.com/smartystreets/goconvey
+安装
+go get -u github.com/smartystreets/goconvey/convey
+启动 WEB UI 
+$GOPATH/bin/goconvey
+```
+```go
+package testing
+
+import (
+	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
+)
+
+func TestSpec(t *testing.T) {
+
+	// Only pass t into top-level Convey calls
+	Convey("Given 2 even numbers", t, func() {
+		a := 3
+		b := 4
+
+		Convey("When add the two numbers", func() {
+			c := a + b
+
+			Convey("Then the result is still even", func() {
+				So(c%2, ShouldEqual, 0)
+			})
+		})
+	})
+}
+```
+convey这个pkg还提供了一个web界面，在gopath下的bin目录里面有二进制程序goconvey。

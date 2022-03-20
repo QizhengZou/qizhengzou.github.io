@@ -26,23 +26,23 @@ draft: false
 - 强抗碰撞性：任意寻找两个碰撞原文
 ## 哈希函数结构
 - Merkle-Damgard 结构
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219095810.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219095810.png)
 - 两大流派：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100001.png)
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100025.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100001.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100025.png)
 ## MD5
 - 总结构：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100118.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100118.png)
 - MD5运算：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100203.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100203.png)
 ## SHA512
 - 总结构（与MD5基本一致）
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100240.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100240.png)
 - 填充：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100312.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100312.png)
 ## Message Authentication Code MAC 消息验证码
 - 目的：检测消息的改动
-- 一种结构:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100348.png)
+- 一种结构:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100348.png)
 - 本质：一种与密钥有关的哈希函数
 ## Digital Signature DS 数字签名
 - 性质
@@ -65,6 +65,6 @@ draft: false
 - Schnorr签名（略）
 - DSS（略）
 ## PKI 公钥基础设施
-- 结构如下:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100920.png)
+- 结构如下:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100920.png)
 
 

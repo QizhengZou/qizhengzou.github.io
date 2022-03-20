@@ -42,14 +42,14 @@ draft: false
 - 简化版DES算法原理
     - 两部分：加密和密钥生成
     - 密钥生成：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217115627.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217115627.png)
     - 加密：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217115848.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217115848.png)
 - DES算法产生及原理
     - 原理概述：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217120045.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217120045.png)
     - 单轮结构：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217120201.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217120201.png)
 - DES算法安全性分析
     - 差分分析：CPA
     - 线性分析：KPA
@@ -57,19 +57,19 @@ draft: false
     - 线性B盒
 ## AES
 - 简化AES和AES参数
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217120503.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217120503.png)
 - 简化AES
     - 总体流程：
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217120601.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217120601.png)
     - 加密流程：
         - S盒代换、行置换、列混淆、轮密钥加
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217120719.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217120719.png)
     - 密钥拓展：
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217120750.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217120750.png)
 ## 分组密码操作模式
 分组密码在加密时，明文分组长度固定，而实际应用中待加密消息的数据量不固定，数据格式可能多种多样。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219090638.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219090638.png)
 
 - 电码本ECB
     - 加密：每次加密密钥相同
@@ -78,22 +78,22 @@ draft: false
     - 不会产生错误转播Error Propagation效应
 - 密码分组链接CBC
     - 加密：输入是明文和前一次密文的异或
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219090926.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219090926.png)
     - 会出现传播错误    
     - 能隐蔽明文的数据模式
     - 要注意IV的使用，不能IV+1和chained IV， 他们都不能解决CPA攻击
 - 密码反馈CFB
     - 可以进一步将DES转化为流密码
     - 加密：输入是移位寄存器，加密的也是移位寄存器，最后与明文异或
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219091026.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219091026.png)
     - 错误传播
     - 能检测出篡改，还能够隐蔽明文数据图样
 - 输出反馈OFB
     - 可以进一步将DES转化为流密码
     - 加密：OFB直接将寄存器加密结构作为反馈（所以是输出反馈），而CFB是密文作为反馈（密码反馈）
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219091128.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219091128.png)
     - 克服了错误传播问题，难以检测密文篡改
     - 不具有自同步功能，需要与系统保持严格的同步
 - 计数器CTR
     - 加密：OFB移位寄存器换成计数器
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219091227.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219091227.png)

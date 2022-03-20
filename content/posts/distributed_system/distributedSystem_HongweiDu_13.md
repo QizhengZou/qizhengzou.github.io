@@ -19,7 +19,7 @@ Some helpful web sites：
     - http://www.robotstxt.org/wc/robots.html
 
 Search Engines Architecture：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101224649.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101224649.png)
 
 Spiders (Web Crawler)：
 - Automatically Retrieve web pages
@@ -63,7 +63,7 @@ Major Products of Search Engines：
 
 Search Engine Sizes (Dec 11, 2001)：
 - Estimated total web pages ~ 2 billion
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101225045.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101225045.png)
 - Shaded area for GG and INKTOMI are pages indexed but not visited
 
 Difficulties for Internet Information Retrieval：
@@ -76,7 +76,7 @@ Difficulties for Internet Information Retrieval：
     - Phising, Spam, Misleading Advertisement
 
 Spider Architecture：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101225159.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101225159.png)
 
 Spider Programming: start with HTTP…：
 - Spiders use HTTP protocol to retrieve data…
@@ -205,7 +205,7 @@ Construct Web Digraph:
     - Google uses thousands of workstations.
 
 An Example Digraph:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101225703.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101225703.png)
 - An ordinary digraph H with 7 vertices and 12 edges
 
 Partial Map of Web Digraph:
@@ -216,7 +216,7 @@ Partial Map of Web Digraph:
     - e.g., back links to a URL 
 
 An Example of a Partial Digraph:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101225801.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101225801.png)
 - A partial digraph H: node v5 is not yet explored. We don’t know that it has outgoing edges from v5 though we know its existence (by its URL).
 
 Unknown and Dynamic Factors of Web Structure:
@@ -261,7 +261,7 @@ Collect Back Link Information Via HTTP:
 An Application of BackLink: FAN:
 - Fans of a web page has a link pointing to the web page.
 - A user would add a link to a webpage after he accessed and viewed the content of the page.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101230139.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101230139.png)
 
 FAN: An Indicator of Popularity:
 - The more fans a web page has, the more popular it is.
@@ -288,7 +288,7 @@ Page Rank Calculation :
 - Page ranks help search engine to rank the search results according to their popularity or importance (no consideration of relevance of search results here). 
 
 Inverted File: indexing for search:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101230443.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101230443.png)
 
 Term-Document indexing:
 1. Map the file names (documents) to file IDs
@@ -302,7 +302,7 @@ advancements in these fields.
 
 Remove Stop Words:
 2. Remove stop words (“in”, “the”, “in”, ….) that are not meaningful for search
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101230637.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101230637.png)
 
 Terms and Documents:
 3. Make lowercase (option), delete numbers (option) , insert both singular and plural forms of nouns, different tenses of verbs, adjective & adverb of the same word, for search.
@@ -316,7 +316,7 @@ Build Inverted File:
 - 4. Build Inverted File
     - Build the inverted file mapping from words to document IDs. You may insert information about the number of times a word appears in a document or the position it appears for more accurate search.
     - Sort the keywords for quick search.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101230754.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101230754.png)
 
 Searching Inverted File:
 - Binary Search

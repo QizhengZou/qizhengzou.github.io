@@ -113,7 +113,7 @@ price (美元)数据首先排序: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34
 基于回归的光滑化方法:
 - 用给定数据拟合出函数
 - 基于拟合的函数来光滑化数据
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115171811.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115171811.png)
 
 聚类分析：
 - 对给定数据进行聚类分析或离群点检测
@@ -142,20 +142,20 @@ price (美元)数据首先排序: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34
 
 相关性分析（类别型属性）
 - Χ2(卡方) 检验
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115172123.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115172123.png)
 - Χ2 值越大，变量越可能相关
 - 对 Χ2 值贡献最大的单元是那些实际计数与期望计数非常不同的单元
 - 相关性并不意味着因果关系
     - 医院数量和城市中的汽车盗窃数量是相关的
     - 两者都与第三个变量有因果关系：人口
 - 卡方计算：示例：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115172248.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115172248.png)
 
 相关性分析（数值型属性）：
 - 相关系数(又称Pearson积矩系数)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115172353.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115172513.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115172555.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115172353.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115172513.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115172555.png)
 
 数据变换：
 - 光滑化：去掉数据中的噪声
@@ -169,7 +169,7 @@ price (美元)数据首先排序: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34
     - 例如，面积=长*宽
 
 数据变换：规范化
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115173044.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115173044.png)
 
 类别型属性的属性值泛化:
 - 类别型属性
@@ -200,9 +200,9 @@ price (美元)数据首先排序: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34
 
 基于熵的离散化:
 - 给定一组样本 S，如果使用边界 T 将 S 划分为两个区间 S1 和 S2 ，则划分后的信息熵为：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115173602.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115173602.png)
 - 熵是根据集合中样本的类别分布计算的。给定m个类，pi是S1 中类 i 的概率
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115173645.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115173645.png)
 - 选择使所有可能边界上的信息熵最小化的边界作为二元离散化
 - 递归地将该过程应用于获得的区间，直到满足某些停止条件
 - 这样的边界可以减小数据大小并提高分类准确性
@@ -240,7 +240,7 @@ price (美元)数据首先排序: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34
 - 基于挖掘结果的方法：
     - 例如基于决策树归纳的特征选择
         - 决策树归纳的例子：
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115174341.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115174341.png)
     - 基于正则化线性回归的特征选择方法
     - 后续章节将讲解
 

@@ -117,7 +117,7 @@ B+树的存储约定：
     - 索引字段是主文件的非键属性。主文件不按此非键属性排序
     - 索引文件的索引字段值是有重复的。指针指向的是记录。
     - 索引字段带有重复值的B+树的非叶结点示例:
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113154355.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113154355.png)
 
 B树：   
 - 索引字段值仅出现一次或者在叶结点或者在非叶结点；

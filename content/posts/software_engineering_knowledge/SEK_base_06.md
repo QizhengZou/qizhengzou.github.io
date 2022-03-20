@@ -9,7 +9,7 @@ draft: false
 ---
 > 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
 
-# 软件实施、维护和演化 19：52
+# 软件实施、维护和演化 
 ## 6.1 敏捷开发
 ### 敏捷方法概述 
 #### 软件开发之道 
@@ -46,7 +46,7 @@ draft: false
 敏捷方法：
 - **以人为导向而非过程导向**
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228200941.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228200941.png)
 
 敏捷开发方法
 - 软件更像一个活着的植物，软件开发是自底向上逐步有序的生长过程，类似于植物自然生长。敏捷方法遵循软件的客观规律，不断进行迭代式增量开发，最终交付符合客户价值的产品。
@@ -104,7 +104,7 @@ Scrum团队组织：
     - 缺点：缺乏明确的权威领导，很难解决意见分歧
 
 全功能的整体团队：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228202146.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228202146.png)
 
 #### Scrum制品和活动 
 Scrum制品：
@@ -119,7 +119,7 @@ Scrum制品：
     - 正式产品可能包括使用文档，在新产品开发初期可能只需要交付勉强看到效果的产品
 
 Scrum活动：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228203125.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228203125.png)
 
 #### 敏捷规划与可视化管理
 实行两级项目规划：
@@ -208,7 +208,7 @@ Scrum活动：
 - 程序年龄与结构：程序结构随年龄增加而受到破坏，不易理解和变更。
 
 软件维护过程：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228210151.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228210151.png)
 ### 软件再工程
 软件再工程
 - 重新构造或编写现有系统的一部分或全部，但不改变其功能
@@ -220,7 +220,7 @@ Scrum活动：
 - 降低成本：再工程的成本比重新开发软件的成本要小得多
 
 再工程过程：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228210234.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228210234.png)
 1. 源代码转换 代码从原有的程序设计语言转换到一种新语言
 2. 逆向工程 分析程序并抽取信息记录其结构和功能
 3. 程序结构改善 分析和修改程序的控制结构，使其更易读和好理解

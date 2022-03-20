@@ -60,19 +60,19 @@ Failure considerations:
     - Some messages are faulty
 - Partition failure
     - The network may get segmented, dividing the group into two or more unreachable sub-groups
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162357.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162357.png)
 
 ## Implementing Group Communication Mechanisms组播
 Hardware multicast:
 - If we have hardware support for multicast
     - Group members listen on network address
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162524.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162524.png)
 
 Broadcast:
 - Diffusion group: send to all clients & then filter
     - Software filters incoming multicast address
     - May use auxiliary address (not in the network address header) to identify group
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162629.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162629.png)
 
 Hardware multicast & broadcast:
 - Ethernet supports both multicast & broadcast
@@ -80,14 +80,14 @@ Hardware multicast & broadcast:
 
 Software implementation: multiple unicasts:
 - Sender knows group members
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162709.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162709.png)
 
 Software implementation: hierarchical：
 - Multiple unicasts via group coordinator
     - Coordinator knows group members
     - Coordinator iterates through group members
     - May support a hierarchy of coordinators
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162744.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162744.png)
 
 ## Reliability of multicasts 组播可靠性
 Atomic multicast：
@@ -173,13 +173,13 @@ Unreliable multicast (best effort)：
 
 ## Message ordering 消息顺序
 Good Ordering：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163433.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163433.png)
 Bad Ordering：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163453.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163453.png)
 Good Ordering：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163514.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163514.png)
 Bad Ordering：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163534.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163534.png)
 
 Sending vs. Receiving vs. Delivering：
 - Multicast receiver algorithm decides when to deliver a message to the process.
@@ -192,7 +192,7 @@ Sending vs. Receiving vs. Delivering：
         - (duplicate or earlier message that we no longer want)
 
 Sending, delivering, holding back：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163638.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163638.png)
 
 Global time ordering：
 - All messages are delivered in exact order sent
@@ -217,19 +217,19 @@ Causal ordering：
 - If message m’ is causally dependent on message m, all processes must deliver m before m’.
 
 Causal ordering example：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164012.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164012.png)
 
 Causal ordering –implementation：
 - Implementation: Pa receives a message from Pb
     - Each process keeps a precedence vector(similar to vector timestamp)
     - Vector is updated on multicast send and receive events
         - Each entry = # of latest message from the corresponding group member that causally precedes the event
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164121.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164257.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164121.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164257.png)
 
 Causal Ordering: Example：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164343.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164407.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164343.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164407.png)
 - P2 receives message m0 from P0 with V=(1,0,0)
     - (1) Is this in FIFO order from P0?
         - Compare current V on P2: V2=(0,0,0) with received V from P2, V2=(1,0,0)
@@ -253,7 +253,7 @@ Sync ordering：
 - Special message type
     - Synchronization primitive
     - Ensure all pending messages are delivered before any additional (post-sync) messages are accepted
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164647.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164647.png)
 
 Single Source FIFO (SSF) ordering：
 - Messages from the same source are delivered in the order they were sent.
@@ -265,7 +265,7 @@ Unordered multicast：
 - Order per-source does not matter.
 
 Multicasting considerations：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164842.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164842.png)
 
 ## IP multicast routing
 IP multicast routing：
@@ -334,7 +334,7 @@ Multicast Forwarding:
     - Routers have to do the work
 
 IGMP & Wide-Area Multicast Routing:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101165437.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101165437.png)
 
 Multicast Forwarding:
 - IGMP: Internet Group Management Protocol

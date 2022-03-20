@@ -28,7 +28,7 @@ draft: false
 - 单字母多表密码
     - 周期多表代换：有限个周期性重复的固定代换表
     - 周期多表代换：维吉尼亚密码
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217100224.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217100224.png)
     - 周期多表代换：转轮密码机（1870-1943）
         - 有限个周期重复的固定代换表
     - 无限多表代换：one-time pad（OTP）一次一密
@@ -47,17 +47,17 @@ draft: false
             - 若两字符在同一列，则各以上方字符取代。
             - 其他情况,则换成此二字符对角的两字符。
     - 字母代换：Hill密码
-        - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217101145.png)
+        - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217101145.png)
 - 代换密码安全性分析
     - 都无法避免统计规律
 ## 置换密码
 将明文中的各字符位置次序重新排列，但不改变字符本身。
 - 栅栏密码
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217101452.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217101452.png)
 - 列移位密码
     - 按固定列数排列
     - 根据密钥按列移动
     - 按列读出
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217101634.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217101634.png)
 ## 小结
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211217102428.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211217102428.png)

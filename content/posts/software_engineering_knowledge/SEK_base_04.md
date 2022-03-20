@@ -99,9 +99,9 @@ draft: false
 
 举例：电话安装业务系统：
 - 结构化分析-数据流和加工
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215208.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215208.png)
 - 面向对象方法—对象及其关系
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215308.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215308.png)
 
 - 什么情况下使用结构化的分析方法？
 - 什么情况下使用面向对象的分析方法？
@@ -238,7 +238,7 @@ draft: false
 - 设计：为问题域的外部可见行为的规约增添实际的计算机系统实现所需的细节，包括关于人机交互、任务管理和数据管理的细节。 ——Coad/Yourdon
 
 **软件设计在SE中所处的位置**：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228091547.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228091547.png)
 
 设计的目标：质量
 - “设计阶段”是软件工程中形成质量的关键阶段，其后所有阶段的活动都要依赖于设计的结果。
@@ -352,13 +352,13 @@ draft: false
 - 每个过滤器独立于其上游和下游的构件而工作，过滤器的设计要针对某种形式的数据
 输入，并且产生某种特定形式的数据输出（到下一个过滤器）。过滤器没有必要了解
 与之相邻的其他过滤器的工作。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095013.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095013.png)
 - 把系统任务分成若干连续的处理步骤，这些步骤由通过系统的数据流连接，一个步骤
 的输出是下一个步骤的输入。
 - 每个过滤器独立于其上游和下游的构件而工作，过滤器的设计要针对某种形式的数据
 输入，并且产生某种特定形式的数据输出（到下一个过滤器）。过滤器没有必要了解
 与之相邻的其他过滤器的工作。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095043.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095043.png)
 - **在管道过滤器风格中构件具有良好的隐藏性和高内聚、低耦合的特点，可以很好地支持软件的重用和扩展但是这种结构不适合交互应用的情况，如果管道过长或者过滤器过于复杂的话系统的性能就会大大降低**
 
 #### 以数据为中心的风格（仓库）
@@ -367,7 +367,7 @@ draft: false
 - 用来存储待传递和交换信息的公共区域(形成共享数据仓库)；
 - 访问剪贴板的方式：copy & paste.
 - 不同的应用程序通过该区域交换格式化的信息；
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095240.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095240.png)
 
 以数据为中心的体系结构风格(也称仓库风格)
 - 数据存储位于这种体系结构的中心，其他构件会经常访问该数据存储，并对存储中的数据进行更新、增加、删除或者修改。
@@ -435,7 +435,7 @@ draft: false
             - Web服务器
             - 应用服务器
         - 数据层：数据库服务器
-    - 示例：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228100738.png)
+    - 示例：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228100738.png)
     - 浏览器/服务器(Browser/Server)：基于B/S体系结构的软件，系统安装、修改和维护全在服务器端解决，系统维护成本低：
         - 客户端无任何业务逻辑，用户在使用系统时，仅仅需要一个浏览器就可运行全部的模块，真正达到了“零客户端”的功能，很容易在运行时自动升级。
         - 良好的灵活性和可扩展性：对于环境和应用条件经常变动的情况，只要对业务逻辑层实施相应的改变，就能够达到目的。
@@ -483,7 +483,7 @@ Blackjack游戏：
 - 主要刻画“功能的输入和输出数据”、“数据的源头和目的地”
 
 DFD的主要元素：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228102944.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228102944.png)
 - 加工(又称数据处理，data processing)：对数据流进行某些操作或变换。
     - 收集、排序、选择、聚集、分析等
     - 加工要有名字，通常是动词短语，简明地描述完成什么事情
@@ -506,7 +506,7 @@ DFD的主要元素：
         - 加工与数据存储之间
 
 **简单练习**：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103410.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103410.png)
 
 DFD的层次性：自顶向下的分解(top-down)
 - DFD的两种类型：
@@ -522,12 +522,12 @@ DFD的层次性：自顶向下的分解(top-down)
 - 确定了通过某一接口与系统相连的外部实体，同时也确定了外部实体和系统之间的数据流
 - **只包含一个加工**，用以表示被开发的系统，然后考虑该系统有哪些输入数据、输出数据流
 - 加工编号：0
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103722.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103722.png)
 
 0层DFD:
 - 将顶层DFD图中的系统分解为若干个子系统，决定每个子系统间的数据接口和活动关系，得到0层DFD图；
 - 加工编号：1、2、…、n
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103809.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103809.png)
 
 底层DFD:
 - 针对0层DFD中的每一个子系统，对其继续分解得到细化的加工，进而逐渐向下构造得到1层DFD、2层DFD、…、n层DFD，一直到不能或不需再分解为止。
@@ -536,10 +536,10 @@ DFD的层次性：自顶向下的分解(top-down)
     - 1层DFD：1.1、1.2、…、1.n
     - 2层DFD：1.1.1、1.1.2、…、1.1.n
     - …
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104011.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104011.png)
 
 数据流的分解：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104046.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104046.png)
 
 绘制DFD的一些基本原则：
 - **把数据存储放在0层数据流图或更低层子图上，不要放在顶层的关联图上**
@@ -555,7 +555,7 @@ DFD的层次性：自顶向下的分解(top-down)
 - **尽量将每一张DFD上的所有元素数目控制在7-12个**。
 
 **错误示例**：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104243.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104243.png)
 ## 行为建模与设计
 ### 状态图（Statechart Diagram)
 **状态图(Statechart Diagram)描述了一个特定对象的所有可能状态以及由于各种事件的发生而引起的状态之间的转移。**
@@ -571,12 +571,12 @@ DFD的层次性：自顶向下的分解(top-down)
     - 如果对象存在，则具有相应表示其属性的值
     - 每一种状态表示一种可能的状态赋值
 - 例如：栈
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104610.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104610.png)
 
-**状态空间**：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229204632.png)
+**状态空间**：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229204632.png)
 
 模型建立的过程——状态空间的分解
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104718.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104718.png)
 
 状态图建模 
 - 建模元素 
@@ -598,7 +598,7 @@ DFD的层次性：自顶向下的分解(top-down)
     - 组合状态可以实现从不同抽象层次去体现状态图
     - 嵌套在另外一个状态中的状态称之为子状态（sub-state）,一个含有子状态的状态被称作组合状态（Compound States）
     - 【Check PIN】是组合状态，【Enter PIN】是子状态。
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228105249.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228105249.png)
 - 历史状态
     - 使用历史状态，可以记住从组合状态中退出时所处的子状态，当再次进入组合状态时，可直接进入到这个子状态，而不是再次从组合状态的初态开始。
     - H和H*的区别：
@@ -658,7 +658,7 @@ DFD的层次性：自顶向下的分解(top-down)
 **顺序图的组成**
 - 对象（Object）：类的实例，以某种角色参与交互，可以是人，物，其他系统或者子系统
     - 对象可以是系统的参与者或者任何有效的系统对象。对象是类的实例，它使用包围名称的矩形框来标记。名称带下划线。顺序图中对象的标记符如下
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228111552.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228111552.png)
     - 对象的创建与撤销
         - 如果对象位于顺序图的顶部，说明在交互开始之前该对象已经存在了。如果对象是在交互的过程中创建的，新建的对象在图中的位置较低。
         - 对象在创建消息发生之后才能存在，对象的生命线也是在创建消息之后才存在的。
@@ -710,7 +710,7 @@ DFD的层次性：自顶向下的分解(top-down)
     - opt:任选，仅当条件为真时执行。If -> (opt)[condition]
     - par:并行，每一片段都并发执行
     - loop:循环，片段可多次执行
-- 例子：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113410.png)
+- 例子：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113410.png)
 
 
 绘制顺序图步骤
@@ -721,7 +721,7 @@ DFD的层次性：自顶向下的分解(top-down)
 5. 根据需要添加框的组合与关联，表示复杂的控制结构。
 
 **例子：银行系统的交易验证：**
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113452.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113452.png)
 
 顺序图建模意义
 - 通过顺序图描述算法逻辑
@@ -739,7 +739,7 @@ DFD的层次性：自顶向下的分解(top-down)
 - **协作图由对象、链接和消息组成。**
     - --使用实线表示两个对象间的链接
     - --消息由标记在连接上方的带有标记的箭头表示
-- 例子：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113655.png)
+- 例子：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113655.png)
 
 时序图与协作图比较：
 - 时序图和协作图都属于交互图，都用于描述系统中对象之间的动态关系。两者可以相互转换，但两者强调的重点不同。
@@ -748,7 +748,7 @@ DFD的层次性：自顶向下的分解(top-down)
 - --时序图中有对象生命线和控制焦点，协作图中没有；协作图中有路径，并且协作图中的消息必须要有顺序号，但时序图中没有这两个特征。
 - 实际应用中，一般采用时序图。
 
-对比例子：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113759.png)
+对比例子：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113759.png)
 ### 活动图（Activity Diagram）
 活动图（Activity Diagram）
 - 一般学习过c语言或别的程序设计语言的同学一定接触过流程图，因为流程图清晰的表达了程序的每一个步骤序列、过程、判定点和分支。
@@ -771,15 +771,15 @@ DFD的层次性：自顶向下的分解(top-down)
     - 活动图告诉你发生了什么，但没有告诉你该项活动由谁来完成。在程序设计中，这意味着活动图没有描述出各个活动由哪个类来完成。泳道解决了这一问题。
     - 泳道：用矩形框来表示，属于某个泳道的活动放在该矩形框内，将对象名放在矩形框的顶部，表示泳道中的活动由该对象负责。
     - 泳道可以提高活动图的可读性,可用于建模某些复杂的活动图。
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114310.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114310.png)
 
 **例子：“记录学生分数”的活动图：**
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114056.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114056.png)
 - 注:活动图与状态图的标记符非常相似，有时会让人混淆。其实, 
 - 活动图是用来建模不同区域的工作如何彼此交互的；而状态图用
 来表示单个的对象，以及对象的行为如何改变其状态。
 
-例子：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114155.png)
+例子：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114155.png)
 
 **活动图的优缺点：**
 - 活动图最适合支持描述并行行为，这使之成为支持工作流建模的最好工具

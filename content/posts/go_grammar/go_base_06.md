@@ -14,7 +14,7 @@ draft: false
 互联网的核心是一系列协议，总称为”互联网协议”（Internet Protocol Suite），正是这一些协议规定了电脑如何连接和组网。我们理解了这些协议，就理解了互联网的原理。由于这些协议太过庞大和复杂，没有办法在这里一概而全，只能介绍一下我们日常开发中接触较多的几个协议。
 ### 互联网分层模型
 互联网的逻辑实现被分为好几层。每一层都有自己的功能，就像建筑物一样，每一层都靠下一层支持。用户接触到的只是最上面的那一层，根本不会感觉到下面的几层。要理解互联网就需要自下而上理解每一层的实现的功能。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165056.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165056.png)
 如上图所示，互联网按照不同的模型划分会有不用的分层，但是不论按照什么模型去划分，越往上的层越靠近用户，越往下的层越靠近硬件。在软件开发中我们使用最多的是上图中将互联网划分为五个分层的模型。
 
 接下来我们一层一层的自底向上介绍一下每一层。
@@ -56,14 +56,14 @@ UDP协议的优点是比较简单，容易实现，但是缺点是可靠性较�
 
 如下图所示，发送方的HTTP数据经过互联网的传输过程中会依次添加各层协议的标头信息，接收方收到数据包之后再依次根据协议解包得到数据。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165216.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165216.png)
 ## socket编程
 ### socket 图解
 Socket是BSD UNIX的进程通信机制，通常也称作”套接字”，用于描述IP地址和端口，是一个通信链的句柄。Socket可以理解为TCP/IP网络的API，它定义了许多函数或例程，程序员可以用它们来开发TCP/IP网络上的应用程序。电脑上运行的应用程序通常通过”套接字”向网络发出请求或者应答网络请求。
 
 #### socket图解
 Socket是应用层与TCP/IP协议族通信的中间软件抽象层。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket后面，对用户来说只需要调用Socket规定的相关函数，让Socket去组织符合指定的协议数据然后进行通信。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165301.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165301.png)
 - Socket又称“套接字”，应用程序通常通过“套接字”向网络发出请求或者应答网络请求
 - 常用的Socket类型有两种：流式Socket和数据报式Socket，流式是一种面向连接的Socket，针对于面向连接的TCP服务应用，数据报式Socket是一种无连接的Socket，针对于无连接的UDP服务应用
 - TCP：比较靠谱，面向连接，比较慢
@@ -465,7 +465,27 @@ func myHandler(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte("www.5lmh.com"))
 }
 ```
-HTTP客户端
+go的默认路由规则：
+- URL 分为两种，末尾是 /：表示⼀个⼦树，后⾯可以跟其他⼦路径； 末尾不是 /，表示⼀个叶⼦，固定的路径
+- 以/ 结尾的 URL 可以匹配它的任何⼦路径，⽐如 /images 会匹配 /images/cute-cat.jpg
+- 它采⽤最⻓匹配原则，如果有多个匹配，⼀定采⽤匹配路径最⻓的那个进⾏处理
+- 如果没有找到任何匹配项，会返回 404 错误
+```go
+//Default Router
+func (sh serverHandler) ServeHTTP(rw ResponseWriter, req *Request) {
+ handler := sh.srv.Handler
+ if handler == nil {
+ handler = DefaultServeMux //使⽤缺省的Router
+ }
+ if req.RequestURI ==
+"*" && req.Method == "OPTIONS" {
+ handler = globalOptionsHandler{}
+ }
+ handler.ServeHTTP(rw, req)
+}
+```
+
+### HTTP客户端
 ```go
 package main
 
@@ -499,6 +519,85 @@ func main() {
         }
     }
 }
+```
+
+### 构建RESTful服务
+第三方的handler  更好的router
+```go
+//详情见https://github.com/julienschmidt/httprouter
+//handler多了一个参数
+func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+    fmt.Fprintf(w, "hello, %s!\n", ps.ByName("name"))
+}
+
+func main() {
+    router := httprouter.New()
+    router.GET("/", Index)
+    router.GET("/hello/:name", Hello)
+    log.Fatal(http.ListenAndServe(":8080", router))
+}
+```
+
+RESTful程序设计很多时候会基于面向资源的架构（resource oriented architecture）
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220310102434.png)
+```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/julienschmidt/httprouter"
+)
+
+type Employee struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+	Age  int    `json:"age"`
+}
+
+var employeeDB map[string]*Employee
+
+func init() {
+	employeeDB = map[string]*Employee{}
+	employeeDB["Mike"] = &Employee{"e-1", "Mike", 35}
+	employeeDB["Rose"] = &Employee{"e-2", "Rose", 45}
+}
+
+func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	fmt.Fprint(w, "Welcome!\n")
+}
+
+func GetEmployeeByName(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	qName := ps.ByName("name")
+	var (
+		ok       bool
+		info     *Employee
+		infoJson []byte
+		err      error
+	)
+	if info, ok = employeeDB[qName]; !ok {
+		w.Write([]byte("{\"error\":\"Not Found\"}"))
+		return
+	}
+	if infoJson, err = json.Marshal(info); err != nil {
+		w.Write([]byte(fmt.Sprintf("{\"error\":,\"%s\"}", err)))
+		return
+	}
+
+	w.Write(infoJson)
+}
+
+func main() {
+	router := httprouter.New()
+	router.GET("/", Index)
+	router.GET("/employee/:name", GetEmployeeByName)
+
+	log.Fatal(http.ListenAndServe(":8080", router))
+}
+
 ```
 ## WebSocket编程
 ### webSocket是什么

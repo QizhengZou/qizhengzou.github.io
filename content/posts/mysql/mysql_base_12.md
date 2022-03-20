@@ -14,9 +14,9 @@ draft: false
 ## 为什么要及什么是查询优化?
 - 为什么需要查询优化:
     - 关系数据库的执行效率问题
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115122516.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115122516.png)
     - 关系代数操作执行次序对效率的影响
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115122720.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115122720.png)
 - 什么是查询优化
     - “如何使数据库查询的执行时间最短？”
     - 三个层面进行优化：
@@ -30,15 +30,15 @@ draft: false
     - 语法优化(逻辑层优化)---语法等价性：基本思想：改变关系代数的操作次序：尽可能早做选择和投影运算
     - 执行优化(物理层优化)
     - 在DBMS中的位置
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115123812.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115123812.png)
     - 简要回顾
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115124047.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115124047.png)
 
 ## 逻辑查询优化
 一个待优化的示例背景：   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115205559.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115205559.png)
 用语法树表达关系代数表达式:   
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115205716.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115205716.png)
 逻辑层优化策略:   
 - (1)尽可能地早做选择和投影：可使中间结果变小，节省几个数量级的执行时间。
 - (2)把选择与投影串接起来：一元运算序列可一起执行，只需对整个关系扫描一遍。
@@ -54,35 +54,35 @@ draft: false
 - 哪些关系操作次序可以交换?
     - 定理L1：连接与连接，积与积的交换律   
     设E1, E2是关系代数表达式， F是E1, E2中属性的附加限制条件，则有：
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115210330.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115210330.png)
     - 定理L2：连接与连接、积和积的结合律若E1, E2, E3是关系代数表达式，F1，F2是条件，则有：
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115210443.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115210443.png)
     - 定理L3：投影串接律
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115210534.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115210534.png)
     - 定理L4：选择串接律   
     若E是关系代数表达式，F1, F2是条件，则有：
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115210629.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115210629.png)
     - 定理L5：选择和投影交换律
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115210709.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115210709.png)
     - 定理L6：选择和积的交换律
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115210802.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115210802.png)
     - 定理L7：投影和积的交换律
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115210844.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115210844.png)
     - 定理L8：选择和并的交换律
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115210926.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115210926.png)
     - 定理L9：选择和差的交换律
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115211004.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115211004.png)
     - L10：投影和并的交换律
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115211052.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115211052.png)
 - 基于关系代数的查询优化算法及示例   
 略
 
 ## 物理查询优化
 - 为什么要物理查询优化？
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115211243.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115211243.png)
 - 物理查询优化—总体思路
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115211721.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115211848.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115211721.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115211848.png)
 - 如何衡量一个物理查询计划的好与坏?
     - DBMS如何衡量物理查询计划的优劣呢？ 
     - 衡量I/O访问次数 衡量CPU的占用时间 
@@ -91,7 +91,7 @@ draft: false
     - 计算量(如搜索记录、合并记录、排序记录、字段值的计算等) 网络通信量
     ……
 - 依据什么信息判断物理查询计划的好与坏
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115212250.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115212250.png)
 - 如何收集这些信息?
     - 当一个表装入内存和创建索引的时候，统计信息不是被自动收集的，必须由DBA使用特定的命令来完成信息统计，这些命令就是收集统计信息并把其存入系统目录中的实用程序
     - 随着表的更新操作，统计信息可能会过时，过时的统计信息会使DBMS确定方案时决策错误，因此要求DBA定期的对有频繁更新操作的Table进行统计
@@ -118,13 +118,13 @@ draft: false
     ```
 - 代价估算
     - 什么是代价估算?
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115212831.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115212831.png)
     - 投影运算的代价估算?
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115212949.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115212949.png)
     - 不同选择运算的代价估算?
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115213055.png)
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115213145.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115213055.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115213145.png)
     - 代价估计简要结论
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115213321.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115213321.png)
 
 

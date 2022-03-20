@@ -8,7 +8,24 @@ slug: go_base_01
 draft: false
 ---
 > 参考学习go语言中文网、C语言中文网、golang官方文档等
+
+## 前言
+
+计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCII是**简单字符集编码模型**，定义了这个字符集里包含的字符以及其映射成的8位比特值。
+关于**现代编码模型**：
+- 一个字符如何映射成有限长度的比特值？
+    - 需要表示字符的范围--**字符表**（character repertoire）
+    - CR映射到一个整数集，称映射为**编码字符集**（coded character set），也就是Unicode的概念，那些整数称为码点（code point）
+    - 将CCS里的整数映射成有限长度的比特值，这个对应关系称为**字符编码表**（character encoding form），比如UTF-8，UTF-16。（Unicode Transformation Format，8或者16是指码元的大小，码元是一个已编码文本中具有最短的比特组合的单元，即最小单位是一个字节或者两个字节）
+- UTF-8是完全兼容ASCII的，多字节表示一个字符时Unicode码点范围以及对应的bit组合：
+    - 一字节：U+00~U+7F--------------UTF-8字节流（二进制）：0xxxxxxx
+    - 二字节：U+80~U+7FF-------------UTF-8字节流（二进制）：110xxxxx 10xxxxxx
+    - 三字节：U+800~U+7FFF-----------UTF-8字节流（二进制）：1110xxxx 10xxxxxx 10xxxxxx
+    - 四字节：U+10000~U+10FFFF-------UTF-8字节流（二进制）：11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+    - 汉字大多是三字节
+
 关于Unicode和UTF-8：
+
 ```go
 func TestString(t *testing.T) {
 	var s string
@@ -49,7 +66,7 @@ ok      code/code/ch9/string    0.514s
 ## go起源
 07年 三位大牛 解决三个困难：多核硬件架构、超大规模的分布式计算集群、如今使用的web开发模式导致的前所未有的开发规模和更新速度
 ## 环境相关
-go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用，挖个坑，今天填……
+go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用，挖个坑
 ## 主要特征
 1. 自动立即回收。(自带GC)
 2. 更丰富的内置类型。
@@ -139,6 +156,7 @@ array
 slice
 map
 chan
+……
 ```
 内置函数（无需导入即可使用）:
 ```go
@@ -152,11 +170,11 @@ imag            -- 返回complex的虚部
 make            -- 用来分配内存，返回Type本身(只能应用于slice, map, channel) make 函数允许在运行期动态指定数组长度，绕开了数组类型必须使用编译期常量的限制。
 new                -- 用来分配内存，主要用来分配值类型，比如int、struct。返回指向Type的指针
 cap                -- capacity是容量的意思，用于返回某个类型的最大容量（只能用于切片和 map）
-copy            -- 用于复制和连接slice，返回复制的数目
+copy            -- 用于复制和连接slice，返回复制的数目，copy(a,b) 只有 min(len(a),len(b))个元素会被成功拷贝。
 len                -- 用来求长度，比如string、array、slice、map、channel ，返回长度
 print、println     -- 底层打印函数，在部署环境中建议使用 fmt 包
 ```
-内直接口error：
+内置接口error：
 ```go
 type error interface { //只要实现了Error()函数，返回值为String的都实现了err接口（鸭子类型）
     Error()    String
@@ -165,7 +183,7 @@ type error interface { //只要实现了Error()函数，返回值为String的都
 ## init & main
 go语言中init函数用于包(package)的初始化，该函数是go语言的一个重要特性。有下面的特征：
 1. init函数是用于程序执行前做包的初始化的函数，比如初始化包里的变量等
-2.  每个包可以拥有多个init函数
+2. 每个包可以拥有多个init函数
 3. 包的每个源文件也可以拥有多个init函数
 4. 同一个包中多个init函数的执行顺序go语言没有明确的定义(说明)
 5. 不同包的init函数按照包导入的依赖关系决定该初始化函数的执行顺序
@@ -186,10 +204,11 @@ init函数和main函数的异同：
     - init可以应用于任意包中，且可以重复定义多个。
     - main函数只能用于main包中，且只能定义一个。
 
-执行顺序：
+init()执行顺序：
 - 对同一个go文件的init()调用顺序是从上到下的。
 - 对同一个package中不同文件是按**文件名字符串比较“从小到大”顺序**调用各文件中的init()函数。
 - 对于不同的package，如果不相互依赖的话，按照main包中”先import的后调用”的顺序调用其包中的init()，如果package存在依赖，则先调用最早被依赖的package中的init()，最后调用main函数。
+- 同一个包被多次调用只会执行一次init()函数
 - 如果init函数中使用了println()或者print()你会发现在执行过程中这两个不会按照你想象中的顺序执行。这两个函数官方只推荐在测试环境中使用，对于正式环境不要使用。
 ## go命令
 ```
@@ -279,7 +298,7 @@ Use "go help <topic>" for more information about that topic.
 -run regexp 只运行 regexp 匹配的函数，例如 -run=Array 那么就执行包含有 Array 开头的函数；
 -v 显示测试的详细命令。
 ```
-单元测试源码文件可以由多个测试用例组成，每个测试用例函数需要以Test为前缀。测试用例文件不会参与正常源码编译，不会被包含到可执行文件中。测试用例文件使用go test指令来执行，没有也不需要 main() 作为函数入口。所有在以_test结尾的源码内以Test开头的函数会自动被执行。测试用例可以不传入 *testing.T 参数。
+单元测试源码文件可以由多个测试用例组成，每个测试用例函数需要以Test为前缀。**测试用例文件不会参与正常源码编译，不会被包含到可执行文件中。**测试用例文件使用go test指令来执行，没有也不需要 main() 作为函数入口。所有在以_test结尾的源码内以Test开头的函数会自动被执行。测试用例可以不传入 *testing.T 参数。单元（功能）测试以testing.T为参数，性能（压力）测试以testing.B为参数。
 
 运行指定示例：
 ```
@@ -302,6 +321,43 @@ Errorf	格式化打印错误日志
 Fatal	打印致命日志
 Fatalf	格式化打印致命日志
 ```
+单元测试使用示例：
+```go
+//demo.go
+package demo
+// 冒泡排序
+func BubbleSort(list []int) []int {
+	n := len(list)
+	for i := n - 1; i > 0; i-- {
+		for j := 0; j < i; j++ {
+			if list[j] > list[j+1] {
+				list[j], list[j+1] = list[j+1], list[j]
+			}
+		}
+	}
+	return list
+}
+```
+```go
+//demo_test.go
+package demo
+import "testing"
+func TestBubbleSort(t *testing.T) {
+    area := BubbleSort([]list{2,1,3,4,65,13,22})
+    if area != {1,2,3,4,13,22,65} {
+        t.Error("测试失败")
+    }
+}
+```
+执行：
+```
+PS D:\code> go test -v
+=== RUN   TestGetArea
+--- PASS: TestGetArea (0.00s)
+PASS
+ok      _/D_/code       0.435s
+```
+
 #### 基准测试——获得代码内存占用和运行效率的性能数据
 使用者无须准备高精度的计时器和各种分析工具，基准测试本身即可以打印出非常标准的测试报告。
 ```go
@@ -383,7 +439,52 @@ func Benchmark_Add_TimerControl(b *testing.B) {
 是一个用于检查Go语言源码中静态错误的简单工具。
 
 ### go tool pprof命令
-交互式的访问概要文件的内容。
+交互式的访问概要文件的内容。监测进程的运行数据，用于监控程序的性能，对内存使用和CPU使用的情况统信息进行分析。官方提供了两个包：runtime/pprof和net/http/pprof，前者用于普通代码的性能分析，后者用于web服务器的性能分析。
+#### runtime/pprof
+```示例
+PS D:\Go\Go_WorkSpace\go_learning-master\code\ch46\tools\file> go tool pprof prof cpu.prof
+prof: open prof: The system cannot find the file specified.
+Fetched 1 source profiles out of 2
+Type: cpu
+Time: Mar 10, 2022 at 10:41am (CST)
+Duration: 2.77s, Total samples = 1.70s (61.39%)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top
+Showing nodes accounting for 1.67s, 98.24% of 1.70s total
+Showing top 10 nodes out of 34
+      flat  flat%   sum%        cum   cum%
+     0.49s 28.82% 28.82%      1.62s 95.29%  main.fillMatrix
+     0.35s 20.59% 49.41%      1.13s 66.47%  math/rand.(*Rand).Intn
+     0.33s 19.41% 68.82%      0.78s 45.88%  math/rand.(*Rand).Int31n
+     0.14s  8.24% 77.06%      0.14s  8.24%  math/rand.(*rngSource).Uint64 (inline)
+     0.13s  7.65% 84.71%      0.45s 26.47%  math/rand.(*Rand).Int31 (inline)
+     0.10s  5.88% 90.59%      0.24s 14.12%  math/rand.(*rngSource).Int63
+     0.08s  4.71% 95.29%      0.32s 18.82%  math/rand.(*Rand).Int63
+     0.02s  1.18% 96.47%      0.02s  1.18%  main.calculate
+     0.02s  1.18% 97.65%      0.02s  1.18%  runtime.stdcall1
+     0.01s  0.59% 98.24%      0.01s  0.59%  runtime.lock2
+(pprof) list fillMatrix
+Total: 1.70s
+ROUTINE ======================== main.fillMatrix in D:\go\Go_WorkSpace\go_learning-master\code\ch46\tools\file\prof.go
+     490ms      1.62s (flat, cum) 95.29% of Total
+         .          .     16:
+         .          .     17:func fillMatrix(m *[row][col]int) {
+         .          .     18:   s := rand.New(rand.NewSource(time.Now().UnixNano()))
+         .          .     19:
+         .          .     20:   for i := 0; i < row; i++ {
+      20ms       20ms     21:           for j := 0; j < col; j++ {
+     470ms      1.60s     22:                   m[i][j] = s.Intn(100000)
+         .          .     23:           }
+         .          .     24:   }
+         .          .     25:}
+         .          .     26:
+         .          .     27:func calculate(m *[row][col]int) {
+(pprof) 
+```
+top/tree/web
+- top [n]，查看排名前n个数据，默认为10。（这个函数本身占用的时间，以及这个函数包括调用其他函数的时间）
+- tree [n]，以树状图形式显示，默认显示10个。
+#### net/http/pprof
 
 ### go modules
 go modules 是 golang 1.11 新加的特性
@@ -408,11 +509,11 @@ go modules 是 golang 1.11 新加的特性
 ## 运算符
 Go 语言内置的运算符有：
 - 算术运算符
-    - ++ --**只有后置的，没有前置的*，只作为语句，不作为表达式**
+    - ++ **只有后置的，没有前置的，只作为语句，不作为表达式**
 - 关系运算符
 - 逻辑运算符
 - 位运算符
-    - **按位置零运算符 x &^ y ------如果y非零，则z为0；如果y为零，则z为x**
+    - **按位置零运算符 x &^ y ------如果y非零，则z为0；如果y为零，则z为x（先非再与）**
 - 赋值运算符（**一个赋值语句可以给多个变量进行赋值，多重赋值时，变量的左值和右值按从左到右的顺序赋值。多重赋值在 Go 语言的错误处理和函数返回值中会大量地使用。**）
     - =	简单的赋值运算符，将一个表达式的值赋给一个左值
     - +=	相加后再赋值
@@ -429,9 +530,10 @@ Go 语言内置的运算符有：
 “_”是特殊标识符，用来忽略结果。
 - 下划线在import中
     -  import 下划线（如：import _ hello/imp）的作用：当导入一个包时，该包下的文件里所有init()函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行init()函数而已。这个时候就可以使用 import _ 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数。
+    - 注意区别于.在import中，它是指import进来的package里的所有的方法是在当前的名字空间的，使用其方法时直接使用即可。
 - 下划线在代码中
     - 作为占位符
-## 格式占位符%……
+## 格式占位符%…
 ```go
 普通占位符
 占位符     说明                           举例                   输出
@@ -450,11 +552,12 @@ Go 语言内置的运算符有：
 %b      二进制表示                             Printf("%b", 5)             101
 %c      相应Unicode码点所表示的字符              Printf("%c", 0x4E2D)        中
 %d      十进制表示                             Printf("%d", 0x12)          18
-%o      八进制表示                             Printf("%d", 10)            12
+%o      八进制表示                             Printf("%o", 10)            12
 %q      单引号围绕的字符字面值，由Go语法安全地转义 Printf("%q", 0x4E2D)        '中'
 %x      十六进制表示，字母形式为小写 a-f         Printf("%x", 13)             d
 %X      十六进制表示，字母形式为大写 A-F         Printf("%x", 13)             D
-%U      Unicode格式：U+1234，等同于 "U+%04X"   Printf("%U", 0x4E2D)         U+4E2D
+%U      Unicode格式：U+1234，等同于 "U+%04X"   
+Printf("%U", 0x4E2D)         U+4E2D
 
 浮点数和复数的组成部分（实部和虚部）
 占位符     说明                              举例            输出
@@ -571,9 +674,9 @@ interface	|	|nil	|接口
 function	|	|nil	|函数
 - uintptr 实际上就是一个 uint 用来表示地址，go 的指针和 c 不一样不能进行偏移操作，如果非要偏移的话就需要 unsafe.Pointer 和 uintptr 配合来实现。uintptr 不是一个指针 所以 GC 时也不会处理 uintptr 的引用。如果不涉及地址偏移时没有必要使用 uintptr 。------[来自知乎回答](https://www.zhihu.com/question/439659823)
 - 标准库 math 定义了各数字类型取值范围。
-- 空指针值 nil，而非C/C++ NULL。golang中有多种引用类型：pointer、interface、slice、map、channel、function。go作为一个强类型语言，不同引用类型的判空（nil）规则是不同的；比如：interface的判空规则是，需要判断类型和值是否都为nil(interface的底层是有类型和值构成的)slice的判空，需要判断slice引用底层数组的指针为空，容量和size均为0。
+- 空指针值 nil，而非C/C++ NULL。golang中有多种引用类型：pointer、interface、slice、map、channel、function。go作为一个强类型语言（类型是定义好的无法改变，不像c，你定义一个short可以当成char用，因为可以直接操作内存），不同引用类型的判空（nil）规则是不同的；比如：interface的判空规则是，需要判断类型和值是否都为nil(interface的底层是有类型和值构成的)slice的判空，需要判断slice引用底层数组的指针为空，容量和size均为0。
 - 不允许将整型强制转换为布尔型。
-- 字符串的内部实现使用UTF-8编码。（UTF-8是Unicode的存储实现，转化为字节序列的规则）
+- 字符串的内部实现使用UTF-8编码。（UTF-8是Unicode的存储实现，转化为有限长度比特组合的规则）
 - 只有显示类型转化。
 ## string：
 值类型，空值是空字符串而不是nil。本质就是个只读的（不可变的）byte切片。
@@ -627,6 +730,37 @@ strings.Join(a[]string, sep string)	|join操作
 - 指针数组 [n]*T，数组指针 *[n]T。
 - 多维数组除了第一维，初始化时都不能用[...]省略长度声明。
 - 值拷贝行为会造成性能问题，通常会建议使用 slice，或数组指针。
+## 列表list
+初始化：
+- 通过 container/list 包的 New() 函数初始化 list。变量名 := list.New()
+- 通过 var 关键字声明初始化 list 。var 变量名 list.List
+列表与切片和 map 不同的是，列表并没有具体元素类型的限制，因此，列表的元素可以是任意类型，这既带来了便利，也引来一些问题，例如给列表中放入了一个 interface{} 类型的值，取出值后，如果要将 interface{} 转换为其他类型将会发生宕机。
+
+源码数据结构：
+```go
+type Element struct {
+	// Next and previous pointers in the doubly-linked list of elements.
+	// To simplify the implementation, internally a list l is implemented
+	// as a ring, such that &l.root is both the next element of the last
+	// list element (l.Back()) and the previous element of the first list
+	// element (l.Front()).
+	next, prev *Element
+
+	// The list to which this element belongs.
+	list *List
+
+	// The value stored with this element.
+	Value interface{}
+}
+type List struct {
+	root Element // sentinel list element, only &root, root.prev, and root.next are used
+	len  int     // current list length excluding (this) sentinel element
+}
+```
+其他源码列出稍冗长，root.prev可以视作尾节点，root.next相当于头节点，不过这些是透明的，被封装好的。
+
+
+在列表中插入元素删除元素都有简便方法。
 ## 切片
 只能和nil进行比较。
 ```go
@@ -663,6 +797,16 @@ fmt.Printf("slice e : %v\n", e)
 slice := append([]byte("hello "), "world"...)//注意是字节数组和字符串。
 fmt.Printf("slice slice : %v\n", slice)
 ```
+```go
+func TestOne(t *testing.T) {
+	q := make([]int, 3, 10)
+	w := append(q, 1)
+	t.Log(len(w), len(q))
+	e := append(q, 2)
+	//append是加在该切片的len后面，但不是最后一个元素后面，因为底层数组会被改变，而切片变量的结构体所记录的信息是固定的。
+	t.Log(q, w, e)
+}
+```
 - 超出原 slice.cap 限制，就会重新分配底层数组，即便原数组并未填满。
 - 通常以 2 倍容量重新分配底层数组。在大批量添加数据时，建议一次性分配足够大的空间，以减少内存分配和数据复制开销。或初始化足够长的 len 属性，改用索引号进行操作。
 - 及时释放不再使用的 slice 对象，避免持有过期数组，造成 GC 无法回收。
@@ -692,7 +836,16 @@ slice c : [4 5] , len(c) : 2
 
 string & slice :
 string底层就是一个byte的数组，因此，也可以进行切片操作。
-### 切片底层实现
+
+二维切片：
+```go
+……
+ a := make([][]int,dy)
+ for i = range a {
+     a[i] = make([]int, dx)
+ }
+```
+### slice切片底层实现
 切片的设计想法是由动态数组概念而来，为了开发者可以更加方便的使一个数据结构可以自动增加和减少。但是切片本身并不是动态数据或者数组指针。切片常见的操作有   **reslice、append、copy**。与此同时，切片还具有**可索引，可迭代**的优秀特性。
 ```go
 func main() {
@@ -724,6 +877,8 @@ type slice struct {
 	cap   int // 切片容量
 }
 ```
+**注意**：Golang 语言是没有操作原始内存的指针的，所以 **unsafe 包**提供相关的对内存指针的操作，一般情况下非专业人员勿用
+
 如果想从 slice 中得到一块内存地址，可以这样做：
 ```go
 s := make([]byte, 200)
@@ -887,7 +1042,7 @@ map底层存储方式为（结构体）数组，在存储时key不能重复，�
     - 发现hashkey(key)的下标已经被别key占用的时候，在这个数组中空间中重新找一个没被占用的存储这个冲突的key。寻找方式有很多。常见的有线性探测法，线性补偿探测法，随机探测法。
         - 线性探测法：
             - 从冲突的下标处开始往后探测，到达数组末尾时，从数组开始处探测，直到找到一个空位置存储这个key，当数组都找不到的情况下会扩容（事实上当数组容量快满的时候就会扩容了）
-            - 查找某一个key的时候，找到key对应的下标，比较key是否相等，如果相等直接取出来，否则按照顺寻探测直到碰到一个空位置，说明key不存在。
+            - 查找某一个key的时候，找到key对应的下标，比较key是否相等，如果相等直接取出来，否则按照顺序探测直到碰到一个空位置，说明key不存在。
         - 拉链法：
             - 当key的hash冲突时，我们在冲突位置的元素上形成一个链表，通过指针互连接。
             - 当查找时，发现key冲突，顺着链表一直往下找，直到链表的尾节点，找不到则返回空
@@ -899,6 +1054,9 @@ map底层存储方式为（结构体）数组，在存储时key不能重复，�
         - 拉链是动态申请存储空间的，所以更适合链长不确定的
 
 ### go中map的实现原理
+go里面map并不是线程安全的，在1.9版本之前用map加互斥锁来解决此问题，之后加了sync.map性能稍微高了一些，因为它有一块只读的buffer，相当于由两个buffer组成，一块只读，一块读写。sync.map更适合于读非常多，能够占到90%以上的情况。如果读写差不多或者说写更多的话，sync.map的性能就比较差了。
+在读写对半的情况下，可以考虑引入concurrent_map包。（go get -u +包地址）
+
 在go1.16中，map也是数组存储的的，每个数组下标处存储的是一个bucket,这个bucket的类型见下面代码，每个bucket中可以存储8个kv键值对，当每个bucket存储的kv对到达8个之后，会通过overflow指针指向一个新的bucket，从而形成一个链表,看bmap的结构
 ```go
 // A bucket for a Go map.
@@ -1109,7 +1267,7 @@ func TestMapForSet(t *testing.T) {
 //将MyInt作为为int类型的昵称
     type MyInt = int 
 ```
-## 结构体
+### 结构体
 本质上是一种聚合型的数据类型。
 
 通过struct可以实现面向对象。
@@ -1155,7 +1313,7 @@ func newPerson(name, city string, age int8) *person {
     }
 }
 ```
-### 方法和接收者
+#### 方法和接收者
 Go语言中的方法（Method）是一种作用于特定类型变量的函数。这种特定类型变量叫做接收者（Receiver）。**接收者的概念就类似于其他语言中的this或者 self。**
 ```go
 //接收者变量：接收者中的参数变量名在命名时，官方建议使用接收者类型名的第一个小写字母，而不是self、this之类的命名。例如，Person类型的接收者变量应该命名为 p，Connector类型的接收者变量应该命名为c等。
@@ -1255,6 +1413,7 @@ func main() {
 
 **结构体与JSON序列化**：
 - JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON键值对是用来保存JS对象的一种方式，键/值对组合中的键名写在前面并用双引号””包裹，使用冒号:分隔，然后紧接着值；多个键值之间使用英文,分隔。
+- 应用于远程的过程调用、webservice、程序配置等
 ```go
 //Student 学生
 type Student struct {
@@ -1332,6 +1491,70 @@ func main() {
     fmt.Printf("json str:%s\n", data) //json str:{"id":1,"Gender":"女"}
 } 
 ```
+
+**内置JSON解析**：
+- 利⽤反射实现，通过FeildTag来标识对应的json 值（性能较低）
+
+```go
+package jsontest
+
+type BasicInfo struct {
+	Name string `json:"name"`
+	Age  int    `json:"age"`
+}
+type JobInfo struct {
+	Skills []string `json:"skills"`
+}
+type Employee struct {
+	BasicInfo BasicInfo `json:"basic_info"`
+	JobInfo   JobInfo   `json:"job_info"`
+}
+```
+
+```go
+package jsontest
+
+import (
+	"encoding/json"
+	"fmt"
+	"testing"
+)
+
+var jsonStr = `{
+	"basic_info":{
+	  	"name":"Mike",
+		"age":30
+	},
+	"job_info":{
+		"skills":["Java","Go","C"]
+	}
+}	`
+
+func TestEmbeddedJson(t *testing.T) {
+	e := new(Employee)
+	err := json.Unmarshal([]byte(jsonStr), e)
+	if err != nil {
+		t.Error(err)
+	}
+	fmt.Println(*e)
+	if v, err := json.Marshal(e); err == nil {
+		fmt.Println(string(v))
+	} else {
+		t.Error(err)
+	}
+
+}
+```
+
+**easyjson**:
+- 更快的JSON解析
+- EasyJSON 采⽤代码⽣成⽽⾮反射
+- 见ch43
+
+
+## 高可用性服务设计
+
+
 ## 参考
 - https://cloud.tencent.com/developer/article/1526095
 - https://www.topgoer.cn/docs/golang/chapter02

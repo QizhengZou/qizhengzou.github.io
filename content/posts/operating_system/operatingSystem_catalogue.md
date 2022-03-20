@@ -3,7 +3,7 @@ title: "OperatingSystem_catalogue"
 date: 2021-11-08T16:44:08+08:00
 lastmod: 2021-11-21
 tags: [catalogue]
-categories: [School courses' list]
+categories: [Catalogue]
 slug: OS_catalogue
 draft: false
 ---

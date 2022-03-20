@@ -60,7 +60,7 @@ draft: false
             - 外部环境的不可控因素很少。
     - 增量过程模型
         - 增量模型
-            - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211125164540.png)
+            - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211125164540.png)
             - **优点**：
                 - 在时间要求较高的情况下交付产品：在各个阶段并不交付一个可运行的完整产品，而是交付满足客户需求的一个子集的可运行产品，**对客户起到“镇静剂”的作用**；
                 - 人员分配灵活：如果找不到足够的开发人员，可采用增量模型，**早期的增量由少量人员实现，如果客户反响较好，则在下一个增量中投入更多的人力**；
@@ -73,7 +73,7 @@ draft: false
                 - 在开始开发时，需求很明确，且产品还可被适当地分解为一些独立的、可交付的软件。
                 - 在开发中，期望尽快提交其中的一些增量产品。
         - 快速应用程序开发（RAD）
-            - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211125164854.png)
+            - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211125164854.png)
             - **RAD模型的使用方法**
                 - 侧重于短开发周期(一般为60~90天)的增量过程模型，通过基于已有资源的构建方法实现快速开发。
                 - 本质：是瀑布模型的高速变体，并行运行瀑布模型。
@@ -159,7 +159,7 @@ draft: false
         - Step 3.4：确定任务的开始/结束时间。
         - Step 3.5：绘制最终的任务进度安排(甘特图, Gantt Diagram)
             - **甘特图**（Gantt Chart）是一种通用的显示进度方法，其横轴表示时间，纵轴表示活动，线条表示在整个期间上计划和实际的活动完成情况。
-            ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211126102900.png)
+            ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211126102900.png)
 - Step 4：确认任务资源。确认每个任务的资源需求
 - Step 5：确定责任。确定每个任务的负责人和参与人
 - Step 6：明确结果。明确任务的输出结果（文档或部分软件）

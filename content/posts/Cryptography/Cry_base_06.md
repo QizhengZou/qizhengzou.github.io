@@ -44,7 +44,7 @@ draft: false
     - $ P=C_2*(C^p_1)^{-1}mod p$
 ## 椭圆曲线加密
 - 椭圆曲线定义:$E(a,b):y^2=x^3+ax+b$
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219093940.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219093940.png)
 - 运算定义：
     - $P=(x,y) -p=(x,-y)$
     - $R=P+Q$

@@ -7,7 +7,7 @@ categories: [School courses]
 slug: CN_application_layer
 draft: false
 ---
-> 笔记来自 中科大郑烇 计网PPT，改编自计算机网络-自顶向下 第七版
+> 来自 中科大郑烇计网PPT，哈工大深圳堵宏伟计网PPT，改编自计算机网络-自顶向下 第七版
 # 应用层
 目标：
 - 网络应用的原理：网络应用协议的概念和实现方面
@@ -125,8 +125,8 @@ draft: false
                         - 不必在每一个报文的发送都要指定这4元组
                         - 就像使用操作系统打开一个文件，OS返回一个文件句柄一样，以后使用这个文件句柄,而不是使用这个文件的目录名、文件名
                         - 简单，便于管理
-                - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123165652.png)
-                - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123165721.png)
+                - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123165652.png)
+                - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123165721.png)
         - 层间信息代码
             - UDP socket：
                 - UDP服务，两个进程之间的通信需要之前无需建立连接
@@ -144,13 +144,13 @@ draft: false
                         - UDP套接字指定了应用所在的一个端节点（end point）
                         - 在发送数据报时，采用创建好的本地套接字（标示ID），就不必在发送每个报文中指明自己所采用的ip和port
                         - 但是在发送报文时，必须要指定对方的ip和udp port(另外一个段节点)
-                - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123170238.png)
+                - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123170238.png)
             - 套接字（Socket）
                 - 进程向套接字发送报文或从套接字接收报文
                 - 套接字 <-> 门户
                     - 发送进程将报文 门户，发送进程依赖于传输层设施在另外一侧的门将报文交付给接受进程
                     - 接收进程从另外一端的门户 报文（依赖于传输层设施）
-                - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123170628.png)
+                - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123170628.png)
 - 问题3：如何使用传输层提供的服务，实现应用进程之间的报文交换，实现应用（用户使用服务）
     - 定义应用层协议：报文格式，解释，时序等
         - 定义了：运行在不同端系统上的应用 如何相互交换报文
@@ -182,7 +182,7 @@ draft: false
             - 机密性
             - 完整性
             - 可认证性（鉴别）
-    - 常见应用对传输服务的要求：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123171842.png)
+    - 常见应用对传输服务的要求：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123171842.png)
     - Internet 传输层提供的服务
         - TCP 服务：
             - 可靠的传输服务
@@ -204,7 +204,7 @@ UDP存在的必要性
 - 没有拥塞控制和流量控制，应用能够按照设定的速度发送数据
     - 而在TCP上面的应用，应用发送数据的速度和主机向网络发送的实际速度是不一致的，因为有流量控制和拥塞控制
 
-Internet应用及其应用层协议和传输协议：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123172419.png)
+Internet应用及其应用层协议和传输协议：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123172419.png)
 
 安全TCP
 - TCP & UDP 
@@ -262,8 +262,8 @@ HTTP连接
     - 多个对象可以在一个（在客户端和服务器之间的）TCP连接上传输
     - HTTP/1.1 默认使用持久连接
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123184439.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123184504.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123184439.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123184504.png)
 
 响应时间模型
 - 往返时间RTT（round-trip time）：一个小的分组从客户端到服务器，在回到客户端的时间（传输时间忽略）
@@ -272,7 +272,7 @@ HTTP连接
     - 一个 RTT用来HTTP请求并等待HTTP响应
     - 文件传输时间
 - 共：2RTT+传输时间
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123214130.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123214130.png)
 
 持久HTTP
 - 非持久HTTP的缺点：
@@ -295,9 +295,9 @@ HTTP请求报文：
 - 两种类型的HTTP报文：请求、响应
 - HTTP请求报文:
     - ASCII (人能阅读)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123214512.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123214512.png)
 - 通用格式
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123214547.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123214547.png)
 
 提交表单输入：
 - Post方式：
@@ -320,7 +320,7 @@ HTTP请求报文：
     - DELETE
         - 删除URL字段规定的
 
-HTTP响应报文：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123214926.png)
+HTTP响应报文：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123214926.png)
 
 HTTP响应状态码：位于服务器->客户端的响应报文中的首行一些状态码的例子：
 - 200 OK
@@ -356,7 +356,7 @@ HTTP响应状态码：位于服务器->客户端的响应报文中的首行一�
     - 广告公司从站点获得信息
 
 cookies:维护状态
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123215433.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123215433.png)
 
 Web缓存 (代理服务器)
 - 目标：不访问 服务器，就满足客户的请求
@@ -371,7 +371,7 @@ Web缓存 (代理服务器)
     - 可以大大减少一个机构内部网络与Internent接入链路上的流量
     - 互联网大量采用了缓存：可以使较弱的ICP也能够有效提供内容
 
-缓存示例：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123215849.png)
+缓存示例：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123215849.png)
 - 1. 可以更快地接入链路，但会因为接入链路带宽增加使代价昂贵。
 - 2. 可以安装本地缓存，使web缓存变得廉价。且可能比方法1延迟更低
 
@@ -389,7 +389,7 @@ FTP文件传输协议：
     - 服务器：远程主机
 - ftp: RFC 959
 - ftp服务器：端口号为2
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123220658.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123220658.png)
 
 FTP: 控制连接与数据连接分开
 - FTP客户端与FTP服务器通过端口21联系，并使用TCP为传输协议
@@ -400,7 +400,7 @@ FTP: 控制连接与数据连接分开
 - 服务器打开第二个TCP数据连接用来传输另一个文件
 - 控制连接： 带外（ “out of band” ）传送
 - FTP服务器维护用户的状态信息：当前路径、用户帐户与控制连接对应 = 有状态
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123220915.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123220915.png)
 
 FTP命令、响应：
 - 命令样例：
@@ -439,7 +439,7 @@ FTP命令、响应：
     - 客户：发送方邮件服务器
     - 服务器：接收端邮件服务器
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123221315.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123221315.png)
 ### SMTP
 EMail: SMTP [RFC 2821]
 - 使用TCP在客户端和服务器之间传送报文，端口号为25
@@ -453,9 +453,9 @@ EMail: SMTP [RFC 2821]
     - 响应：状态码和状态信息
 - 报文必须为7位ASCII
 
-举例：Alice给Bob发送报文：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123221743.png)
+举例：Alice给Bob发送报文：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123221743.png)
 
-简单的SMTP交互：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123221810.png)
+简单的SMTP交互：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123221810.png)
 
 SMTP：总结
 - SMTP使用持久连接
@@ -469,12 +469,12 @@ HTTP比较：
 - HTTP：每个对象封装在各自的响应报文中
 - SMTP：多个对象包含在一个报文中
 
-邮件报文格式：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123222018.png)
+邮件报文格式：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123222018.png)
 
 报文格式：多媒体扩展
 - MIME：多媒体邮件扩展（multimedia mail extension）, RFC 2045, 2056
 - 在报文首部用额外的行申明MIME内容类型
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123222118.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123222118.png)
 
 邮件访问协议：
 - SMTP: 传送到接收方的邮件服务器
@@ -487,9 +487,9 @@ HTTP比较：
     - HTTP：Hotmail , Yahoo! Mail等
         - 方便
 ### POP3 & IMAP
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123222314.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123222314.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123222340.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123222340.png)
 ## 2.5 DNS
 DNS的必要性
 - IP地址标识主机、路由器
@@ -544,9 +544,9 @@ DNS(Domain Name System)总体思路和目标
     - 每个(子)域下面可划分为若干子域(subdomains)
     - 树叶是主机
 
-DNS: 根名字服务器![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123223020.png)
+DNS: 根名字服务器![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123223020.png)
 
-DNS名字空间(The DNS Name Space):![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123223112.png)
+DNS名字空间(The DNS Name Space):![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123223112.png)
 - 域名(Domain Name)
     - 从本域往上，直到树根
     - 中间使用“.”间隔不同的级别
@@ -580,7 +580,7 @@ DNS名字空间(The DNS Name Space):![](https://raw.githubusercontent.com/Qizhen
         - 名字服务器允许被放置在区域之外，以保障可靠性
 
 名字空间划分为若干区域：Zone
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123223342.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123223342.png)
 权威DNS服务器：组织机构的DNS服务器， 提供组织机构服务器（如Web和mail）可访问的主机和IP之间的映射组织机构可以选择实现自己维护或由某个服务提供商来维护
 
 TLD服务器
@@ -601,18 +601,18 @@ TLD服务器
 
 DNS记录
 - DNS ：保存资源记录(RR)的分布式数据库
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123223554.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123223554.png)
 
 资源记录(resource records)
 - 一个例子
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123223623.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123223623.png)
 
 DNS(Domain Name System)
 - DNS大致工作过程
     - 应用调用 解析器(resolver)
     - 解析器作为客户 向Name Server发出查询报文（封装在UDP段中）
     - Name Server返回响应报文(name/ip)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123223718.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123223718.png)
 
 本地名字服务器（Local Name Server）
 - 并不严格属于层次结构
@@ -633,7 +633,7 @@ DNS(Domain Name System)
 - 名字解析负担都放在当前联络的名字服务器上
 - 问题：根服务器的负担太重
 - 解决： 迭代查询(iterated queries)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123223858.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123223858.png)
 
 迭代查询
 - 主机cis.poly.edu 想知道主机 gaia.cs.umass.edu的IP地址
@@ -641,12 +641,12 @@ DNS(Domain Name System)
 - 最后由权威名字服务器给出解析结果
 - 当前联络的服务器给出可以联系的服务器的名字
 - “我不知道这个名字，但可以向这个服务器请求”
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123224324.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123224324.png)
 
 DNS协议、报文:
 - DNS协议：查询和响应报文的报文格式相同
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123224454.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220123224513.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123224454.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123224513.png)
 
 提高性能：缓存
 - 一旦名字服务器学到了一个映射，就将该映射
@@ -709,12 +709,12 @@ DNS协议、报文:
 问题: 从一台服务器分发文件（大小F）到N个peer
 需要多少时间？
 - Peer节点上下载能力是有限的资源
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124132357.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124132434.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124132525.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124132550.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124132357.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124132434.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124132525.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124132550.png)
 P2P文件分发： BitTorrent
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124132615.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124132615.png)
 - Peer加入torrent: 
     - 一开始没有块，但是将会通过其他节点处累积文件块
     - 向跟踪服务器注册，获得peer节点列表，和部分peer节点构成邻居关系 (“连接”)
@@ -784,7 +784,7 @@ P2P：集中式目录中存在的问题（**文件传输是分散的，而定位
     - 边并不是物理链路
     - 给定一个对等方，通常所连接的节点少于10个
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124133656.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124133656.png)
 
 Gnutella：对等方加入
 1. 对等方X必须首先发现某些已经在覆盖网络中的其他对等方：使用可用对等方列表自己维持一张对等方列表（经常开机的对等方的IP）联系维持列表的Gnutella站点
@@ -793,7 +793,7 @@ Gnutella：对等方加入
 4. 所有收到Ping报文的对等方以Pong报文响应IP地址、共享文件的数量及总字节数
 5. X收到许多Pong报文，然后它能建立其他TCP连接
 
-利用不匀称性：KaZaA:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124133757.png)
+利用不匀称性：KaZaA:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124133757.png)
 
 KaZaA：查询
 - 每个文件有一个散列标识码和一个描述符
@@ -835,7 +835,7 @@ Distributed Hash Table (DHT)
 - 解决方案: 分布式的，应用层面的基础设施
 
 多媒体：视频
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124134350.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124134350.png)
 - CBR: (constant bit rate): 以固定速率编码
 - VBR: (variable bit rate): 视频编码速率随时间的变化而变化
 - 例子: 
@@ -843,7 +843,7 @@ Distributed Hash Table (DHT)
     - MPEG2 (DVD) 3-6 Mbps
     - MPEG4 (often used in Internet, < 1 Mbps)
 
-存储视频的流化服务：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124134551.png)
+存储视频的流化服务：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124134551.png)
 
 多媒体流化服务：DASH
 - DASH: Dynamic, Adaptive Streaming over HTTP
@@ -884,10 +884,10 @@ Content Distribution Networks
 - 用户从CDN中请求内容
     - 重定向到最近的拷贝，请求内容 
     - 如果网络路径拥塞，可能选择不同的拷贝
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124135056.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124135130.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124135056.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124135130.png)
 
-Netflix:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124135151.png)
+Netflix:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124135151.png)
 ## 2.8 TCP 套接字（Socket ）编程
 Socket编程
 - 应用进程使用传输层提供的服务才能够交换报文，实现应用协议，实现应用
@@ -926,7 +926,7 @@ TCP套接字编程
     - 4) 客户端从socket中读取一行字符，然后打印出来
 
 C/S socket 交互: TCP
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124174748.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124174748.png)
 
 数据结构 sockaddr_in:
 - IP地址和port捆绑关系的数据结构（标示进程的端节点）
@@ -955,12 +955,12 @@ struct hostent
 - 作为调用域名解析函数时的参数返回后，将IP地址拷贝到 sockaddr_in的IP地址部分
 
 例子: C客户端(TCP)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124175606.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124175635.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124175606.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124175635.png)
 
 例子: C服务器（TCP）
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124175723.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124175744.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124175723.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124175744.png)
 ## 2.9 UDP 套接字编程
 UDP Socket编程
 - UDP: 在客户端和服务器之间没有连接 
@@ -972,15 +972,15 @@ UDP Socket编程
     - UDP 为客户端和服务器提供不可靠的字节组的传送服务
 
 Client/server socket 交互: UDP
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124175950.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124175950.png)
 
 样例: C客户端 (UDP)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124180023.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124180140.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124180023.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124180140.png)
 
 样例: C服务器(UDP)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124180212.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220124180229.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124180212.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220124180229.png)
 ## 小结
 - 应用程序体系结构
     - 客户-服务器

@@ -56,7 +56,7 @@ draft: true
 * 时空数据：空间、时间数据
 * 关系图数据：网页链接图、社交网络、文献引用图
 ### 大数据技术概况
-技术体系：数据采集、数据存储、数据处理、统计分析、智能挖掘、可视化![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108171948.png)
+技术体系：数据采集、数据存储、数据处理、统计分析、智能挖掘、可视化![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108171948.png)
 主要技术挑战：海量数据的检索性能！    
 什么是数据挖掘：   
 从大量数据中提取有趣的（非平凡的，隐含的，以前未知的和潜在有用的）模式（pattern）或知识，即从数据中发现知识。    
@@ -66,6 +66,6 @@ draft: true
 ### 数据的来源及其获取方法简介
 数据来源于内部数据和外部数据（互联网开放的数据：开放的数据平台、爬虫、与合作机构的数据交换、网络上直接下载）
 ### 大数据领域的学习资源
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108172723.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108172723.png)
 
 

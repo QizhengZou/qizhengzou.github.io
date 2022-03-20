@@ -51,7 +51,7 @@ draft: true
     - 类别型数据的集中趋势度量方法
         - 众数(mode)：一组数据中出现频率最高的属性值
     - 集中趋势度量方法比较
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115163455.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115163455.png)
 - 散布（spread）程度度量：
     - 数值型数据
         - 极差
@@ -66,7 +66,7 @@ draft: true
     - 类别型数据的散布程度度量方法
         - 异众比率
     - 散布程度度量方法比较
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115163843.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115163843.png)
 - 偏态度量
     - 偏态（skewness）是描述数值型数据分布的对称性的度量指标
     - 数据分布的对称性可以分为对称、左偏或右偏。
@@ -74,7 +74,7 @@ draft: true
 - 峰度度量
     - 数据分布的峰度是描述数值型数据分布的几何形态陡峭程度的统计量
         - 以正态分布为基准定义的
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115164215.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115164215.png)
 
 ## 数据可视化的传统方法
 数据可视化
@@ -105,7 +105,7 @@ draft: true
     - 散点图主要应用于数值型数据，其作用主要是观察两个（或三个）数值型属性的数据之间的关联性
     - 散点图可以直观的反映集中数据和离群数据的分布，还能直接反映数据集内存在的分组情况，还可反映属性组合的数据区分能力
 - Iris数据集的散点图矩阵
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115164608.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115164608.png)
 - 箱线图
     - 数值型属性，五数归纳（Five Number Summary）
     - Minimum, Q1(25%), Median, Q3(75%), Maximum
@@ -117,7 +117,7 @@ draft: true
             - max(Q1-1.5IQR, Minimum) 
         - 这样计算上下边缘可区分异常值
     - 箱线图可以用来比较属性的类区分能力（discrimination capability）
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115164847.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115164847.png)
 - 数据矩阵图
     - 数据矩阵图，将数值映射到不同的颜色上，从而可以将一张数据规模不大的表进行可视化
     - 例：1949-1960年各月的航班飞行次数累积表
@@ -133,7 +133,7 @@ draft: true
         - 通常，对象趋于分成少数几个组，组内的点具有类似的属性值
         - 在查看此类分组时，对属性进行排序非常重要
         
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115165600.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115165600.png)
 
 
 

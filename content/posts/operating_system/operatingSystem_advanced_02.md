@@ -153,7 +153,7 @@ menuentry 'HelloOS' {
      boot #GRUB启动HelloOS.bin
 }
 ```
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211202195453.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211202195453.png)
 df /boot/后也可能是：
 ```
 文件系统          1K-块    已用     可用      已用% 挂载点

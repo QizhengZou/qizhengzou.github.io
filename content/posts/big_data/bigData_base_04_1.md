@@ -16,7 +16,7 @@ draft: true
         - 例如：眼球颜色因人而异，物体的温度随时间而变。
         - 属性也叫做变量、字段、特征或维。
             - 属性值
-            ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115160219.png)
+            ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115160219.png)
             - 属性类型
                 - 类别型属性（categorical attribute）
                     - 属性值定义域是一个固定、有限的符号或数字集合。
@@ -27,7 +27,7 @@ draft: true
                     - 有序型类别属性（ordinal attribute） ：有大小、好坏等先后顺序的区别
                         - 学位：{“学士”、“硕士”、“博士”}
                 - 独热编码（one-hot encoding）
-                ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115160551.png)
+                ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115160551.png)
                 - 数值型属性（numeric attribute）
                     - 属性值定义在实数集或整数集上(年龄、每月工资、债务收入比)
                     - 属性值间可以做算术运算：定量属性
@@ -50,7 +50,7 @@ draft: true
 排列各个数据对象，其结果就形成了“结构化数据”
 
 标准结构化数据的形式化定义：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115161136.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115161136.png)
 
 - 关系表数据的结构化表示
     - 单个关系表数据的结构化:
@@ -82,7 +82,7 @@ draft: true
     - 商品描述数据：对每个商品（对应于每个商品ID）的文字描述，属于文本数据；
     - 商品的展示图片：每个商品（对应于每个商品ID）的外观图，属于图像数据。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211115162300.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211115162300.png)
 
 
 

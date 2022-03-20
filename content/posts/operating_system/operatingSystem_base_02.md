@@ -178,7 +178,7 @@ draft: false
     - 注:管道是一个共享文件，不能单纯地从字面上仅将管道理解为一个传输通道。
 ## 处理器调度
 调度是操作系统的一个基本功能，几乎所有资源在使用前都需要调度。由于CPU是计算机的首要资源，因此调度设计均围绕如何能够高效利用CPU展开。在多道程序环境下，一个作业从提交到执行，通常都要经历多级调度，如高级调度、中级调度和低级调度。而系统的运行性能在很大程度上都取决于调度，因此调度便成为多道程序的关键。在不同操作系统中，所采用的调度层次不完全相同。在一些系统中仅采用一级调度，而在另一些系统中则可能采用两级或三级调度，在执行调度时所采用的调度算法也可能不同。图2-5给出了调度层次的示意图，由此可以看出，一个作业从提交开始直到完成，往往要经历三级调度。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122150024.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122150024.png)
 
 ### 处理器的三层调度
 - 高级调度(作业调度)：
@@ -279,7 +279,7 @@ draft: false
     - 再次，当一个新进程进入系统时，应先将其放入第一个队列末尾，按先来先服务的原则排队等待调度。当轮到该进程执行时，如能在此时间片完成，便可准备撤离系统;如果该进程在一个时间片结束时尚未完成，调度程序便将该进程转入第二个队列的末尾，再同样按照先来先服务原则等待调度执行;如果该进程在第二个队列中运行一个时间片后仍未完成，再以同样方法转入第三个队列。如此下去，最后一个队列中使用时间片轮转调度算法。
     - 最后，仅当第一个队列空闲时，调度程序才调度第二个队列中的进程运行;仅当第一个至第(i-1)个队列均为空时，才会调度第i个队列中的进程运行。当处理器正在为第i个队列中的某进程服务时，若又有新进程进入优先级较高的队列中，则此时新进程将抢占正在运行进程的处理器，即由调度程序把正在执行的进程放回第i个队列末尾，并重新将处理器分配给新进程。
     
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211213195825.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211213195825.png)
 
 ## 同步与互斥
 ### 进程同步的基本概念
@@ -405,7 +405,7 @@ draft: false
     - 生产者消费者问题是著名的进程同步问题。它描述的是一组生产者向一组消费者提供产品，他们共享一个有界缓冲区，生产者向其中投入产品，消费者从中取走产品。这个问题是许多相互合作进程的一种抽象。 例如，在输入时，输入进程是生产者，计算进程是消费者;在输出时，计算进程是生产者，打印进程是消费者。
     - 为解决这一问题， 应当设置两个同步信号量: 一个说明空缓冲区数目，用empty表示，初值为有界缓冲区大小n;另一个说明满缓冲区数目(即产品数目),用full表示，初值为0。此外，还需要设置一个互斥信号量mutex,初值为1,以保证多个生产者或者多个消费者互斥地访问缓冲池。
     - 生产者~消费者问题的同步程序结构描述如下:
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122222150.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122222150.png)
     - 特别注意如下内容:
         - Pf(ul)/P(empty)与 P(mutex)的顺序不可颠倒，必须先对资源信号量进行P操作，再对互斥信号量进行P操作，否则会导致死锁。例如，此时缓冲区已满，而生产者先P (mutex),取得缓冲池访问权，再P (empty)， 此时由于缓冲池已满，empty=0， 导致P (empty)失败，生产者进程无法继续推进，始终掌握缓冲池访问权无法释放，因而消费者进程无法取出产品，导致死锁。而V(ull)/V(empty)与V(mutex)的顺序则没有要求，其顺序可以颠倒。这个问题可以延伸到几乎所有关于P、V操作的习题中，在有多个信号量同时存在的情况下，P操作往往是不能颠倒顺序的，必须先对资源信号量进行P操作，再对互斥信号量进行P操作，这样可以在占有信号量访问权时保证有资源可以使用，否则会产生占用使用权而无资源可用的“死，等”现象。
         - 关于 mutex互斥信号量的设置是否必要的问题。在生产者和消费者都唯一的问题中，生产者与消费者是同步关系，生产者与消费者之间使用empty与full两个资源信号量进行同步，一定满足“放完才能取”的条件，因此此时互斥信号量mutex可以去掉。但在多生产者和多消费者的情况下，需要保证多个生产者或者多个消费者互斥地访问缓冲池，否则会导致出错。例如，两个生产者执行了P (empty)操作，此时第一个生产者执行bffr(in)=nextp, 这时第二个生产者也执行这条语句，由于第一个生产 者没有来得及执行in=(in+1)% n,即没有使指针后移，导致第二个生产者的数据覆盖掉了第一个生产者的数据，而不是放在了第一个数据的下一个缓冲区，接下来两个进程分别执行一次后移指针操作，这样就导致了有一个空缓冲区(本来应当放置第二个数据的缓冲区)被当作已有数据缓冲区对待，从而出错。因此，在多生产者或多消费者的情况下，必须设置mutex互斥信号量，以保证对缓冲池的互斥访问。
@@ -418,24 +418,24 @@ draft: false
     - 需要分多种情况实现该问题:读者优先、公平情况和写者优先。
     - 读者优先算法
         - 一个读者试图进行读操作时，如果这时正有其他读者在进行读操作，他可以直接开始读操作，而不需要等待。由于只要有读者在进行读操作，写者就不能够写，但后续读者可以直接进行读操作，因此只要读者陆续到来，读者一到就能 够开始读操作，而写者进程只能等待所有读者都退出才能够进行写操作，这就是读者优先。要解决此问题，需要设置如下几个信号量:设置记录读者数量的整型变量readcount,初值为0，当其值大于0时，表明有读者存在，写者不能进行写操作;设置互斥信号量rmutex,初值为1,用于保证多个读者进程对于readcount 的互斥访问;设置互斥信号量mutex，初值为1，用于控制写者进程对于数据区的互斥访问。算法如下:
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122222745.png)
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122222806.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122222745.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122222806.png)
     - 公平情况算法(按照到达顺序进行操作)
         - 进程的执行顺序完全按照到达顺序，即一个读者试图进行读操作时，如果有写者正等待进行写操作或正在进行写操作，后续读者要等待先到达的写者完成写操作后才开始读操作。要解决此问题，跟读者优先算法相比，需要增设一个信号量wmutex, ，其初值为1，用于表示是否存在正在写或者等待的写者，若存在，则禁止新读者进入。算法如下:
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122222927.png)
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122222953.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122222927.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122222953.png)
         - ★注:在本算法中，由于存在互斥信号量wmutex,因此当第一个写者到来时， 就会占用该信号量，从而阻止了后续其他读者的进入请求，只有当之前申请写操作的写者进入数据区完成写操作之后，才会释放wmutex信号量，后续读者才能够进入(实际上在这个算法中,将读写两种进程放在平等的地位，完全按照进程到达的顺序来执行。设置wmutex信号量的目的在于控制进程按照顺序来进行操作，避免读进程的优先)。
     - 写者优先算法
         - 有的书把公平情况算法也叫作写者优先，但并不是真正意义上的写者优先，只是按照到达顺序进行读写操作而已。若要实现真正的写者优先(即当写者和读者同时等待时，后续写者到达时可以插队到等待的读者之前，只要等待队列中有写者，不管何时到达，都优先于读者被唤醒)，则需要增设额外的信号量进行控制。为了达到这一目的，需要增设额外的一个信号量readable,用于控制写者到达时可以优先于读者进入临界区，当有写者到达时，只需要等待前面的写者写完就可以直接进入临界区，而不论读者是在该写者之前还是之后到达。另外，需要增设一个整数writecount 用于统计写者的数量。与之前的算法相比，wmutex的作用有所变化，现在是用于控制写者互斥访问writecount。算法如下: 
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122223157.png)
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122223224.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122223157.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122223224.png)
         本方法增设了readable 信号量，用于实现写者插队的目的。当第一个写者到达时，申请占用readable信号量，占用成功之后就一直占用，后续到达的读者进程会因申请不到readable信号量而阻塞，而后续写者到达时，由于不需要申请readable 信号量，因此就排在这个写者后面，从而达到插队的目的。直到所有写者都已经写完，最后一个写者释放了readable 信号量之后，读者才能够继续执行读操作。当新的写者到达时，继续占用readable 信号量，阻止后续的读者进行读操作，重复进行此过程。此算法真正实现了写者优先，新写者也可以优先于先到的等待读者占用数据区进行操作。
 - 哲学家进餐问题
     - 5个哲学家围绕一张圆桌而坐，桌子上放着5根筷子，每两个哲学家之间放一根;哲学家的动作包括思考和进餐，进餐时需要同时拿起他左边和右边的两根筷子，思考时则同时将两根筷子放回原处。哲学家进餐问题可以看作并发进程执行时处理临界资源的一个典型问题。筷子是临界资源，不能同时被两个哲学家一起用，因此使用一个信号量数组来表示筷子(哲学家按照编号逆时针围桌而坐，0号哲学家左手筷子为0号筷子，右手筷子为1号筷子，依次类推)。
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122223420.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122223420.png)
     - 这种解法存在问题，会导致死锁(假如5个哲学家同时饥饿而各自拿左边的筷子时，会导致5根筷子均被占用，当他们试图拿右边的筷子时，都将因没有筷子而“无限等待”)。对于这种死锁问题，可以采用如下几种解决方法:1、最多只允许4个哲学家同时进餐。2、仅当一个哲学家左右两边的筷子同时可用时，他才可以拿起筷子。3、将哲学家编号，要求奇数号的哲学家先拿左边筷子，偶数号的哲学家先拿右边筷子。现给出最后一种方法的解法:规定奇数号的哲学家先拿左边筷子，然后拿右边筷子;偶数号的哲学家则相反。算法如下:
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122223819.png)
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122223842.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122223819.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122223842.png)
 - 理发师问题
     - 理发店有一位理发师、一把理发椅和若千供顾客等候用的凳子(这里假设有n个凳子)。若没有顾客，则理发师在理发椅上睡觉。当一个顾客到来时，他必须先叫醒理发师;若理发师正在给顾客理发，则如果有空凳子，该顾客等待;如果没有空凳子，顾客就离开。要为理发师和顾客各设计一段程序来描述其活动。对本题有两种思路:一种是将理发椅 与等待用的凳子分别看作两种不同的资源;另一种是将理发椅和凳子看成统一的一种椅子资源。具体实现略。
 
@@ -457,7 +457,7 @@ draft: false
 
 下面通过几个例子来说明死锁现象。
 - 某系统中只有一台打印机和一 台输入设备，进程PI正在占用输入设备，同时又提出了使用打印机的请求，但此时打印机正被进程P2占用。而P2在未释放打印机之前，又提出请求使用正被P1占用着的输入设备。这样，两个进程相互无休止地等待下去，均无法继续执行，此时两个进程陷入死锁状态。
-- 在生产者-消费者问题中，若交换生产者进程中的两个P操作的顺序，则有可能出现死锁。改动后的生产者-消费者问题描述如下:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211122225334.png)
+- 在生产者-消费者问题中，若交换生产者进程中的两个P操作的顺序，则有可能出现死锁。改动后的生产者-消费者问题描述如下:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211122225334.png)
 
 交换生产者进程中两个P操作的次序，一般情况下不会出现死锁，但在特殊情况下会出现死锁。例如，在某一时刻缓冲区中已装满了产品且缓冲区中没有进程工作(这时信号量full的值为n,信号量empty，的值为0,信号量mutex的值为1)， 若系统此时调度生产者进程运行，生产者进程生产了一个产品，执行P(mutex)并顺利进入临界区(这时mutex的值为0),随后它执行P(empty)时因没有空闲缓冲区而受阻等待，等待消费者进程进入缓冲区取走产品以释放出缓冲区;消费者进程执行P(ull)后再执行P(mutex)时，因缓冲区被生产者进程占据而无法进入。这样就形成了生产者进程在占有临界资源的情况下等待消费者进程取走产品，而消费者进程又无法进入临界区取走产品的僵局，此时两进程陷入死锁。
 
@@ -556,48 +556,48 @@ draft: false
 饥饿和饿死与资源分配策略有关，因而可从公平性方面考虑防止饥饿与饿死，以确保所有进程不被忽视，如多级反馈队列调度算法。
 
 ## 习题
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214195525.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214195548.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214195525.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214195548.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200017.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214200017.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200232.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200316.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214200232.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214200316.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200422.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200445.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214200422.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214200445.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214200607.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214200607.png)
 
 多级反馈队列算法
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201025.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214201025.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201156.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214201156.png)
 
 管程：针对信号量机制中存在的某些问题，Dijkstra于1971年提出为每个共享资源设立一个“秘书”来管理对它的访问。一切来访者都要通过“秘书”，而“秘书”每次仅允许一个来访者(进程)访问共享资源。这样既便于系统管理共享资源，又能保证互斥访问和进程间同步。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201508.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201535.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214201508.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214201535.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214201626.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214201626.png)
 进程调度是宏观的，以完整进程为单位。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214202229.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214202229.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214202612.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214202707.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214202612.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214202707.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214203128.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214203212.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214203128.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214203212.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214203952.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214204027.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214203952.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214204027.png)
 
 读写者问题：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214205858.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214205917.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214205935.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214205858.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214205917.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214205935.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214210853.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214210853.png)
 ## 答案
 

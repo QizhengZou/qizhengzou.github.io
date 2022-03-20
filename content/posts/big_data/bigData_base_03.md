@@ -67,7 +67,7 @@ HDFS数据读写过程——写数据请求:
 * 假如复制因子是3(默认值)，那么会为每个block返回三个IP地址。
 * 整体的数据复制流程分三个阶段:1.流水线建立；2.复制数据；3.关闭流水线
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108200150.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108200150.png)
 
 写数据——流水线(pipeline)机制:   
 * 创建流水线：Client通过连接各个块的ip列表来为每个块创建流水线
@@ -80,7 +80,7 @@ HDFS数据读写过程——读数据请求：
 的块)。
 * Client连接DataNode，读取块数据，合并成文件
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108200507.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108200507.png)
 
 #### HDFS通信协议
 * HDFS是一个部署在集群上的分布式文件系统，因此很多数据需通过网络进行传输
@@ -99,11 +99,11 @@ HDFS数据读写过程——读数据请求：
     * 数据节点出错
     * 数据出错
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108200809.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108200809.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108200859.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108200859.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108201106.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108201106.png)
 
 ### 总结与知识拓展
 #### HDFS基本原理
@@ -143,7 +143,7 @@ Linux的专有分布式文件系统
 * Ceph、MooseFS、GlusterFS、GridFS等
 * Google Colossus FS/Facebook Tectonics FS/SeaweedFS
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211108201545.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211108201545.png)
 
 #### Hadoop的典型应用
 * 百度

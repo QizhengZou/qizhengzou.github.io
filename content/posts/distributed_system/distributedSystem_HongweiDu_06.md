@@ -65,7 +65,7 @@ Sockets: Transport Layer Communication:
         - Virtual circuit, datagram, message-based, in-order delivery
     - Support different protocols and naming conventions (not just for TCP/IP or UDP/IP)
 
-Programming operations:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222084547.png)
+Programming operations:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222084547.png)
 
 Socket Operations:
 - List of socket operations:
@@ -229,7 +229,7 @@ Exchange data and close sockets:
 		- 1: further sends disallowed
 		- 2: further sends and receives disallowed
 
-Client-Server Synchronization:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222090117.png)
+Client-Server Synchronization:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222090117.png)
 
 Demo of Internet Sockets:
 - www/C/socket/inet/receiver.c
@@ -289,21 +289,21 @@ Protocol Control Block:
     - Is the socket used for listening?
     - Reference to the socket (file descriptor)
 
-socket(): Allocate a new empty entry in PCB table:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222090357.png)
+socket(): Allocate a new empty entry in PCB table:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222090357.png)
 
-bind(): Assign local address, port:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222090430.png)
+bind(): Assign local address, port:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222090430.png)
 
-listen(): Set socket for receiving connections:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222090451.png)
+listen(): Set socket for receiving connections:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222090451.png)
 
-connect(): Send a connect request to server:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222090519.png)
+connect(): Send a connect request to server:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222090519.png)
 
-accept(): Send an acknowledgement to client:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222090546.png)
+accept(): Send an acknowledgement to client:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222090546.png)
 
 Message Exchanges via Sockets:
 - Each message from client is tagged as either data or control mesg (e.g. connect).
 - If data – search through table where foreign addr and foreign port match incoming message and listen is not set.
 - If control – search through table where the local port matches the dest port in the message and listen is set.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222090627.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222090627.png)
 
 Datagram Sockets:
 - Create sockets, bind addresses, close sockets are the same as stream sockets, but no listen, accept and connect operations.
@@ -407,12 +407,12 @@ Remote Procedure Call:
 
 RPC implementation:
 - The RPC compiler auto-generates stub/skeleton routines to make an RPC to the user as if it is a local call. What stub routines do:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222091547.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222091547.png)
 - marshalling / unmarshalling parameters and return values
 - handling different data formats between different machines
 - detecting and handling failures of client/server processes and the networks
 
-Compilation in SUN RPC:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222091707.png)
+Compilation in SUN RPC:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222091707.png)
 
 Demo of RPC:
 - Interface file msg.x:
@@ -431,25 +431,25 @@ program MSGPROG {
 
 ### Steps in s RPC
 1. Client calls stub (push parameters onto stack)
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222094410.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222094410.png)
 2. Clnt_stub marshals parameters to message & makes an OS call (client blocked) 
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222095851.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222095851.png)
 3. Network message sent to server
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222095921.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222095921.png)
 4. Deliver message to server stub & unblock server
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222095950.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222095950.png)
 5. Svr-stub unmarshals parameters & calls service routine (local call)
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222100023.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222100023.png)
 6. Return to the stub from service routine
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222100050.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222100050.png)
 7. Svr_stub marshals return-value & requests OS to send out message
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222100127.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222100127.png)
 8. Transfer message over network
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222100259.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222100259.png)
 9. Deliver message to client (unblock client)
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222100328.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222100328.png)
 10. Clnt_stub unmarshals return-value & returns to client program…
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222100356.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222100356.png)
     
 ### Writing the programs
 Programmers need to write two pieces of programs:
