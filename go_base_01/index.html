@@ -1,10 +1,10 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Go_base_01 - Jefo</title><meta name=Description content="Jefo"><meta property="og:title" content="Go_base_01"><meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 前言 计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCI"><meta property="og:type" content="article"><meta property="og:url" content="https://qizhengzou.github.io/go_base_01/"><meta property="og:image" content="https://qizhengzou.github.io/logo.png"><meta property="article:published_time" content="2021-11-09T20:55:59+08:00"><meta property="article:modified_time" content="2021-11-09T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://qizhengzou.github.io/logo.png"><meta name=twitter:title content="Go_base_01"><meta name=twitter:description content="参考学习go语言中文网、C语言中文网、golang官方文档等 前言 计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCI"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://qizhengzou.github.io/go_base_01/><link rel=prev href=https://qizhengzou.github.io/mysql_base_13/><link rel=next href=https://qizhengzou.github.io/distributedsystem_base_01/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Go_base_01","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/go_base_01\/"},"image":["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"go grammar","wordcount":19412,"url":"https:\/\/qizhengzou.github.io\/go_base_01\/","datePublished":"2021-11-09T20:55:59+08:00","dateModified":"2021-11-09T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Jefo","logo":"https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Jefo"},"description":""}</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Go_base_01 - Jefo</title><meta name=Description content="Jefo"><meta property="og:title" content="Go_base_01"><meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 前言 计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCI"><meta property="og:type" content="article"><meta property="og:url" content="https://qizhengzou.github.io/go_base_01/"><meta property="og:image" content="https://qizhengzou.github.io/logo.png"><meta property="article:published_time" content="2021-11-09T20:55:59+08:00"><meta property="article:modified_time" content="2021-11-09T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://qizhengzou.github.io/logo.png"><meta name=twitter:title content="Go_base_01"><meta name=twitter:description content="参考学习go语言中文网、C语言中文网、golang官方文档等 前言 计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCI"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://qizhengzou.github.io/go_base_01/><link rel=prev href=https://qizhengzou.github.io/mysql_base_13/><link rel=next href=https://qizhengzou.github.io/distributedsystem_base_01/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Go_base_01","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/go_base_01\/"},"image":["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"go grammar","wordcount":24278,"url":"https:\/\/qizhengzou.github.io\/go_base_01\/","datePublished":"2021-11-09T20:55:59+08:00","dateModified":"2021-11-09T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Jefo","logo":"https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Jefo"},"description":""}</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>All posts </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=/about/>About </a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>All posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a><a class=menu-item href=/about/>About</a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Go_base_01</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/go/><i class="far fa-folder fa-fw"></i>Go</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09 20:55:59">2021-11-09 20:55:59</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 19412 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 39 分钟&nbsp;<span id=busuanzi_container_page_pv>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Go_base_01</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/go/><i class="far fa-folder fa-fw"></i>Go</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09 20:55:59">2021-11-09 20:55:59</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 24278 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 49 分钟&nbsp;<span id=busuanzi_container_page_pv>
 <i class="far fa-eye fa-fw"></i>&nbsp;<span id=busuanzi_value_page_pv></span>&nbsp;次阅读量</span></span></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#前言>前言</a></li><li><a href=#go起源>go起源</a></li><li><a href=#环境相关>环境相关</a></li><li><a href=#主要特征>主要特征</a></li><li><a href=#内置类型与函数>内置类型与函数</a></li><li><a href=#init--main>init & main</a></li><li><a href=#go命令>go命令</a><ul><li><a href=#go-env>go env</a></li><li><a href=#go-run命令>go run命令</a></li><li><a href=#go-get>go get</a></li><li><a href=#go-build命令>go build命令</a></li><li><a href=#go-install>go install</a></li><li><a href=#go-clean命令>go clean命令</a></li><li><a href=#go-doc命令>go doc命令</a></li><li><a href=#go-test命令>go test命令</a><ul><li><a href=#基准测试获得代码内存占用和运行效率的性能数据>基准测试——获得代码内存占用和运行效率的性能数据</a></li></ul></li><li><a href=#go-list命令>go list命令</a></li><li><a href=#go-fix>go fix</a></li><li><a href=#go-vet>go vet</a></li><li><a href=#go-tool-pprof命令>go tool pprof命令</a><ul><li><a href=#runtimepprof>runtime/pprof</a></li><li><a href=#nethttppprof>net/http/pprof</a></li></ul></li><li><a href=#go-modules>go modules</a></li></ul></li><li><a href=#运算符>运算符</a></li><li><a href=#下划线>下划线</a></li><li><a href=#格式占位符>格式占位符%…</a></li><li><a href=#变量和常量>变量和常量</a></li><li><a href=#基本类型>基本类型</a></li><li><a href=#string>string：</a></li><li><a href=#数组>数组</a></li><li><a href=#列表list>列表list</a></li><li><a href=#切片>切片</a><ul><li><a href=#slice切片底层实现>slice切片底层实现</a></li><li><a href=#创建切片>创建切片</a><ul><li><a href=#空切片和nil切片>空切片和nil切片</a></li><li><a href=#扩容策略>扩容策略</a></li></ul></li><li><a href=#切片拷贝>切片拷贝</a></li></ul></li><li><a href=#指针>指针</a></li><li><a href=#map>map</a><ul><li><a href=#map实现原理>map实现原理</a></li><li><a href=#go中map的实现原理>go中map的实现原理</a></li><li><a href=#map与工厂模式>map与工厂模式</a></li></ul></li><li><a href=#set>set</a></li><li><a href=#结构体>结构体</a><ul><li><a href=#类型别名和自定义类型>类型别名和自定义类型</a></li><li><a href=#结构体-1>结构体</a><ul><li><a href=#方法和接收者>方法和接收者</a></li></ul></li></ul></li><li><a href=#高可用性服务设计>高可用性服务设计</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=content id=content><blockquote><p>参考学习go语言中文网、C语言中文网、golang官方文档等</p></blockquote><h2 id=前言>前言</h2><p>计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCII是<strong>简单字符集编码模型</strong>，定义了这个字符集里包含的字符以及其映射成的8位比特值。
-关于<strong>现代编码模型</strong>：</p><ul><li>一个字符如何映射成有限长度的比特值？<ul><li>需要表示字符的范围&ndash;<strong>字符表</strong>（character repertoire）</li><li>CR映射到一个整数集，称映射为<strong>编码字符集</strong>（coded character set），也就是Unicode的概念，那些整数称为码点（code point）</li><li>将CCS里的整数映射成有限长度的比特值，这个对应关系称为<strong>字符编码表</strong>（character encoding form），比如UTF-8，UTF-16。（Unicode Transformation Format，8或者16是指码元的大小，码元是一个已编码文本中具有最短的比特组合的单元，即最小单位是一个字节或者两个字节）</li></ul></li><li>UTF-8是完全兼容ASCII的，多字节表示一个字符时Unicode码点范围以及对应的bit组合：<ul><li>一字节：U+00~U+7F&mdash;&mdash;&mdash;&mdash;&ndash;UTF-8字节流（二进制）：0xxxxxxx</li><li>二字节：U+80~U+7FF&mdash;&mdash;&mdash;&mdash;-UTF-8字节流（二进制）：110xxxxx 10xxxxxx</li><li>三字节：U+800~U+7FFF&mdash;&mdash;&mdash;&ndash;UTF-8字节流（二进制）：1110xxxx 10xxxxxx 10xxxxxx</li><li>四字节：U+10000~U+10FFFF&mdash;&mdash;-UTF-8字节流（二进制）：11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</li><li>汉字大多是三字节</li></ul></li></ul><p>关于Unicode和UTF-8：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#前言>前言</a></li><li><a href=#go起源>go起源</a></li><li><a href=#环境相关>环境相关</a></li><li><a href=#主要特征>主要特征</a></li><li><a href=#内置类型与函数>内置类型与函数</a></li><li><a href=#init--main-以及go包的初始化顺序>init & main 以及Go包的初始化顺序</a></li><li><a href=#go命令>go命令</a><ul><li><a href=#go-env>go env</a></li><li><a href=#go-run命令>go run命令</a></li><li><a href=#go-get>go get</a></li><li><a href=#go-build命令>go build命令</a></li><li><a href=#go-install>go install</a></li><li><a href=#go-clean命令>go clean命令</a></li><li><a href=#go-doc命令>go doc命令</a></li><li><a href=#go-test命令>go test命令</a><ul><li><a href=#基准测试获得代码内存占用和运行效率的性能数据>基准测试——获得代码内存占用和运行效率的性能数据</a></li></ul></li><li><a href=#go-list命令>go list命令</a></li><li><a href=#go-fix>go fix</a></li><li><a href=#go-vet>go vet</a></li><li><a href=#go-tool-pprof命令>go tool pprof命令</a><ul><li><a href=#runtimepprof>runtime/pprof</a></li><li><a href=#nethttppprof>net/http/pprof</a></li></ul></li><li><a href=#go-modules>go modules</a></li></ul></li><li><a href=#运算符>运算符</a></li><li><a href=#下划线>下划线</a></li><li><a href=#格式占位符>格式占位符%…</a></li><li><a href=#变量和常量>变量和常量</a></li><li><a href=#基本类型>基本类型</a></li><li><a href=#string>string：</a></li><li><a href=#数组>数组</a></li><li><a href=#列表list>列表list</a></li><li><a href=#切片>切片</a><ul><li><a href=#slice切片底层实现>slice切片底层实现</a></li><li><a href=#创建切片>创建切片</a><ul><li><a href=#空切片和nil切片>空切片和nil切片</a></li><li><a href=#扩容策略>扩容策略</a></li></ul></li><li><a href=#切片拷贝>切片拷贝</a></li></ul></li><li><a href=#指针>指针</a></li><li><a href=#map>map</a><ul><li><a href=#map实现原理>map实现原理</a></li><li><a href=#go中map的实现原理>go中map的实现原理</a></li><li><a href=#map与工厂模式>map与工厂模式</a></li></ul></li><li><a href=#set>set</a></li><li><a href=#结构体>结构体</a><ul><li><a href=#类型别名和自定义类型>类型别名和自定义类型</a></li><li><a href=#结构体-1>结构体</a><ul><li><a href=#方法和接收者>方法和接收者</a></li></ul></li></ul></li><li><a href=#go项目的标准布局演进>go项目的标准布局演进</a></li><li><a href=#go应用构建模式的演进>go应用构建模式的演进</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=content id=content><blockquote><p>参考学习go语言中文网、C语言中文网、golang官方文档等</p></blockquote><h2 id=前言>前言</h2><p>计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCII是<strong>简单字符集编码模型</strong>，定义了这个字符集里包含的字符以及其映射成的8位比特值。
+关于<strong>现代编码模型</strong>：</p><ul><li>一个字符如何映射成有限长度的比特值？<ul><li>需要表示字符的范围&ndash;<strong>字符表</strong>（character repertoire）</li><li>CR映射到一个整数集，称映射为<strong>编码字符集</strong>（coded character set），也就是Unicode的概念，那些整数称为码点（code point）</li><li>将CCS里的整数映射成有限长度的比特值，这个对应关系称为字符编码方式或<strong>字符编码表</strong>（character encoding form），比如UTF-8，UTF-16。（Unicode Transformation Format，8或者16是指码元的大小，码元是一个已编码文本中具有最短的比特组合的单元，即最小单位是一个字节或者两个字节）</li></ul></li><li>UTF-8是完全兼容ASCII的，多字节表示一个字符时Unicode码点范围以及对应的bit组合：<ul><li>一字节：U+00~U+7F&mdash;&mdash;&mdash;&mdash;&ndash;UTF-8字节流（二进制）：0xxxxxxx</li><li>二字节：U+80~U+7FF&mdash;&mdash;&mdash;&mdash;-UTF-8字节流（二进制）：110xxxxx 10xxxxxx</li><li>三字节：U+800~U+7FFF&mdash;&mdash;&mdash;&ndash;UTF-8字节流（二进制）：1110xxxx 10xxxxxx 10xxxxxx</li><li>四字节：U+10000~U+10FFFF&mdash;&mdash;-UTF-8字节流（二进制）：11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</li><li>汉字大多是三字节</li></ul></li></ul><p>关于Unicode和UTF-8：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -70,7 +70,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 --- PASS: TestString (0.00s)
 PASS
 ok      code/code/ch9/string    0.514s
-</code></pre></td></tr></table></div></div><h2 id=go起源>go起源</h2><p>07年 三位大牛 解决三个困难：多核硬件架构、超大规模的分布式计算集群、如今使用的web开发模式导致的前所未有的开发规模和更新速度</p><h2 id=环境相关>环境相关</h2><p>go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用，挖个坑</p><h2 id=主要特征>主要特征</h2><ol><li>自动立即回收。(自带GC)</li><li>更丰富的内置类型。</li><li>函数多返回值。</li><li>错误处理。</li><li>匿名函数和闭包。</li><li>类型和接口。</li><li>并发编程。</li><li>反射。</li><li>有复合，无继承（因为复合大于继承，干脆不要继承）</li></ol><p>Go的函数、变量、常量、自定义类型、包(package)的命名方式遵循以下规则：</p><ul><li>1）首字符可以是任意的Unicode字符（一种字符集，一个字符两个字节，表示包括了每种语言）或者下划线</li><li>2）剩余字符可以是Unicode字符、下划线、数字</li><li>3）字符长度不限</li></ul><p>25关键字：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h2 id=go起源>go起源</h2><p>07年 三位大牛 解决三个困难：多核硬件架构、超大规模的分布式计算集群、如今使用的web开发模式导致的前所未有的开发规模和更新速度</p><h2 id=环境相关>环境相关</h2><p>go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用……</p><p>Go 官方下载站点是 golang.org/dl，但我们可以用针对中国大陆的镜像站点 golang.google.cn/dl 来下载</p><h2 id=主要特征>主要特征</h2><ol><li>自动立即回收。(自带GC)</li><li>更丰富的内置类型。</li><li>函数多返回值。</li><li>错误处理。</li><li>匿名函数和闭包。</li><li>类型和接口。</li><li>并发编程。</li><li>反射。</li><li>有复合，无继承（因为复合大于继承，干脆不要继承）</li></ol><p>Go的函数、变量、常量、自定义类型、包(package)的命名方式遵循以下规则：</p><ul><li>1）首字符可以是任意的Unicode字符（一种字符集，一个字符两个字节，表示包括了每种语言）或者下划线</li><li>2）剩余字符可以是Unicode字符、下划线、数字</li><li>3）字符长度不限</li></ul><p>25关键字：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -201,7 +201,143 @@ ok      code/code/ch9/string    0.514s
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=kt>error</span> <span class=kd>interface</span> <span class=p>{</span> <span class=c1>//只要实现了Error()函数，返回值为String的都实现了err接口（鸭子类型）
 </span><span class=c1></span>    <span class=nf>Error</span><span class=p>(</span><span class=p>)</span>    <span class=nx>String</span>
 <span class=p>}</span>
-</code></pre></td></tr></table></div></div><h2 id=init--main>init & main</h2><p>go语言中init函数用于包(package)的初始化，该函数是go语言的一个重要特性。有下面的特征：</p><ol><li>init函数是用于程序执行前做包的初始化的函数，比如初始化包里的变量等</li><li>每个包可以拥有多个init函数</li><li>包的每个源文件也可以拥有多个init函数</li><li>同一个包中多个init函数的执行顺序go语言没有明确的定义(说明)</li><li>不同包的init函数按照包导入的依赖关系决定该初始化函数的执行顺序</li><li>init函数不能被其他函数调用，而是在main函数执行之前，自动被调用</li></ol><p>Go语言程序的默认入口函数(主函数)：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h2 id=init--main-以及go包的初始化顺序>init & main 以及Go包的初始化顺序</h2><p>go语言中init函数用于包(package)的初始化，该函数是go语言的一个重要特性。有下面的特征：</p><ol><li>init函数是用于程序执行前做包的初始化的函数，比如初始化包里的变量等</li><li>每个包可以拥有多个init函数</li><li>包的每个源文件也可以拥有多个init函数</li><li>同一个包中多个init函数的执行顺序go语言没有明确的定义(说明)</li><li>不同包的init函数按照包导入的依赖关系决定该初始化函数的执行顺序</li><li>init函数不能被其他函数调用，而是在main函数执行之前，自动被调用</li></ol><p>init()函数的用途：</p><ul><li>重置包级变量值，对包内部以及暴露到外部的包级数据（主要是包级变量）的初始状态进行检查</li><li>实现对包级变量的复杂初始化，有些包级变量需要一个比较复杂的初始化过程，使用init()比较合适</li><li>在 init 函数中实现“注册模式”，如下</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go>
+<span class=kn>import</span> <span class=p>(</span>
+    <span class=s>&#34;database/sql&#34;</span>
+    <span class=nx>_</span> <span class=s>&#34;github.com/lib/pq&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>db</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>sql</span><span class=p>.</span><span class=nf>Open</span><span class=p>(</span><span class=s>&#34;postgres&#34;</span><span class=p>,</span> <span class=s>&#34;user=pqgotest dbname=pqgotest sslmode=verify-full&#34;</span><span class=p>)</span>
+    <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+        <span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+    <span class=p>}</span>
+    
+    <span class=nx>age</span> <span class=o>:=</span> <span class=mi>21</span>
+    <span class=nx>rows</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>db</span><span class=p>.</span><span class=nf>Query</span><span class=p>(</span><span class=s>&#34;SELECT name FROM users WHERE age = $1&#34;</span><span class=p>,</span> <span class=nx>age</span><span class=p>)</span>
+    <span class=o>...</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=c1>//pq包的init()
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>init</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>sql</span><span class=p>.</span><span class=nf>Register</span><span class=p>(</span><span class=s>&#34;postgres&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>Driver</span><span class=p>{</span><span class=p>}</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>pq 包将自己实现的 sql 驱动注册到了 sql 包中。这样只要应用层代码在 Open 数据库的时候，传入驱动的名字（这里是“postgres”)，那么通过 sql.Open 函数，返回的数据库实例句柄对数据库进行的操作，实际上调用的都是 pq 包中相应的驱动实现。</p><p>从标准库 database/sql 包的角度来看，这种“注册模式”实质是一种工厂设计模式的实现，sql.Open 函数就是这个模式中的工厂方法，它根据外部传入的驱动名称“生产”出不同类别的数据库实例句柄。</p><p>这种“注册模式”在标准库的其他包中也有广泛应用，比如说，使用标准库 image 包获取各种格式图片的宽和高：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go>
+<span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+    <span class=s>&#34;fmt&#34;</span>
+    <span class=s>&#34;image&#34;</span>
+    <span class=nx>_</span> <span class=s>&#34;image/gif&#34;</span> <span class=c1>// 以空导入方式注入gif图片格式驱动
+</span><span class=c1></span>    <span class=nx>_</span> <span class=s>&#34;image/jpeg&#34;</span> <span class=c1>// 以空导入方式注入jpeg图片格式驱动
+</span><span class=c1></span>    <span class=nx>_</span> <span class=s>&#34;image/png&#34;</span> <span class=c1>// 以空导入方式注入png图片格式驱动
+</span><span class=c1></span>    <span class=s>&#34;os&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>// 支持png, jpeg, gif
+</span><span class=c1></span>    <span class=nx>width</span><span class=p>,</span> <span class=nx>height</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nf>imageSize</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Args</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=p>)</span> <span class=c1>// 获取传入的图片文件的宽与高
+</span><span class=c1></span>    <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+        <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;get image size error:&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+        <span class=k>return</span>
+    <span class=p>}</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;image size: [%d, %d]\n&#34;</span><span class=p>,</span> <span class=nx>width</span><span class=p>,</span> <span class=nx>height</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>imageSize</span><span class=p>(</span><span class=nx>imageFile</span> <span class=kt>string</span><span class=p>)</span> <span class=p>(</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=p>,</span> <span class=kt>error</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>f</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Open</span><span class=p>(</span><span class=nx>imageFile</span><span class=p>)</span> <span class=c1>// 打开图文文件
+</span><span class=c1></span>    <span class=k>defer</span> <span class=nx>f</span><span class=p>.</span><span class=nf>Close</span><span class=p>(</span><span class=p>)</span>
+
+    <span class=nx>img</span><span class=p>,</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>image</span><span class=p>.</span><span class=nf>Decode</span><span class=p>(</span><span class=nx>f</span><span class=p>)</span> <span class=c1>// 对文件进行解码，得到图片实例
+</span><span class=c1></span>    <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>err</span>
+    <span class=p>}</span>
+
+    <span class=nx>b</span> <span class=o>:=</span> <span class=nx>img</span><span class=p>.</span><span class=nf>Bounds</span><span class=p>(</span><span class=p>)</span> <span class=c1>// 返回图片区域
+</span><span class=c1></span>    <span class=k>return</span> <span class=nx>b</span><span class=p>.</span><span class=nx>Max</span><span class=p>.</span><span class=nx>X</span><span class=p>,</span> <span class=nx>b</span><span class=p>.</span><span class=nx>Max</span><span class=p>.</span><span class=nx>Y</span><span class=p>,</span> <span class=kc>nil</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=c1>// $GOROOT/src/image/png/reader.go
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>init</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>image</span><span class=p>.</span><span class=nf>RegisterFormat</span><span class=p>(</span><span class=s>&#34;png&#34;</span><span class=p>,</span> <span class=nx>pngHeader</span><span class=p>,</span> <span class=nx>Decode</span><span class=p>,</span> <span class=nx>DecodeConfig</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>// $GOROOT/src/image/jpeg/reader.go
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>init</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>image</span><span class=p>.</span><span class=nf>RegisterFormat</span><span class=p>(</span><span class=s>&#34;jpeg&#34;</span><span class=p>,</span> <span class=s>&#34;\xff\xd8&#34;</span><span class=p>,</span> <span class=nx>Decode</span><span class=p>,</span> <span class=nx>DecodeConfig</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>// $GOROOT/src/image/gif/reader.go
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>init</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>image</span><span class=p>.</span><span class=nf>RegisterFormat</span><span class=p>(</span><span class=s>&#34;gif&#34;</span><span class=p>,</span> <span class=s>&#34;GIF8?a&#34;</span><span class=p>,</span> <span class=nx>Decode</span><span class=p>,</span> <span class=nx>DecodeConfig</span><span class=p>)</span>
+<span class=p>}</span>  
+</code></pre></td></tr></table></div></div><p>Go语言程序的默认入口函数(主函数)：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -211,7 +347,7 @@ ok      code/code/ch9/string    0.514s
     <span class=c1>//通过os.Args获取参数eg:os.Args[0]
 </span><span class=c1></span>    <span class=c1>//不支持返回值，可以通过os.Exit()来返回状态
 </span><span class=c1></span><span class=p>}</span>
-</code></pre></td></tr></table></div></div><p>init函数和main函数的异同：</p><ul><li>同<ul><li>两个函数在定义时不能有任何的参数和返回值，且Go程序自动调用。</li></ul></li><li>异<ul><li>init可以应用于任意包中，且可以重复定义多个。</li><li>main函数只能用于main包中，且只能定义一个。</li></ul></li></ul><p>init()执行顺序：</p><ul><li>对同一个go文件的init()调用顺序是从上到下的。</li><li>对同一个package中不同文件是按<strong>文件名字符串比较“从小到大”顺序</strong>调用各文件中的init()函数。</li><li>对于不同的package，如果不相互依赖的话，按照main包中”先import的后调用”的顺序调用其包中的init()，如果package存在依赖，则先调用最早被依赖的package中的init()，最后调用main函数。</li><li>同一个包被多次调用只会执行一次init()函数</li><li>如果init函数中使用了println()或者print()你会发现在执行过程中这两个不会按照你想象中的顺序执行。这两个函数官方只推荐在测试环境中使用，对于正式环境不要使用。</li></ul><h2 id=go命令>go命令</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>在启动了多个 Goroutine 的 Go 应用中，main.main 函数将在 Go 应用的主 Goroutine 中执行。</p><p>init函数和main函数的异同：</p><ul><li>同<ul><li>两个函数在定义时不能有任何的参数和返回值，且Go程序自动调用。</li></ul></li><li>异<ul><li>init可以应用于任意包中，且可以重复定义多个。</li><li>main函数只能用于main包中，且只能定义一个。</li></ul></li></ul><p>init()执行顺序：</p><ul><li>对同一个go文件的init()调用顺序是从上到下的。</li><li>对同一个package中不同文件是按<strong>文件名字符串比较“从小到大”顺序</strong>调用各文件中的init()函数。</li><li>对于不同的package，如果不相互依赖的话，按照main包中”先import的后调用”的顺序调用其包中的init()，如果package存在依赖，则先调用最早被依赖的package中的init()，最后调用main函数。</li><li>同一个包被多次调用只会执行一次init()函数</li><li>如果init函数中使用了println()或者print()你会发现在执行过程中这两个不会按照你想象中的顺序执行。这两个函数官方只推荐在测试环境中使用，对于正式环境不要使用。</li></ul><p>Go包初始化：从main包开始按照深度优先初始化main包的依赖包，初始化一个包时的顺序是初始化依赖包、常量、变量、init()，回到main包时同样初始化常量、变量、init()，再执行main()函数。</p><h2 id=go命令>go命令</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -571,7 +707,7 @@ ROUTINE ======================== main.fillMatrix in D:\go\Go_WorkSpace\go_learni
          .          .     26:
          .          .     27:func calculate(m *[row][col]int) {
 (pprof) 
-</code></pre></td></tr></table></div></div><p>top/tree/web</p><ul><li>top [n]，查看排名前n个数据，默认为10。（这个函数本身占用的时间，以及这个函数包括调用其他函数的时间）</li><li>tree [n]，以树状图形式显示，默认显示10个。</li></ul><h4 id=nethttppprof>net/http/pprof</h4><h3 id=go-modules>go modules</h3><p>go modules 是 golang 1.11 新加的特性</p><ul><li>go<ul><li>download<ul><li>download modules to local cache(下载依赖包)</li></ul></li><li>edit<ul><li>edit go.mod from tools or scripts（编辑go.mod）</li></ul></li><li>graph<ul><li>print module requirement graph (打印模块依赖图)</li></ul></li><li>init<ul><li>initialize new module in current directory（在当前目录初始化mod）</li></ul></li><li>tidy<ul><li>add missing and remove unused modules(拉取缺少的模块，移除不用的模块)</li></ul></li><li>vendor<ul><li>make vendored copy of dependencies(将依赖复制到vendor下)</li></ul></li><li>verify<ul><li>verify dependencies have expected content (验证依赖是否正确</li></ul></li><li>why<ul><li>explain why packages or modules are needed(解释为什么需要依赖)</li></ul></li></ul></li><li>go.mod文件一旦创建后，它的内容将会被go toolchain全面掌控。go toolchain会在各类命令执行时，比如go get、go build、go mod等修改和维护go.mod文件。</li></ul><h2 id=运算符>运算符</h2><p>Go 语言内置的运算符有：</p><ul><li>算术运算符<ul><li>++ <strong>只有后置的，没有前置的，只作为语句，不作为表达式</strong></li></ul></li><li>关系运算符</li><li>逻辑运算符</li><li>位运算符<ul><li><strong>按位置零运算符 x &^ y &mdash;&mdash;如果y非零，则z为0；如果y为零，则z为x（先非再与）</strong></li></ul></li><li>赋值运算符（<strong>一个赋值语句可以给多个变量进行赋值，多重赋值时，变量的左值和右值按从左到右的顺序赋值。多重赋值在 Go 语言的错误处理和函数返回值中会大量地使用。</strong>）<ul><li>= 简单的赋值运算符，将一个表达式的值赋给一个左值</li><li>+= 相加后再赋值</li><li>-= 相减后再赋值</li><li>*= 相乘后再赋值</li><li>/= 相除后再赋值</li><li>%= 求余后再赋值</li><li>&#171;= 左移后赋值</li><li>>>= 右移后赋值</li><li>&= 按位与后赋值</li><li>l= 按位或后赋值</li><li>^= 按位异或后赋值</li></ul></li></ul><h2 id=下划线>下划线</h2><p>“_”是特殊标识符，用来忽略结果。</p><ul><li>下划线在import中<ul><li>import 下划线（如：import _ hello/imp）的作用：当导入一个包时，该包下的文件里所有init()函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行init()函数而已。这个时候就可以使用 import _ 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数。</li><li>注意区别于.在import中，它是指import进来的package里的所有的方法是在当前的名字空间的，使用其方法时直接使用即可。</li></ul></li><li>下划线在代码中<ul><li>作为占位符</li></ul></li></ul><h2 id=格式占位符>格式占位符%…</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>top/tree/web</p><ul><li>top [n]，查看排名前n个数据，默认为10。（这个函数本身占用的时间，以及这个函数包括调用其他函数的时间）</li><li>tree [n]，以树状图形式显示，默认显示10个。</li></ul><h4 id=nethttppprof>net/http/pprof</h4><h3 id=go-modules>go modules</h3><p>go modules 是 golang 1.11 新加的特性</p><ul><li>go mod<ul><li>download<ul><li>download modules to local cache(下载依赖包)</li></ul></li><li>edit<ul><li>edit go.mod from tools or scripts（编辑go.mod）</li></ul></li><li>graph<ul><li>print module requirement graph (打印模块依赖图)</li></ul></li><li>init<ul><li>initialize new module in current directory（在当前目录初始化mod）</li></ul></li><li>tidy<ul><li>add missing and remove unused modules(拉取缺少的模块，移除不用的模块,常用)</li></ul></li><li>vendor<ul><li>make vendored copy of dependencies(将依赖复制到vendor下)</li></ul></li><li>verify<ul><li>verify dependencies have expected content (验证依赖是否正确</li></ul></li><li>why<ul><li>explain why packages or modules are needed(解释为什么需要依赖)</li></ul></li></ul></li><li>go.mod文件一旦创建后，它的内容将会被go toolchain全面掌控。go toolchain会在各类命令执行时，比如go get、go build、go mod等修改和维护go.mod文件。</li></ul><h2 id=运算符>运算符</h2><p>Go 语言内置的运算符有：</p><ul><li>算术运算符<ul><li>++ <strong>只有后置的，没有前置的，只作为语句，不作为表达式</strong></li></ul></li><li>关系运算符</li><li>逻辑运算符</li><li>位运算符<ul><li><strong>按位置零运算符 x &^ y &mdash;&mdash;如果y非零，则z为0；如果y为零，则z为x（先非再与）</strong></li></ul></li><li>赋值运算符（<strong>一个赋值语句可以给多个变量进行赋值，多重赋值时，变量的左值和右值按从左到右的顺序赋值。多重赋值在 Go 语言的错误处理和函数返回值中会大量地使用。</strong>）<ul><li>= 简单的赋值运算符，将一个表达式的值赋给一个左值</li><li>+= 相加后再赋值</li><li>-= 相减后再赋值</li><li>*= 相乘后再赋值</li><li>/= 相除后再赋值</li><li>%= 求余后再赋值</li><li>&#171;= 左移后赋值</li><li>>>= 右移后赋值</li><li>&= 按位与后赋值</li><li>l= 按位或后赋值</li><li>^= 按位异或后赋值</li></ul></li></ul><h2 id=下划线>下划线</h2><p>“_”是特殊标识符，用来忽略结果。</p><ul><li>下划线在import中<ul><li>import 下划线（如：import _ hello/imp）的作用：当导入一个包时，该包下的文件里所有init()函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行init()函数而已。这个时候就可以使用 import _ 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数。</li><li>注意区别于.在import中，它是指import进来的package里的所有的方法是在当前的名字空间的，使用其方法时直接使用即可。</li></ul></li><li>下划线在代码中<ul><li>作为占位符</li></ul></li></ul><h2 id=格式占位符>格式占位符%…</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -1831,5 +1967,95 @@ Tag是结构体的元信息，可以在运行的时候通过反射的机制读�
 	<span class=p>}</span>
 
 <span class=p>}</span>
-</code></pre></td></tr></table></div></div><p><strong>easyjson</strong>:</p><ul><li>更快的JSON解析</li><li>EasyJSON 采⽤代码⽣成⽽⾮反射</li><li>见ch43</li></ul><h2 id=高可用性服务设计>高可用性服务设计</h2><h2 id=参考>参考</h2><ul><li><a href=https://cloud.tencent.com/developer/article/1526095>https://cloud.tencent.com/developer/article/1526095</a></li><li><a href=https://www.topgoer.cn/docs/golang/chapter02>https://www.topgoer.cn/docs/golang/chapter02</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-11-09 00:00:00</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01 data-hashtags="go grammar"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://qizhengzou.github.io/go_base_01/ data-hashtag="go grammar"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Reddit" data-sharer=reddit data-url=https://qizhengzou.github.io/go_base_01/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/go-grammar/>go grammar</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/mysql_base_13/ class=prev rel=prev title=Mysql_base_13><i class="fas fa-angle-left fa-fw"></i>Mysql_base_13</a>
+</code></pre></td></tr></table></div></div><p><strong>easyjson</strong>:</p><ul><li>更快的JSON解析</li><li>EasyJSON 采⽤代码⽣成⽽⾮反射</li><li>见ch43</li></ul><h2 id=go项目的标准布局演进>go项目的标准布局演进</h2><p>官方并没有给标准布局，但社区还是有的。随着go版本的不断更新，Go源码比例不断增大，Go 1.0时还占比32%的C语言现在也只不过占比不到1%。而项目布局一直保持了下来。</p><p>Go 1.3 src 目录下面的结构：</p><ul><li>以 all.bash 为代表的代码构建的脚本源文件放在了 src 下面的顶层目录下。</li><li>src 下的二级目录 cmd 下面存放着 Go 相关可执行文件的相关目录<ul><li>每个子目录都是一个 Go 工具链命令或子命令对应的可执行文件</li></ul></li><li>src 下的二级目录 pkg 下面存放着运行时实现、标准库包实现，这些包既可以被上面 cmd 下各程序所导入，也可以被 Go 语言项目之外的 Go 程序依赖并导入。</li></ul><p>Go 1.4 版本删除 pkg 这一中间层目录并引入 internal 目录。“src/pkg/xxx”->“src/xxx”</p><ul><li>根据 internal 机制的定义，一个 Go 项目里的 internal 目录下的 Go 包，只可以被本项目内部的包导入。项目外部是无法导入这个 internal 目录下面的包的。<ul><li>internal 目录的引入，让一个 Go 项目中 Go 包的分类与用途变得更加清晰</li></ul></li></ul><p>Go 1.6 版本增加 vendor 目录</p><ul><li>为了解决 Go 包依赖版本管理的问题，Go 核心团队在 Go 1.5 版本中做了第一次改进。增加了 vendor 构建机制，也就是 Go 源码的编译可以不在 GOPATH 环境变量下面搜索依赖包的路径，而在 vendor 目录下查找对应的依赖包<ul><li>Go 1.7 版本，Go 在 vendor 下缓存了其依赖的外部包。这些依赖包主要是 golang.org/x 下面的包</li></ul></li><li>vendor 机制与目录的引入，让 Go 项目第一次具有了<strong>可重现构建</strong>（Reproducible Build）的能力。</li></ul><p>Go 1.13 版本引入 go.mod 和 go.sum</p><ul><li>在 Go 1.11 版本中，Go 核心团队做出了第二次改进尝试：引入了 Go Module 构建机制，也就是在项目引入 go.mod 以及在 go.mod 中明确项目所依赖的第三方包和版本，项目的构建就将摆脱 GOPATH 的束缚，实现精准的可重现构建。</li><li>Go 语言项目自身在 Go 1.13 版本引入 go.mod 和 go.sum 以支持 Go Module 构建机制</li></ul><p><strong>Go 可执行程序项目的典型结构布局</strong>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>├── cmd/
+│   ├── app1/
+│   │   └── main.go
+│   └── app2/
+│       └── main.go
+├── go.mod
+├── go.sum
+├── internal/
+│   ├── pkga/
+│   │   └── pkg_a.go
+│   └── pkgb/
+│       └── pkg_b.go
+├── pkg1/
+│   └── pkg1.go
+├── pkg2/
+│   └── pkg2.go
+└── vendor/
+</code></pre></td></tr></table></div></div><ul><li>cmd（也可以是app或者其他名字）<ul><li>存放项目要编译构建的可执行文件对应的 main 包的源文件。如果你的项目中有多个可执行文件需要构建，每个可执行文件的 main 包单独放在一个子目录中，cmd 目录下的各 app 的 main 包将整个项目的依赖连接在一起</li><li>通常来说，main 包应该很简洁。我们在 main 包中会做一些<strong>命令行参数解析、资源初始化、日志设施初始化、数据库连接初始化等</strong>工作，之后就会将程序的执行权限交给更高级的执行控制对象</li></ul></li><li>pkgN<ul><li>一个存放项目自身要使用、同样也是可执行文件对应 main 包所要依赖的库文件，同时这些目录下的包还可以被外部项目引用。</li></ul></li><li>go.mod和go.sum<ul><li>包依赖管理的配置文件</li></ul></li><li>vendor（可选）<ul><li>前面有说，vendor 是 Go 1.5 版本引入的用于在项目本地缓存特定版本依赖包的机制</li><li>Go Module 机制也保留了 vendor 目录（通过 go mod vendor 可以生成 vendor 下的依赖包，通过 go build -mod=vendor 可以实现基于 vendor 的构建）。一般我们仅保留项目根目录下的 vendor 目录，否则会造成不必要的依赖选择的复杂性。</li></ul></li><li>etc<ul><li>如若喜欢借助一些第三方的构建工具辅助构建，比如：make、bazel 等。你可以将这类外部辅助构建工具涉及的诸多脚本文件（比如 Makefile）放置在项目的顶层目录下，就像 Go 1.3中的 all.bash 那样。</li></ul></li></ul><p>如果app1，app2的发布版本不总是同步的，建议将每个项目单独作为一个 module 进行单独的版本管理和演进，避免版本管理的“分歧”带来更大的复杂性。当然新版Go命令较好地解决了这一点，可以采用如下结构：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>├── go.mod // mainmodule
+├── module1
+│   └── go.mod // module1
+└── module2
+    └── go.mod // module2
+</code></pre></td></tr></table></div></div><ul><li>可以通过 git tag 名字来区分不同 module 的版本。其中 vX.Y.Z 形式的 tag 名字用于代码仓库下的 mainmodule；而 module1/vX.Y.Z 形式的 tag 名字用于指示 module1 的版本。</li></ul><p><strong>Go 库项目的典型结构布局</strong>：Go 库项目主要作用还是对外暴露 API。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>├── go.mod
+├── internal/
+│   ├── pkga/
+│   │   └── pkg_a.go
+│   └── pkgb/
+│       └── pkg_b.go
+├── pkg1/
+│   └── pkg1.go
+└── pkg2/
+    └── pkg2.go
+</code></pre></td></tr></table></div></div><ul><li>不需要构建可执行程序</li><li>仅限项目内部使用而不想暴露到外部的包，可以放在项目顶层的 internal 目录下面。当然 internal 也可以有多个并存在于项目结构中的任一目录层级中，关键是项目结构设计人员要明确各级 internal 包的应用层次和范围。</li></ul><h2 id=go应用构建模式的演进>go应用构建模式的演进</h2><p>Go 程序的构建过程就是确定包版本、编译包以及将编译后得到的目标文件链接在一起的过程。</p><p>包依赖管理演进：</p><ul><li>GOPATH模式。<ul><li>Go 编译器可以在本地 GOPATH 环境变量配置的路径下，搜寻 Go 程序依赖的第三方包。如果存在，就使用这个本地包进行编译；如果不存在，就会报编译错误</li><li>如果你没有显式设置 GOPATH 环境变量，Go 会将 GOPATH 设置为默认值，不同操作系统下默认值的路径不同</li><li>可以通过 go get 命令将本地缺失的第三方依赖包下载到本地。不仅能将包下载到 GOPATH 环境变量配置的目录下，它还会检查该包的依赖包在本地是否存在，如果不存在，go get 也会一并将它们下载到本地。<strong>但是，go get只能得到最新主线版本的依赖包，不能保证Reproduceable Build</strong></li><li>总之，在 GOPATH 构建模式下，Go 编译器实质上并没有关注 Go 项目所依赖的第三方包的版本。从而有了Vendor机制控制依赖包版本。</li></ul></li><li>Vendor机制<ul><li>本质上就是在 Go 项目的某个特定目录下，将项目的所有依赖包缓存起来，这个特定目录名就是 vendor。</li><li>Go 编译器会优先感知和使用 vendor 目录下缓存的第三方包版本，而不是 GOPATH 环境变量所配置的路径下的第三方包版本。</li><li>目录示例：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>├── main.go
+└── vendor/
+    ├── github.com/
+    │   └── sirupsen/
+    │       └── logrus/
+    └── golang.org/
+        └── x/
+            └── sys/
+                └── unix/
+</code></pre></td></tr></table></div></div><ul><li>开启 vendor 机制，你的 Go 项目<strong>必须</strong>位于 GOPATH 环境变量配置的某个路径的 src 目录下面</li><li>不足之处主要在于需要手工管理 vendor 下面的 Go 依赖包（Go 社区先后开发了诸如 gb、glide、dep 等工具，都是用来进行依赖分析管理的，自身却都存在某些问题）、庞大的vendor目录也得提交到代码仓库，以及项目路径的限制。</li></ul></li><li>Go Module<ul><li>如何创建？<ul><li>go mod init</li><li>go mod tidy</li><li>go build</li></ul></li><li>go.sum是由 go mod 相关命令维护的一个文件，它存放了特定版本 module 内容的哈希值。这是 Go Module 的一个安全措施。当将来这里的某个 module 的特定版本被再次下载的时候，go 命令会使用 go.sum 文件中对应的哈希值，和新下载的内容的哈希值进行比对，只有哈希值比对一致才是合法的，这样可以确保你的项目所依赖的 module 内容，不会被恶意或意外篡改。</li><li>项目所依赖的包有很多版本，Go Module 是如何选出最适合的那个版本？<ul><li>Go Module 的语义导入版本机制<ul><li>go.mod 的 require 段中依赖的版本号，都符合 vX.Y.Z 的格式。语义版本号分成 3 部分：主版本号 (major)、次版本号 (minor) 和补丁版本号 (patch)。分别对应XYZ。</li><li>按照语义版本规范，主版本号不同的两个版本是相互不兼容的。而且，在主版本号相同的情况下，次版本号大都是向后兼容次版本号小的版本。补丁版本号也不影响兼容性</li><li>Go Module 规定：如果同一个包的新旧版本是兼容的，那么它们的包导入路径应该是相同的。<ul><li>如果不兼容，Go Module 创新性地给出了一个方法：将包主版本号引入到包导入路径中，我们可以像下面这样导入 logrus v2.0.0 版本依赖包：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>import &#34;github.com/sirupsen/logrus/v2&#34;
+</code></pre></td></tr></table></div></div></li><li>关于主版本号为0时，按照语义版本规范的说法，v0.y.z 这样的版本号是用于项目初始开发阶段的版本号。在这个阶段任何事情都有可能发生，其 API 也不应该被认为是稳定的。Go Module 将这样的版本 (v0) 与主版本号 v1 做同等对待，也就是采用不带主版本号的包导入路径</li><li>总之，通过在包导入路径中引入主版本号的方式，来区别同一个包的不兼容版本。</li></ul></li><li>最小版本选择原则<ul><li>包依赖关系比较复杂时，一个包A的两个依赖包BC可能依赖于不同版本的某个包D，那A依赖于D的哪个版本？</li><li><strong>Go 会在该项目依赖项的所有版本中，选出符合项目整体要求的“最小版本”。</strong></li></ul></li></ul></li><li>明确具体版本下 Go Module 的实际表现行为还是比较重要的，方便应用时选择切换。</li><li>Go 各版本构建模式机制和切换：<ul><li>Go 1.11后一段时间GOPATH 构建模式与 Go Modules 构建模式各自独立工作，我们可以通过设置环境变量 GO111MODULE 的值在两种构建模式间切换。</li><li>Go 1.16 版本，Go Module 构建模式成为了默认模式。</li><li>目前我觉得GOPATH似乎可以抛弃了</li></ul></li></ul></li></ul><p><strong>Go Module常规操作</strong>：</p><ul><li>为当前 module 添加一个依赖：<ul><li>go get 命令将我们新增的依赖包下载到了本地 module 缓存里，并在 go.mod 文件的 require 段中新增相关内容。</li><li>使用 go mod tidy 命令，在执行构建前自动分析源码中的依赖变化，识别新增依赖项并下载它们</li><li>两种方法都行，复杂的项目用go mod tidy/go get .（注意二者还是有区别的,看到后面你就知道了）</li></ul></li><li>升级、降级依赖版本：<ul><li>查询某个依赖包的版本</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>PS D:\Blog\qizhengzou.github.io-blog\content\posts&gt; go list -m -versions github.com/sirupsen/logrus
+github.com/sirupsen/logrus v0.1.0 v0.1.1 v0.2.0 v0.3.0 v0.4.0 v0.4.1 v0.5.0 v0.5.1 v0.6.0 v0.6.1 v0.6.2 v0.6.3 v0.6.4 v0.6.5 v0.6.6 v0.7.0 v0.7.1 v0.7.2 v0.7.3 v0.8.0 v0.8.1 v0.8.2 v0.8.3 v0.8.4 v0.8.5 v0.8.6 v0.8.7 v0.9.0 v0.10.0 v0.11.0 v0.11.1 v0.11.2 v0.11.3 v0.11.4 v0.11.5 v1.0.0 v1.0.1 v1.0.3 v1.0.4 v1.0.5 v1.0.6 v1.1.0 v1.1.1 v1.2.0 v1.3.0 v1.4.0 v1.4.1 v1.4.2 v1.5.0 v1.6.0 v1.7.0 v1.7.1 v1.8.0 v1.8.1
+//go mod tidy帮我们选择了v1.8.1
+</code></pre></td></tr></table></div></div><ul><li>我们可以在项目的 module 根目录下，执行带有版本号的 go get 命令eg: go get <a href=mailto:github.com/sirupsen/logrus@v1.7.0>github.com/sirupsen/logrus@v1.7.0</a></li><li>或者，用 go mod edit 命令，明确告知我们要依赖 v1.7.0 版本，而不是 v1.8.1。执行go mod edit -require=github.com/sirupsen/logrus@v1.7.0再go mod tidy。</li></ul></li><li>添加一个主版本号大于 1 的依赖：<ul><li>在声明它的导入路径的基础上，加上版本号信息</li></ul></li><li>升级依赖版本到一个不兼容版本：<ul><li>需要注意一点，可能需要移除对某个包的依赖</li></ul></li><li>移除一个依赖<ul><li>要想彻底从项目中移除 go.mod 中的依赖项，仅从源码中删除对依赖项的导入语句还不够。</li><li>还得用 go mod tidy 命令，将这个依赖项彻底从 Go Module 构建上下文中清除掉。go mod tidy 会自动分析源码依赖，而且将不再使用的依赖从 go.mod 和 go.sum 中移除。</li></ul></li><li><strong>特殊情况</strong>：借用Vendor<ul><li>Vendor机制其实可以作为Go Module的一个很好的补充。</li><li><strong>在一些不方便访问外部网络，并且对 Go 应用构建性能敏感的环境，比如在一些内部的持续集成或持续交付环境（CI/CD）中，使用 vendor 机制可以实现与 Go Module 等价的构建。</strong></li><li>Go 提供了可以快速建立和更新 vendor 的命令：<ul><li>go mod vendor<ul><li>make vendored copy of dependencies(将依赖复制到vendor下)</li></ul></li></ul></li><li>在 go build 后面加上 -mod=vendor 参数，可以快速基于 vendor 构建项目。</li><li><strong>在 Go 1.14 及以后版本中，如果 Go 项目的顶层目录下存在 vendor 目录，那么 go build 默认也会优先基于 vendor 构建，除非你给 go build 传入 -mod=mod 的参数</strong></li></ul></li></ul><h2 id=参考>参考</h2><ul><li><a href=https://cloud.tencent.com/developer/article/1526095>https://cloud.tencent.com/developer/article/1526095</a></li><li><a href=https://www.topgoer.cn/docs/golang/chapter02>https://www.topgoer.cn/docs/golang/chapter02</a></li><li><a href=https://time.geekbang.org/column/article/429143>https://time.geekbang.org/column/article/429143</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-11-09 00:00:00</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01 data-hashtags="go grammar"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://qizhengzou.github.io/go_base_01/ data-hashtag="go grammar"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Reddit" data-sharer=reddit data-url=https://qizhengzou.github.io/go_base_01/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://qizhengzou.github.io/go_base_01/ data-title=Go_base_01><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/go-grammar/>go grammar</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/mysql_base_13/ class=prev rel=prev title=Mysql_base_13><i class="fas fa-angle-left fa-fw"></i>Mysql_base_13</a>
 <a href=/distributedsystem_base_01/ class=next rel=next title=DistributedSystem_base_01>DistributedSystem_base_01<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=disqus_thread class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=https://jefos-blog.disqus.com/embed.js defer></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
