@@ -1,11 +1,11 @@
 ---
 title: "DIP_base_01"
 date: 2022-02-24T10:43:56+08:00
-lastmod:
+lastmod: 2022-02-24
 tags: [DIP]
 categories: [School courses]
 slug: DIP_intro
-draft: true
+draft: false
 ---
 > 哈工大深圳卢光明副院长授课的本科生图像处理课程，参考教材：Digital Image Processing”, Rafael C. Gonzalez & Richard E. Woods, 2011（or 4th Edition，2017）
 
@@ -84,12 +84,16 @@ path（通路）:
 - 区域（region）的boundary就是具有至少一个不在区域里的邻居的像素的集合
 
 distance measures:
-- ……
+- $D_e(p,q)=[(x-s)^2 + (y-t)^2]^{0.5}$
+- $D_4(p,q) = |x-s| + |y-t|$
+- $D_8(p,q) = max(|x-s|,|y-t|)$
+
+
 
 ## Key stages in digital image processing
 - Problem Domain
-- Image Acquisition获取图像
-- Image Enhancement图像增强
+- Image Acquisition
+- Image Enhancement
 - Image Restoration
 - Morphological Processing
 - Segmentation分割

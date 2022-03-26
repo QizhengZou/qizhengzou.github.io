@@ -14,7 +14,7 @@ draft: false
     - 环境相关
     - 主要特征
     - 内置类型与函数
-    - init & main
+    - init & main以及Go包的初始化顺序
     - go命令
         - go env
         - go run命令
@@ -50,6 +50,8 @@ draft: false
         - 类型别名和自定义类型
         - 结构体
             - 方法和接收者
+    - go项目的标准布局演进
+    - go应用构建模式的演进
     - 参考
 - [go_base_02](https://qizhengzou.github.io/go_base_02/)
     - if
@@ -91,6 +93,7 @@ draft: false
         - 如何编写测试用例
         - 如何编写压力测试
         - 小结
+    - BDD
 - [go_base_04](https://qizhengzou.github.io/go_base_04/)
     - 方法定义
     - 匿名字段

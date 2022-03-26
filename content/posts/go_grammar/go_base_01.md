@@ -16,7 +16,7 @@ draft: false
 - 一个字符如何映射成有限长度的比特值？
     - 需要表示字符的范围--**字符表**（character repertoire）
     - CR映射到一个整数集，称映射为**编码字符集**（coded character set），也就是Unicode的概念，那些整数称为码点（code point）
-    - 将CCS里的整数映射成有限长度的比特值，这个对应关系称为**字符编码表**（character encoding form），比如UTF-8，UTF-16。（Unicode Transformation Format，8或者16是指码元的大小，码元是一个已编码文本中具有最短的比特组合的单元，即最小单位是一个字节或者两个字节）
+    - 将CCS里的整数映射成有限长度的比特值，这个对应关系称为字符编码方式或**字符编码表**（character encoding form），比如UTF-8，UTF-16。（Unicode Transformation Format，8或者16是指码元的大小，码元是一个已编码文本中具有最短的比特组合的单元，即最小单位是一个字节或者两个字节）
 - UTF-8是完全兼容ASCII的，多字节表示一个字符时Unicode码点范围以及对应的bit组合：
     - 一字节：U+00~U+7F--------------UTF-8字节流（二进制）：0xxxxxxx
     - 二字节：U+80~U+7FF-------------UTF-8字节流（二进制）：110xxxxx 10xxxxxx
@@ -66,7 +66,9 @@ ok      code/code/ch9/string    0.514s
 ## go起源
 07年 三位大牛 解决三个困难：多核硬件架构、超大规模的分布式计算集群、如今使用的web开发模式导致的前所未有的开发规模和更新速度
 ## 环境相关
-go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用，挖个坑
+go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用……
+
+Go 官方下载站点是 golang.org/dl，但我们可以用针对中国大陆的镜像站点 golang.google.cn/dl 来下载
 ## 主要特征
 1. 自动立即回收。(自带GC)
 2. 更丰富的内置类型。
@@ -180,7 +182,7 @@ type error interface { //只要实现了Error()函数，返回值为String的都
     Error()    String
 }
 ```
-## init & main
+## init & main 以及Go包的初始化顺序
 go语言中init函数用于包(package)的初始化，该函数是go语言的一个重要特性。有下面的特征：
 1. init函数是用于程序执行前做包的初始化的函数，比如初始化包里的变量等
 2. 每个包可以拥有多个init函数
@@ -188,6 +190,94 @@ go语言中init函数用于包(package)的初始化，该函数是go语言的一
 4. 同一个包中多个init函数的执行顺序go语言没有明确的定义(说明)
 5. 不同包的init函数按照包导入的依赖关系决定该初始化函数的执行顺序
 6. init函数不能被其他函数调用，而是在main函数执行之前，自动被调用
+
+init()函数的用途：
+- 重置包级变量值，对包内部以及暴露到外部的包级数据（主要是包级变量）的初始状态进行检查
+- 实现对包级变量的复杂初始化，有些包级变量需要一个比较复杂的初始化过程，使用init()比较合适
+- 在 init 函数中实现“注册模式”，如下
+```go
+
+import (
+    "database/sql"
+    _ "github.com/lib/pq"
+)
+
+func main() {
+    db, err := sql.Open("postgres", "user=pqgotest dbname=pqgotest sslmode=verify-full")
+    if err != nil {
+        log.Fatal(err)
+    }
+    
+    age := 21
+    rows, err := db.Query("SELECT name FROM users WHERE age = $1", age)
+    ...
+}
+```
+```go
+//pq包的init()
+func init() {
+    sql.Register("postgres", &Driver{})
+}
+```
+pq 包将自己实现的 sql 驱动注册到了 sql 包中。这样只要应用层代码在 Open 数据库的时候，传入驱动的名字（这里是“postgres”)，那么通过 sql.Open 函数，返回的数据库实例句柄对数据库进行的操作，实际上调用的都是 pq 包中相应的驱动实现。
+
+从标准库 database/sql 包的角度来看，这种“注册模式”实质是一种工厂设计模式的实现，sql.Open 函数就是这个模式中的工厂方法，它根据外部传入的驱动名称“生产”出不同类别的数据库实例句柄。
+
+这种“注册模式”在标准库的其他包中也有广泛应用，比如说，使用标准库 image 包获取各种格式图片的宽和高：
+```go
+
+package main
+
+import (
+    "fmt"
+    "image"
+    _ "image/gif" // 以空导入方式注入gif图片格式驱动
+    _ "image/jpeg" // 以空导入方式注入jpeg图片格式驱动
+    _ "image/png" // 以空导入方式注入png图片格式驱动
+    "os"
+)
+
+func main() {
+    // 支持png, jpeg, gif
+    width, height, err := imageSize(os.Args[1]) // 获取传入的图片文件的宽与高
+    if err != nil {
+        fmt.Println("get image size error:", err)
+        return
+    }
+    fmt.Printf("image size: [%d, %d]\n", width, height)
+}
+
+func imageSize(imageFile string) (int, int, error) {
+    f, _ := os.Open(imageFile) // 打开图文文件
+    defer f.Close()
+
+    img, _, err := image.Decode(f) // 对文件进行解码，得到图片实例
+    if err != nil {
+        return 0, 0, err
+    }
+
+    b := img.Bounds() // 返回图片区域
+    return b.Max.X, b.Max.Y, nil
+}
+```
+```go
+// $GOROOT/src/image/png/reader.go
+func init() {
+    image.RegisterFormat("png", pngHeader, Decode, DecodeConfig)
+}
+
+// $GOROOT/src/image/jpeg/reader.go
+func init() {
+    image.RegisterFormat("jpeg", "\xff\xd8", Decode, DecodeConfig)
+}
+
+// $GOROOT/src/image/gif/reader.go
+func init() {
+    image.RegisterFormat("gif", "GIF8?a", Decode, DecodeConfig)
+}  
+```
+
+
 
 Go语言程序的默认入口函数(主函数)：
 ```go
@@ -197,6 +287,8 @@ func main(){
     //不支持返回值，可以通过os.Exit()来返回状态
 }
 ```
+在启动了多个 Goroutine 的 Go 应用中，main.main 函数将在 Go 应用的主 Goroutine 中执行。
+
 init函数和main函数的异同：
 - 同
     - 两个函数在定义时不能有任何的参数和返回值，且Go程序自动调用。
@@ -210,6 +302,9 @@ init()执行顺序：
 - 对于不同的package，如果不相互依赖的话，按照main包中”先import的后调用”的顺序调用其包中的init()，如果package存在依赖，则先调用最早被依赖的package中的init()，最后调用main函数。
 - 同一个包被多次调用只会执行一次init()函数
 - 如果init函数中使用了println()或者print()你会发现在执行过程中这两个不会按照你想象中的顺序执行。这两个函数官方只推荐在测试环境中使用，对于正式环境不要使用。
+
+Go包初始化：从main包开始按照深度优先初始化main包的依赖包，初始化一个包时的顺序是初始化依赖包、常量、变量、init()，回到main包时同样初始化常量、变量、init()，再执行main()函数。
+
 ## go命令
 ```
 PS D:\Blog\qizhengzou.github.io-blog\content\posts> go
@@ -488,7 +583,7 @@ top/tree/web
 
 ### go modules
 go modules 是 golang 1.11 新加的特性
-- go
+- go mod
     - download
         - download modules to local cache(下载依赖包)
     - edit
@@ -498,7 +593,7 @@ go modules 是 golang 1.11 新加的特性
     - init
         - initialize new module in current directory（在当前目录初始化mod）
     - tidy
-        - add missing and remove unused modules(拉取缺少的模块，移除不用的模块)
+        - add missing and remove unused modules(拉取缺少的模块，移除不用的模块,常用)
     - vendor
         - make vendored copy of dependencies(将依赖复制到vendor下)
     - verify
@@ -1552,9 +1647,168 @@ func TestEmbeddedJson(t *testing.T) {
 - 见ch43
 
 
-## 高可用性服务设计
+## go项目的标准布局演进
+官方并没有给标准布局，但社区还是有的。随着go版本的不断更新，Go源码比例不断增大，Go 1.0时还占比32%的C语言现在也只不过占比不到1%。而项目布局一直保持了下来。
 
+Go 1.3 src 目录下面的结构：
+- 以 all.bash 为代表的代码构建的脚本源文件放在了 src 下面的顶层目录下。
+- src 下的二级目录 cmd 下面存放着 Go 相关可执行文件的相关目录
+    - 每个子目录都是一个 Go 工具链命令或子命令对应的可执行文件
+- src 下的二级目录 pkg 下面存放着运行时实现、标准库包实现，这些包既可以被上面 cmd 下各程序所导入，也可以被 Go 语言项目之外的 Go 程序依赖并导入。
 
+Go 1.4 版本删除 pkg 这一中间层目录并引入 internal 目录。“src/pkg/xxx”->“src/xxx”
+- 根据 internal 机制的定义，一个 Go 项目里的 internal 目录下的 Go 包，只可以被本项目内部的包导入。项目外部是无法导入这个 internal 目录下面的包的。
+    - internal 目录的引入，让一个 Go 项目中 Go 包的分类与用途变得更加清晰
+
+Go 1.6 版本增加 vendor 目录
+- 为了解决 Go 包依赖版本管理的问题，Go 核心团队在 Go 1.5 版本中做了第一次改进。增加了 vendor 构建机制，也就是 Go 源码的编译可以不在 GOPATH 环境变量下面搜索依赖包的路径，而在 vendor 目录下查找对应的依赖包
+    - Go 1.7 版本，Go 在 vendor 下缓存了其依赖的外部包。这些依赖包主要是 golang.org/x 下面的包
+- vendor 机制与目录的引入，让 Go 项目第一次具有了**可重现构建**（Reproducible Build）的能力。
+
+Go 1.13 版本引入 go.mod 和 go.sum
+- 在 Go 1.11 版本中，Go 核心团队做出了第二次改进尝试：引入了 Go Module 构建机制，也就是在项目引入 go.mod 以及在 go.mod 中明确项目所依赖的第三方包和版本，项目的构建就将摆脱 GOPATH 的束缚，实现精准的可重现构建。
+- Go 语言项目自身在 Go 1.13 版本引入 go.mod 和 go.sum 以支持 Go Module 构建机制
+
+**Go 可执行程序项目的典型结构布局**：
+```
+├── cmd/
+│   ├── app1/
+│   │   └── main.go
+│   └── app2/
+│       └── main.go
+├── go.mod
+├── go.sum
+├── internal/
+│   ├── pkga/
+│   │   └── pkg_a.go
+│   └── pkgb/
+│       └── pkg_b.go
+├── pkg1/
+│   └── pkg1.go
+├── pkg2/
+│   └── pkg2.go
+└── vendor/
+```
+- cmd（也可以是app或者其他名字）
+    - 存放项目要编译构建的可执行文件对应的 main 包的源文件。如果你的项目中有多个可执行文件需要构建，每个可执行文件的 main 包单独放在一个子目录中，cmd 目录下的各 app 的 main 包将整个项目的依赖连接在一起
+    - 通常来说，main 包应该很简洁。我们在 main 包中会做一些**命令行参数解析、资源初始化、日志设施初始化、数据库连接初始化等**工作，之后就会将程序的执行权限交给更高级的执行控制对象
+- pkgN
+    - 一个存放项目自身要使用、同样也是可执行文件对应 main 包所要依赖的库文件，同时这些目录下的包还可以被外部项目引用。
+- go.mod和go.sum
+    - 包依赖管理的配置文件
+- vendor（可选）
+    - 前面有说，vendor 是 Go 1.5 版本引入的用于在项目本地缓存特定版本依赖包的机制
+    - Go Module 机制也保留了 vendor 目录（通过 go mod vendor 可以生成 vendor 下的依赖包，通过 go build -mod=vendor 可以实现基于 vendor 的构建）。一般我们仅保留项目根目录下的 vendor 目录，否则会造成不必要的依赖选择的复杂性。
+- etc
+    - 如若喜欢借助一些第三方的构建工具辅助构建，比如：make、bazel 等。你可以将这类外部辅助构建工具涉及的诸多脚本文件（比如 Makefile）放置在项目的顶层目录下，就像 Go 1.3中的 all.bash 那样。
+
+如果app1，app2的发布版本不总是同步的，建议将每个项目单独作为一个 module 进行单独的版本管理和演进，避免版本管理的“分歧”带来更大的复杂性。当然新版Go命令较好地解决了这一点，可以采用如下结构：
+```
+├── go.mod // mainmodule
+├── module1
+│   └── go.mod // module1
+└── module2
+    └── go.mod // module2
+```
+- 可以通过 git tag 名字来区分不同 module 的版本。其中 vX.Y.Z 形式的 tag 名字用于代码仓库下的 mainmodule；而 module1/vX.Y.Z 形式的 tag 名字用于指示 module1 的版本。
+
+**Go 库项目的典型结构布局**：Go 库项目主要作用还是对外暴露 API。
+```
+├── go.mod
+├── internal/
+│   ├── pkga/
+│   │   └── pkg_a.go
+│   └── pkgb/
+│       └── pkg_b.go
+├── pkg1/
+│   └── pkg1.go
+└── pkg2/
+    └── pkg2.go
+```
+- 不需要构建可执行程序
+- 仅限项目内部使用而不想暴露到外部的包，可以放在项目顶层的 internal 目录下面。当然 internal 也可以有多个并存在于项目结构中的任一目录层级中，关键是项目结构设计人员要明确各级 internal 包的应用层次和范围。
+## go应用构建模式的演进
+Go 程序的构建过程就是确定包版本、编译包以及将编译后得到的目标文件链接在一起的过程。
+
+包依赖管理演进：
+- GOPATH模式。
+    - Go 编译器可以在本地 GOPATH 环境变量配置的路径下，搜寻 Go 程序依赖的第三方包。如果存在，就使用这个本地包进行编译；如果不存在，就会报编译错误
+    - 如果你没有显式设置 GOPATH 环境变量，Go 会将 GOPATH 设置为默认值，不同操作系统下默认值的路径不同
+    - 可以通过 go get 命令将本地缺失的第三方依赖包下载到本地。不仅能将包下载到 GOPATH 环境变量配置的目录下，它还会检查该包的依赖包在本地是否存在，如果不存在，go get 也会一并将它们下载到本地。**但是，go get只能得到最新主线版本的依赖包，不能保证Reproduceable Build**
+    - 总之，在 GOPATH 构建模式下，Go 编译器实质上并没有关注 Go 项目所依赖的第三方包的版本。从而有了Vendor机制控制依赖包版本。
+- Vendor机制
+    - 本质上就是在 Go 项目的某个特定目录下，将项目的所有依赖包缓存起来，这个特定目录名就是 vendor。
+    - Go 编译器会优先感知和使用 vendor 目录下缓存的第三方包版本，而不是 GOPATH 环境变量所配置的路径下的第三方包版本。
+    - 目录示例：
+    ```
+    ├── main.go
+    └── vendor/
+        ├── github.com/
+        │   └── sirupsen/
+        │       └── logrus/
+        └── golang.org/
+            └── x/
+                └── sys/
+                    └── unix/
+    ```
+    - 开启 vendor 机制，你的 Go 项目**必须**位于 GOPATH 环境变量配置的某个路径的 src 目录下面
+    - 不足之处主要在于需要手工管理 vendor 下面的 Go 依赖包（Go 社区先后开发了诸如 gb、glide、dep 等工具，都是用来进行依赖分析管理的，自身却都存在某些问题）、庞大的vendor目录也得提交到代码仓库，以及项目路径的限制。
+- Go Module
+    - 如何创建？
+        - go mod init 
+        - go mod tidy
+        - go build
+    - go.sum是由 go mod 相关命令维护的一个文件，它存放了特定版本 module 内容的哈希值。这是 Go Module 的一个安全措施。当将来这里的某个 module 的特定版本被再次下载的时候，go 命令会使用 go.sum 文件中对应的哈希值，和新下载的内容的哈希值进行比对，只有哈希值比对一致才是合法的，这样可以确保你的项目所依赖的 module 内容，不会被恶意或意外篡改。
+    - 项目所依赖的包有很多版本，Go Module 是如何选出最适合的那个版本？
+        - Go Module 的语义导入版本机制
+            -  go.mod 的 require 段中依赖的版本号，都符合 vX.Y.Z 的格式。语义版本号分成 3 部分：主版本号 (major)、次版本号 (minor) 和补丁版本号 (patch)。分别对应XYZ。
+            - 按照语义版本规范，主版本号不同的两个版本是相互不兼容的。而且，在主版本号相同的情况下，次版本号大都是向后兼容次版本号小的版本。补丁版本号也不影响兼容性
+            - Go Module 规定：如果同一个包的新旧版本是兼容的，那么它们的包导入路径应该是相同的。
+                - 如果不兼容，Go Module 创新性地给出了一个方法：将包主版本号引入到包导入路径中，我们可以像下面这样导入 logrus v2.0.0 版本依赖包：
+                ```
+                import "github.com/sirupsen/logrus/v2"
+                ```
+            - 关于主版本号为0时，按照语义版本规范的说法，v0.y.z 这样的版本号是用于项目初始开发阶段的版本号。在这个阶段任何事情都有可能发生，其 API 也不应该被认为是稳定的。Go Module 将这样的版本 (v0) 与主版本号 v1 做同等对待，也就是采用不带主版本号的包导入路径
+            - 总之，通过在包导入路径中引入主版本号的方式，来区别同一个包的不兼容版本。
+        - 最小版本选择原则
+            - 包依赖关系比较复杂时，一个包A的两个依赖包BC可能依赖于不同版本的某个包D，那A依赖于D的哪个版本？
+            - **Go 会在该项目依赖项的所有版本中，选出符合项目整体要求的“最小版本”。**
+    - 明确具体版本下 Go Module 的实际表现行为还是比较重要的，方便应用时选择切换。
+    - Go 各版本构建模式机制和切换：
+        - Go 1.11后一段时间GOPATH 构建模式与 Go Modules 构建模式各自独立工作，我们可以通过设置环境变量 GO111MODULE 的值在两种构建模式间切换。
+        - Go 1.16 版本，Go Module 构建模式成为了默认模式。
+        - 目前我觉得GOPATH似乎可以抛弃了
+
+**Go Module常规操作**：
+- 为当前 module 添加一个依赖：
+    - go get 命令将我们新增的依赖包下载到了本地 module 缓存里，并在 go.mod 文件的 require 段中新增相关内容。
+    - 使用 go mod tidy 命令，在执行构建前自动分析源码中的依赖变化，识别新增依赖项并下载它们
+    - 两种方法都行，复杂的项目用go mod tidy/go get .（注意二者还是有区别的,看到后面你就知道了）
+- 升级、降级依赖版本：
+    - 查询某个依赖包的版本
+    ```
+    PS D:\Blog\qizhengzou.github.io-blog\content\posts> go list -m -versions github.com/sirupsen/logrus
+    github.com/sirupsen/logrus v0.1.0 v0.1.1 v0.2.0 v0.3.0 v0.4.0 v0.4.1 v0.5.0 v0.5.1 v0.6.0 v0.6.1 v0.6.2 v0.6.3 v0.6.4 v0.6.5 v0.6.6 v0.7.0 v0.7.1 v0.7.2 v0.7.3 v0.8.0 v0.8.1 v0.8.2 v0.8.3 v0.8.4 v0.8.5 v0.8.6 v0.8.7 v0.9.0 v0.10.0 v0.11.0 v0.11.1 v0.11.2 v0.11.3 v0.11.4 v0.11.5 v1.0.0 v1.0.1 v1.0.3 v1.0.4 v1.0.5 v1.0.6 v1.1.0 v1.1.1 v1.2.0 v1.3.0 v1.4.0 v1.4.1 v1.4.2 v1.5.0 v1.6.0 v1.7.0 v1.7.1 v1.8.0 v1.8.1
+    //go mod tidy帮我们选择了v1.8.1
+    ```
+    - 我们可以在项目的 module 根目录下，执行带有版本号的 go get 命令eg: go get github.com/sirupsen/logrus@v1.7.0
+    - 或者，用 go mod edit 命令，明确告知我们要依赖 v1.7.0 版本，而不是 v1.8.1。执行go mod edit -require=github.com/sirupsen/logrus@v1.7.0再go mod tidy。
+- 添加一个主版本号大于 1 的依赖：
+    - 在声明它的导入路径的基础上，加上版本号信息
+- 升级依赖版本到一个不兼容版本：
+    - 需要注意一点，可能需要移除对某个包的依赖
+- 移除一个依赖
+    - 要想彻底从项目中移除 go.mod 中的依赖项，仅从源码中删除对依赖项的导入语句还不够。
+    - 还得用 go mod tidy 命令，将这个依赖项彻底从 Go Module 构建上下文中清除掉。go mod tidy 会自动分析源码依赖，而且将不再使用的依赖从 go.mod 和 go.sum 中移除。
+- **特殊情况**：借用Vendor
+    - Vendor机制其实可以作为Go Module的一个很好的补充。
+    - **在一些不方便访问外部网络，并且对 Go 应用构建性能敏感的环境，比如在一些内部的持续集成或持续交付环境（CI/CD）中，使用 vendor 机制可以实现与 Go Module 等价的构建。**
+    - Go 提供了可以快速建立和更新 vendor 的命令：
+        - go mod vendor
+            - make vendored copy of dependencies(将依赖复制到vendor下)
+    - 在 go build 后面加上 -mod=vendor 参数，可以快速基于 vendor 构建项目。
+    - **在 Go 1.14 及以后版本中，如果 Go 项目的顶层目录下存在 vendor 目录，那么 go build 默认也会优先基于 vendor 构建，除非你给 go build 传入 -mod=mod 的参数**
 ## 参考
 - https://cloud.tencent.com/developer/article/1526095
 - https://www.topgoer.cn/docs/golang/chapter02
+- https://time.geekbang.org/column/article/429143
