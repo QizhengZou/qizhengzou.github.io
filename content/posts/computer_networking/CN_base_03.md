@@ -5,7 +5,7 @@ lastmod: 2022-03-11
 tags: [computer network]
 categories: [School courses]
 slug: CN_PysicalLayer
-draft: false
+draft: true
 ---
 > 来自 中科大郑烇计网PPT，哈工大深圳堵宏伟计网PPT，改编自计算机网络-自顶向下 第七版
 

@@ -24,3 +24,26 @@ draft: true
 - 1号：15（-）
 - 2号：14（-） 
 
+
+
+
+
+为了解决广播风暴、安全隔离，引用了VLAN(虚拟局域网)，划分广播域，有效地控制域内广播通信的规模
+
+VLAN划分
+- 交换机端口划分
+⚫ 基于MAC地址划分
+⚫ 基于协议划分
+⚫ 基于子网划分
+
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220402141625.png)
+
+中继端口(trunk port): 在跨越多个物理交换机定义的VLAN承载帧
+
+VLAN的端口类型
+⚫ access（访问端口）：一般接主机、服务器等终端设备
+⚫ trunk（干道端口/中继端口）：一般用于交换机之间连接的端口
+
+交换机每个端口都有pvid（缺省vlan id），默认都属于VLAN1（pvid=1），也可人为设置
+
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220402141942.png)

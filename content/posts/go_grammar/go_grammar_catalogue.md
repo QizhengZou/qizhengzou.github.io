@@ -2,8 +2,8 @@
 title: "Go_grammar_catalogue"
 date: 2022-01-06T09:17:19+08:00
 lastmod: 2022-02-16
-tags: [catalogue]
-categories: [Catalogue]
+tags: [catalogue, go grammar]
+categories: [Catalogue, Go]
 slug: Go_Catalogue
 draft: false
 ---

@@ -2,8 +2,8 @@
 title: "ISC_catalogue"
 date: 2021-11-21T11:39:55+08:00
 lastmod: 2021-12-22
-tags: [catalogue]
-categories: [Catalogue]
+tags: [catalogue, information security conspectus]
+categories: [Catalogue, School courses]
 slug: ISA_catalogue
 draft: false
 ---

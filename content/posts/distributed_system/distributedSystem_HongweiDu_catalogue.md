@@ -2,8 +2,8 @@
 title: "DistributedSystem_HongweiDu_catalogue"
 date: 2022-01-01T15:21:52+08:00
 lastmod: 2022-01-02
-tags: [catalogue]
-categories: [Catalogue]
+tags: [catalogue, distributed system]
+categories: [Catalogue, School courses]
 slug: DS_Catalogue
 draft: false
 ---

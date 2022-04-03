@@ -5,7 +5,7 @@ lastmod: 2022-01-23
 tags: [computer network]
 categories: [School courses]
 slug: CN_application_layer
-draft: false
+draft: true
 ---
 > 来自 中科大郑烇计网PPT，哈工大深圳堵宏伟计网PPT，改编自计算机网络-自顶向下 第七版
 # 应用层
