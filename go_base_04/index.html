@@ -1,11 +1,127 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Go_base_04 - Jefo</title><meta name=Description content="Jefo"><meta property="og:title" content="Go_base_04"><meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 方法 方法定义 Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver)"><meta property="og:type" content="article"><meta property="og:url" content="https://qizhengzou.github.io/go_base_04/"><meta property="og:image" content="https://qizhengzou.github.io/logo.png"><meta property="article:published_time" content="2022-01-06T09:16:37+08:00"><meta property="article:modified_time" content="2022-01-06T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://qizhengzou.github.io/logo.png"><meta name=twitter:title content="Go_base_04"><meta name=twitter:description content="参考学习go语言中文网、C语言中文网、golang官方文档等 方法 方法定义 Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver)"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://qizhengzou.github.io/go_base_04/><link rel=prev href=https://qizhengzou.github.io/go_base_03/><link rel=next href=https://qizhengzou.github.io/go_base_05/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Go_base_04","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/go_base_04\/"},"image":["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"go grammar","wordcount":4430,"url":"https:\/\/qizhengzou.github.io\/go_base_04\/","datePublished":"2022-01-06T09:16:37+08:00","dateModified":"2022-01-06T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Jefo","logo":"https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Jefo"},"description":""}</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Go_base_04 - Jefo</title><meta name=Description content="Jefo"><meta property="og:title" content="Go_base_04"><meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 方法 方法本质 一个以方法的 receiver 参数作为第一个参数的普通函数。 1 2 3 4 5 6 7 8 9 10 11 12"><meta property="og:type" content="article"><meta property="og:url" content="https://qizhengzou.github.io/go_base_04/"><meta property="og:image" content="https://qizhengzou.github.io/logo.png"><meta property="article:published_time" content="2022-01-06T09:16:37+08:00"><meta property="article:modified_time" content="2022-01-06T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://qizhengzou.github.io/logo.png"><meta name=twitter:title content="Go_base_04"><meta name=twitter:description content="参考学习go语言中文网、C语言中文网、golang官方文档等 方法 方法本质 一个以方法的 receiver 参数作为第一个参数的普通函数。 1 2 3 4 5 6 7 8 9 10 11 12"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://qizhengzou.github.io/go_base_04/><link rel=prev href=https://qizhengzou.github.io/go_base_03/><link rel=next href=https://qizhengzou.github.io/go_base_05/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Go_base_04","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/qizhengzou.github.io\/go_base_04\/"},"image":["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"go grammar","wordcount":5709,"url":"https:\/\/qizhengzou.github.io\/go_base_04\/","datePublished":"2022-01-06T09:16:37+08:00","dateModified":"2022-01-06T00:00:00+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Jefo","logo":"https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"Jefo"},"description":""}</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>All posts </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=/about/>About </a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder=直接搜索更方便^-^ id=search-input-desktop>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Jefo><span class=header-title-pre><i class="far fa-kiss-wink-heart fa-fw"></i></span>Jefo</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=直接搜索更方便^-^ id=search-input-mobile>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/>All posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a><a class=menu-item href=/about/>About</a><a class=menu-item href=https://github.com/qizhengzou title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Go_base_04</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/go/><i class="far fa-folder fa-fw"></i>Go</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:37">2022-01-06 09:16:37</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4430 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id=busuanzi_container_page_pv>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Go_base_04</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/go/><i class="far fa-folder fa-fw"></i>Go</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:37">2022-01-06 09:16:37</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5709 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id=busuanzi_container_page_pv>
 <i class="far fa-eye fa-fw"></i>&nbsp;<span id=busuanzi_value_page_pv></span>&nbsp;次阅读量</span></span></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#方法定义>方法定义</a></li><li><a href=#匿名字段>匿名字段</a></li><li><a href=#方法集>方法集</a></li><li><a href=#表达式>表达式</a></li><li><a href=#自定义error>自定义error</a><ul><li><a href=#抛异常和处理异常>抛异常和处理异常</a><ul><li><a href=#系统抛>系统抛</a></li><li><a href=#返回异常>返回异常</a></li><li><a href=#自定义error-1>自定义error：</a></li></ul></li></ul></li></ul></nav></div></div><div class=content id=content><blockquote><p>参考学习go语言中文网、C语言中文网、golang官方文档等</p></blockquote><h1 id=方法>方法</h1><h2 id=方法定义>方法定义</h2><p>Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver)。</p><ul><li>只能为当前包内命名类型定义方法。</li><li>参数 receiver 可任意命名。如方法中未曾使用 ，可省略参数名。</li><li>参数 receiver 类型可以是 T 或 *T。基类型 T 不能是接口或指针。</li><li>不支持方法重载，receiver 只是参数签名的组成部分。</li><li>可用实例 value 或 pointer 调用全部方法，编译器自动转换。</li></ul><p>一个方法就是一个包含了接受者的函数，接受者可以是命名类型或者结构体类型的一个值或者是一个指针。</p><p>所有给定类型的方法属于该类型的方法集。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#方法本质>方法本质</a></li><li><a href=#方法定义>方法定义</a></li><li><a href=#匿名字段>匿名字段</a></li><li><a href=#方法集以及如何选择-receiver-参数的类型>方法集以及如何选择 receiver 参数的类型。</a></li><li><a href=#表达式>表达式</a></li><li><a href=#自定义error>自定义error</a><ul><li><a href=#抛异常和处理异常>抛异常和处理异常</a><ul><li><a href=#系统抛>系统抛</a></li><li><a href=#返回异常>返回异常</a></li><li><a href=#自定义error-1>自定义error：</a></li></ul></li></ul></li></ul></nav></div></div><div class=content id=content><blockquote><p>参考学习go语言中文网、C语言中文网、golang官方文档等</p></blockquote><h1 id=方法>方法</h1><h2 id=方法本质>方法本质</h2><p>一个以方法的 receiver 参数作为第一个参数的普通函数。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go>
+<span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+    <span class=s>&#34;fmt&#34;</span>
+    <span class=s>&#34;time&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>type</span> <span class=nx>field</span> <span class=kd>struct</span> <span class=p>{</span>
+    <span class=nx>name</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>p</span> <span class=o>*</span><span class=nx>field</span><span class=p>)</span> <span class=nb>print</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>p</span><span class=p>.</span><span class=nx>name</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>data1</span> <span class=o>:=</span> <span class=p>[</span><span class=p>]</span><span class=o>*</span><span class=nx>field</span><span class=p>{</span><span class=p>{</span><span class=s>&#34;one&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;two&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;three&#34;</span><span class=p>}</span><span class=p>}</span>
+    <span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>v</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>data1</span> <span class=p>{</span>
+        <span class=k>go</span> <span class=nx>v</span><span class=p>.</span><span class=nb>print</span><span class=p>(</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=nx>data2</span> <span class=o>:=</span> <span class=p>[</span><span class=p>]</span><span class=nx>field</span><span class=p>{</span><span class=p>{</span><span class=s>&#34;four&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;five&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;six&#34;</span><span class=p>}</span><span class=p>}</span>
+    <span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>v</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>data2</span> <span class=p>{</span>
+        <span class=k>go</span> <span class=nx>v</span><span class=p>.</span><span class=nb>print</span><span class=p>(</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=mi>3</span> <span class=o>*</span> <span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go>
+<span class=nx>one</span>
+<span class=nx>two</span>
+<span class=nx>three</span>
+<span class=nx>six</span>
+<span class=nx>six</span>
+<span class=nx>six</span>
+</code></pre></td></tr></table></div></div><p>为什么会是这样的输出？</p><p>根据 Go 方法的本质，也就是一个以方法的 receiver 参数作为第一个参数的普通函数，对这个程序做个等价变换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go>
+<span class=kd>type</span> <span class=nx>field</span> <span class=kd>struct</span> <span class=p>{</span>
+    <span class=nx>name</span> <span class=kt>string</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>p</span> <span class=o>*</span><span class=nx>field</span><span class=p>)</span> <span class=nb>print</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>p</span><span class=p>.</span><span class=nx>name</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>(</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>data1</span> <span class=o>:=</span> <span class=p>[</span><span class=p>]</span><span class=o>*</span><span class=nx>field</span><span class=p>{</span><span class=p>{</span><span class=s>&#34;one&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;two&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;three&#34;</span><span class=p>}</span><span class=p>}</span>
+    <span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>v</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>data1</span> <span class=p>{</span>
+        <span class=k>go</span> <span class=p>(</span><span class=o>*</span><span class=nx>field</span><span class=p>)</span><span class=p>.</span><span class=nb>print</span><span class=p>(</span><span class=nx>v</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=nx>data2</span> <span class=o>:=</span> <span class=p>[</span><span class=p>]</span><span class=nx>field</span><span class=p>{</span><span class=p>{</span><span class=s>&#34;four&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;five&#34;</span><span class=p>}</span><span class=p>,</span> <span class=p>{</span><span class=s>&#34;six&#34;</span><span class=p>}</span><span class=p>}</span>
+    <span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>v</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>data2</span> <span class=p>{</span>
+        <span class=k>go</span> <span class=p>(</span><span class=o>*</span><span class=nx>field</span><span class=p>)</span><span class=p>.</span><span class=nb>print</span><span class=p>(</span><span class=o>&amp;</span><span class=nx>v</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=mi>3</span> <span class=o>*</span> <span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>我们把对 field 的方法 print 的调用，替换为 Method Expression 形式，替换前后的程序输出结果是一致的</p><p>使用 go 关键字启动一个新 Goroutine 时，method expression 形式的 print 函数是如何绑定参数的：</p><ul><li>迭代 data1 时，由于 data1 中的元素类型是 field 指针 (*field)，因此赋值后 v 就是元素地址，与 print 的 receiver 参数类型相同，每次调用 (*field).print 函数时直接传入的 v 即可，实际上传入的也是各个 field 元素的地址；</li><li>迭代 data2 时，由于 data2 中的元素类型是 field（非指针），与 print 的 receiver 参数类型不同，因此需要将其取地址后再传入 (*field).print 函数。这样每次传入的 &v 实际上是变量 v 的地址，而不是切片 data2 中各元素的地址。</li></ul><h2 id=方法定义>方法定义</h2><p>Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver)。</p><ul><li>只能为当前包内命名类型定义方法。</li><li>参数 receiver 可任意命名。如方法中未曾使用 ，可省略参数名。</li><li>参数 receiver 类型可以是 T 或 *T。基类型 T 不能是接口或指针。</li><li>不支持方法重载，receiver 只是参数签名的组成部分。</li><li>可用实例 value 或 pointer 调用全部方法，编译器自动转换。</li></ul><p>方法表达式（Method Expression）:</p><ul><li>直接以类型名 T 调用方法的表达方式，被称为 Method Expression。通过 Method Expression 这种形式，类型 T 只能调用 T 的方法集合（Method Set）中的方法，同理类型 *T 也只能调用 *T 的方法集合中的方法</li></ul><p>一个方法就是一个包含了接受者的函数，接受者可以是命名类型或者结构体类型的一个值或者是一个指针。</p><p>所有给定类型的方法属于该类型的方法集。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -565,7 +681,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 <span class=nx>output</span><span class=p>:</span>
 <span class=nx>Manager</span><span class=p>:</span> <span class=mh>0xc420074180</span><span class=p>,</span> <span class=o>&amp;</span><span class=err>\</span><span class=p>{</span><span class=err>\</span><span class=p>{</span><span class=mi>1</span> <span class=nx>Tom</span><span class=p>}</span> <span class=nx>Administrator</span><span class=p>}</span>
     <span class=nx>User</span><span class=p>:</span> <span class=mh>0xc420074180</span><span class=p>,</span> <span class=o>&amp;</span><span class=p>{</span><span class=mi>1</span> <span class=nx>Tom</span><span class=p>}</span> 
-</code></pre></td></tr></table></div></div><h2 id=方法集>方法集</h2><p>Golang方法集 ：每个类型都有与之关联的方法集，这会影响到接口实现规则。</p><ul><li>类型 T 方法集包含全部 receiver T 方法。</li><li>类型 *T 方法集包含全部 receiver T + *T 方法。</li><li>如类型 S 包含匿名字段 T，则 S 和 *S 方法集包含 T 方法。</li><li>如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T + *T 方法。</li><li>不管嵌入 T 或 *T，*S 方法集总是包含 T + *T 方法。
+</code></pre></td></tr></table></div></div><h2 id=方法集以及如何选择-receiver-参数的类型>方法集以及如何选择 receiver 参数的类型。</h2><p>Golang方法集 ：每个类型都有与之关联的方法集，这会影响到接口实现规则。</p><ul><li>类型 T 方法集包含全部 receiver T 方法。</li><li>类型 *T 方法集包含全部 receiver T + *T 方法。</li><li>如类型 S 包含匿名字段 T，则 S 和 *S 方法集包含 T 方法。</li><li>如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T + *T 方法。</li><li>不管嵌入 T 或 *T，*S 方法集总是包含 T + *T 方法。
 用实例 value 和 pointer 调用方法 (含匿名字段) 不受方法集约束，编译器总是查找全部方法，并自动转换 receiver 实参。</li></ul><p>Go 语言中内部类型方法集提升的规则：</p><p>类型 T 方法集包含全部 receiver T 方法。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -806,7 +922,11 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 <span class=nx>s2</span> <span class=nx>is</span> <span class=p>:</span> <span class=o>&amp;</span><span class=p>{</span> <span class=p>{</span><span class=mi>1</span><span class=p>}</span> <span class=p>}</span>
 <span class=nx>如类型</span> <span class=nx>S</span> <span class=nx>包含匿名字段</span> <span class=o>*</span><span class=nx>T</span><span class=err>，</span><span class=nx>则</span> <span class=nx>S</span> <span class=nx>和</span> <span class=o>*</span><span class=nx>S</span> <span class=nx>方法集包含</span> <span class=nx>T</span> <span class=nx>方法</span>
 <span class=nx>如类型</span> <span class=nx>S</span> <span class=nx>包含匿名字段</span> <span class=o>*</span><span class=nx>T</span><span class=err>，</span><span class=nx>则</span> <span class=nx>S</span> <span class=nx>和</span> <span class=o>*</span><span class=nx>S</span> <span class=nx>方法集包含</span> <span class=o>*</span><span class=nx>T</span> <span class=nx>方法</span> 
-</code></pre></td></tr></table></div></div><h2 id=表达式>表达式</h2><p>Golang 表达式 ：根据调用者不同，方法分为两种表现形式:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>t</span> <span class=nx>T</span><span class=p>)</span> <span class=nf>M1</span><span class=p>(</span><span class=p>)</span> <span class=o>&lt;=</span><span class=p>&gt;</span> <span class=nf>F1</span><span class=p>(</span><span class=nx>t</span> <span class=nx>T</span><span class=p>)</span>
+<span class=kd>func</span> <span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>T</span><span class=p>)</span> <span class=nf>M2</span><span class=p>(</span><span class=p>)</span> <span class=o>&lt;=</span><span class=p>&gt;</span> <span class=nf>F2</span><span class=p>(</span><span class=nx>t</span> <span class=o>*</span><span class=nx>T</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><ul><li>当 receiver 参数的类型为 T 时：<ul><li>当我们的方法 M1 采用类型为 T 的 receiver 参数时，代表 T 类型实例的 receiver 参数以值传递方式传递到 M1 方法体中的，实际上是 T 类型实例的副本，M1 方法体中对副本的任何修改操作，都不会影响到原 T 类型实例。</li></ul></li><li>当 receiver 参数的类型为 *T 时：<ul><li>方法 M2 采用类型为 *T 的 receiver 参数时，代表 *T 类型实例的 receiver 参数以值传递方式传递到 M2 方法体中的，实际上是 T 类型实例的地址，M2 方法体通过该地址可以对原 T 类型实例进行任何修改操作。</li></ul></li></ul><p>选择 receiver 参数类型的第一个原则：*<em>如果 Go 方法要把对 receiver 参数代表的类型实例的修改，反映到原类型实例上，那么我们应该选择 <em>T 作为 receiver 参数的类型。</em></em></p><p>无论是 T 类型实例，还是 *T 类型实例，都既可以调用 receiver 为 T 类型的方法，也可以调用 receiver 为 *T 类型的方法。</p><p>选择 receiver 参数类型的第二个原则：</p><ul><li>一般情况下，我们通常会为 receiver 参数选择 T 类型，因为这样可以缩窄外部修改类型实例内部状态的“接触面”，也就是尽量少暴露可以修改类型内部状态的方法。</li><li>考虑到 Go 方法调用时，receiver 参数是以值拷贝的形式传入方法中的。那么，如果 receiver 参数类型的 size 较大，以值拷贝形式传入就会导致较大的性能开销，这时我们选择 *T 作为 receiver 类型可能更好些。</li></ul><p>选择 receiver 参数类型的第三个原则：（<strong>其实是应该首先考虑的一点</strong>）</p><ul><li>如果 T 类型需要实现某个接口，那我们就要使用 T 作为 receiver 参数的类型，来满足接口类型方法集合中的所有方法。</li><li>如果 T 不需要实现某一接口，但 *T 需要实现该接口，那么根据方法集合概念，*T 的方法集合是包含 T 的方法集合的，这样我们在确定 Go 方法的 receiver 的类型时，参考原则一和原则二就可以了。</li></ul><h2 id=表达式>表达式</h2><p>Golang 表达式 ：根据调用者不同，方法分为两种表现形式:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go>    <span class=nx>instance</span><span class=p>.</span><span class=nf>method</span><span class=p>(</span><span class=nx>args</span><span class=o>...</span><span class=p>)</span> <span class=o>--</span><span class=o>-</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=kd>type</span><span class=p>&gt;</span><span class=p>.</span><span class=kd>func</span><span class=p>(</span><span class=nx>instance</span><span class=p>,</span> <span class=nx>args</span><span class=o>...</span><span class=p>)</span>  
 </code></pre></td></tr></table></div></div><p>前者称为 method value，后者 method expression。</p><p>两者都可像普通函数那样赋值和传参，区别在于 method value 绑定实例，而 method expression 则须显式传参。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
