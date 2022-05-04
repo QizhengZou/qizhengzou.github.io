@@ -30,12 +30,12 @@ func (p *field) print() {
 }
 
 func main() {
-    data1 := []*field{{"one"}, {"two"}, {"three"}}
+    data1 := []*field{ {"one"}, {"two"}, {"three"} }
     for _, v := range data1 {
         go v.print()
     }
 
-    data2 := []field{{"four"}, {"five"}, {"six"}}
+    data2 := []field{ {"four"}, {"five"}, {"six"} }
     for _, v := range data2 {
         go v.print()
     }
@@ -67,12 +67,12 @@ func (p *field) print() {
 }
 
 func main() {
-    data1 := []*field{{"one"}, {"two"}, {"three"}}
+    data1 := []*field{ {"one"}, {"two"}, {"three"} }
     for _, v := range data1 {
         go (*field).print(v)
     }
 
-    data2 := []field{{"four"}, {"five"}, {"six"}}
+    data2 := []field{ {"four"}, {"five"}, {"six"} }
     for _, v := range data2 {
         go (*field).print(&v)
     }

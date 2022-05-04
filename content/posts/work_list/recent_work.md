@@ -14,37 +14,37 @@ draft: true
 更新日期：2022/03/23
 
 1. <font color=Green></font>
-{{< style "text-align:right; strong{color:#00b1ff;}" >}}
+{ {< style "text-align:right; strong{color:#00b1ff;}" >} }
 This is a **right-aligned** paragraph.
-{{< /style >}}
+{ {< /style >} }
 2. 
 ```
-{{< music url="/music/LeeAlive - 水(Original Mix).mp3" name=水 artist=LeeAlive cover="/images/music/水.png" >}}
+{ {< music url="/music/LeeAlive - 水(Original Mix).mp3" name=水 artist=LeeAlive cover="/images/music/水.png" >} }
 
-{{< music url="/music/a_hisa - ほたる火.mp3" name=ほたる火 artist=a_hisa cover="/images/music/萤火虫之光.png" >}}
+{ {< music url="/music/a_hisa - ほたる火.mp3" name=ほたる火 artist=a_hisa cover="/images/music/萤火虫之光.png" >} }
 ```
 3. 流程图
 ```
-{{< mermaid >}}
+{ {< mermaid >} }
 graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
     C -->|Two| E[Result two]
-{{< /mermaid >}}
+{ {< /mermaid >} }
 ```
 4. 打字动画
 ```
-{{< typeit >}}
+{ {< typeit >} }
 这一个带有基于 [TypeIt](https://typeitjs.com/) 的 **打字动画** 的 *段落*...
-{{< /typeit >}}
-{{< typeit code=java >}}
+{ {< /typeit >} }
+{ {< typeit code=java >} }
 public class HelloWorld {
     public static void main(String []args) {
         System.out.println("Hello World");
     }
 }
-{{< /typeit >}}
+{ {< /typeit >} }
 
 
 ```
