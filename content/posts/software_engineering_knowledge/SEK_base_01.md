@@ -5,7 +5,7 @@ lastmod: 2021-11-25
 tags: [software engineering knowledge]
 categories: [School courses]
 slug: software engineering introduction
-draft: false
+draft: true
 ---
 > 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
 ## 第一部分 软件工程概论

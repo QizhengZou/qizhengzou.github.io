@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/linux_base_01\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "linux","wordcount":  2322 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "linux","wordcount":  4130 ,
         "url": "https:\/\/qizhengzou.github.io\/linux_base_01\/","datePublished": "2021-11-08T15:34:58+08:00","dateModified": "2021-11-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/linux_base_01/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/linux_base_01/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,9 +114,9 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Linux_base_01</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/advanced-learning/"><i class="far fa-folder fa-fw"></i>advanced learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-08 15:34:58">2021-11-08 15:34:58</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2322 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="busuanzi_container_page_pv">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/advanced-learning/"><i class="far fa-folder fa-fw"></i>Advanced learning</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-08 15:34:58">2021-11-08 15:34:58</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4130 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
             </div>
@@ -108,12 +131,12 @@
     <li><a href="#2-系统操作">2. 系统操作</a>
       <ul>
         <li><a href="#帮助命令man-help-info">帮助命令man help info</a></li>
-        <li><a href="#linux文件管理">linux文件管理</a>
+        <li><a href="#linux文件管理">linux文件管理</a></li>
+        <li><a href="#文件查看">文件查看</a></li>
+        <li><a href="#目录文件的创建和删除">目录文件的创建和删除</a></li>
+        <li><a href="#通配符通用的匹配符号">通配符（通用的匹配符号）</a></li>
+        <li><a href="#文件操作">文件操作</a>
           <ul>
-            <li><a href="#文件查看">文件查看</a></li>
-            <li><a href="#目录文件的创建和删除">目录文件的创建和删除</a></li>
-            <li><a href="#通配符通用的匹配符号">通配符（通用的匹配符号）</a></li>
-            <li><a href="#文件操作">文件操作</a></li>
             <li><a href="#文本内容查看">文本内容查看</a></li>
             <li><a href="#打包压缩解压">打包压缩解压</a></li>
             <li><a href="#vim的四种模式">vim的四种模式</a>
@@ -125,12 +148,140 @@
             </li>
           </ul>
         </li>
+        <li><a href="#用户和用户组管理及密码管理">用户和用户组管理及密码管理</a></li>
+        <li><a href="#su和sudo">su和sudo</a></li>
+        <li><a href="#用户和用户组的配置文件介绍">用户和用户组的配置文件介绍</a></li>
+        <li><a href="#文件和目录权限的表示方法">文件和目录权限的表示方法</a></li>
+        <li><a href="#文件权限的修改方法和数字表示方法">文件权限的修改方法和数字表示方法</a></li>
+        <li><a href="#权限管理和文件的特殊权限">权限管理和文件的特殊权限</a></li>
       </ul>
     </li>
-    <li><a href="#3-服务管理">3. 服务管理</a></li>
-    <li><a href="#4-shell">4. Shell</a></li>
-    <li><a href="#5-文本操作">5. 文本操作</a></li>
-    <li><a href="#6-服务篇">6. 服务篇</a></li>
+    <li><a href="#3-服务管理">3. 服务管理</a>
+      <ul>
+        <li><a href="#网络管理">网络管理</a></li>
+        <li><a href="#查看修改网络配置">查看、修改网络配置</a></li>
+        <li><a href="#网络故障排除">网络故障排除</a></li>
+        <li><a href="#网络管理和配置文件">网络管理和配置文件</a></li>
+        <li><a href="#软件包管理器的使用及软件包的安装">软件包管理器的使用及软件包的安装</a>
+          <ul>
+            <li><a href="#rpm命令">rpm命令</a></li>
+            <li><a href="#yum包管理器">yum包管理器</a></li>
+            <li><a href="#源代码编译安装">源代码编译安装</a></li>
+          </ul>
+        </li>
+        <li><a href="#内核升级">内核升级</a></li>
+        <li><a href="#grub配置文件介绍">grub配置文件介绍</a></li>
+        <li><a href="#ps-top查看进程">ps top查看进程</a></li>
+        <li><a href="#进程的控制关联通信">进程的控制、关联、通信</a></li>
+        <li><a href="#守护进程">守护进程</a></li>
+        <li><a href="#screen和系统日志">screen和系统日志</a></li>
+        <li><a href="#服务管理工具systemctl">服务管理工具systemctl</a></li>
+        <li><a href="#selinux">SElinux</a></li>
+        <li><a href="#内存和磁盘管理">内存和磁盘管理</a>
+          <ul>
+            <li><a href="#内存查看命令">内存查看命令</a></li>
+            <li><a href="#磁盘分区和文件大小查看">磁盘分区和文件大小查看</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件系统管理">文件系统管理</a></li>
+        <li><a href="#i节点和数据块操作">i节点和数据块操作</a></li>
+        <li><a href="#分区和挂载">分区和挂载</a>
+          <ul>
+            <li><a href="#分区和挂载磁盘配额">分区和挂载磁盘配额</a></li>
+          </ul>
+        </li>
+        <li><a href="#交换分区swap的查看与创建">交换分区swap的查看与创建</a></li>
+        <li><a href="#软件raid的使用">软件RAID的使用</a></li>
+        <li><a href="#逻辑卷lvm的用途与创建">逻辑卷LVM的用途与创建</a></li>
+        <li><a href="#sar以及第三方命令">sar以及第三方命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-shell">4. Shell</a>
+      <ul>
+        <li><a href="#什么是shell">什么是shell</a></li>
+        <li><a href="#linux的启动过程">linux的启动过程</a></li>
+        <li><a href="#shell脚本">shell脚本</a></li>
+        <li><a href="#脚本不同执行方式的影响">脚本不同执行方式的影响</a></li>
+        <li><a href="#管道">管道</a></li>
+        <li><a href="#重定向">重定向</a></li>
+        <li><a href="#变量赋值">变量赋值</a></li>
+        <li><a href="#变量引用及作用范围">变量引用及作用范围</a></li>
+        <li><a href="#环境变量预定义变量与位置变量">环境变量、预定义变量与位置变量</a></li>
+        <li><a href="#环境变量配置文件">环境变量配置文件</a></li>
+        <li><a href="#数组">数组</a></li>
+        <li><a href="#转义和引用">转义和引用</a></li>
+        <li><a href="#运算符">运算符</a></li>
+        <li><a href="#特殊字符大全">特殊字符大全</a></li>
+        <li><a href="#test比较">test比较</a></li>
+        <li><a href="#if判断的使用">if判断的使用</a>
+          <ul>
+            <li><a href="#if-else判断的使用">if-else判断的使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#嵌套if的使用">嵌套if的使用</a></li>
+        <li><a href="#case分支">case分支</a></li>
+        <li><a href="#for的基本使用">for的基本使用</a></li>
+        <li><a href="#c语言风格的for">c语言风格的for</a></li>
+        <li><a href="#while循环和until循环">while循环和until循环</a></li>
+        <li><a href="#循环的嵌套和breakcontinue语句">循环的嵌套和break、continue语句</a></li>
+        <li><a href="#使用循环处理位置参数">使用循环处理位置参数</a></li>
+        <li><a href="#自定义参数">自定义参数</a></li>
+        <li><a href="#系统函数库介绍">系统函数库介绍</a></li>
+        <li><a href="#脚本资源控制">脚本资源控制</a></li>
+        <li><a href="#信号">信号</a></li>
+        <li><a href="#一次性计划任务">一次性计划任务</a></li>
+        <li><a href="#周期性计划任务">周期性计划任务</a></li>
+        <li><a href="#为脚本加锁">为脚本加锁</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-文本操作">5. 文本操作</a>
+      <ul>
+        <li><a href="#元字符介绍">元字符介绍</a></li>
+        <li><a href="#find演示">find演示</a></li>
+        <li><a href="#sed和awk介绍">sed和awk介绍</a></li>
+        <li><a href="#sed替换命令讲解">sed替换命令讲解</a>
+          <ul>
+            <li><a href="#加强版">加强版</a></li>
+          </ul>
+        </li>
+        <li><a href="#sed的其他常用命令">sed的其他常用命令</a></li>
+        <li><a href="#sed多行模式空间">sed多行模式空间</a></li>
+        <li><a href="#什么是sed的保持空间">什么是sed的保持空间</a></li>
+        <li><a href="#awk">awk</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-服务篇">6. 服务篇</a>
+      <ul>
+        <li><a href="#防火墙概述">防火墙概述</a></li>
+        <li><a href="#iptables">iptables</a>
+          <ul>
+            <li><a href="#iptables规则的基本使用演示">iptables规则的基本使用演示</a></li>
+            <li><a href="#iptables过滤规则的使用">iptables过滤规则的使用</a></li>
+            <li><a href="#iptables-nat表的使用">iptables nat表的使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#firewalld">firewalld</a></li>
+        <li><a href="#ssh">SSH</a>
+          <ul>
+            <li><a href="#ssh介绍之telent明文漏洞">SSH介绍之Telent明文漏洞</a></li>
+            <li><a href="#ssh服务演示">SSH服务演示</a></li>
+          </ul>
+        </li>
+        <li><a href="#ftp服务器vsftpd介绍与软件包安装">FTP服务器vsftpd介绍与软件包安装</a></li>
+        <li><a href="#vsftpd配置文件介绍">vsftpd配置文件介绍</a>
+          <ul>
+            <li><a href="#vsftp虚拟用户">vsftp虚拟用户</a></li>
+          </ul>
+        </li>
+        <li><a href="#sanba服务演示">sanba服务演示</a></li>
+        <li><a href="#nfs服务">NFS服务</a></li>
+        <li><a href="#nginx基本配置文件">Nginx基本配置文件</a></li>
+        <li><a href="#使用nginx配置域名虚拟主机">使用Nginx配置域名虚拟主机</a></li>
+        <li><a href="#lnmp环境搭建">LNMP环境搭建</a></li>
+        <li><a href="#dns服务原理">DNS服务原理</a></li>
+        <li><a href="#nas演示">NAS演示</a></li>
+      </ul>
+    </li>
     <li><a href="#7-实战">7. 实战</a></li>
   </ul>
 </nav></div>
@@ -179,7 +330,7 @@
 <h3 id="linux文件管理">linux文件管理</h3>
 <p>一切皆文件
 windows里有注册表，资源管理器等组件，控制linux自身的统统都是文件，linux文件管理非常重要</p>
-<h4 id="文件查看">文件查看</h4>
+<h3 id="文件查看">文件查看</h3>
 <p>tab可以进行目录补全</p>
 <ul>
 <li>pwd</li>
@@ -199,9 +350,12 @@ windows里有注册表，资源管理器等组件，控制linux自身的统统�
 <li>-t时间顺序显示</li>
 <li>-R递归显示</li>
 </ul>
+<ul>
+<li>-F把文件按照类型归类，主要区分目录文件、可执行文件、链接文件，并且在末尾加上 / 、*、@符号标识</li>
+</ul>
 </li>
 </ul>
-<h4 id="目录文件的创建和删除">目录文件的创建和删除</h4>
+<h3 id="目录文件的创建和删除">目录文件的创建和删除</h3>
 <p>只列出了少量命令</p>
 <ul>
 <li>mkdir
@@ -236,7 +390,7 @@ windows里有注册表，资源管理器等组件，控制linux自身的统统�
 </li>
 <li>更多命令见<a href="https://www.runoob.com/linux/linux-command-manual.html" target="_blank" rel="noopener noreffer">命令大全</a></li>
 </ul>
-<h4 id="通配符通用的匹配符号">通配符（通用的匹配符号）</h4>
+<h3 id="通配符通用的匹配符号">通配符（通用的匹配符号）</h3>
 <p>是shell内建的符号，用于多个相似的文件进行操作</p>
 <ul>
 <li>*匹配任何字符串</li>
@@ -245,12 +399,16 @@ windows里有注册表，资源管理器等组件，控制linux自身的统统�
 <li>[a-z]匹配一个范围</li>
 <li>[!xyz]或[^xyz] 不匹配</li>
 </ul>
-<h4 id="文件操作">文件操作</h4>
+<h3 id="文件操作">文件操作</h3>
 <h4 id="文本内容查看">文本内容查看</h4>
 <ul>
 <li>cat ⽂本内容显示到终端</li>
 <li>head 查看⽂件开头（默认10行，-5可显示5行）</li>
-<li>tail 查看⽂件结尾（行数同head）(-f可进行跟踪)</li>
+<li>tail 查看⽂件结尾（行数同head）(-f可进行跟踪)
+<ul>
+<li>eg:tail -10 /etc/passwd 查看psaawd文件中倒数十行</li>
+</ul>
+</li>
 <li>常⽤参数 -f ⽂件内容更新后，显示信息同步更新</li>
 <li>wc 统计⽂件内容信息（-l查看行数）</li>
 <li>more 分行显示 （空格继续显示）</li>
@@ -282,7 +440,7 @@ less:由于more不能后退，就取more的反义词less加上后退功能
 </li>
 </ul>
 <h4 id="vim的四种模式">vim的四种模式</h4>
-<p>vim是一个vi向上兼容的文本编辑器</p>
+<p>vim是一个vi向上兼容的文本编辑器，vim写的时候实际上是先复制一个隐藏文件，写入其中，保存退出时再用隐藏文件替换目的文件。</p>
 <h5 id="正常模式">正常模式</h5>
 <p>正常模式下输入：</p>
 <ul>
@@ -338,19 +496,251 @@ less:由于more不能后退，就取more的反义词less加上后退功能
 <h5 id="可视模式">可视模式</h5>
 <p>用于对文件进行重复的大量操作可以一次性执行完成</p>
 <ul>
-<li>v字符可视模式</li>
-<li>V行可视模式</li>
-<li>ctrl+v块可视模式</li>
+<li>v      字符可视模式</li>
+<li>V      行可视模式</li>
+<li>ctrl+v 块可视模式（用的最多）</li>
 <li>配合d和I可以进行块的便利操作
 <ul>
 <li>eg:进入块可视模式，用hjkl选择一个块，I可以在块头插入比如abc再按两次esc可见每行都被插入了abc；选中一个块，按d直接删除块</li>
 </ul>
 </li>
 </ul>
+<h3 id="用户和用户组管理及密码管理">用户和用户组管理及密码管理</h3>
+<p>windows linux都是多用户操作系统。只是windows的用户一般只有一个。</p>
+<p>多用户操作系统的目的是隔离</p>
+<ul>
+<li>用户权限隔离</li>
+<li>系统资源隔离</li>
+<li>root 用户与普通用户的区别</li>
+</ul>
+<p>用户管理常用命令</p>
+<ul>
+<li>useradd 新建用户
+<ul>
+<li>id+用户名 可显示相关信息（uid gid 以及组号）</li>
+</ul>
+</li>
+<li>userdel 删除用户
+<ul>
+<li>一般会加-r选项，因为如果不加，用户的家目录就会被保留下来，防止误删数据，加-r后都会删除</li>
+<li>可查看/etc/passwd  /etc/shadow</li>
+</ul>
+</li>
+<li>passwd 修改用户密码</li>
+<li>usermod 修改用户属性
+<ul>
+<li>可接很多属性如-a -c -d -e -g……。经常使用的一个属性是-d（用户的新登陆目录，家目录）</li>
+<li>修改用户组 eg: usermod -g group1 user1</li>
+</ul>
+</li>
+<li>chage 修改用户属性
+<ul>
+<li>change age的缩写，可更改用户密码过期信息</li>
+</ul>
+</li>
+</ul>
+<p>组管理命令</p>
+<ul>
+<li>groupadd 新建用户组
+<ul>
+<li>新建用户加入组有两种方法：
+<ul>
+<li>先新建用户再用usermod -g</li>
+<li>直接useradd -g group1 user1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>groupdel 删除用户组</li>
+</ul>
+<h3 id="su和sudo">su和sudo</h3>
+<p>用户切换</p>
+<ul>
+<li>su 切换用户
+<ul>
+<li>su - USERNAME 使用 login shell 方式切换用户
+<ul>
+<li>-的作用是在用户切换的同时将运行环境也变更为目标用户的运行环境</li>
+<li>不带 - 为不完全切换，只切换了身份，需要额外切换目录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>sudo 以其他用户身份执行命令
+<ul>
+<li>visudo 设置需要使用 sudo 的用户（组）</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#30分钟后关闭主机，需要管理员权限</span>
+shutdown -h <span class="m">30</span>
+<span class="c1">#停止关闭主机命令</span>
+shutdown -c 
+</code></pre></td></tr></table>
+</div>
+</div><p>vi sudo后可手动添加某用户权限eg:(A B=C )=(user1 ALL=/sbin/shutdown -c)</p>
+<ul>
+<li>字符终端时B可以是localhost</li>
+<li>C是命令，在命令模式输入!which shutdown可得到shutdown命令的位置</li>
+<li>user1就被临时赋予了使用shutdown -c的权限</li>
+</ul>
+<h3 id="用户和用户组的配置文件介绍">用户和用户组的配置文件介绍</h3>
+<p>用户配置文件</p>
+<ul>
+<li>/root root 用户的家目录</li>
+<li>/home/USERNAME 普通用户默认家目录位置</li>
+<li>/etc/passwd 用户配置文件</li>
+<li>/etc/shadow 用户密码相关配置文件</li>
+<li>/etc/group 用户组配置文件</li>
+</ul>
+<h3 id="文件和目录权限的表示方法">文件和目录权限的表示方法</h3>
+<p>文件类型：</p>
+<ul>
+<li>- 普通⽂件</li>
+<li>d ⽬录⽂件</li>
+<li>b 块特殊⽂件（块设备）</li>
+<li>c 字符特殊⽂件（字符设备）</li>
+<li>l 符号链接（快捷方式）</li>
+<li>f 命名管道</li>
+<li>s 套接字⽂件</li>
+</ul>
+<p>字符权限表示方法</p>
+<ul>
+<li>r 读</li>
+<li>w 写</li>
+<li>x 执行</li>
+</ul>
+<p>数字权限的表示方法</p>
+<ul>
+<li>r = 4</li>
+<li>w = 2</li>
+<li>x = 1</li>
+</ul>
+<p>- rw- r-x r- - 1 userame groupname mtime filename</p>
+<ul>
+<li>rw- 文件属主的权限</li>
+<li>r-x 文件属组的权限</li>
+<li>r- - 其他用户的权限</li>
+<li>创建文件有默认权限，根据 umask 值计算</li>
+</ul>
+<p>目录权限：</p>
+<ul>
+<li>x 进入目录</li>
+<li>rx 显示目录内的文件名</li>
+<li>wx 修改目录内的文件名</li>
+</ul>
+<h3 id="文件权限的修改方法和数字表示方法">文件权限的修改方法和数字表示方法</h3>
+<p>修改权限：</p>
+<ul>
+<li>chmod 修改文件、目录权限</li>
+<li>chown 更改属主、属组</li>
+<li>chgrp 可以单独更改属组，不常用</li>
+</ul>
+<p>特殊权限：</p>
+<ul>
+<li>SUID 用于二进制可执行文件，执行命令时取得文件属主权限</li>
+<li>SGID 用于目录，在该目录下创建新的文件和目录，权限自动更改为该目录的属组</li>
+<li>SBIT 用于目录，该目录下新建的文件和目录，仅 root 和自己可以删除</li>
+</ul>
+<h3 id="权限管理和文件的特殊权限">权限管理和文件的特殊权限</h3>
 <h2 id="3-服务管理">3. 服务管理</h2>
+<h3 id="网络管理">网络管理</h3>
+<h3 id="查看修改网络配置">查看、修改网络配置</h3>
+<h3 id="网络故障排除">网络故障排除</h3>
+<h3 id="网络管理和配置文件">网络管理和配置文件</h3>
+<h3 id="软件包管理器的使用及软件包的安装">软件包管理器的使用及软件包的安装</h3>
+<h4 id="rpm命令">rpm命令</h4>
+<h4 id="yum包管理器">yum包管理器</h4>
+<h4 id="源代码编译安装">源代码编译安装</h4>
+<h3 id="内核升级">内核升级</h3>
+<h3 id="grub配置文件介绍">grub配置文件介绍</h3>
+<h3 id="ps-top查看进程">ps top查看进程</h3>
+<h3 id="进程的控制关联通信">进程的控制、关联、通信</h3>
+<h3 id="守护进程">守护进程</h3>
+<h3 id="screen和系统日志">screen和系统日志</h3>
+<h3 id="服务管理工具systemctl">服务管理工具systemctl</h3>
+<h3 id="selinux">SElinux</h3>
+<h3 id="内存和磁盘管理">内存和磁盘管理</h3>
+<h4 id="内存查看命令">内存查看命令</h4>
+<h4 id="磁盘分区和文件大小查看">磁盘分区和文件大小查看</h4>
+<h3 id="文件系统管理">文件系统管理</h3>
+<h3 id="i节点和数据块操作">i节点和数据块操作</h3>
+<h3 id="分区和挂载">分区和挂载</h3>
+<h4 id="分区和挂载磁盘配额">分区和挂载磁盘配额</h4>
+<h3 id="交换分区swap的查看与创建">交换分区swap的查看与创建</h3>
+<h3 id="软件raid的使用">软件RAID的使用</h3>
+<h3 id="逻辑卷lvm的用途与创建">逻辑卷LVM的用途与创建</h3>
+<h3 id="sar以及第三方命令">sar以及第三方命令</h3>
 <h2 id="4-shell">4. Shell</h2>
+<h3 id="什么是shell">什么是shell</h3>
+<h3 id="linux的启动过程">linux的启动过程</h3>
+<h3 id="shell脚本">shell脚本</h3>
+<h3 id="脚本不同执行方式的影响">脚本不同执行方式的影响</h3>
+<h3 id="管道">管道</h3>
+<h3 id="重定向">重定向</h3>
+<h3 id="变量赋值">变量赋值</h3>
+<h3 id="变量引用及作用范围">变量引用及作用范围</h3>
+<h3 id="环境变量预定义变量与位置变量">环境变量、预定义变量与位置变量</h3>
+<h3 id="环境变量配置文件">环境变量配置文件</h3>
+<h3 id="数组">数组</h3>
+<h3 id="转义和引用">转义和引用</h3>
+<h3 id="运算符">运算符</h3>
+<h3 id="特殊字符大全">特殊字符大全</h3>
+<h3 id="test比较">test比较</h3>
+<h3 id="if判断的使用">if判断的使用</h3>
+<h4 id="if-else判断的使用">if-else判断的使用</h4>
+<h3 id="嵌套if的使用">嵌套if的使用</h3>
+<h3 id="case分支">case分支</h3>
+<h3 id="for的基本使用">for的基本使用</h3>
+<h3 id="c语言风格的for">c语言风格的for</h3>
+<h3 id="while循环和until循环">while循环和until循环</h3>
+<h3 id="循环的嵌套和breakcontinue语句">循环的嵌套和break、continue语句</h3>
+<h3 id="使用循环处理位置参数">使用循环处理位置参数</h3>
+<h3 id="自定义参数">自定义参数</h3>
+<h3 id="系统函数库介绍">系统函数库介绍</h3>
+<h3 id="脚本资源控制">脚本资源控制</h3>
+<h3 id="信号">信号</h3>
+<h3 id="一次性计划任务">一次性计划任务</h3>
+<h3 id="周期性计划任务">周期性计划任务</h3>
+<h3 id="为脚本加锁">为脚本加锁</h3>
 <h2 id="5-文本操作">5. 文本操作</h2>
+<h3 id="元字符介绍">元字符介绍</h3>
+<h3 id="find演示">find演示</h3>
+<h3 id="sed和awk介绍">sed和awk介绍</h3>
+<h3 id="sed替换命令讲解">sed替换命令讲解</h3>
+<h4 id="加强版">加强版</h4>
+<h3 id="sed的其他常用命令">sed的其他常用命令</h3>
+<h3 id="sed多行模式空间">sed多行模式空间</h3>
+<h3 id="什么是sed的保持空间">什么是sed的保持空间</h3>
+<h3 id="awk">awk</h3>
 <h2 id="6-服务篇">6. 服务篇</h2>
+<h3 id="防火墙概述">防火墙概述</h3>
+<h3 id="iptables">iptables</h3>
+<h4 id="iptables规则的基本使用演示">iptables规则的基本使用演示</h4>
+<h4 id="iptables过滤规则的使用">iptables过滤规则的使用</h4>
+<h4 id="iptables-nat表的使用">iptables nat表的使用</h4>
+<h3 id="firewalld">firewalld</h3>
+<h3 id="ssh">SSH</h3>
+<h4 id="ssh介绍之telent明文漏洞">SSH介绍之Telent明文漏洞</h4>
+<h4 id="ssh服务演示">SSH服务演示</h4>
+<h3 id="ftp服务器vsftpd介绍与软件包安装">FTP服务器vsftpd介绍与软件包安装</h3>
+<h3 id="vsftpd配置文件介绍">vsftpd配置文件介绍</h3>
+<h4 id="vsftp虚拟用户">vsftp虚拟用户</h4>
+<h3 id="sanba服务演示">sanba服务演示</h3>
+<h3 id="nfs服务">NFS服务</h3>
+<h3 id="nginx基本配置文件">Nginx基本配置文件</h3>
+<h3 id="使用nginx配置域名虚拟主机">使用Nginx配置域名虚拟主机</h3>
+<h3 id="lnmp环境搭建">LNMP环境搭建</h3>
+<h3 id="dns服务原理">DNS服务原理</h3>
+<h3 id="nas演示">NAS演示</h3>
 <h2 id="7-实战">7. 实战</h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -388,5 +778,5 @@ less:由于more不能后退，就取more的反义词less加上后退功能
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

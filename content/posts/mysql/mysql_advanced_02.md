@@ -7,7 +7,7 @@ categories: [Advanced learning]
 slug: An update sentence
 draft: false
 ---
-# MySQL实战实践
+# MySQL实践
 ## 用普通索引还是唯一索引
 ## MySQL为什么有时候会选错索引
 ## 怎么给字符串字段家索引

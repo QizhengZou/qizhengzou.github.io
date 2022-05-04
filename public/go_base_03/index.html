@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Go_base_03 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="Go_base_03" />
-<meta property="og:description" content="函数 函数定义 go的函数特点： 无需声明原型。 支持不定参、变参。 支持多返回值。 支持命名返回参数。 支持匿名函数和闭包。（闭包详见后文） 函数也是一种" />
+<meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 函数 函数定义 go的函数特点： 无需声明原型。 支持不定参、变参。 支持多返回值。 支持命" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/go_base_03/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-06T09:16:34+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Go_base_03"/>
-<meta name="twitter:description" content="函数 函数定义 go的函数特点： 无需声明原型。 支持不定参、变参。 支持多返回值。 支持命名返回参数。 支持匿名函数和闭包。（闭包详见后文） 函数也是一种"/>
+<meta name="twitter:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 函数 函数定义 go的函数特点： 无需声明原型。 支持不定参、变参。 支持多返回值。 支持命"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/go_base_03\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  18565 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  19508 ,
         "url": "https:\/\/qizhengzou.github.io\/go_base_03\/","datePublished": "2022-01-06T09:16:34+08:00","dateModified": "2022-01-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/go_base_03/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/go_base_03/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,9 +114,9 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Go_base_03</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw"></i>go</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:34">2022-01-06 09:16:34</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 18565 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 38 分钟&nbsp;<span id="busuanzi_container_page_pv">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw"></i>Go</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:34">2022-01-06 09:16:34</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 19508 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 39 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
             </div>
@@ -123,10 +146,15 @@
         <li><a href="#defer陷阱">defer陷阱</a></li>
       </ul>
     </li>
-    <li><a href="#异常处理">异常处理</a></li>
+    <li><a href="#异常处理错误处理">异常处理，错误处理</a></li>
     <li><a href="#单元测试">单元测试</a>
       <ul>
         <li><a href="#go-test工具">go test工具</a></li>
+        <li><a href="#性能分析工具">性能分析工具</a>
+          <ul>
+            <li><a href="#性能调优">性能调优</a></li>
+          </ul>
+        </li>
         <li><a href="#测试函数">测试函数</a>
           <ul>
             <li><a href="#测试函数的格式">测试函数的格式</a></li>
@@ -164,12 +192,15 @@
         <li><a href="#go怎么写测试用例">Go怎么写测试用例</a></li>
         <li><a href="#如何编写测试用例">如何编写测试用例</a></li>
         <li><a href="#如何编写压力测试">如何编写压力测试</a></li>
-        <li><a href="#小结">小结</a></li>
       </ul>
     </li>
+    <li><a href="#bdd">BDD</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="函数">函数</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>参考学习go语言中文网、C语言中文网、golang官方文档等</p>
+</blockquote>
+<h1 id="函数">函数</h1>
 <h2 id="函数定义">函数定义</h2>
 <p><strong>go的函数特点：</strong></p>
 <ul>
@@ -184,6 +215,7 @@
 <li>不支持 重载 (overload) （<strong>区别于重写</strong>，重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。最常用的地方就是构造器的重载。来自菜鸟教程java。）</li>
 <li>不支持 默认参数 (default parameter)。</li>
 <li>没有函数体的函数声明，表示该函数不是以Go实现的。这样的声明定义了函数标识符。</li>
+<li><strong>所有参数都是值传递：slice，map，channel 会有传引⽤的错觉</strong></li>
 </ul>
 <p><strong>函数是第一类对象，可作为参数传递。建议将复杂签名定义为函数类型，以便于阅读。</strong></p>
 <div class="highlight"><div class="chroma">
@@ -304,7 +336,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"> <span class="kd">func</span> <span class="nf">myfunc</span><span class="p">(</span><span class="nx">args</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">//0个或多个参数
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">  <span class="kd">func</span> <span class="nf">myfunc</span><span class="p">(</span><span class="nx">args</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">//0个或多个参数
 </span><span class="c1"></span>  <span class="p">}</span>
 
   <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">args</span><span class="err">…</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>    <span class="c1">//1个或多个参数
@@ -829,9 +861,10 @@
 <p>特性：</p>
 <ol>
 <li>关键字 defer 用于注册延迟调用。</li>
-<li>这些调用直到 return 前才被执。因此，可以用来做资源清理。</li>
+<li>这些调用直到 return 前才被执行。因此，可以用来做资源清理。</li>
 <li>多个defer语句，按<strong>先进后出</strong>的方式执行。（因为后面的defer可能会用到前面的资源）</li>
-<li>defer语句中的变量，在defer声明时就决定了。
+<li>defer语句中的变量，在defer声明时就决定了。</li>
+<li>发生panic依然会执行defer，但不是任何情况都会执行，比如：os.Exit()不会调用defer。os.Exit()退出时不输出当前调用栈信息。
 用途：</li>
 <li>关闭文件句柄</li>
 <li>锁资源释放</li>
@@ -997,7 +1030,7 @@
 </div>
 </div><p>结论：
 defer后面的语句在执行的时候，函数调用的参数会被保存起来，但是不执行。也就是复制了一份。但是并没有说struct这里的this指针如何处理，通过这个例子可以看出go语言并没有把这个明确写出来的this指针当作参数来看待。</p>
-<p>多个 defer 注册，按 FILO 次序执行 ( 先进后出 )。哪怕函数或某个延迟调用发生错误，这些调用依旧会被执行。</p>
+<p>多个 defer 注册，按 FILO 次序执行 ( 先进后出 )。哪怕函数或某个延迟调用发生错误，比如发生panic，这些defer调用依旧会被执行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1820,7 +1853,8 @@ defer close book.txt err close ./another-book.txt: file already closed</p>
 <span class="p">}</span> 
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="异常处理">异常处理</h2>
+</div><h2 id="异常处理错误处理">异常处理，错误处理</h2>
+<p>提倡<strong>及早失败，避免嵌套</strong></p>
 <p>Golang 没有结构化异常，使用 panic 抛出错误，recover 捕获错误。</p>
 <p>异常的使用场景简单描述：Go中可以抛出一个panic的异常，然后在defer中通过recover捕获这个异常，然后正常处理。</p>
 <p>panic:</p>
@@ -1846,6 +1880,7 @@ defer close book.txt err close ./another-book.txt: file already closed</p>
 <li>利用recover处理panic指令，defer 必须放在 panic 之前定义，另外 recover 只有在 defer 调用的函数中才有效。否则当panic时，recover无法捕获到panic，无法防止panic扩散。</li>
 <li>recover 处理异常后，逻辑并不会恢复到 panic 那个点去，函数跑到 defer 之后的那个点。</li>
 <li>多个 defer 会形成 defer 栈，后定义的 defer 语句会被最先调用。</li>
+<li><strong>当心recoer成为恶魔</strong>，因为recover并不会检测发生了什么错误。可能是系统的某些核心资源消耗完了，强制恢复之后系统依然无法正常工作的。还会导致一些健康检查程序无法检测出错误，health check无法检测出错误（很多health check程序只是检查这个进程在还是不在），形成僵尸服务进程（存在着但不能提供服务）。不如采用一种可恢复的设计模式，“Let it Crash”，干脆让进程crash掉，然后就会帮我们重新把服务进程提起来，如同重启。（重启是恢复不确定性最好的方法）</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2108,7 +2143,7 @@ defer close book.txt err close ./another-book.txt: file already closed</p>
 <span class="nx">test</span> <span class="nx">panic</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>如果需要保护代码 段，可将代码块重构成匿名函数，如此可确保后续代码被执 。</p>
+</div><p>如果需要保护代码段，可将代码块重构成匿名函数，如此可确保后续代码被执行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2169,7 +2204,7 @@ defer close book.txt err close ./another-book.txt: file already closed</p>
 <span class="nx">x</span> <span class="o">/</span> <span class="nx">y</span> <span class="p">=</span> <span class="mi">0</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>除用 panic 引发中断性错误外，还可返回 error 类型错误对象来表示函数调用状态。</p>
+</div><p>除用 panic 引发中断性错误外，还可返回 error 类型错误对象来表示函数调用状态。（error类型实现了error接口）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -2182,7 +2217,7 @@ defer close book.txt err close ./another-book.txt: file already closed</p>
 <span class="p">}</span> 
 </code></pre></td></tr></table>
 </div>
-</div><p>标准库 errors.New 和 fmt.Errorf 函数用于创建实现 error 接口的错误对象。通过判断错误对象实例来确定具体错误类型。</p>
+</div><p><strong>标准库 errors.New 和 fmt.Errorf 函数用于创建实现 error 接口的错误对象。通过判断错误对象实例来确定具体错误类型。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2223,8 +2258,8 @@ defer close book.txt err close ./another-book.txt: file already closed</p>
     <span class="s">&#34;errors&#34;</span>
     <span class="s">&#34;fmt&#34;</span>
 <span class="p">)</span>
-
-<span class="kd">var</span> <span class="nx">ErrDivByZero</span> <span class="p">=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;division by zero&#34;</span><span class="p">)</span>
+<span class="c1">//定义预置错误
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">ErrDivByZero</span> <span class="p">=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;division by zero&#34;</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">div</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="nx">y</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
@@ -2385,7 +2420,66 @@ go test [-c] [-i] [build flags] [packages] [flags for test binary]</p>
        —— calc_test.go
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="测试函数">测试函数</h3>
+</div><h3 id="性能分析工具">性能分析工具</h3>
+<p>可以安装go-torch</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">通过⽂件⽅式输出 Profile
+- 灵活性⾼，适⽤于特定代码段的分析
+- 通过⼿动调⽤ runtime/pprof 的 API
+- API 相关⽂档 https://studygolang.com/static/pkgdoc/pkg/runtime_pprof.htm
+- go tool pprof [binary] [binary.prof]
+
+通过 HTTP ⽅式输出 Profile
+- 简单，适合于持续性运⾏的应⽤
+- 在应⽤程序中导⼊ import _ &#34;net/http/pprof&#34;，并启动 http server 即可
+- http://&lt;host&gt;:&lt;port&gt;/debug/pprof/
+- go tool pprof http://&lt;host&gt;:&lt;port&gt;/debug/pprof/profile?seconds=10 （默认值为30秒）
+- go-torch -seconds 10 http://&lt;host&gt;:&lt;port&gt;/debug/pprof/profile
+
+Go ⽀持的多种 Profile
+go help testflag
+https://golang.org/src/runtime/pprof/pprof.go
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="性能调优">性能调优</h4>
+<p>性能调优过程：
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220316154210.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220316154210.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220316154210.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220316154210.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220316154210.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220316154210.png" /></p>
+<p>常⻅分析指标</p>
+<ul>
+<li>Wall Time</li>
+<li>CPU Time</li>
+<li>Block Time</li>
+<li>Memory allocation</li>
+<li>GC times/time spent</li>
+</ul>
+<p>ch47</p>
+<h3 id="测试函数">测试函数</h3>
 <h4 id="测试函数的格式">测试函数的格式</h4>
 <p>每个测试函数必须导入testing包，测试函数的基本格式（签名）如下：</p>
 <div class="highlight"><div class="chroma">
@@ -2503,7 +2597,7 @@ go test [-c] [-i] [build flags] [packages] [flags for test binary]</p>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>在当前目录下，我们创建一个split_test.go的测试文件，并定义一个测试函数如下：</p>
+</div><p>在当前目录下，我们创建一个split_test.go的测试文件，并定义一个测试函数如下：（表格测试法）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2760,10 +2854,10 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       0.005s
     <span class="p">}</span>
     <span class="c1">// 定义一个存储测试用例的切片
 </span><span class="c1"></span>    <span class="nx">tests</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">test</span><span class="p">{</span>
-        <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}},</span>
-        <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}},</span>
-        <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}},</span>
-        <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}},</span>
+        <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}</span> <span class="p">},</span>
     <span class="p">}</span>
     <span class="c1">// 遍历切片，逐一执行测试用例
 </span><span class="c1"></span>    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">tc</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">tests</span> <span class="p">{</span>
@@ -2877,10 +2971,10 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       0.005s
         <span class="nx">want</span>  <span class="p">[]</span><span class="kt">string</span>
     <span class="p">}</span>
     <span class="nx">tests</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">test</span><span class="p">{</span> <span class="c1">// 测试用例使用map存储
-</span><span class="c1"></span>        <span class="s">&#34;simple&#34;</span><span class="p">:</span>      <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;wrong sep&#34;</span><span class="p">:</span>   <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;more sep&#34;</span><span class="p">:</span>    <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;leading sep&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}},</span>
+</span><span class="c1"></span>        <span class="s">&#34;simple&#34;</span><span class="p">:</span>      <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;wrong sep&#34;</span><span class="p">:</span>   <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;more sep&#34;</span><span class="p">:</span>    <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;leading sep&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}</span> <span class="p">},</span>
     <span class="p">}</span>
     <span class="k">for</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">tc</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">tests</span> <span class="p">{</span>
         <span class="nx">got</span> <span class="o">:=</span> <span class="nf">Split</span><span class="p">(</span><span class="nx">tc</span><span class="p">.</span><span class="nx">input</span><span class="p">,</span> <span class="nx">tc</span><span class="p">.</span><span class="nx">sep</span><span class="p">)</span>
@@ -2924,10 +3018,10 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       0.005s
         <span class="nx">want</span>  <span class="p">[]</span><span class="kt">string</span>
     <span class="p">}</span>
     <span class="nx">tests</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">test</span><span class="p">{</span> <span class="c1">// 测试用例使用map存储
-</span><span class="c1"></span>        <span class="s">&#34;simple&#34;</span><span class="p">:</span>      <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;wrong sep&#34;</span><span class="p">:</span>   <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;more sep&#34;</span><span class="p">:</span>    <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;leading sep&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}},</span>
+</span><span class="c1"></span>        <span class="s">&#34;simple&#34;</span><span class="p">:</span>      <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;wrong sep&#34;</span><span class="p">:</span>   <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;more sep&#34;</span><span class="p">:</span>    <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;leading sep&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}</span> <span class="p">},</span>
     <span class="p">}</span>
     <span class="k">for</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">tc</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">tests</span> <span class="p">{</span>
         <span class="nx">t</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 使用t.Run()执行子测试
@@ -2995,10 +3089,10 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       0.005s
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestSplit</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
     <span class="o">...</span>
     <span class="nx">tests</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">test</span><span class="p">{</span> <span class="c1">// 测试用例使用map存储
-</span><span class="c1"></span>        <span class="s">&#34;simple&#34;</span><span class="p">:</span>      <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;wrong sep&#34;</span><span class="p">:</span>   <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;more sep&#34;</span><span class="p">:</span>    <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;leading sep&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}},</span>
+</span><span class="c1"></span>        <span class="s">&#34;simple&#34;</span><span class="p">:</span>      <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;wrong sep&#34;</span><span class="p">:</span>   <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;more sep&#34;</span><span class="p">:</span>    <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;leading sep&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}</span> <span class="p">},</span>
     <span class="p">}</span>
     <span class="o">...</span>
 <span class="p">}</span>
@@ -3551,10 +3645,10 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       3.308s
         <span class="nx">want</span>  <span class="p">[]</span><span class="kt">string</span>
     <span class="p">}</span>
     <span class="nx">tests</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">test</span><span class="p">{</span> <span class="c1">// 测试用例使用map存储
-</span><span class="c1"></span>        <span class="s">&#34;simple&#34;</span><span class="p">:</span>      <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;wrong sep&#34;</span><span class="p">:</span>   <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;more sep&#34;</span><span class="p">:</span>    <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}},</span>
-        <span class="s">&#34;leading sep&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}},</span>
+</span><span class="c1"></span>        <span class="s">&#34;simple&#34;</span><span class="p">:</span>      <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;wrong sep&#34;</span><span class="p">:</span>   <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;a🅱️c&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a🅱️c&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;more sep&#34;</span><span class="p">:</span>    <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;abcd&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;bc&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="s">&#34;leading sep&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nx">input</span><span class="p">:</span> <span class="s">&#34;枯藤老树昏鸦&#34;</span><span class="p">,</span> <span class="nx">sep</span><span class="p">:</span> <span class="s">&#34;老&#34;</span><span class="p">,</span> <span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;枯藤&#34;</span><span class="p">,</span> <span class="s">&#34;树昏鸦&#34;</span><span class="p">}</span> <span class="p">},</span>
     <span class="p">}</span>
     <span class="nx">teardownTestCase</span> <span class="o">:=</span> <span class="nf">setupTestCase</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="c1">// 测试之前执行setup操作
 </span><span class="c1"></span>    <span class="k">defer</span> <span class="nf">teardownTestCase</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span>            <span class="c1">// 测试之后执行testdoen操作
@@ -3908,6 +4002,18 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       3.308s
     ok      gotest    0.013s   
 </code></pre></td></tr></table>
 </div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">//一般
+go test -v -run funcName fileName.go
+go test -v -cover -run funcName fileName.go
+</code></pre></td></tr></table>
+</div>
 </div><h3 id="如何编写压力测试">如何编写压力测试</h3>
 <p>压力测试用来检测函数(方法）的性能，和编写单元功能测试的方法类似,此处不再赘述，但需要注意以下几点：</p>
 <p>压力测试用例必须遵循如下格式，其中XXX可以是任意字母数字的组合，但是首字母不能是小写字母</p>
@@ -3987,8 +4093,83 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       3.308s
 </code></pre></td></tr></table>
 </div>
 </div><p>上面的结果显示我们没有执行任何TestXXX的单元测试函数，显示的结果只执行了压力测试函数，第一条显示了Benchmark_Division执行了500000000次，每次的执行平均时间是7.76纳秒，第二条显示了Benchmark_TimeConsumingFunction执行了500000000，每次的平均执行时间是7.80纳秒。最后一条显示总共的执行时间。</p>
-<h3 id="小结">小结</h3>
-<p>通过上面对单元测试和压力测试的学习，我们可以看到testing包很轻量，编写单元测试和压力测试用例非常简单，配合内置的go test命令就可以非常方便的进行测试，这样在我们每次修改完代码,执行一下go test就可以简单的完成回归测试了。</p>
+<h2 id="bdd">BDD</h2>
+<p>Behavior Driven Development行为驱动开发</p>
+<p>行为驱动开发（Behavior-Driven Development）（简写BDD），在软件工程中，BDD是一种敏捷软件开发的技术。行为驱动开发(BDD)是测试驱动开发的延伸，开发使用简单的，特定于领域的脚本语言。这些DSL将结构化自然语言语句转换为可执行测试。结果是与给定功能的验收标准以及用于验证该功能的测试之间的关系更密切。因此，它一般是测试驱动开发(TDD)测试的自然延伸。（摘自<a href="https://baike.baidu.com/item/%E8%A1%8C%E4%B8%BA%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91/9424963" target="_blank" rel="noopener noreffer">百度百科</a>）</p>
+<p>BDD in Go 一个测试框架</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">项⽬⽹站
+https://github.com/smartystreets/goconvey
+安装
+go get -u github.com/smartystreets/goconvey/convey
+启动 WEB UI 
+$GOPATH/bin/goconvey
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">testing</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;testing&#34;</span>
+
+	<span class="p">.</span> <span class="s">&#34;github.com/smartystreets/goconvey/convey&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestSpec</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="c1">// Only pass t into top-level Convey calls
+</span><span class="c1"></span>	<span class="nf">Convey</span><span class="p">(</span><span class="s">&#34;Given 2 even numbers&#34;</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">a</span> <span class="o">:=</span> <span class="mi">3</span>
+		<span class="nx">b</span> <span class="o">:=</span> <span class="mi">4</span>
+
+		<span class="nf">Convey</span><span class="p">(</span><span class="s">&#34;When add the two numbers&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="nx">c</span> <span class="o">:=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+
+			<span class="nf">Convey</span><span class="p">(</span><span class="s">&#34;Then the result is still even&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+				<span class="nf">So</span><span class="p">(</span><span class="nx">c</span><span class="o">%</span><span class="mi">2</span><span class="p">,</span> <span class="nx">ShouldEqual</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+			<span class="p">})</span>
+		<span class="p">})</span>
+	<span class="p">})</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>convey这个pkg还提供了一个web界面，在gopath下的bin目录里面有二进制程序goconvey。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -4025,5 +4206,5 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       3.308s
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

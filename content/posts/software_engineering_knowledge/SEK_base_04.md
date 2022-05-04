@@ -5,7 +5,7 @@ lastmod: 2021-12-28
 tags: [software engineering knowledge]
 categories: [School courses]
 slug: software design
-draft: false
+draft: true
 ---
 > 笔记来自2021秋哈工大深圳软件工程授课教师张永兵
 

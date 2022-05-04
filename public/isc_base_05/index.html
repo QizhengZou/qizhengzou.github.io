@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>ISC_base_05 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="ISC_base_05" />
-<meta property="og:description" content="访问控制 5.1 概述 身份认证：识别“用户是谁”的问题。 访问控制：管理用户对资源的访问。 主体对于客体的每一次访问，访问控制系统均要审核该次访问操作是" />
+<meta property="og:description" content="2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄 访问控制 5.1 概述 身份认证：识别“用户是谁”的问题。 访问控制：管理用户对资源的访问。 主体对于" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/isc_base_05/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-21T11:36:04+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="ISC_base_05"/>
-<meta name="twitter:description" content="访问控制 5.1 概述 身份认证：识别“用户是谁”的问题。 访问控制：管理用户对资源的访问。 主体对于客体的每一次访问，访问控制系统均要审核该次访问操作是"/>
+<meta name="twitter:description" content="2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄 访问控制 5.1 概述 身份认证：识别“用户是谁”的问题。 访问控制：管理用户对资源的访问。 主体对于"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/isc_base_05\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "information_security_conspectus","wordcount":  5535 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "information security conspectus","wordcount":  5561 ,
         "url": "https:\/\/qizhengzou.github.io\/isc_base_05\/","datePublished": "2021-11-21T11:36:04+08:00","dateModified": "2021-12-07T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/isc_base_05/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/isc_base_05/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">ISC_base_05</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-21 11:36:04">2021-11-21 11:36:04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5535 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-21 11:36:04">2021-11-21 11:36:04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5561 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -121,7 +144,10 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="访问控制">访问控制</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄</p>
+</blockquote>
+<h1 id="访问控制">访问控制</h1>
 <h2 id="51-概述">5.1 概述</h2>
 <ul>
 <li>身份认证：识别“用户是谁”的问题。</li>
@@ -129,11 +155,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092824.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092824.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092824.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092824.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092824.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092824.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092824.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092824.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092824.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092824.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092824.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092824.png" /></li>
 <li>主体对于客体的每一次访问，访问控制系统均要审核该次访问操作是否符合访问控制策略。影响访问控制系统实施效果的首要因素是访问控制策略。</li>
 <li>访问控制的基本组成元素
 <ul>
@@ -348,11 +374,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094218.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094218.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094218.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094218.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094218.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094218.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094218.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094218.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094218.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094218.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094218.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094218.png" /></li>
 </ul>
 <p>安全主体：</p>
 <ul>
@@ -372,11 +398,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094356.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094356.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094356.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094356.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094356.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094356.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094356.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094356.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094356.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094356.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094356.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094356.png" /></li>
 </ul>
 <p>Windows登录认证流程：</p>
 <ul>
@@ -384,11 +410,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094456.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094456.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094456.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094456.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094456.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094456.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094456.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094456.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094456.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094456.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094456.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094456.png" /></li>
 </ul>
 <h3 id="532-windows系统的访问控制">5.3.2 Windows系统的访问控制</h3>
 <p>Windows系统的访问控制：</p>
@@ -426,11 +452,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095154.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095154.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095154.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095154.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095154.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095154.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095154.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095154.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095154.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095154.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095154.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095154.png" /></li>
 </ul>
 <p>Window 访问控制：</p>
 <ul>
@@ -450,11 +476,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095356.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095356.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095356.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095356.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095356.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095356.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095356.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095356.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095356.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095356.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095356.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095356.png" /></li>
 </ul>
 <p>组策略GP：</p>
 <ul>
@@ -472,11 +498,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095512.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095512.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095512.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095512.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095512.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095512.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095512.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095512.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095512.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095512.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095512.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095512.png" /></li>
 </ul>
 <p>组策略的实施：</p>
 <ul>
@@ -525,13 +551,13 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/isc_base_05/" data-title="ISC_base_05" data-hashtags="information_security_conspectus"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/isc_base_05/" data-hashtag="information_security_conspectus"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/isc_base_05/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/isc_base_05/" data-title="ISC_base_05"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/isc_base_05/" data-title="ISC_base_05"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/isc_base_05/" data-title="ISC_base_05"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/isc_base_05/" data-title="ISC_base_05" data-hashtags="information security conspectus"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/isc_base_05/" data-hashtag="information security conspectus"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/isc_base_05/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/isc_base_05/" data-title="ISC_base_05"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/isc_base_05/" data-title="ISC_base_05"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/isc_base_05/" data-title="ISC_base_05"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/information_security_conspectus/">information_security_conspectus</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/information-security-conspectus/">information security conspectus</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
@@ -550,5 +576,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

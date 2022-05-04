@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>OperatingSystem_base_05 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="OperatingSystem_base_05" />
-<meta property="og:description" content="设备管理 I/O 管理概述 I/O设备的分类与管理的任务 I/O设备的分类 (1)按设备的使用特性分类：按设备的使用特性可以将设备分为存储设备、人机交互设" />
+<meta property="og:description" content="王道考研操作系统笔记 设备管理 I/O 管理概述 I/O设备的分类与管理的任务 I/O设备的分类 (1)按设备的使用特性分类：按设备的使用特性可以将设备分为" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/operatingsystem_base_05/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-30T18:26:58+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="OperatingSystem_base_05"/>
-<meta name="twitter:description" content="设备管理 I/O 管理概述 I/O设备的分类与管理的任务 I/O设备的分类 (1)按设备的使用特性分类：按设备的使用特性可以将设备分为存储设备、人机交互设"/>
+<meta name="twitter:description" content="王道考研操作系统笔记 设备管理 I/O 管理概述 I/O设备的分类与管理的任务 I/O设备的分类 (1)按设备的使用特性分类：按设备的使用特性可以将设备分为"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/operatingsystem_base_05\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "operating_system","wordcount":  14681 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "operating system","wordcount":  14691 ,
         "url": "https:\/\/qizhengzou.github.io\/operatingsystem_base_05\/","datePublished": "2021-11-30T18:26:58+08:00","dateModified": "2021-11-30T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/operatingsystem_base_05/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/operatingsystem_base_05/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">OperatingSystem_base_05</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-30 18:26:58">2021-11-30 18:26:58</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 14681 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-30 18:26:58">2021-11-30 18:26:58</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 14691 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 30 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -122,7 +145,10 @@
     <li><a href="#习题">习题</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="设备管理">设备管理</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>王道考研操作系统笔记</p>
+</blockquote>
+<h1 id="设备管理">设备管理</h1>
 <h2 id="io-管理概述">I/O 管理概述</h2>
 <h3 id="io设备的分类与管理的任务">I/O设备的分类与管理的任务</h3>
 <ul>
@@ -199,11 +225,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200215.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200215.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200215.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200215.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200215.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200215.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200215.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200215.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200215.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200215.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200215.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200215.png" /></p>
 <p>I/O控制方式通常有以下4种:程序直接控制方式、中断控制方式、DMA控制方式和通道控制方式。</p>
 <ul>
 <li>程序直接控制方式
@@ -214,11 +240,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200325.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200325.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200325.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200325.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200325.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200325.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200325.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200325.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200325.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200325.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200325.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200325.png" /></li>
 <li>缺点。 CPU的利用率相当低。因为I/O设备的速度太慢，跟不上CPU,致使CPU的绝大部分时间都在测试I/O设备是否已经完成数据传输，从而造成CPU的极大浪费。</li>
 </ul>
 </li>
@@ -249,11 +275,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200746.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200746.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200746.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200746.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200746.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200746.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200746.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200746.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200746.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130200746.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200746.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130200746.png" /></li>
 <li>DMA控制器中主要包括4类寄存器，用于主机和控制器之间成块数据的交换。
 <ul>
 <li>1)命令/状态寄存器(CR): 用于接收从CPU发来的IO命令或有关控制信息，或设备的状态。</li>
@@ -275,11 +301,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201012.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201012.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201012.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201012.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201012.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201012.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201012.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201012.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201012.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201012.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201012.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201012.png" /></li>
 </ul>
 </li>
 <li>数组选择通道
@@ -294,11 +320,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201223.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201223.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201223.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201223.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201223.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201223.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201223.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201223.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201223.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201223.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201223.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201223.png" /></li>
 <li>在通道控制方式中，CPU只需发出启动指令，指出要求通道执行的操作和使用的I/O设备，该指令就可以启动通道并使该通道从内存中调出相应的通道程序执行。以数据输入为例，当用户进程需要数据时，CPU发出启动指令指明要执行的I/O操作、所使用的设备和通道。当对应通道接收到CPU发来的启动指令后，把存放在内存中的通道程序读出，并执行通道程序，控制设备将数据传送到内存中指定的区域。在设备进行输入的同时，CPU可以去做其他工作。当数据传送结束时，设备控制器向CPU发送一个中断请求。CPU收到中断请求后转中断处理程序执行，中断结束后返回被中断程序。</li>
 <li>优点。通道控制方式解决了I/O 操作的独立性和各部件工作的并行性。通道把中央处理器从烦琐的输入/输出操作中解放出来。采用通道技术后，不仅能实现CPU和通道的并行操作，而且通道与通道之间也能实现并行操作，各通道上的外设也能实现并行操作，从而可达到提高整个系统效率的根本目的。</li>
 <li>缺点。由于需要更多硬件(通道处理器)，因此其成本较高。通道控制方式通常应用于大型数据交互的场合。</li>
@@ -321,11 +347,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201525.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201525.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201525.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201525.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201525.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201525.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201525.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201525.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201525.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130201525.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201525.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130201525.png" /></li>
 <li>图5-6中的箭头表示I/O控制流，例如，当用户程序要从文件中读一个数据块时，需要通过操作系统来执行此操作。设备独立性软件首先在高速缓存中查找此数据块，若未找到，则调用设备驱动程序向硬件发出相应的请求，用户进程随即阻塞直到数据块被读出。当磁盘操作完成时，硬件产生一个中断，并转入中断处理程序。中断处理程序检查中断的原因，并从设备中获取所需的信息，然后唤醒睡眠的进程以结束此次I/O请求，使用户进程继续执行。</li>
 </ul>
 </li>
@@ -401,11 +427,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202246.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202246.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202246.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202246.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202246.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202246.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202246.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202246.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202246.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202246.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202246.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202246.png" /></li>
 <li>在块设备输入时，先从磁盘把一块数据输 入到缓冲区，假设所用时间为t;然后由操作系统将缓冲区的数据传送到用户区,假设所用时间为m;接下来，CPU对这一块数据进行计算,假设计算时间为c;则系统对每一块数据的处理时 间为max(c, t)+m (通常m远小于t或c)。若没有缓冲区，数据将直接进入用户区,则每块数据的处理时间为tc。在块设备输出时，先将要输入的数据从用户区复制到缓冲区，然后再将缓冲区中的数据写到设备。在字符设备输入时，缓冲区用于暂存用户输入的一行数据。在输入时，用户进程阻塞以等待一行数据输入完毕;在输出时，用户进程将一行数据送入缓冲区后继续执行计算。当用户进程已有第二行数据要输出时，若第二行数据尚未输出完毕，则用户进程阻塞。</li>
 </ul>
 </li>
@@ -427,11 +453,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202616.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202616.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202616.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202616.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202616.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202616.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202616.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202616.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202616.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130202616.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202616.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130202616.png" />
 <ul>
 <li>空缓冲队列。</li>
 <li>装满输入数据的缓冲队列(输入队列)。</li>
@@ -475,11 +501,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203134.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203134.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203134.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203134.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203134.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203134.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203134.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203134.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203134.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203134.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203134.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203134.png" /></li>
 </ul>
 </li>
 <li>设备分配策略
@@ -557,11 +583,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203818.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203818.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203818.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203818.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203818.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203818.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203818.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203818.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203818.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211130203818.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203818.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211130203818.png" /></p>
 <p>SPOOLing技术是低速输入/输出设备与主机交换的一种技术， 其核心思想是以联机的方
 式得到脱机的效果。低速设备经通道和设在主机内存的缓冲存储器与高速设备相连，该高速
 设备通常是辅存。为了存放从低速设备上输入的信息，在内存中形成缓冲区，在高速设备上
@@ -603,67 +629,67 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231336.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231336.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231336.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231336.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231336.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231336.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231336.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231336.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231336.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231336.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231336.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231336.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231632.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231632.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231632.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231632.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231632.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231632.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231632.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231632.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231632.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231632.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231632.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231632.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231718.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231718.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231718.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231718.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231718.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231718.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231718.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231718.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231718.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231718.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231718.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231718.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231823.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231823.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231823.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231823.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231823.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231823.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231823.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231823.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231823.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231823.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231823.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231823.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231842.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231842.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231842.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231842.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231842.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231842.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231842.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231842.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231842.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214231842.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231842.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214231842.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232043.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232043.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232043.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232043.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232043.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232043.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232043.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232043.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232043.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232043.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232043.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232043.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232150.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232150.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232150.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232150.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232150.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232150.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232150.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232150.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232150.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232150.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232150.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232150.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232246.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232246.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232246.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232246.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232246.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232246.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232246.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232246.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232246.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214232246.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232246.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214232246.png" /></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -675,13 +701,13 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-title="OperatingSystem_base_05" data-hashtags="operating_system"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-hashtag="operating_system"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/operatingsystem_base_05/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-title="OperatingSystem_base_05"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-title="OperatingSystem_base_05"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-title="OperatingSystem_base_05"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-title="OperatingSystem_base_05" data-hashtags="operating system"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-hashtag="operating system"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/operatingsystem_base_05/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-title="OperatingSystem_base_05"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-title="OperatingSystem_base_05"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/operatingsystem_base_05/" data-title="OperatingSystem_base_05"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/operating_system/">operating_system</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/operating-system/">operating system</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
@@ -700,5 +726,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

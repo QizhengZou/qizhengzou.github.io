@@ -5,7 +5,7 @@ lastmod: 2021-12-16
 tags: [cryptography]
 categories: [School courses]
 slug: Hash,MAC,DS
-draft: false
+draft: true
 ---
 > 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
 

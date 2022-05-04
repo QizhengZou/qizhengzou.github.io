@@ -5,7 +5,7 @@ lastmod: 2021-11-21
 tags: [operating system]
 categories: [School courses]
 slug: Operating System Intro
-draft: false
+draft: true
 ---
 > 王道考研操作系统笔记
 # 绪论

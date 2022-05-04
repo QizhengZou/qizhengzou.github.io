@@ -1,5 +1,6 @@
 # ISC_base_01
 
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
 # 信息安全课程概述
 ## 教学目的、目标与内容
 课程定位：信息安全领域基础课程
@@ -202,7 +203,7 @@ DAD（Disclosure、Alteration、Destruction）是最普遍的三类风险。
 围绕CIA三元组展开的知识体系：
 - 密码学是三个信息安全目标的技术基础。
 - CIA技术存在着一定程度上的内容交叉
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211121143343.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211121143343.png)
 
 面向应用的层次型技术体系架构：
 - 信息系统基本要素

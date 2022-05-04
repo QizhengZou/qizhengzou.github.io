@@ -5,7 +5,7 @@ lastmod: 2021-12-22
 tags: [catalogue, information security conspectus]
 categories: [Catalogue, School courses]
 slug: ISA_catalogue
-draft: false
+draft: true
 ---
 > base来自罗文坚老师，这课程是开卷考试，加之是早八课，所以上课时人少得可怜
 - [base_01](https://qizhengzou.github.io/2021/course-overview/)（信息安全课程概述）

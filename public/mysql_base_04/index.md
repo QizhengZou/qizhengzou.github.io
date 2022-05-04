@@ -1,5 +1,7 @@
 # Mysql_base_04
 
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 数据库管理与维护
 ## 数据库完整性与安全性控制
 ### 数据库完整性的概念及分类
@@ -206,9 +208,9 @@ MySQL 服务器通过权限表来控制用户对数据库的访问，权限表�
 ### SQL-DCL中关于安全性的命令
 * 授权命令
     ```
-    GRANT {all PRIVILEGES | privilege {,privilege…}}
+    GRANT {all PRIVILEGES | privilege {,privilege…} }
     ON [TABLE] tablename | viewname
-    TO {public | user-id {, user-id…}}
+    TO {public | user-id {, user-id…} }
     [WITH GRANT OPTION];
     ```
     * user-id, 某一个用户帐户，由DBA创建的合法帐户

@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>DistributedSystem_HongweiDu_09 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="DistributedSystem_HongweiDu_09" />
-<meta property="og:description" content="Group Communication群组通信 Modes of communication： One-to-One Unicast 1&lt;&ndash;&gt;1 Point-to-point Anycast 1-&gt;nearest 1 of several identical nodes Introduced with IPv6; used with BGP routing protocol One-to-many Multicast 1-&gt;many Group communication Broadcast 1-&gt;all Groups: Groups allow us to deal with a collection of" />
+<meta property="og:description" content="2021哈工大深圳堵宏伟分布式系统课程笔记 Group Communication群组通信 Modes of communication： One-to-One Unicast 1&lt;&ndash;&gt;1 Point-to-point Anycast 1-&gt;nearest 1 of several identical nodes Introduced with IPv6; used" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-03T14:36:23+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="DistributedSystem_HongweiDu_09"/>
-<meta name="twitter:description" content="Group Communication群组通信 Modes of communication： One-to-One Unicast 1&lt;&ndash;&gt;1 Point-to-point Anycast 1-&gt;nearest 1 of several identical nodes Introduced with IPv6; used with BGP routing protocol One-to-many Multicast 1-&gt;many Group communication Broadcast 1-&gt;all Groups: Groups allow us to deal with a collection of"/>
+<meta name="twitter:description" content="2021哈工大深圳堵宏伟分布式系统课程笔记 Group Communication群组通信 Modes of communication： One-to-One Unicast 1&lt;&ndash;&gt;1 Point-to-point Anycast 1-&gt;nearest 1 of several identical nodes Introduced with IPv6; used"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/distributedsystem_hongweidu_09\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "distributed_system","wordcount":  2516 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "distributed system","wordcount":  2537 ,
         "url": "https:\/\/qizhengzou.github.io\/distributedsystem_hongweidu_09\/","datePublished": "2021-12-03T14:36:23+08:00","dateModified": "2022-01-01T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/distributedsystem_hongweidu_09/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/distributedsystem_hongweidu_09/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">DistributedSystem_HongweiDu_09</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-03 14:36:23">2021-12-03 14:36:23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2516 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-03 14:36:23">2021-12-03 14:36:23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2537 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -110,7 +133,10 @@
     <li><a href="#ip-multicast-routing">IP multicast routing</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="group-communication群组通信">Group Communication群组通信</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>2021哈工大深圳堵宏伟分布式系统课程笔记</p>
+</blockquote>
+<h1 id="group-communication群组通信">Group Communication群组通信</h1>
 <p>Modes of communication：</p>
 <ul>
 <li>One-to-One
@@ -225,11 +251,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162357.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162357.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162357.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162357.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162357.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162357.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162357.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162357.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162357.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162357.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162357.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162357.png" /></li>
 </ul>
 <h2 id="implementing-group-communication-mechanisms组播">Implementing Group Communication Mechanisms组播</h2>
 <p>Hardware multicast:</p>
@@ -242,11 +268,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162524.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162524.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162524.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162524.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162524.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162524.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162524.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162524.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162524.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162524.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162524.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162524.png" /></li>
 </ul>
 <p>Broadcast:</p>
 <ul>
@@ -259,11 +285,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162629.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162629.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162629.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162629.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162629.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162629.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162629.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162629.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162629.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162629.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162629.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162629.png" /></li>
 </ul>
 <p>Hardware multicast &amp; broadcast:</p>
 <ul>
@@ -276,11 +302,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162709.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162709.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162709.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162709.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162709.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162709.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162709.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162709.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162709.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162709.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162709.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162709.png" /></li>
 </ul>
 <p>Software implementation: hierarchical：</p>
 <ul>
@@ -294,11 +320,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162744.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162744.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162744.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162744.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162744.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162744.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162744.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162744.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162744.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101162744.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162744.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101162744.png" /></li>
 </ul>
 <h2 id="reliability-of-multicasts-组播可靠性">Reliability of multicasts 组播可靠性</h2>
 <p>Atomic multicast：</p>
@@ -461,38 +487,38 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163433.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163433.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163433.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163433.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163433.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163433.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163433.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163433.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163433.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163433.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163433.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163433.png" />
 Bad Ordering：</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163453.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163453.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163453.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163453.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163453.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163453.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163453.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163453.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163453.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163453.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163453.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163453.png" />
 Good Ordering：</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163514.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163514.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163514.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163514.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163514.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163514.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163514.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163514.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163514.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163514.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163514.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163514.png" />
 Bad Ordering：</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163534.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163534.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163534.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163534.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163534.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163534.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163534.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163534.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163534.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163534.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163534.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163534.png" /></li>
 </ul>
 <p>Sending vs. Receiving vs. Delivering：</p>
 <ul>
@@ -522,11 +548,11 @@ Bad Ordering：</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163638.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163638.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163638.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163638.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163638.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163638.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163638.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163638.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163638.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101163638.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163638.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101163638.png" /></li>
 </ul>
 <p>Global time ordering：</p>
 <ul>
@@ -571,11 +597,11 @@ Bad Ordering：</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164012.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164012.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164012.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164012.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164012.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164012.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164012.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164012.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164012.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164012.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164012.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164012.png" /></li>
 </ul>
 <p>Causal ordering –implementation：</p>
 <ul>
@@ -592,38 +618,38 @@ Bad Ordering：</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164121.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164121.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164121.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164121.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164121.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164121.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164121.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164121.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164121.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164121.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164121.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164121.png" /></li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164257.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164257.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164257.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164257.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164257.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164257.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164257.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164257.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164257.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164257.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164257.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164257.png" /></li>
 </ul>
 <p>Causal Ordering: Example：</p>
 <ul>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164343.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164343.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164343.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164343.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164343.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164343.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164343.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164343.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164343.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164343.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164343.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164343.png" /></li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164407.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164407.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164407.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164407.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164407.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164407.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164407.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164407.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164407.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164407.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164407.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164407.png" /></li>
 <li>P2 receives message m0 from P0 with V=(1,0,0)
 <ul>
 <li>(1) Is this in FIFO order from P0?
@@ -675,11 +701,11 @@ Bad Ordering：</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164647.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164647.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164647.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164647.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164647.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164647.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164647.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164647.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164647.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164647.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164647.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164647.png" /></li>
 </ul>
 <p>Single Source FIFO (SSF) ordering：</p>
 <ul>
@@ -697,11 +723,11 @@ Bad Ordering：</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164842.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164842.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164842.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164842.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164842.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164842.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164842.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164842.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164842.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101164842.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164842.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101164842.png" /></li>
 </ul>
 <h2 id="ip-multicast-routing">IP multicast routing</h2>
 <p>IP multicast routing：</p>
@@ -837,11 +863,11 @@ FF02:0:0:0:0:0:0:9:    RIP routers
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101165437.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101165437.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101165437.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101165437.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101165437.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101165437.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101165437.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101165437.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101165437.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101165437.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101165437.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101165437.png" /></li>
 </ul>
 <p>Multicast Forwarding:</p>
 <ul>
@@ -979,13 +1005,13 @@ FF02:0:0:0:0:0:0:9:    RIP routers
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-title="DistributedSystem_HongweiDu_09" data-hashtags="distributed_system"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-hashtag="distributed_system"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-title="DistributedSystem_HongweiDu_09"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-title="DistributedSystem_HongweiDu_09"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-title="DistributedSystem_HongweiDu_09"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-title="DistributedSystem_HongweiDu_09" data-hashtags="distributed system"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-hashtag="distributed system"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-title="DistributedSystem_HongweiDu_09"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-title="DistributedSystem_HongweiDu_09"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/distributedsystem_hongweidu_09/" data-title="DistributedSystem_HongweiDu_09"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/distributed_system/">distributed_system</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/distributed-system/">distributed system</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
@@ -1004,5 +1030,5 @@ FF02:0:0:0:0:0:0:9:    RIP routers
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

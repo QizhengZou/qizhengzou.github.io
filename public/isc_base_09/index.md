@@ -1,5 +1,7 @@
 # ISC_base_09
 
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 内容安全
 ## 9.1 概述
 信息内容安全有两方面内容:
@@ -71,7 +73,7 @@ DRM技术自产生以来，得到了工业界和学术界的普遍关注，被�
 
 DRM工作原理：
 - DRM系统结构分为服务器和客户端两部分。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221194533.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221194533.png)
 
 主要版权保护产品：
 - 目前DRM所保护的内容主要分为三类
@@ -99,7 +101,7 @@ DRM工作原理：
 
 水印的嵌入：
 - 水印的嵌入与密码体系的加密环节类似，一般分为输入、嵌入处理和输出三部分。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221194749.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221194749.png)
 - 嵌入处理完成的主要任务是对输入原始文件进行分析，选择嵌入点，在整个过程中可能需要密码参与。
 
 水印的检测：
@@ -108,7 +110,7 @@ DRM工作原理：
     - 盲水印检测主要指不需要原始数据（原始宿主文件和水印信息）参与，直接进行检测水印信号是否存在；
     - 非盲水印检测是在原始数据参与下进行水印检测。
     - 水印提取及比较主要针对不可见水印，一般可见水印可以直接由视觉识别。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221194837.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221194837.png)
 
 数字水印的特征：
 - 数字水印的使用一般要以不破坏原始作品的欣赏价值和使用价值为原则，因此数字水印应具有以下基本特征：
@@ -184,7 +186,7 @@ NEC算法：
 
 内容监管系统模型：
 - 内容监管系统模型可以分为监管策略和监管处理两部分
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221195404.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221195404.png)
 
 内容监管策略：
 - 内容监管需求是制定内容监管策略的依据。
@@ -199,19 +201,19 @@ NEC算法：
 - 数据获取技术分为主动式和被动式两种形式。
 - 主动式数据获取是指通过访问有关网络连接而获得其数据内容。网络爬虫是典型的主动式数据获取技术。
 - 网络爬虫是如何工作的：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221195519.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221195519.png)
 - 被动式数据获取是指在网络的特定位置设置探针，获取流经该位置的所有数据。
 - 被动式数据获取需要解决两个方面的问题：
     - 探针位置的选择：
     - 对出入数据报文的采集。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221195601.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221195601.png)
 - 网络适配器必须工作在混杂模式下，这样才能保证所有接收到的数据报文被提交给协议栈。
 - 网络报文处理流程：
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221195624.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221195624.png)
 
 数据调整：
 - 数据调整主要指针对数据获取模块（主要是协议栈）提交的应用层数据进行筛选、组合、解码以及文本还原等工作；数据调整的输出结果用于敏感特征搜索等
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221195707.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221195707.png)
 
 敏感特征搜索：
 - 敏感特征搜索实际上就是依据实现定义好的敏感特征策略，在待查内容中识别所包含的敏感特征值，搜索的结果可以作为违规判定的依据。
@@ -253,4 +255,4 @@ NEC算法：
     - 基于挑战的反垃圾技术，是指通过延缓邮件处理过程，来阻碍发送大量邮件。
 
 基于过滤技术的反垃圾邮件系统：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221200003.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221200003.png)

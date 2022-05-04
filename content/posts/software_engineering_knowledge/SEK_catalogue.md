@@ -5,7 +5,7 @@ lastmod: 2021-12-29
 tags: [catalogue, software engineering knowledge]
 categories: [Catalogue, School courses]
 slug: SEK_catalogue
-draft: false
+draft: true
 ---
 > base来自2021秋哈工大深圳软件工程
 

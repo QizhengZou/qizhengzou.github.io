@@ -1,5 +1,7 @@
 # DistributedSystem_HongweiDu_14
 
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # topics
 Understanding lecture notes and tutorial questions.
 ## 1.Introduction
@@ -100,15 +102,15 @@ Understanding lecture notes and tutorial questions.
 Adjustment changes slope of system time: Linear compensating function （线性补偿函数）
 ### 3.1Cristian’s algorithm: 
 synchronize clocks with a UTC server 
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102082432.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220102082432.png)
 ### 3.2Berkeley Algorithm: 
 synchronize a set of clocks as close as possible
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102082505.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220102082505.png)
 ## 4.NTP Symmetric mode
 - 如何计算偏移量、准确值、延迟、传输时间。
 - used to synchronize between the time servers (peer-peer)
 - There can be a non-negligible delay between the arrival of one message and the dispatch of the next
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102150951.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220102150951.png)
 - Delay = total transmission time of the two messages
 $$d_i = (T_i – T_{i-3} ) – (T_{i-1}– T_{i-2})$$
 - Offset of clock A relative to clock B:  
@@ -140,7 +142,7 @@ $$d_i = (T_i – T_{i-3} ) – (T_{i-1}– T_{i-2})$$
 - Client-server interactions in RPC 
 
 ## 8.Group Communication
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220102083158.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220102083158.png)
 
 ## 9.Mutual Exclusion & Election Algorithm
 - Mutual Exclusion 
@@ -224,10 +226,4 @@ $$d_i = (T_i – T_{i-3} ) – (T_{i-1}– T_{i-2})$$
 - FAN - WebPage Ranking
 - Inverted File: indexing for search
 
-## 20春
-- 问题1。[10马克]详细解释NAT（网络地址转换）的工作原理。使用图表帮助您进行解释。假设组织使用一个外部IP地址168.12.0.4，并且组织内部的一个主机（内部IP地址为12.0.60.4，端口号为1234）向外部web服务器发送一个IP数据包，目标IP地址为125.12.4.16。
-- 问题2。[10标记]NTP服务器B在16:34:23.480接收服务器A的消息，该消息带有时间戳16:34:13.430，并回复该消息。A在16:34:15.725接收消息，带有B的时间戳16:34:25.7。估计B和A之间的偏移量以及估计的准确性。（10分）
-- 问题3。[10标记]在UNIX文件系统中，用户打开文件“/hitsz/ds/code/example/exam.txt”。假设根目录的inode（即“/”）已经在inode表中（内存中）。
-    - a） 列出解析路径名“/hitsz/ds/code/example/exam.txt”并将文件的inode加载到inode表中的步骤。
-    - b） 需要多少次磁盘访问？
-- 问题4。[10马克]分布式文件系统和事务处理系统之间的区别是什么？
+

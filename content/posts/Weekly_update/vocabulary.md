@@ -5,7 +5,7 @@ lastmod: 2021-12-28
 tags: [some words]
 categories: [School courses]
 slug: vocabulary
-draft: false
+draft: true
 ---
 |英文|中文|
 |:--|:--|
@@ -13,7 +13,7 @@ integrate                           |整合、合并、集成
 vocabulary                       |词汇
 detection                          |检测、侦察、察觉
 identity authentication     |身份认证
-cyber threats                    网络威胁
+cyber threats                    |网络威胁
 Transaction isolation         |事务（交易）隔离
 write barrier                     |写屏障
 plotter                               |阴谋家、绘图仪、描绘器

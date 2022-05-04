@@ -1,5 +1,7 @@
 # DistributedSystem_HongweiDu_05
 
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # Mutual  Exclusion  & Election  Algorithms(互斥算法 & 选举算法)
 ## Mutual Exclusion
 Process Synchronization:
@@ -36,12 +38,12 @@ Centralized algorithm（集中式算法）:
 3. Receive  grant
 4. Access resource
 5. Release  resource
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210151450.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210151450.png)
 - If another process claimed resource:
     - Coordinator does not reply until release
     - Maintain queue
         - Service requests in FIFO order
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210151558.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210151558.png)
 - Benefits
     - Fair: All requests processed in order
     - Easy to implement, understand, verify
@@ -55,7 +57,7 @@ Token Ring algorithm（令牌环算法）:
     - Some ordering can be imposed on group (unique process IDs)
     - Construct logical ring in software
     - Process communicates with its neighbor
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210151837.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210151837.png)
 - Initialization
     - Process 0 creates a token for resource R
 - Token circulates around ring
@@ -65,12 +67,12 @@ Token Ring algorithm（令牌环算法）:
     - If no, send ring to neighbor
     - If yes, access resource
         - Hold token until done
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210151948.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210152022.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210152053.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210151948.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210152022.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210152053.png)
 - ……
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210152140.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210152022.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210152140.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210152022.png)
 
 Token Ring algorithm summary:
 - Only one process at a time has token
@@ -108,7 +110,7 @@ Ricart & Agrawala algorithm:
         - Send OK to all  queued  requests
 
 Example for Ricart & Agrawala algorithm:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210152548.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210152548.png)
 
 Ricart & Agrawala algorithm:
 - N points of failure
@@ -155,11 +157,11 @@ Bully algorithm （霸道选举算法)：
 message telling them that it is the new coordinator
 - If a dead process recovers, it holds an election to find the
 coordinator.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153245.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153309.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153332.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153355.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153422.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153245.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153309.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153332.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153355.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153422.png)
 
 Ring algorithm （环选举算法）：
 - Ring arrangement of processes
@@ -173,17 +175,17 @@ Ring algorithm （环选举算法）：
     - Process sees its ID on list
     - Circulates (or multicasts) a coordinator message announcing coordinator
 - E.g. lowest numbered process
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153539.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153618.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153713.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153736.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153756.png)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153819.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153539.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153618.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153713.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153736.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153756.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153819.png)
 - P2 receives the election message that it initiated
 - P2 now picks a leader (e.g., lowest or highest ID)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153914.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153914.png)
 - P2 announces the new coordinator to the group
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210153958.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210153958.png)
 
 Chang & Roberts Ring Algorithm：
 - Optimize the ring
@@ -202,7 +204,7 @@ Chang & Roberts Ring Algorithm：
     - the process is now the leader – message circulated: announce winner
 
 Network Partitioning: Split Brain （脑裂）：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211210154220.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211210154220.png)
 
 
 

@@ -1,21 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Coding on Jefo</title>
-    <link>https://qizhengzou.github.io/categories/coding/</link>
-    <description>Recent content in Coding on Jefo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 06 Jan 2022 08:17:33 +0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/coding/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Algorithm_array</title>
-      <link>https://qizhengzou.github.io/2022/array-algorithm/</link>
-      <pubDate>Thu, 06 Jan 2022 08:17:33 +0800</pubDate>
-      
-      <guid>https://qizhengzou.github.io/2022/array-algorithm/</guid>
-      <description>数组 数组基础 数组是存放在连续内存空间上的相同类型数据的集合。 因为数组的在内存空间的地址是连续的，所以我们在删除或者增添元素的时候，就难免要移</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Coding - 分类 - Jefo</title>
+        <link>https://qizhengzou.github.io/categories/coding/</link>
+        <description>Coding - 分类 - Jefo</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2838264218@qq.com (Jefo)</managingEditor>
+            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 20 Feb 2022 19:52:33 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/coding/" rel="self" type="application/rss+xml" /><item>
+    <title>Algorithm_find</title>
+    <link>https://qizhengzou.github.io/algorithm_find/</link>
+    <pubDate>Sun, 20 Feb 2022 19:52:33 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algorithm_find/</guid>
+    <description><![CDATA[查找算法 散列查找：也称哈希查找，有拉链法查找，也有线性探测法查找，拉链法使用数组链表结构，线性探测法使用数组。 树查找：有搜索二叉树，平衡查找]]></description>
+</item><item>
+    <title>Algorithm_sort</title>
+    <link>https://qizhengzou.github.io/algorithm_sort/</link>
+    <pubDate>Sun, 20 Feb 2022 19:52:01 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algorithm_sort/</guid>
+    <description><![CDATA[排序算法 稳定性概念 定义：能保证两个相等的数，经过排序之后，其在序列的前后位置顺序不变。（A1=A2，排序前A1在A2前面，排序后A1还在A2]]></description>
+</item><item>
+    <title>Structural_type</title>
+    <link>https://qizhengzou.github.io/structural_type/</link>
+    <pubDate>Sat, 22 Jan 2022 09:21:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/structural_type/</guid>
+    <description><![CDATA[facade API 为facade 模块的外观接口，大部分代码使用此接口简化对facade类的访问。 facade模块同时暴露了a和b 两个Module 的NewX]]></description>
+</item><item>
+    <title>Behavioral_type</title>
+    <link>https://qizhengzou.github.io/behavioral_type/</link>
+    <pubDate>Sat, 22 Jan 2022 09:20:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/behavioral_type/</guid>
+    <description><![CDATA[mediator 中介者模式封装对象之间互交，使依赖变的简单，并且使复杂互交简单化，封装在中介者中。 例子中的中介者使用单例模式生成中介者。 中介者的chang]]></description>
+</item><item>
+    <title>Create_type</title>
+    <link>https://qizhengzou.github.io/create_type/</link>
+    <pubDate>Sat, 22 Jan 2022 09:19:30 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/create_type/</guid>
+    <description><![CDATA[simple factory go 语言没有构造函数一说，所以一般会定义NewXXX函数来初始化相关类。 NewXXX 函数根据参数返回不同接口时就是简单工厂模式。 在这个simplef]]></description>
+</item><item>
+    <title>Algorithm_dynamicProgramming</title>
+    <link>https://qizhengzou.github.io/algorithm_dynamicprogramming/</link>
+    <pubDate>Thu, 06 Jan 2022 08:27:39 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algorithm_dynamicprogramming/</guid>
+    <description><![CDATA[学习代码随想录笔记 动态规划 有很多重叠子问题，优先考虑使用动态规划。 与贪心的区别：贪心不会考虑之前的状态而只考虑局部最优。 理论基础 dp步骤： 确]]></description>
+</item><item>
+    <title>Algorithm_greedy</title>
+    <link>https://qizhengzou.github.io/algorithm_greedy/</link>
+    <pubDate>Thu, 06 Jan 2022 08:23:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algorithm_greedy/</guid>
+    <description><![CDATA[学习代码随想录笔记 贪心算法 理论基础 贪心算法一般分为如下四步： 将问题分解为若干个子问题 找出适合的贪心策略 求解每一个子问题的最优解 将局部最优解堆]]></description>
+</item><item>
+    <title>Algorithm_backTracking</title>
+    <link>https://qizhengzou.github.io/algorithm_backtracking/</link>
+    <pubDate>Thu, 06 Jan 2022 08:22:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algorithm_backtracking/</guid>
+    <description><![CDATA[学习代码随想录笔记 回溯算法 理论基础 也叫回溯搜索算法。 回溯是递归的副产品，只要有递归就会有回溯 回溯的本质是穷举，穷举所有可能，然后选出我们想要]]></description>
+</item><item>
+    <title>Algorithm_binaryTree</title>
+    <link>https://qizhengzou.github.io/algorithm_binarytree/</link>
+    <pubDate>Thu, 06 Jan 2022 08:21:45 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algorithm_binarytree/</guid>
+    <description><![CDATA[学习代码随想录笔记 二叉树 理论基础 一般主要会碰到满二叉树以及完全二叉树。 完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余]]></description>
+</item><item>
+    <title>Algorithm_stackAndQueue</title>
+    <link>https://qizhengzou.github.io/algorithm_stackandqueue/</link>
+    <pubDate>Thu, 06 Jan 2022 08:20:54 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algorithm_stackandqueue/</guid>
+    <description><![CDATA[学习代码随想录笔记 栈和队列 需要知道栈和队列的底层实现，不同编程语言不同STL的实现原理都是不尽相同的。 理论基础(c++) 栈其实就是递归的一种]]></description>
+</item></channel>
 </rss>

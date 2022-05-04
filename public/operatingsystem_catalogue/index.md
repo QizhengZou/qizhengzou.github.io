@@ -1,6 +1,7 @@
 # OperatingSystem_catalogue
 
-- base_01（绪论）
+> base来自王道考研操作系统
+- [base_01](https://qizhengzou.github.io/operatingsystem_base_01/)（绪论）
     - 操作系统(Operating System, OS)的概念、特征、功能和提供的服务
     - 操作系统的发展与分类
         - **单道批处理系统**
@@ -13,7 +14,7 @@
         - 中断与异常
         - 系统调用
     - 操作系统的体系结构
-- base_02（进程管理）
+- [base_02](https://qizhengzou.github.io/operatingsystem_base_02/)（进程管理）
     - 进程与线程
         - 进程概念
         - 进程的状态与转换
@@ -38,7 +39,7 @@
         - **死锁预防**
         - 死锁避免：**系统安全状态、银行家算法**
         - 死锁检测和解除
-- base_03（内存管理）
+- [base_03](https://qizhengzou.github.io/operatingsystem_base_03/)（内存管理）
     - 内存管理基础
         - 内存管理概念：程序装入与链接、逻辑地址与物理地址空间、内存保护。
             - **程序装入**
@@ -62,7 +63,7 @@
             - belady异常
             - 抖动
             - 缺页率
-- base_04（文件管理）
+- [base_04](https://qizhengzou.github.io/operatingsystem_base_04/)（文件管理）
     - 文件系统基础
         - 文件的概念
         - **文件的逻辑结构：顺序文件、索引文件、索引顺序文件**
@@ -83,7 +84,7 @@
             - **扫描算法(SCAN)或电梯调度算法**
             - **循环扫描(C-SCAN)算法**  
         - 磁盘的管理
-- base_05（设备管理）
+- [base_05](https://qizhengzou.github.io/operatingsystem_base_05/)（设备管理）
     - I/O 管理概述
         - I/O 控制方式：**程序直接控制方式、中断控制方式、DMA控制方式和通道控制方式**
         - **I/O软件层次结构**
@@ -92,10 +93,11 @@
         - 高速缓存与缓冲区
         - 设备分配与回收
         - 假脱机技术(SPOOLing)
-- base_06（知识补充）
-    - 磁盘阵列
-    - 加密算法
-    - 对称多处理SMP体系结构
+- [advanced_01](https://qizhengzou.github.io/operatingsystem_advanced_01/)（操作系统重要性）
+- [advanced_02](https://qizhengzou.github.io/operatingsystem_advanced_02/)（程序运行过程）
+    - 程序编译过程
+    - 程序装载执行
+    - HELLO OS
 
 
 

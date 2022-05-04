@@ -1,5 +1,7 @@
 # Go_base_04
 
+> 参考学习go语言中文网、C语言中文网、golang官方文档等
+
 # 方法
 ## 方法定义
 Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver)。
@@ -283,7 +285,7 @@ func (self *User) ToString() string { // receiver = &(Manager.User)
 }
 
 func main() {
-    m := Manager{User{1, "Tom"}}
+    m := Manager{User{1, "Tom"} }
     fmt.Printf("Manager: %p\n", &m)
     fmt.Println(m.ToString())
 }  
@@ -419,7 +421,7 @@ func (t T) testT() {
 }
 
 func main() {
-    s1 := S{T{1}}
+    s1 := S{T{1} }
     s2 := &s1
     fmt.Printf("s1 is : %v\n", s1)
     s1.testT()
@@ -427,9 +429,9 @@ func main() {
     s2.testT()
 }
 output：
-    s1 is : {{1}}
+    s1 is : { {1} }
     如类型 S 包含匿名字段 T，则 S 和 *S 方法集包含 T 方法。
-    s2 is : &{{1}}
+    s2 is : &{ {1} }
     如类型 S 包含匿名字段 T，则 S 和 *S 方法集包含 T 方法。 
 ```
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T + *T 方法。
@@ -458,7 +460,7 @@ func (t *T) testP() {
 }
 
 func main() {
-    s1 := S{T{1}}
+    s1 := S{T{1} }
     s2 := &s1
     fmt.Printf("s1 is : %v\n", s1)
     s1.testT()
@@ -468,10 +470,10 @@ func main() {
     s2.testP()
 }
 output：
-s1 is : {{1}}
+s1 is : { {1} }
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T 方法
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 *T 方法
-s2 is : &{{1}}
+s2 is : &{ {1} }
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T 方法
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 *T 方法 
 ```
@@ -642,7 +644,7 @@ func test03() {
    // 延时执行匿名函数
    // 延时到何时？（1）程序正常结束   （2）发生异常时
    defer func() {
-      // recover() 复活 恢复
+      // recover() 恢复
       // 会返回程序为什么挂了
       if err := recover(); err != nil {
          fmt.Println(err)

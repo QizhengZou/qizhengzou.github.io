@@ -1,5 +1,7 @@
 # DistributedSystem_HongweiDu_07
 
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # Internetworking网际路由
 Internet Structure: Network of Networks：
 - Internet is in a hierarchical structure
@@ -10,7 +12,7 @@ Internet Structure: Network of Networks：
         - connect into NBPs
     - Local ISP
         - connect into regional ISPs
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222100925.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222100925.png)
 
 Internet Protocol (IP)：
 - The IP protocol, defined in RFC 791 (1981) at Layer 3, specifies:
@@ -28,7 +30,7 @@ Internet Packets：
     - No minimum size
 
 IPv4 datagram format:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222101254.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222101254.png)
 
 IP Address Details:
 - An IPv4 address has 32 bits (4 bytes) – written like 192.0.2.53
@@ -42,10 +44,10 @@ IP Address Details:
 
 IPv4 Addresses：
 - The Classful Addressing:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143028.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143028.png)
 
 Classes and Network Sizes：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143051.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143051.png)
 - Network size is determined by number of bits for hosts
     - Class A large
     - Class B medium
@@ -74,18 +76,18 @@ Subnets and Subnet Masks：
     - The host portion of address is further partitioned into subnet number and host number.
     - Each LAN is assigned a subnet number (subnet address).
     - To route an IP packet, its dest-IP addr is AND-ed with the subnet-mask, obtaining a subnet number. It is forwarded to the router of the dest-subnet:
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143336.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143336.png)
     - The dest-subnet router routes the packet to dest-host using host #.
 
-Routing Using Subnets：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143408.png)
+Routing Using Subnets：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143408.png)
 
 Cslab Subnet Interconnction：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143436.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143436.png)
 
 Routing Table in CSlab：
 - CSlab has 22 LANs connected to a single router. The router is connected to CSC’s router. 
 - The routing table is very small, only contains 22 VLANs and an entry pointing to CSC router 144.214.138.21 (0.0.0.0 for default routing).
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143548.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143548.png)
 
 CIDR-Classless InterDomain Routing：
 - The classful addressing
@@ -95,27 +97,27 @@ CIDR-Classless InterDomain Routing：
     - network portion of address of arbitrary length
     - address format: a.b.c.d/x, where x is # of bits for network address
 - Example of CIDR subdividing a class B net address: 194.24.0.0
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143712.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143712.png)
 
 CIDR Routing
 - Each entry in CIDR routing table contains a base address and a subnet mask (same as routing in subnets).
 - For routing an IP packet, its destination IP addr is Boolean ANDed with the subnet mask to see if it matches the entry’s base addr (the longest match is used if multiple matches found).
 - The packet is routed out via the matched entry’s outgoing link.
 - Not all routers perform CIDR. (if all routers adopt CIDR, network portion of addresses can be of any length!)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143759.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143759.png)
 
 NAT- Network Address Translation:
 - To relief the shortage of IP addresses, NAT technique uses only a small number of external IP addresses for communicating with outside, and hide local IP addresses from outside (so these local IP addresses can be re-used elsewhere):
     - All Internet traffic to outside has to go through a NAT box, where the internal IP address (the source IP addr) is replaced by an external IP address.
     - The source port # field in the IP packet is replaced by the index pointing to the entry in the NAT box’s translation table. This entry contains the internal IP addr and the original source port #.
     - When an outside IP packet arrives at the NAT box, its destination port # is extracted and used as an index to the translation table, where the original IP addr and port # are extracted and placed back to the packet.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143844.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143844.png)
 
 NAT in operation:
 - Translate addresses when packets traverse through NAT.
 - Use port numbers to identify internal IP users.
 - This is a dirty way to fix the problem and only works for TCP/UDP traffic.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222143923.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222143923.png)
 
 Dynamic Host Configuration Protocol (DHCP):
 - To make NAT work, three ranges of IP addresses have been declared for private use (called unregistered addresses):
@@ -131,7 +133,7 @@ DHCP in Operation:
 - A DHCP relay-agent is needed on each LAN to enable hosts on this LAN to reach DHCP server via a broadcast message.
 - When a device (host) is booted up, it broadcasts a DHCP discover packet (to request / discover an IP address).
 - DHCP discover packet is intercepted by the DHCP agent on the same LAN and forwarded to the DHCP server.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222144100.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222144100.png)
 
 Address Resolution Problem:
 - IP layer specifies the next hop router (destination) by IP addresses. When it gives an IP packet to the underlying network (e.g., Ethernet) for transmission, it needs to insert the “physical addresses” to the packet:
@@ -170,7 +172,7 @@ OSPF Algorithm:
 - Intra-area routing: each router uses the link state database and runs the shortest path to the destination router.
 - Inter-area routing: the source router -> backbone -> the destination area -> destination router
 - Inter-AS routing, the source router -> backbone -> AS boundary router -> destination AS boundary router (via BGP) -> dest-router
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211222144608.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211222144608.png)
 
 BGP – Exterior Gateway Routing Protocol:
 - Inter-AS traffics are routed by BGP (Border Gateway Protocol):

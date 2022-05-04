@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Cry_base_07 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="Cry_base_07" />
-<meta property="og:description" content="Hash,MAC,DS 哈希函数应用 消息验证 完整性 口令验证 MAC（与加密配合） 数字签名（与加密配合） 两个简易哈希函数 全文XOR 每块异或之后左移一位 哈希函数要求（哈" />
+<meta property="og:description" content="笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳 Hash,MAC,DS 哈希函数应用 消息验证 完整性 口令验证 MAC（与加密配合） 数字签名（与加密配合） 两个简易" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/cry_base_07/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-16T15:24:07+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Cry_base_07"/>
-<meta name="twitter:description" content="Hash,MAC,DS 哈希函数应用 消息验证 完整性 口令验证 MAC（与加密配合） 数字签名（与加密配合） 两个简易哈希函数 全文XOR 每块异或之后左移一位 哈希函数要求（哈"/>
+<meta name="twitter:description" content="笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳 Hash,MAC,DS 哈希函数应用 消息验证 完整性 口令验证 MAC（与加密配合） 数字签名（与加密配合） 两个简易"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/cry_base_07\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "cryptography","wordcount":  363 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "cryptography","wordcount":  391 ,
         "url": "https:\/\/qizhengzou.github.io\/cry_base_07\/","datePublished": "2021-12-16T15:24:07+08:00","dateModified": "2021-12-16T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/cry_base_07/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/cry_base_07/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Cry_base_07</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-16 15:24:07">2021-12-16 15:24:07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 363 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-16 15:24:07">2021-12-16 15:24:07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 391 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -115,7 +138,10 @@
     <li><a href="#pki-公钥基础设施">PKI 公钥基础设施</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="hashmacds">Hash,MAC,DS</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳</p>
+</blockquote>
+<h1 id="hashmacds">Hash,MAC,DS</h1>
 <h2 id="哈希函数应用">哈希函数应用</h2>
 <ul>
 <li>消息验证</li>
@@ -143,11 +169,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219095810.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219095810.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219095810.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219095810.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219095810.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219095810.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219095810.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219095810.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219095810.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219095810.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219095810.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219095810.png" /></li>
 </ul>
 </li>
 <li>两大流派：
@@ -155,19 +181,19 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100001.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100001.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100001.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100001.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100001.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100001.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100001.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100001.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100001.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100001.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100001.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100001.png" /></li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100025.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100025.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100025.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100025.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100025.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100025.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100025.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100025.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100025.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100025.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100025.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100025.png" /></li>
 </ul>
 </li>
 </ul>
@@ -178,11 +204,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100118.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100118.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100118.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100118.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100118.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100118.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100118.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100118.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100118.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100118.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100118.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100118.png" /></li>
 </ul>
 </li>
 <li>MD5运算：
@@ -190,11 +216,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100203.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100203.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100203.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100203.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100203.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100203.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100203.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100203.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100203.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100203.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100203.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100203.png" /></li>
 </ul>
 </li>
 </ul>
@@ -205,11 +231,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100240.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100240.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100240.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100240.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100240.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100240.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100240.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100240.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100240.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100240.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100240.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100240.png" /></li>
 </ul>
 </li>
 <li>填充：
@@ -217,11 +243,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100312.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100312.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100312.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100312.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100312.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100312.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100312.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100312.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100312.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100312.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100312.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100312.png" /></li>
 </ul>
 </li>
 </ul>
@@ -231,11 +257,11 @@
 <li>一种结构:<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100348.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100348.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100348.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100348.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100348.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100348.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100348.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100348.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100348.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100348.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100348.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100348.png" /></li>
 <li>本质：一种与密钥有关的哈希函数</li>
 </ul>
 <h2 id="digital-signature-ds-数字签名">Digital Signature DS 数字签名</h2>
@@ -288,7 +314,7 @@
 </li>
 <li>
 <ol start="2">
-<li>$\mathrm{r}=\mathrm{g}^{\mathrm{k}} \bmod \mathrm{p}$</li>
+<li>$\mathrm{r}=\mathrm{g}^{\mathrm{k} } \bmod \mathrm{p}$</li>
 </ol>
 </li>
 <li>
@@ -308,11 +334,11 @@
 <li>结构如下:<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100920.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100920.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100920.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100920.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100920.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100920.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100920.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100920.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100920.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211219100920.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100920.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219100920.png" /></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -350,5 +376,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

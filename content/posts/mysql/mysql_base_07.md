@@ -5,7 +5,7 @@ lastmod: 2021-11-13
 tags: [mysql]
 categories: [School courses]
 slug: Functional dependence and its axiom theorem
-draft: false
+draft: true
 ---
 > 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
 

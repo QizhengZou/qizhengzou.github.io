@@ -1,17 +1,14 @@
 # SEK_catalogue
 
-## 介绍
-- 平时作业30%、期末考试70%
-- 这是软B的前半部分，以知识理论为主
-- 主要教授了如何开发高质量软件以及如何团队协作开发
-## 目录
-- 第一部分 软件工程概论
+> base来自2021秋哈工大深圳软件工程
+
+- [base_01](https://qizhengzou.github.io/sek_base_01/) 软件工程概论
     - 1.1 软件工程的产生与发展
     - 1.2 软件工程的基本概念
-- 第二部分 软件项目开发过程与管理
+- [base_02](https://qizhengzou.github.io/sek_base_02/) 软件项目开发过程与管理
     - 2.1 软件项目开发过程
     - 2.2 软件项目开发管理
-- 第三部分 软件需求工程
+- [base_03](https://qizhengzou.github.io/sek_base_03/) 软件需求工程
     - 3.1 软件需求与需求工程
         - 软件需求
         - 需求工程
@@ -19,7 +16,7 @@
         - 需求获取的挑战和途径
         - 需求建模
     - 3.3 需求规格说明
-- 第四部分 软件设计
+- [base_04](https://qizhengzou.github.io/sek_base_04/) 软件设计
     - 4.1 软件工程开发方法与软件设计
         - 软件工程开发方法
             - 传统开发方法
@@ -47,7 +44,7 @@
         - 活动图
     - 4.5 物理建模与设计
         - 组件图
-- 第五部分 软件编码、测试与质量保障
+- [base_05](https://qizhengzou.github.io/sek_base_05/) 软件编码、测试与质量保障
     - 5.1 软件编程
         - 良好的编程时间
         - 代码审查
@@ -66,7 +63,7 @@
     - 5.3 白盒测试
         - 白盒测试方案
     - 5.4 黑盒测试
-- 第六部分 软件实施、维护与演化
+- [base_06](https://qizhengzou.github.io/sek_base_06/) 软件实施、维护与演化
     - 6.1 敏捷开发
         - 敏捷方法概述
             - 软件开发之道
@@ -83,23 +80,5 @@
             - 软件演化法则
             - 软件维护
             - 软件再工程
-- 第七部分 案例分析
 
-## 习题
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230100042.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230100208.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230100400.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230101005.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230101321.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230101410.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230101757.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230102424.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230102604.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230102944.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230103106.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230105234.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230105340.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230110006.png)
-软件危机：硬件技术的进步，软件技术的进步不能满足发展的需要。软件危机表现在四个方面：钱与时间，要求，维护性，可靠性。造成软件危机的原因：规模和结构，管理，经费，技术，工具
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230110842.png)
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211230111010.png)
+

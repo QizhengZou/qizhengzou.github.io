@@ -5,7 +5,7 @@ lastmod: 2021-11-29
 tags: [computer architecture]
 categories: [School courses]
 slug: CA Intro
-draft: false
+draft: true
 ---
 > 笔记来自：计算机体系结构基础（第三版）胡伟武等
 

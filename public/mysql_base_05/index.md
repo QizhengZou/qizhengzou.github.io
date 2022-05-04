@@ -1,5 +1,7 @@
 # Mysql_base_05
 
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 数据库建模思想与方法
 ## 为什么要数据建模和数据库设计?
 数据模型与概念模型:
@@ -29,19 +31,19 @@ E-R模型
 
 ## E-R模型的两种图示化表达方法
 * Chen 方法
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211111095426.png)
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211111095753.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211111095426.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211111095753.png)
     或者
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211111095922.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211111095922.png)
     * Step1 理解需求，寻找实体
     * Step2用属性刻画每一个实体
     * Step3确定每一个实体的关键字/码
     * Step4数据建模的重点是分析实体之间的联系
     * Step5检查是否覆盖了需求
 * Crow’s Foot方法    
-        ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211111100746.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211111100746.png)
     * 联系：菱形框表示，也可以将菱形框省略而直接以联系名来替代    
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211111101103.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211111101103.png)
 
 
 

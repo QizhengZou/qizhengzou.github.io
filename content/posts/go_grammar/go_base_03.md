@@ -24,6 +24,33 @@ draft: false
 - 不支持 默认参数 (default parameter)。 
 - 没有函数体的函数声明，表示该函数不是以Go实现的。这样的声明定义了函数标识符。
 - **所有参数都是值传递：slice，map，channel 会有传引⽤的错觉**
+    - string、切片、map 这些类型它们的内存表示对应的是它们数据内容的“描述符”。当这些类型作为实参类型时，值传递拷贝的也是它们数据内容的“描述符”，不包括数据内容本身，所以这些类型传递的开销是固定的，与数据内容大小无关。这种只拷贝“描述符”，不拷贝实际数据内容的拷贝过程，也被称为“浅拷贝”。
+    - **当函数的形参为接口类型，或者形参是变长参数时，简单的值传递就不能满足要求了**，这时 Go 编译器会介入：对于类型为接口类型的形参，Go 编译器会把传递的实参赋值给对应的接口类型形参；对于为变长参数的形参，Go 编译器会将零个或多个实参按一定形式转换为对应的变长形参。
+        - 在 Go 中，变长参数实际上是通过切片来实现的。所以，我们在函数体中，就可以使用切片支持的所有操作来操作变长参数
+- 关于函数的返回值：
+    - Go 标准库以及大多数项目代码中的函数，都选择了使用普通的非具名返回值形式。但在一些特定场景下，具名返回值也会得到应用。比如，当函数使用 defer，而且还在 defer 函数中修改外部函数返回值时，具名返回值可以让代码显得更优雅清晰。当函数的返回值个数较多时，每次显式使用 return 语句时都会接一长串返回值，这时，我们用具名返回值可以让函数实现的可读性更好一些
+```go
+// $GOROOT/src/time/format.go
+func parseNanoseconds(value string, nbytes int) (ns int, rangeErrString string, err error) {
+    if !commaOrPeriod(value[0]) {
+        err = errBad
+        return
+    }
+    if ns, err = atoi(value[1:nbytes]); err != nil {
+        return
+    }
+    if ns < 0 || 1e9 <= ns {
+        rangeErrString = "fractional second"
+        return
+    }
+
+    scaleDigits := 10 - nbytes
+    for i := 0; i < scaleDigits; i++ {
+        ns *= 10
+    }
+    return
+}
+```
 
 **函数是第一类对象，可作为参数传递。建议将复杂签名定义为函数类型，以便于阅读。**
 ```go
@@ -196,6 +223,12 @@ func main() {
 
 output:103
 ```
+
+利用多返回值进行错误处理：
+- 
+
+
+
 ## 匿名函数
 **匿名函数的优越性在于可以直接使用函数内的变量，不必申明。Golang匿名函数可赋值给变量，做为结构字段，或者在 channel 里传送。**
 ```go
@@ -377,11 +410,44 @@ go的递归和其他语言基本无差别。
 2. 这些调用直到 return 前才被执行。因此，可以用来做资源清理。
 3. 多个defer语句，按**先进后出**的方式执行。（因为后面的defer可能会用到前面的资源）
 4. defer语句中的变量，在defer声明时就决定了。
-5. 发生panic依然会执行defer，但不是任何情况都会执行，比如：os.Exit()不会调用defer。os.Exit()退出时不输出当前调用栈信息。
+5. 发生panic依然会执行defer，但不是任何情况都会执行，比如：os.Exit()不会调用defer。os.Exit()退出时不输出当前调用栈信息
+6. Go1.13前的版本defer的开销还是非常大的，在后续团队优化后现在的开销比较小可以放心使用
+
 用途：
-1. 关闭文件句柄
-2. 锁资源释放
-3. 数据库连接释放
+1. 关闭文件句柄、锁资源释放、数据库连接释放
+2. **使用 defer 可以跟踪函数的执行过程**
+```go
+// trace.go
+package main
+  
+func Trace(name string) func() {
+    println("enter:", name)
+    return func() {
+        println("exit:", name)
+    }
+}
+
+func foo() {
+    defer Trace("foo")()
+    bar()
+}
+
+func bar() {
+    defer Trace("bar")()
+}
+
+func main() {
+    defer Trace("main")()
+    foo()
+}
+```
+不足：调用 Trace 时需手动显式传入要跟踪的函数名；如果是并发应用，不同 Goroutine 中函数链跟踪混在一起无法分辨；输出的跟踪结果缺少层次感，调用关系不易识别；对要跟踪的函数，需手动调用 Trace 函数。
+
+**实现一个自动注入跟踪代码，并输出有层次感的函数调用链跟踪命令行工具**：
+- 自动获取所跟踪函数的函数名
+3. 充当“断言”，提示潜在bug
+4. 
+5. 
 
 defer功能强大，对于资源管理非常方便，但是如果没用好，也会有陷阱。
 
@@ -910,7 +976,7 @@ recover:
 1. 内置函数
 2. 用来控制一个goroutine的panicking行为，捕获panic，从而影响应用的行为
 3. 一般的调用建议
-    - 在defer函数中，通过recever来终止一个goroutine的panicking过程，从而恢复正常代码的执行
+    - 只能用在defer函数中，通过recever来终止一个goroutine的panicking过程，从而恢复正常代码的执行
     - 可以获取通过panic传递的error
 
 注意：
@@ -1148,6 +1214,301 @@ test panic
 如何区别使用 panic 和 error 两种方式?
 
 惯例是:导致关键流程出现不可修复性错误的使用 panic，其他使用 error。
+
+几种错误处理策略：
+1. 透明错误处理策略
+```go
+err := doSomething()
+if err != nil {
+    // 不关心err变量底层错误值所携带的具体上下文信息
+    // 执行简单错误处理逻辑并返回
+    ... ...
+    return err
+}
+```
+2. “哨兵”
+    - 当错误处理方不能只根据“透明的错误值”就做出错误处理路径选取的情况下，错误处理方会尝试对返回的错误值进行检视，于是就有可能出现下面代码中的反模式：
+    - 反模式就是，错误处理方以透明错误值所能提供的唯一上下文信息（描述错误的字符串），作为错误处理路径选择的依据。但这种“反模式”会造成严重的隐式耦合。这也就意味着，错误值构造方不经意间的一次错误描述字符串的改动，都会造成错误处理方处理行为的变化，并且这种通过字符串比较的方式，对错误值进行检视的性能也很差。
+```go
+data, err := b.Peek(1)
+if err != nil {
+    switch err.Error() {
+    case "bufio: negative count":
+        // ... ...
+        return
+    case "bufio: buffer full":
+        // ... ...
+        return
+    case "bufio: invalid use of UnreadByte":
+        // ... ...
+        return
+    default:
+        // ... ...
+        return
+    }
+}
+```
+Go 标准库采用了定义导出的（Exported）“哨兵”错误值的方式，来辅助错误处理方检视（inspect）错误值并做出错误处理分支的决策，比如下面的 bufio 包中定义的“哨兵错误”：
+```go
+
+// $GOROOT/src/bufio/bufio.go
+var (
+    ErrInvalidUnreadByte = errors.New("bufio: invalid use of UnreadByte")
+    ErrInvalidUnreadRune = errors.New("bufio: invalid use of UnreadRune")
+    ErrBufferFull        = errors.New("bufio: buffer full")
+    ErrNegativeCount     = errors.New("bufio: negative count")
+)
+```
+下面的代码片段利用了上面的哨兵错误，进行错误处理分支的决策：
+```go
+
+data, err := b.Peek(1)
+if err != nil {
+    switch err {
+    case bufio.ErrNegativeCount:
+        // ... ...
+        return
+    case bufio.ErrBufferFull:
+        // ... ...
+        return
+    case bufio.ErrInvalidUnreadByte:
+        // ... ...
+        return
+    default:
+        // ... ...
+        return
+    }
+}
+```
+一般“哨兵”错误值变量以 ErrXXX 格式命名。和透明错误策略相比，“哨兵”策略让错误处理方在有检视错误值的需求时候，可以“有的放矢”。不过，对于 API 的开发者而言，暴露“哨兵”错误值也意味着这些错误值和包的公共函数 / 方法一起成为了 API 的一部分。一旦发布出去，开发者就要对它进行很好的维护。而“哨兵”错误值也让使用这些值的错误处理方对它产生了依赖。
+
+从 Go 1.13 版本开始，标准库 errors 包提供了 Is 函数用于错误处理方对错误值的检视。Is 函数类似于把一个 error 类型变量与“哨兵”错误值进行比较，比如下面代码：
+```go
+// 类似 if err == ErrOutOfBounds{ … }
+if errors.Is(err, ErrOutOfBounds) {
+    // 越界的错误处理
+}
+```
+不同的是，如果 error 类型变量的底层错误值是一个包装错误（Wrapped Error），errors.Is 方法会沿着该包装错误所在错误链（Error Chain)，与链上所有被包装的错误（Wrapped Error）进行比较，直至找到一个匹配的错误为止。下面是 Is 函数应用的一个例子：
+```go
+var ErrSentinel = errors.New("the underlying sentinel error")
+
+func main() {
+  err1 := fmt.Errorf("wrap sentinel: %w", ErrSentinel)
+  err2 := fmt.Errorf("wrap err1: %w", err1)
+    println(err2 == ErrSentinel) //false
+  if errors.Is(err2, ErrSentinel) {
+    println("err2 is ErrSentinel")
+    return
+  }
+
+  println("err2 is not ErrSentinel")
+}
+```
+通过 fmt.Errorf 函数，并且使用 %w 创建包装错误变量 err1 和 err2，其中 err1 实现了对 ErrSentinel 这个“哨兵错误值”的包装，而 err2 又对 err1 进行了包装，这样就形成了一条错误链。位于错误链最上层的是 err2，位于最底层的是 ErrSentinel。之后，我们再分别通过值比较和 errors.Is 这两种方法，判断 err2 与 ErrSentinel 的关系。
+
+运行上述代码，我们会看到如下结果：
+```
+false
+err2 is ErrSentinel
+```
+通过比较操作符对 err2 与 ErrSentinel 进行比较后，我们发现这二者并不相同。而 errors.Is 函数则会沿着 err2 所在错误链，向下找到被包装到最底层的“哨兵”错误值ErrSentinel。
+
+Go 1.13 及后续版本，建议尽量使用errors.Is方法去检视某个错误值是否就是某个预期错误值，或者包装了某个特定的“哨兵”错误值。
+3. 错误值类型检视策略
+- 基于 Go 标准库提供的错误值构造方法构造的“哨兵”错误值，除了让错误处理方可以“有的放矢”的进行值比较之外，并没有提供其他有效的错误上下文信息。那如果遇到错误处理方需要错误值提供更多的“错误上下文”的情况，上面这些错误处理策略和错误值构造方式都无法满足。
+- 这种情况下，我们需要通过自定义错误类型的构造错误值的方式，来提供更多的“错误上下文”信息。并且，由于错误值都通过 error 接口变量统一呈现，要得到底层错误类型携带的错误上下文信息，错误处理方需要使用 Go 提供的类型断言机制（Type Assertion）或类型选择机制（Type Switch），这种错误处理方式，我称之为错误值类型检视策略
+```go
+
+// $GOROOT/src/encoding/json/decode.go
+type UnmarshalTypeError struct {
+    Value  string       
+    Type   reflect.Type 
+    Offset int64        
+    Struct string       
+    Field  string      
+}
+```
+错误处理方可以通过错误类型检视策略，获得更多错误值的错误上下文信息，下面就是利用这一策略的 json 包的一个方法的实现：
+```go
+
+// $GOROOT/src/encoding/json/decode.go
+func (d *decodeState) addErrorContext(err error) error {
+    if d.errorContext.Struct != nil || len(d.errorContext.FieldStack) > 0 {
+        switch err := err.(type) {
+        case *UnmarshalTypeError:
+            err.Struct = d.errorContext.Struct.Name()
+            err.Field = strings.Join(d.errorContext.FieldStack, ".")
+            return err
+        }
+    }
+    return err
+}
+```
+我们看到，这段代码通过类型 switch 语句得到了 err 变量代表的动态类型和值，然后在匹配的 case 分支中利用错误上下文信息进行处理。这里，一般自定义导出的错误类型以XXXError的形式命名。和“哨兵”错误处理策略一样，错误值类型检视策略，由于暴露了自定义的错误类型给错误处理方，因此这些错误类型也和包的公共函数 / 方法一起，成为了 API 的一部分。一旦发布出去，开发者就要对它们进行很好的维护。而它们也让使用这些类型进行检视的错误处理方对其产生了依赖。
+
+从 Go 1.13 版本开始，标准库 errors 包提供了As函数给错误处理方检视错误值。As函数类似于通过类型断言判断一个 error 类型变量是否为特定的自定义错误类型，如下面代码所示：
+```go
+
+// 类似 if e, ok := err.(*MyError); ok { … }
+var e *MyError
+if errors.As(err, &e) {
+    // 如果err类型为*MyError，变量e将被设置为对应的错误值
+}
+```
+不同的是，如果 error 类型变量的动态错误值是一个包装错误，errors.As函数会沿着该包装错误所在错误链，与链上所有被包装的错误的类型进行比较，直至找到一个匹配的错误类型，就像 errors.Is 函数那样。下面是As函数应用的一个例子：
+```go
+
+type MyError struct {
+    e string
+}
+
+func (e *MyError) Error() string {
+    return e.e
+}
+
+func main() {
+    var err = &MyError{"MyError error demo"}
+    err1 := fmt.Errorf("wrap err: %w", err)
+    err2 := fmt.Errorf("wrap err1: %w", err1)
+    var e *MyError
+    if errors.As(err2, &e) {
+        println("MyError is on the chain of err2")
+        println(e == err)                  
+        return                             
+    }                                      
+    println("MyError is not on the chain of err2")
+} 
+```
+```
+MyError is on the chain of err2
+true
+```
+errors.As函数沿着 err2 所在错误链向下找到了被包装到最深处的错误值，并将 err2 与其类型 * MyError成功匹配。匹配成功后，errors.As 会将匹配到的错误值存储到 As 函数的第二个参数中，这也是为什么println(e == err)输出 true 的原因。所以，如果使用的是 Go 1.13 及后续版本，尽量使用errors.As方法去检视某个错误值是否是某自定义错误类型的实例。
+4. 错误行为特征检视策略
+- “透明错误处理策略”，有效降低了错误的构造方与错误处理方两者之间的耦合，策略二和策略三，都是我们实际编码中有效的错误处理策略，但其实使用这两种策略的代码，依然在错误的构造方与错误处理方两者之间建立了耦合。
+- **将某个包中的错误类型归类，统一提取出一些公共的错误行为特征，并将这些错误行为特征放入一个公开的接口类型中。这种方式也被叫做错误行为特征检视策略。**
+
+以标准库中的net包为例，它将包内的所有错误类型的公共行为特征抽象并放入net.Error这个接口中，如下面代码：
+```go
+
+// $GOROOT/src/net/net.go
+type Error interface {
+    error
+    Timeout() bool  
+    Temporary() bool
+}
+```
+net.Error 接口包含两个用于判断错误行为特征的方法：Timeout 用来判断是否是超时（Timeout）错误，Temporary 用于判断是否是临时（Temporary）错误。而错误处理方只需要依赖这个公共接口，就可以检视具体错误值的错误行为特征信息，并根据这些信息做出后续错误处理分支选择的决策。
+
+http 包使用错误行为特征检视策略进行错误处理的例子：
+```go
+
+// $GOROOT/src/net/http/server.go
+func (srv *Server) Serve(l net.Listener) error {
+    ... ...
+    for {
+        rw, e := l.Accept()
+        if e != nil {
+            select {
+            case <-srv.getDoneChan():
+                return ErrServerClosed
+            default:
+            }
+            if ne, ok := e.(net.Error); ok && ne.Temporary() {
+                // 注：这里对临时性(temporary)错误进行处理
+                ... ...
+                time.Sleep(tempDelay)
+                continue
+            }
+            return e
+        }
+        ...
+    }
+    ... ...
+}
+```
+Accept 方法实际上返回的错误类型为*OpError，它是 net 包中的一个自定义错误类型，它实现了错误公共特征接口net.Error，如下代码所示：
+```go
+
+// $GOROOT/src/net/net.go
+type OpError struct {
+    ... ...
+    // Err is the error that occurred during the operation.
+    Err error
+}
+
+type temporary interface {
+    Temporary() bool
+}
+
+func (e *OpError) Temporary() bool {
+  if ne, ok := e.Err.(*os.SyscallError); ok {
+      t, ok := ne.Err.(temporary)
+      return ok && t.Temporary()
+  }
+  t, ok := e.Err.(temporary)
+  return ok && t.Temporary()
+}
+```
+因此，OpError 实例可以被错误处理方通过net.Error接口的方法，判断它的行为是否满足 Temporary 或 Timeout 特征。
+
+错误处理策略建议：
+- 请尽量使用“透明错误”处理策略，降低错误处理方与错误值构造方之间的耦合；
+- 如果可以通过错误值类型的特征进行错误检视，那么请尽量使用“错误行为特征检视策略”;
+- 在上述两种策略无法实施的情况下，再使用“哨兵”策略和“错误值类型检视”策略；
+- Go 1.13 及后续版本中，尽量用errors.Is和errors.As函数替换原先的错误检视比较语句。
+## **为啥说函数是Go语言的一等公民**：
+- 引用一下 wiki 发明人、C2 站点作者沃德·坎宁安 (Ward Cunningham)对“一等公民”的解释：
+    - 如果一门编程语言对某种语言元素的创建和使用没有限制，我们可以像对待值（value）一样对待这种语法元素，那么我们就称这种语法元素是这门编程语言的“一等公民”。拥有“一等公民”待遇的语法元素可以存储在变量中，可以作为参数传递给函数，可以在函数内部创建并可以作为返回值从函数返回
+1. Go 函数可以存储在变量中。
+2. 支持在函数内创建并通过返回值返回。
+3. 作为参数传入函数。
+4. 拥有自己的类型。
+- 应用go函数的这些灵活性：
+1. 函数类型的妙用
+    - 函数也可以被显式转型，见下面web server的例子。
+```go
+
+func greeting(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Welcome, Gopher!\n")
+}                    
+
+func main() {
+    //greeting这个函数被显示转化为HandleFunc类型，ListenAndServe的第二个参数是个需要实现ServeHTTP方法（即需要实现Handle接口）的类型
+    http.ListenAndServe(":8080", http.HandlerFunc(greeting))
+}
+
+……
+
+// $GOROOT/src/net/http/server.go
+
+type HandlerFunc func(ResponseWriter, *Request)
+
+// ServeHTTP calls f(w, r).
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request) {
+        f(w, r)
+}
+```
+2. 利用闭包简化函数调用。
+```go
+
+func partialTimes(x int) func(int) int {
+  return func(y int) int {
+    return times(x, y)
+  }
+}
+
+func main() {
+  timesTwo := partialTimes(2)   // 以高频乘数2为固定乘数的乘法函数
+  timesThree := partialTimes(3) // 以高频乘数3为固定乘数的乘法函数
+  fmt.Println(timesTwo(5))   // 10，等价于times(2, 5)
+  fmt.Println(timesTwo(6))   // 12，等价于times(2, 6)
+  fmt.Println(timesThree(5)) // 15，等价于times(3, 5)
+  fmt.Println(timesThree(6)) // 18，等价于times(3, 6)
+}
+```
+
 ## 单元测试
 单元测试还是挺重要的。
 ### go test工具

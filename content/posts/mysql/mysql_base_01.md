@@ -5,7 +5,7 @@ lastmod: 2021-11-07
 tags: [mysql]
 categories: [School courses]
 slug: Mysql conceptual structure
-draft: false
+draft: true
 ---
 > 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
 # 数据库概念结构

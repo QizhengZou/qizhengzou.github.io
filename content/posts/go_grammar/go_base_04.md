@@ -10,6 +10,81 @@ draft: false
 > 参考学习go语言中文网、C语言中文网、golang官方文档等
 
 # 方法
+## 方法本质
+一个以方法的 receiver 参数作为第一个参数的普通函数。
+```go
+
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+type field struct {
+    name string
+}
+
+func (p *field) print() {
+    fmt.Println(p.name)
+}
+
+func main() {
+    data1 := []*field{{"one"}, {"two"}, {"three"}}
+    for _, v := range data1 {
+        go v.print()
+    }
+
+    data2 := []field{{"four"}, {"five"}, {"six"}}
+    for _, v := range data2 {
+        go v.print()
+    }
+
+    time.Sleep(3 * time.Second)
+}
+```
+```go
+
+one
+two
+three
+six
+six
+six
+```
+为什么会是这样的输出？
+
+根据 Go 方法的本质，也就是一个以方法的 receiver 参数作为第一个参数的普通函数，对这个程序做个等价变换
+
+```go
+
+type field struct {
+    name string
+}
+
+func (p *field) print() {
+    fmt.Println(p.name)
+}
+
+func main() {
+    data1 := []*field{{"one"}, {"two"}, {"three"}}
+    for _, v := range data1 {
+        go (*field).print(v)
+    }
+
+    data2 := []field{{"four"}, {"five"}, {"six"}}
+    for _, v := range data2 {
+        go (*field).print(&v)
+    }
+
+    time.Sleep(3 * time.Second)
+}
+```
+我们把对 field 的方法 print 的调用，替换为 Method Expression 形式，替换前后的程序输出结果是一致的
+
+使用 go 关键字启动一个新 Goroutine 时，method expression 形式的 print 函数是如何绑定参数的：
+- 迭代 data1 时，由于 data1 中的元素类型是 field 指针 (*field)，因此赋值后 v 就是元素地址，与 print 的 receiver 参数类型相同，每次调用 (*field).print 函数时直接传入的 v 即可，实际上传入的也是各个 field 元素的地址；
+- 迭代 data2 时，由于 data2 中的元素类型是 field（非指针），与 print 的 receiver 参数类型不同，因此需要将其取地址后再传入 (*field).print 函数。这样每次传入的 &v 实际上是变量 v 的地址，而不是切片 data2 中各元素的地址。
 ## 方法定义
 Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver)。
 - 只能为当前包内命名类型定义方法。
@@ -17,6 +92,9 @@ Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (re
 - 参数 receiver 类型可以是 T 或 *T。基类型 T 不能是接口或指针。 
 - 不支持方法重载，receiver 只是参数签名的组成部分。
 - 可用实例 value 或 pointer 调用全部方法，编译器自动转换。   
+
+方法表达式（Method Expression）:
+- 直接以类型名 T 调用方法的表达方式，被称为 Method Expression。通过 Method Expression 这种形式，类型 T 只能调用 T 的方法集合（Method Set）中的方法，同理类型 *T 也只能调用 *T 的方法集合中的方法
 
 一个方法就是一个包含了接受者的函数，接受者可以是命名类型或者结构体类型的一个值或者是一个指针。
 
@@ -335,7 +413,7 @@ output:
 Manager: 0xc420074180, &\{\{1 Tom} Administrator}
     User: 0xc420074180, &{1 Tom} 
 ```
-## 方法集
+## 方法集以及如何选择 receiver 参数的类型。
 Golang方法集 ：每个类型都有与之关联的方法集，这会影响到接口实现规则。
 - 类型 T 方法集包含全部 receiver T 方法。
 - 类型 *T 方法集包含全部 receiver T + *T 方法。
@@ -484,6 +562,30 @@ s2 is : &{ {1} }
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T 方法
 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 *T 方法 
 ```
+
+
+```go
+func (t T) M1() <=> F1(t T)
+func (t *T) M2() <=> F2(t *T)
+```
+- 当 receiver 参数的类型为 T 时：
+    - 当我们的方法 M1 采用类型为 T 的 receiver 参数时，代表 T 类型实例的 receiver 参数以值传递方式传递到 M1 方法体中的，实际上是 T 类型实例的副本，M1 方法体中对副本的任何修改操作，都不会影响到原 T 类型实例。
+- 当 receiver 参数的类型为 *T 时：
+    - 方法 M2 采用类型为 *T 的 receiver 参数时，代表 *T 类型实例的 receiver 参数以值传递方式传递到 M2 方法体中的，实际上是 T 类型实例的地址，M2 方法体通过该地址可以对原 T 类型实例进行任何修改操作。
+
+选择 receiver 参数类型的第一个原则：**如果 Go 方法要把对 receiver 参数代表的类型实例的修改，反映到原类型实例上，那么我们应该选择 *T 作为 receiver 参数的类型。**
+
+无论是 T 类型实例，还是 *T 类型实例，都既可以调用 receiver 为 T 类型的方法，也可以调用 receiver 为 *T 类型的方法。
+
+选择 receiver 参数类型的第二个原则：
+- 一般情况下，我们通常会为 receiver 参数选择 T 类型，因为这样可以缩窄外部修改类型实例内部状态的“接触面”，也就是尽量少暴露可以修改类型内部状态的方法。
+- 考虑到 Go 方法调用时，receiver 参数是以值拷贝的形式传入方法中的。那么，如果 receiver 参数类型的 size 较大，以值拷贝形式传入就会导致较大的性能开销，这时我们选择 *T 作为 receiver 类型可能更好些。
+
+
+选择 receiver 参数类型的第三个原则：（**其实是应该首先考虑的一点**）
+- 如果 T 类型需要实现某个接口，那我们就要使用 T 作为 receiver 参数的类型，来满足接口类型方法集合中的所有方法。
+- 如果 T 不需要实现某一接口，但 \*T 需要实现该接口，那么根据方法集合概念，*T 的方法集合是包含 T 的方法集合的，这样我们在确定 Go 方法的 receiver 的类型时，参考原则一和原则二就可以了。
+
 ## 表达式
 Golang 表达式 ：根据调用者不同，方法分为两种表现形式:
 ```go

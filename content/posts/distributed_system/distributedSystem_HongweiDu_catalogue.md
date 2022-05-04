@@ -5,7 +5,7 @@ lastmod: 2022-01-02
 tags: [catalogue, distributed system]
 categories: [Catalogue, School courses]
 slug: DS_Catalogue
-draft: false
+draft: true
 ---
 - [DHW_01](https://qizhengzou.github.io/2021/distributedsystem-hongweidu-intro/)(intro)
     - topics

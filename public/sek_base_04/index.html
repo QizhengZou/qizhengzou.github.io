@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>SEK_base_04 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="SEK_base_04" />
-<meta property="og:description" content="软件设计 软件工程开发方法与软件设计 软件工程开发方法 传统开发方法 功能分解法 以系统需要提供的功能为中心来组织系统 首先定义各种功能，然后把功能分解" />
+<meta property="og:description" content="笔记来自2021秋哈工大深圳软件工程授课教师张永兵 软件设计 软件工程开发方法与软件设计 软件工程开发方法 传统开发方法 功能分解法 以系统需要提供的功" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/sek_base_04/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-25T15:48:03+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="SEK_base_04"/>
-<meta name="twitter:description" content="软件设计 软件工程开发方法与软件设计 软件工程开发方法 传统开发方法 功能分解法 以系统需要提供的功能为中心来组织系统 首先定义各种功能，然后把功能分解"/>
+<meta name="twitter:description" content="笔记来自2021秋哈工大深圳软件工程授课教师张永兵 软件设计 软件工程开发方法与软件设计 软件工程开发方法 传统开发方法 功能分解法 以系统需要提供的功"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/sek_base_04\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "software_engineering_knowledge","wordcount":  15367 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "software engineering knowledge","wordcount":  15392 ,
         "url": "https:\/\/qizhengzou.github.io\/sek_base_04\/","datePublished": "2021-11-25T15:48:03+08:00","dateModified": "2021-12-28T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/sek_base_04/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/sek_base_04/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">SEK_base_04</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-25 15:48:03">2021-11-25 15:48:03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 15367 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-25 15:48:03">2021-11-25 15:48:03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 15392 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 31 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -160,7 +183,10 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="软件设计">软件设计</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>笔记来自2021秋哈工大深圳软件工程授课教师张永兵</p>
+</blockquote>
+<h1 id="软件设计">软件设计</h1>
 <h2 id="软件工程开发方法与软件设计">软件工程开发方法与软件设计</h2>
 <h3 id="软件工程开发方法">软件工程开发方法</h3>
 <h4 id="传统开发方法">传统开发方法</h4>
@@ -325,11 +351,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215208.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215208.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215208.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215208.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215208.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215208.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215208.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215208.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215208.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215208.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215208.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215208.png" /></li>
 </ul>
 </li>
 <li>
@@ -338,11 +364,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215308.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215308.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215308.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215308.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215308.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215308.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215308.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215308.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215308.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221215308.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215308.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221215308.png" /></li>
 </ul>
 </li>
 <li>
@@ -568,11 +594,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228091547.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228091547.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228091547.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228091547.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228091547.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228091547.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228091547.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228091547.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228091547.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228091547.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228091547.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228091547.png" /></li>
 </ul>
 <p>设计的目标：质量</p>
 <ul>
@@ -742,11 +768,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095013.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095013.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095013.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095013.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095013.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095013.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095013.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095013.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095013.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095013.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095013.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095013.png" /></li>
 <li>把系统任务分成若干连续的处理步骤，这些步骤由通过系统的数据流连接，一个步骤
 的输出是下一个步骤的输入。</li>
 <li>每个过滤器独立于其上游和下游的构件而工作，过滤器的设计要针对某种形式的数据
@@ -755,11 +781,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095043.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095043.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095043.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095043.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095043.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095043.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095043.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095043.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095043.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095043.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095043.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095043.png" /></li>
 <li><strong>在管道过滤器风格中构件具有良好的隐藏性和高内聚、低耦合的特点，可以很好地支持软件的重用和扩展但是这种结构不适合交互应用的情况，如果管道过长或者过滤器过于复杂的话系统的性能就会大大降低</strong></li>
 </ul>
 <h4 id="以数据为中心的风格仓库">以数据为中心的风格（仓库）</h4>
@@ -772,11 +798,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095240.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095240.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095240.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095240.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095240.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095240.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095240.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095240.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095240.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228095240.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095240.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228095240.png" /></li>
 </ul>
 <p>以数据为中心的体系结构风格(也称仓库风格)</p>
 <ul>
@@ -888,11 +914,11 @@
 <li>示例：<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228100738.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228100738.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228100738.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228100738.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228100738.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228100738.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228100738.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228100738.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228100738.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228100738.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228100738.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228100738.png" /></li>
 <li>浏览器/服务器(Browser/Server)：基于B/S体系结构的软件，系统安装、修改和维护全在服务器端解决，系统维护成本低：
 <ul>
 <li>客户端无任何业务逻辑，用户在使用系统时，仅仅需要一个浏览器就可运行全部的模块，真正达到了“零客户端”的功能，很容易在运行时自动升级。</li>
@@ -978,11 +1004,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228102944.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228102944.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228102944.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228102944.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228102944.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228102944.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228102944.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228102944.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228102944.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228102944.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228102944.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228102944.png" /></li>
 <li>加工(又称数据处理，data processing)：对数据流进行某些操作或变换。
 <ul>
 <li>收集、排序、选择、聚集、分析等</li>
@@ -1024,11 +1050,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103410.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103410.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103410.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103410.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103410.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103410.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103410.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103410.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103410.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103410.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103410.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103410.png" /></li>
 </ul>
 <p>DFD的层次性：自顶向下的分解(top-down)</p>
 <ul>
@@ -1055,11 +1081,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103722.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103722.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103722.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103722.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103722.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103722.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103722.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103722.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103722.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103722.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103722.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103722.png" /></li>
 </ul>
 <p>0层DFD:</p>
 <ul>
@@ -1068,11 +1094,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103809.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103809.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103809.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103809.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103809.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103809.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103809.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103809.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103809.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228103809.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103809.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228103809.png" /></li>
 </ul>
 <p>底层DFD:</p>
 <ul>
@@ -1088,22 +1114,22 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104011.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104011.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104011.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104011.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104011.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104011.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104011.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104011.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104011.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104011.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104011.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104011.png" /></li>
 </ul>
 <p>数据流的分解：</p>
 <ul>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104046.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104046.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104046.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104046.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104046.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104046.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104046.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104046.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104046.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104046.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104046.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104046.png" /></li>
 </ul>
 <p>绘制DFD的一些基本原则：</p>
 <ul>
@@ -1124,11 +1150,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104243.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104243.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104243.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104243.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104243.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104243.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104243.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104243.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104243.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104243.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104243.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104243.png" /></li>
 </ul>
 <h2 id="行为建模与设计">行为建模与设计</h2>
 <h3 id="状态图statechart-diagram">状态图（Statechart Diagram)</h3>
@@ -1158,30 +1184,30 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104610.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104610.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104610.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104610.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104610.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104610.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104610.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104610.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104610.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104610.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104610.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104610.png" /></li>
 </ul>
 <p><strong>状态空间</strong>：<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229204632.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229204632.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229204632.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229204632.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229204632.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229204632.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229204632.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229204632.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229204632.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211229204632.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229204632.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211229204632.png" /></p>
 <p>模型建立的过程——状态空间的分解</p>
 <ul>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104718.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104718.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104718.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104718.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104718.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104718.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104718.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104718.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104718.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228104718.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104718.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228104718.png" /></li>
 </ul>
 <p>状态图建模</p>
 <ul>
@@ -1221,11 +1247,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228105249.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228105249.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228105249.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228105249.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228105249.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228105249.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228105249.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228105249.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228105249.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228105249.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228105249.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228105249.png" /></li>
 </ul>
 </li>
 <li>历史状态
@@ -1335,11 +1361,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228111552.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228111552.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228111552.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228111552.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228111552.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228111552.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228111552.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228111552.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228111552.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228111552.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228111552.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228111552.png" /></li>
 <li>对象的创建与撤销
 <ul>
 <li>如果对象位于顺序图的顶部，说明在交互开始之前该对象已经存在了。如果对象是在交互的过程中创建的，新建的对象在图中的位置较低。</li>
@@ -1446,11 +1472,11 @@
 <li>例子：<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113410.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113410.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113410.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113410.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113410.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113410.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113410.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113410.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113410.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113410.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113410.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113410.png" /></li>
 </ul>
 <p>绘制顺序图步骤</p>
 <ol>
@@ -1465,11 +1491,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113452.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113452.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113452.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113452.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113452.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113452.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113452.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113452.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113452.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113452.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113452.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113452.png" /></li>
 </ul>
 <p>顺序图建模意义</p>
 <ul>
@@ -1496,11 +1522,11 @@
 <li>例子：<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113655.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113655.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113655.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113655.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113655.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113655.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113655.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113655.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113655.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113655.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113655.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113655.png" /></li>
 </ul>
 <p>时序图与协作图比较：</p>
 <ul>
@@ -1513,11 +1539,11 @@
 <p>对比例子：<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113759.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113759.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113759.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113759.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113759.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113759.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113759.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113759.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113759.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228113759.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113759.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228113759.png" /></p>
 <h3 id="活动图activity-diagram">活动图（Activity Diagram）</h3>
 <p>活动图（Activity Diagram）</p>
 <ul>
@@ -1546,11 +1572,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114310.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114310.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114310.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114310.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114310.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114310.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114310.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114310.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114310.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114310.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114310.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114310.png" /></li>
 </ul>
 </li>
 </ul>
@@ -1559,11 +1585,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114056.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114056.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114056.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114056.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114056.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114056.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114056.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114056.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114056.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114056.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114056.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114056.png" /></li>
 <li>注:活动图与状态图的标记符非常相似，有时会让人混淆。其实,</li>
 <li>活动图是用来建模不同区域的工作如何彼此交互的；而状态图用
 来表示单个的对象，以及对象的行为如何改变其状态。</li>
@@ -1571,11 +1597,11 @@
 <p>例子：<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114155.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114155.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114155.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114155.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114155.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114155.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114155.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114155.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114155.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211228114155.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114155.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211228114155.png" /></p>
 <p><strong>活动图的优缺点：</strong></p>
 <ul>
 <li>活动图最适合支持描述并行行为，这使之成为支持工作流建模的最好工具</li>
@@ -1636,13 +1662,13 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/sek_base_04/" data-title="SEK_base_04" data-hashtags="software_engineering_knowledge"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/sek_base_04/" data-hashtag="software_engineering_knowledge"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/sek_base_04/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/sek_base_04/" data-title="SEK_base_04"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/sek_base_04/" data-title="SEK_base_04"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/sek_base_04/" data-title="SEK_base_04"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/sek_base_04/" data-title="SEK_base_04" data-hashtags="software engineering knowledge"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/sek_base_04/" data-hashtag="software engineering knowledge"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/sek_base_04/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/sek_base_04/" data-title="SEK_base_04"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/sek_base_04/" data-title="SEK_base_04"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/sek_base_04/" data-title="SEK_base_04"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/software_engineering_knowledge/">software_engineering_knowledge</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/software-engineering-knowledge/">software engineering knowledge</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
@@ -1661,5 +1687,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

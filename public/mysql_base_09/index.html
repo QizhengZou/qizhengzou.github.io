@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Mysql_base_09 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="Mysql_base_09" />
-<meta property="og:description" content="数据库物理存储 基础回顾-计算机系统的存储体系 数据库的存储与检索问题 两个基本问题如何解决？ 如何高效率的存储？&ndash;数据组织与索引 如何快" />
+<meta property="og:description" content="笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫 数据库物理存储 基础回顾-计算机系统的存储体系 数据库的存储与检索问题 两个基本问题如" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/mysql_base_09/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-09T11:28:24+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Mysql_base_09"/>
-<meta name="twitter:description" content="数据库物理存储 基础回顾-计算机系统的存储体系 数据库的存储与检索问题 两个基本问题如何解决？ 如何高效率的存储？&ndash;数据组织与索引 如何快"/>
+<meta name="twitter:description" content="笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫 数据库物理存储 基础回顾-计算机系统的存储体系 数据库的存储与检索问题 两个基本问题如"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/mysql_base_09\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "mysql","wordcount":  2752 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "mysql","wordcount":  2782 ,
         "url": "https:\/\/qizhengzou.github.io\/mysql_base_09\/","datePublished": "2021-11-09T11:28:24+08:00","dateModified": "2021-11-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/mysql_base_09/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/mysql_base_09/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Mysql_base_09</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09 11:28:24">2021-11-09 11:28:24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2752 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09 11:28:24">2021-11-09 11:28:24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2782 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -120,7 +143,10 @@
     <li><a href="#oracle数据库的数据组织">Oracle数据库的数据组织</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="数据库物理存储">数据库物理存储</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫</p>
+</blockquote>
+<h1 id="数据库物理存储">数据库物理存储</h1>
 <h2 id="基础回顾-计算机系统的存储体系">基础回顾-计算机系统的存储体系</h2>
 <h3 id="数据库的存储与检索问题">数据库的存储与检索问题</h3>
 <p>两个基本问题如何解决？</p>
@@ -140,11 +166,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113113036.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113113036.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113113036.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113113036.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113113036.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113113036.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113113036.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113113036.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113113036.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113113036.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113113036.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113113036.png" /></p>
 <h3 id="操作系统如何管理磁盘和数据">操作系统如何管理磁盘和数据</h3>
 <p>操作系统对数据的组织：<br>
 FAT(文件分配表-File Allocation Table)-目录(文件夹)-磁盘块/簇</p>
@@ -195,30 +221,30 @@ RAID技术: Redundant Array of Independent Disk</p>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141415.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141415.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141415.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141415.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141415.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141415.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141415.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141415.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141415.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141415.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141415.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141415.png" />
 数据存储与查询实现的基本框架示意：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141607.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141607.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141607.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141607.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141607.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141607.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141607.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141607.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141607.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141607.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141607.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141607.png" /></p>
 <h2 id="数据库之表和记录与磁盘块的映射">数据库之表和记录与磁盘块的映射</h2>
 <p>数据库概念与磁盘相关概念的映射示意：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141859.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141859.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141859.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141859.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141859.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141859.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141859.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141859.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141859.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113141859.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141859.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113141859.png" />
 数据库中记录的区分及记录内属性值的区分：<br>
 数据库记录在磁盘上的存储，定长记录，还是变长记录(靠分隔符区分开始与结束)</p>
 <p>数据库中的记录是跨块储存（靠指针连接）还是非跨块储存？</p>
@@ -282,11 +308,11 @@ RAID技术: Redundant Array of Independent Disk</p>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113143656.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113143656.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113143656.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113143656.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113143656.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113143656.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113143656.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113143656.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113143656.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113143656.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113143656.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113143656.png" /></li>
 <li>散列还有许多问题及许多的处理技巧, 如散列桶的数目以及桶的大小，动态散列技术等等</li>
 </ul>
 </li>
@@ -357,5 +383,5 @@ RAID技术: Redundant Array of Independent Disk</p>
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

@@ -5,7 +5,7 @@ lastmod: 2021-11-09
 tags: [catalogue, mysql]
 categories: [Catalogue, School courses]
 slug: Mysql_catalogue
-draft: false
+draft: true
 ---
 >base笔记来自哈工大深圳数据库理论课授课老师：刘圣鑫
 * [base_01](https://qizhengzou.github.io/2021/mysql-conceptual-structure/)（数据库概念结构）

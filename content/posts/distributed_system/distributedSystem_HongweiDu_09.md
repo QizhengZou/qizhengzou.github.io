@@ -5,7 +5,7 @@ lastmod: 2022-01-01
 tags: [distributed system]
 categories: [School courses]
 slug: Group Communication
-draft: false
+draft: true
 ---
 > 2021哈工大深圳堵宏伟分布式系统课程笔记
 

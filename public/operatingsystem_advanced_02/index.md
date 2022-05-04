@@ -1,8 +1,6 @@
 # OperatingSystem_advanced_02
 
-```
-极客时间操作系统学习笔记
-```
+
 # 程序运行过程 实现一个简单内核
 ## 程序编译过程
 使用 GCC 相关的工具链。那么使用命令：gcc HelloWorld.c -o HelloWorld 或者 gcc ./HelloWorld.c -o ./HelloWorld ，就可以编译这段代码。其实，GCC 只是完成编译工作的驱动程序，它会根据编译流程分别调用预处理程序（->HelloWorld.i）、编译程序（->HelloWorld.s）、汇编程序（->HelloWorld.o）、链接程序(将HelloWorld.o与其他的库进行链接形成可执行文件)来完成具体工作。
@@ -148,7 +146,7 @@ menuentry 'HelloOS' {
      boot #GRUB启动HelloOS.bin
 }
 ```
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211202195453.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211202195453.png)
 df /boot/后也可能是：
 ```
 文件系统          1K-块    已用     可用      已用% 挂载点
@@ -168,3 +166,5 @@ df /boot/后也可能是：
     - 第一步，用汇编程序初始化 CPU 的寄存器、设置 CPU 的工作模式和栈，最重要的是加入了 GRUB 引导协议头；
     - 第二步，切换到 C 语言，用 C 语言写好了主函数和控制显卡输出的函数，其间还了解了显卡的一些工作细节。
 - 最后，就是编译和安装 Hello OS 了。我们用了 make 工具编译整个代码，其实 make 会根据一些规则调用具体的 nasm、gcc、ld 等编译器，然后形成 Hello OS.bin 文件，你把这个文件写复制到 boot 分区，写好 GRUB 启动项，这样就好了。
+
+[参考](https://time.geekbang.org/column/intro/100078401?tab=catalog)

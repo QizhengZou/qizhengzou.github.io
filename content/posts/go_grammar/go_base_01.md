@@ -65,8 +65,6 @@ ok      code/code/ch9/string    0.514s
 ```
 ## go起源
 07年 三位大牛 解决三个困难：多核硬件架构、超大规模的分布式计算集群、如今使用的web开发模式导致的前所未有的开发规模和更新速度
-## 环境相关
-go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用……
 
 Go 官方下载站点是 golang.org/dl，但我们可以用针对中国大陆的镜像站点 golang.google.cn/dl 来下载
 ## 主要特征
@@ -95,6 +93,33 @@ Go的函数、变量、常量、自定义类型、包(package)的命名方式遵
 ```
 
 - select和switch:select只能应用于channel的操作，既可以用于channel的数据接收，也可以用于channel的数据发送。如果select的多个分支都满足条件，则会随机的选取其中一个满足条件的分支。而switch用于一般的分支判断，顺序执行。
+- continue
+    - 如果循环体中的代码执行到一半，要中断当前迭代，忽略此迭代循环体中的后续代码（循环后置语句eg:x++不会被忽略），并回到 for 循环条件判断，尝试开启下一次迭代,使用continue关键字。
+    - 看上去好像和C没区别，其实Go的continue增加了对lable的支持，label 语句的作用，是标记跳转的目标。在中断内层 for 循环，回到外层 for 循环继续执行的场景应用比较合适
+```go
+func main() {
+    var sum int
+    var sl = []int{1, 2, 3, 4, 5, 6}
+
+loop:
+    for i := 0; i < len(sl); i++ {
+        if sl[i]%2 == 0 {
+            // 忽略切片中值为偶数的元素
+            continue loop
+        }
+        sum += sl[i]
+    }
+    println(sum) // 9
+}
+```
+- 注意与goto的区别：
+    - 一旦使用 goto 跳转，那么不管是内层循环还是外层循环都会被终结，代码将会从 outerloop 这个 label 处，开始重新执行我们的嵌套循环语句，这与带 label 的 continue 的跳转语义是完全不同的。
+
+goto 是一种公认的、难于驾驭的语法元素，应用 goto 的代码可读性差、代码难于维护还易错。而 Go 语言保留了 goto，具体我不得而知
+
+- break
+    - Go 语言规范中明确规定，不带 label 的 break 语句中断执行并跳出的，是同一函数内 break 语句所在的最内层的 for、switch 或 select
+
 
 ```go
 package main
@@ -171,7 +196,7 @@ real            -- 返回complex的实部   （complex、real imag：用于创�
 imag            -- 返回complex的虚部
 make            -- 用来分配内存，返回Type本身(只能应用于slice, map, channel) make 函数允许在运行期动态指定数组长度，绕开了数组类型必须使用编译期常量的限制。
 new                -- 用来分配内存，主要用来分配值类型，比如int、struct。返回指向Type的指针
-cap                -- capacity是容量的意思，用于返回某个类型的最大容量（只能用于切片和 map）
+cap                -- capacity用于返回某个类型的最大容量（只能用于切片和 map）
 copy            -- 用于复制和连接slice，返回复制的数目，copy(a,b) 只有 min(len(a),len(b))个元素会被成功拷贝。
 len                -- 用来求长度，比如string、array、slice、map、channel ，返回长度
 print、println     -- 底层打印函数，在部署环境中建议使用 fmt 包
@@ -531,7 +556,16 @@ func Benchmark_Add_TimerControl(b *testing.B) {
 会把指定代码包的所有Go语言源码文件中的旧版本代码修正为新版本的代码。
 
 ### go vet
-是一个用于检查Go语言源码中静态错误的简单工具。
+是一个用于检查Go语言源码中静态错误的简单工具。比如是否存在变量遮蔽。
+```
+$go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
+go: downloading golang.org/x/tools v0.1.5
+go: downloading golang.org/x/mod v0.4.2
+```
+```
+$go vet -vettool=$(which shadow) -strict complex.go 
+./complex.go:13:12: declaration of "err" shadows declaration at line 11
+```
 
 ### go tool pprof命令
 交互式的访问概要文件的内容。监测进程的运行数据，用于监控程序的性能，对内存使用和CPU使用的情况统信息进行分析。官方提供了两个包：runtime/pprof和net/http/pprof，前者用于普通代码的性能分析，后者用于web服务器的性能分析。
@@ -745,6 +779,30 @@ const (
             e, f                      //3,4
         )
 ```
+
+Go在常量上还是有一定创新的：
+- 与C对比：
+    - C 语言中，原生不支持常量，字面值担负着常量的角色，C 语言的常用实践是使用宏（macro）定义记号来指代这些字面值，但它是一种仅在预编译阶段进行替换的字面值，继承了宏替换的复杂性和易错性，而且还有类型不安全、无法在调试时通过宏名字输出常量的值，等等问题。后续 C 标准中提供的 const 关键字修饰的标识符也不够完美，因为 const 关键字修饰的标识符本质上依旧是变量，它甚至无法用作数组变量声明中的初始长度（除非用 GNU 扩展 C）。
+    - Go 原生提供的用 const 关键字定义的常量，整合了 C 语言中宏定义常量、const 修饰的“只读变量”，以及枚举常量这三种形式，并消除了每种形式的不足，使得 Go 常量是类型安全的，而且对编译器优化友好。
+- 支持无类型常量；
+    - eg: const n = 13
+    - 常量 n 在声明时并没有显式地被赋予类型（但并非真的无类型，由初始值给予默认类型），在 Go 中，这样的常量就被称为无类型常量（Untyped Constant）
+    - 但下面的例子里边为啥编译器不报错？
+```go
+type myInt int
+const n = 13
+
+func main() {
+    var a myInt = 5
+    fmt.Println(a + n)  // 输出：18
+}
+```
+- 支持隐式自动转型；
+    - 对于无类型常量参与的表达式求值，Go 编译器会根据上下文中的类型信息，把无类型常量自动转换为相应的类型后，再参与求值计算，这一转型动作是隐式进行的。但由于转型的对象是一个常量，所以这并不会引发类型安全问题，Go 编译器会保证这一转型的安全性。
+    - 这就很好地解释了上面的问题。
+    - **注意**：如果 Go 编译器在做隐式转型时，发现无法将常量转换为目标类型，Go 编译器也会报错，比如转型后溢出了。
+- 以及前面有提到的可用于实现枚举。
+
 ## 基本类型
 |类型|长度(字节)|默认值|说明|
 |:--|:--|:--|:--|
@@ -775,8 +833,19 @@ function	|	|nil	|函数
 - 不允许将整型强制转换为布尔型。
 - 字符串的内部实现使用UTF-8编码。（UTF-8是Unicode的存储实现，转化为有限长度比特组合的规则）
 - 只有显示类型转化。
-## string：
+## string
 值类型，空值是空字符串而不是nil。本质就是个只读的（不可变的）byte切片。
+
+```go
+// $GOROOT/src/reflect/value.go
+
+// StringHeader是一个string的运行时表示
+type StringHeader struct {
+    Data uintptr
+    Len  int
+}
+```
+string 类型其实是一个“描述符”，它本身并不真正存储字符串数据，而仅是由一个指向底层存储的指针和字符串的长度字段组成的
 
 - 多行字符串，用反引号`
 ```go
@@ -816,9 +885,39 @@ strings.Join(a[]string, sep string)	|join操作
                                            ) 229(å) 141() 154() 229(å) 174(®) 162(¢) 
 74(J) 101(e) 70(F) 111(o) 30340(的) 21338(博) 23458(客)
 ```
+可以调用标准库 UTF-8 包中的 RuneCountInString 函数获取字符串字符个数。（len只能获得字节个数）
+
+Go 原生支持通过 +/+= 操作符进行字符串连接。以及，Go 还提供了 strings.Builder、strings.Join、fmt.Sprintf 等函数来进行字符串连接操作。
+-  如果能知道拼接字符串的个数，那么使用bytes.Buffer和strings.Builder的Grows申请空间后，性能是最好的；如果不能确定长度，那么bytes.Buffer和strings.Builder也比“+”和fmt.Sprintf性能好很多。
+- bytes.Buffer与strings.Builder，strings.Builder更合适，因为bytes.Buffer 转化为字符串时重新申请了一块空间，存放生成的字符串变量，而 strings.Builder 直接将底层的 []byte 转换成了字符串类型返回了回来。
+
+字符串比较：
+- Go 字符串类型支持各种比较关系操作符，包括 = =、!= 、>=、<=、> 和 <。在字符串的比较上，Go 采用字典序的比较策略，分别从每个字符串的起始处，开始逐个字节地对两个字符串类型变量进行比较。
+
+**Go 支持字符串与字节切片、字符串与 rune 切片的双向转换，并且这种转换无需调用任何函数，只需使用显式类型转换就可以了**
 
 修改字符串：
 - 要修改字符串，需要先将其转换成[]rune或[]byte，完成后再转换为string。无论哪种转换，**都会重新分配内存，并复制字节数组。**
+
+为什么go要原生支持字符串类型？
+- c语言并没有内置字符串类型
+    - 不是原生类型，编译器不会对它进行类型校验，导致类型安全性差；
+    - 字符串操作时要时刻考虑结尾的’\0’，防止缓冲区溢出；
+    - 以字符数组形式定义的“字符串”，它的值是可变的，在并发场景中需要考虑同步问题；
+    - 获取一个字符串的长度代价较大，通常是 O(n) 时间复杂度；
+    - C 语言没有内置对非 ASCII 字符（如中文字符）的支持。
+- go内置了字符串类型的好处
+    - string 类型的数据是不可变的，提高了字符串的并发安全性和存储利用率。
+    - 没有结尾’\0’，而且获取长度的时间复杂度是常数时间，消除了获取字符串长度的开销。
+    - 原生支持“所见即所得”的原始字符串，大大降低构造多行字符串时的心智负担。
+        - **在 C 语言中构造多行字符串，一般就是两个方法：要么使用多个字符串的自然拼接，要么需要结合续行符""。但因为有转义字符的存在，我们很难控制好格式。Go 语言就简单多了，通过一对反引号原生支持构造“所见即所得”的原始字符串（Raw String）。而且，Go 语言原始字符串中的任意转义字符都不会起到转义的作用**
+    - 对非 ASCII 字符提供原生支持，消除了源码在不同环境下显示乱码的可能。
+
+
+
+
+
+
 ## 数组
 - 数组可以通过下标进行访问，下标是从0开始，最后一个元素下标是：len-1
 - 支持 "=="、"!=" 操作符，因为内存总是被初始化过的。
@@ -867,8 +966,9 @@ var s4 []int = make([]int, 5)//len=5
 //先初始化一个数组，再截取相应部分得到切片
 arr := [5]int{1, 2, 3, 4, 5}
 var s6 []int
+//数组的切片化
 s6 = arr[1:4]  // 左闭右开
-s7 = arr[1:3:5]//len=3-1;cap=5-1，这是一个危险的用法，极易产生bug
+s7 = arr[1:3:5]//arr[low,high,max]，len=high-low cap=max-low
 ```
 切片追加append（内置函数）：
 ```go
@@ -999,6 +1099,16 @@ sliceHeader.Cap = length
 sliceHeader.Len = length
 sliceHeader.Data = uintptr(ptr)
 ```
+此外，unsafe的SIzeof函数：
+```go
+var a, b = int(5), uint(6)
+var p uintptr = 0x12345678
+fmt.Println("signed integer a's length is", unsafe.Sizeof(a)) // 8
+fmt.Println("unsigned integer b's length is", unsafe.Sizeof(b)) // 8
+fmt.Println("uintptr's length is", unsafe.Sizeof(p)) // 8
+```
+
+
 并非所有时候都适合用切片代替数组：因为切片底层数组可能会在堆上分配内存，而且小数组在栈上拷贝的消耗也未必比make 消耗大。
 ### 创建切片
 **make 函数允许在运行期动态指定数组长度，绕开了数组类型必须使用编译期常量的限制。**
@@ -1093,6 +1203,8 @@ map的遍历还是正常用for range，但有一点需要注意：**遍历map时
 
 按照指定顺序遍历map:思路是将map的key取出另存为切片再排序，再按照切片的顺序进行遍历即可。
 
+因为 map 类型要保证 key 的唯一性。key 的类型必须支持“==”和“!=”两种比较操作符，比如函数类型、map 类型自身，以及切片类型是不能作为 map 的 key 类型的。value类型则没有限制。
+
 **map & 切片**：
 - 元素为map的切片：
 ```go
@@ -1125,9 +1237,20 @@ func main() {
     fmt.Println(sliceMap)
 }
 ```
+获取键值对数量：
+```go
+m := map[string]int {
+  "key1" : 1,
+  "key2" : 2,
+}
 
+fmt.Println(len(m)) // 2
+m["key3"] = 3  
+fmt.Println(len(m)) // 3
+```
+**注意**：不能对 map 类型变量调用 cap，来获取当前容量
 
-map删除键值对：
+map删除键值对：（即便传给 delete 的键在 map 中并不存在，delete 函数的执行也不会失败，更不会抛出运行时的异常。）
 ```go
 delete(map,key)
 ```
@@ -1170,7 +1293,7 @@ type bmap struct {
 }
 ```
 - tophash用来快速查找key值是否在该bucket中，而不同每次都通过真值进行比较。
-- **map[int64]int8,key是int64（8个字节），value是int8（一个字节），kv的长度不同，如果按照kv格式存放，则考虑内存对齐v也会占用int64，而按照后者存储时，8个v刚好占用一个int64**
+- **`map[int64]int8`,key是int64（8个字节），value是int8（一个字节），kv的长度不同，如果按照kv格式存放，则考虑内存对齐v也会占用int64，而按照后者存储时，8个v刚好占用一个int64**
 - **当往map中存储一个kv对时，通过k获取hash值，hash值的低八位和bucket数组长度取余，定位到在数组中的那个下标，hash值的高八位存储在bucket中的tophash中，用来快速判断key是否存在，key和value的具体值则通过指针运算存储，当一个bucket满时，通过overfolw指针链接到下一个bucket。**
 - map的存储源码：
 ```go
@@ -1305,6 +1428,10 @@ done:
 	return elem
 }
 ```
+
+ map 可以自动扩容，map 中数据元素的 value 位置可能在这一过程中发生变化，所以 Go **不允许获取 map 中 value 的地址，这个约束是在编译期间就生效的**
+
+
 ### map与工厂模式
 map的value可以是一个方法。
 
@@ -1377,6 +1504,42 @@ func TestMapForSet(t *testing.T) {
 
 语法糖：Go语言中支持对结构体指针直接使用.来访问结构体的成员，在使用new分配内存后得到的便是结构体指针。
 
+对于包含结构体类型字段的结构体类型来说,可以无需提供字段的名字:
+- 以这种方式定义的结构体字段，我们叫做嵌入字段（Embedded Field）。我们也可以将这种字段称为匿名字段，或者把类型名看作是这个字段的名字
+```go
+type Book struct {
+    Title string
+    Person
+    ... ...
+}
+
+func main(){
+    var book Book 
+    println(book.Person.Phone) // 将类型名当作嵌入字段的名字
+    println(book.Phone)        // 支持直接访问嵌入字段所属类型中字段
+}
+```
+**注意**：
+- 结构体类型 T 定义中，不能有以自身类型 T 定义的字段，但却可以拥有自身类型的指针类型、以自身类型为元素类型的切片类型，以及以自身类型作为 value 类型的 map 类型的字段，因为指针、map、切片的变量元数据的内存占用大小是固定的。
+```go
+type T struct {
+    a  T            // wrong
+    t  *T           // ok
+    st []T          // ok
+    m  map[string]T // ok
+}     
+```
+
+sync.Mutex和bytes.Buffer的“零值可用”：
+```go
+var mu sync.Mutex
+mu.Lock()
+mu.Unlock()
+var b bytes.Buffer
+b.Write([]byte("Hello, Go"))
+fmt.Println(b.String()) // 输出：Hello, Go
+```
+
 **使用&对结构体进行取地址操作相当于对该结构体类型进行了一次new实例化操作。**
 ```go
 p := &person{}
@@ -1398,6 +1561,32 @@ s := &d{
     "sw",
 }
 ```
+Go 语言并不推荐我们按字段顺序对一个结构体类型变量进行显式初始化，甚至 Go 官方还在提供的 go vet 工具中专门内置了一条检查规则：“composites”，用来静态检查代码中结构体变量初始化是否使用了这种方法，一旦发现，就会给出警告。
+
+**Go 推荐我们用“field:value”形式的复合字面值，对结构体类型变量进行显式初始化，这种方式可以降低结构体类型使用者和结构体类型设计者之间的耦合**
+```go
+var t = T{
+    F2: "hello",
+    F1: 11,
+    F4: 14,
+}
+```
+
+
+
+
+空结构体的作用：
+- 空结构体类型变量内存占用为0
+- **使用空结构体类型元素，作为一种“事件”信息进行 Goroutine 之间的通信**
+```go
+var c = make(chan Empty) // 声明一个元素类型为Empty的channel
+c<-Empty{}               // 向channel写入一个“事件”
+```
+- 这种以空结构体为元素类建立的 channel，是目前能实现的、内存占用最小的 Goroutine 间通信方式。
+
+**空标识符“_”作为结构体类型定义中的字段名称的作用**：
+
+
 
 自己实现一个结构体构造函数：
 ```go
@@ -1410,6 +1599,14 @@ func newPerson(name, city string, age int8) *person {
     }
 }
 ```
+如果一个结构体类型中**包含未导出字段，并且这个字段的零值还不可用**时,又或是一个结构体类型中的某些字段，需要一个复杂的初始化逻辑时：需要使用一个特定的构造函数，来创建并初始化结构体变量了。
+
+结构体类型的内存布局：
+- 在真实情况下，虽然 Go 编译器没有在结构体变量占用的内存空间中插入额外字段，但结构体字段实际上可能并不是紧密相连的，中间可能存在“缝隙”。这些“缝隙”同样是结构体变量占用的内存空间的一部分，它们是 Go 编译器插入的“填充物（Padding）”
+    - 这是为了**内存对齐**。
+
+
+
 #### 方法和接收者
 Go语言中的方法（Method）是一种作用于特定类型变量的函数。这种特定类型变量叫做接收者（Receiver）。**接收者的概念就类似于其他语言中的this或者 self。**
 ```go
@@ -1472,8 +1669,68 @@ func main() {
 
 嵌套结构体内部可能存在相同的字段名。这个时候为了避免歧义需要指定具体的内嵌结构体的字段。
 
-**结构体的继承**：
-Go语言中使用结构体也可以实现其他编程语言中面向对象的继承。
+**类型的“继承”**：
+即通过类型嵌入，包括接口类型的类型嵌入和结构体类型的类型嵌入。
+- 结构体类型中嵌入接口类型：结构体类型的方法集合，包含嵌入的接口类型的方法集合。
+    - 结构体类型嵌入接口类型在日常编码中有一个妙用，就是可以简化单元测试的编写：见下面例子：
+        - 由于嵌入某接口类型的结构体类型的方法集合包含了这个接口类型的方法集合，这就意味着，这个结构体类型也是它嵌入的接口类型的一个实现
+```go
+
+package employee
+  
+type Result struct {
+    Count int
+}
+
+func (r Result) Int() int { return r.Count }
+
+type Rows []struct{}
+
+type Stmt interface {
+    Close() error
+    NumInput() int
+    Exec(stmt string, args ...string) (Result, error)
+    Query(args []string) (Rows, error)
+}
+
+// 返回男性员工总数
+func MaleCount(s Stmt) (int, error) {
+    result, err := s.Exec("select count(*) from employee_tab where gender=?", "1")
+    if err != nil {
+        return 0, err
+    }
+
+    return result.Int(), nil
+}
+```
+```go
+
+package employee
+  
+import "testing"
+
+type fakeStmtForMaleCount struct {
+    Stmt
+}
+
+func (fakeStmtForMaleCount) Exec(stmt string, args ...string) (Result, error) {
+    return Result{Count: 5}, nil
+}
+
+func TestEmployeeMaleCount(t *testing.T) {
+    f := fakeStmtForMaleCount{}
+    c, _ := MaleCount(f)
+    if c != 5 {
+        t.Errorf("want: %d, actual: %d", 5, c)
+        return
+    }
+}
+```
+我们为 TestEmployeeMaleCount 测试用例建立了一个 fakeStmtForMaleCount 的伪对象类型，然后在这个类型中嵌入了 Stmt 接口类型。这样 fakeStmtForMaleCount 就实现了 Stmt 接口，我们也实现了快速建立伪对象的目的。接下来我们只需要为 fakeStmtForMaleCount 实现 MaleCount 所需的 Exec 方法，就可以满足这个测试的要求了。
+
+
+
+结构体类型中嵌入结构体类型：
 ```go
 //Animal 动物
 type Animal struct {
@@ -1507,6 +1764,8 @@ func main() {
 ```
 
 结构体中字段大写开头表示可公开访问，小写表示私有（**仅在定义当前结构体的包中可访问**）。
+
+无论原类型是接口类型还是非接口类型，类型别名都与原类型拥有完全相同的方法集合。
 
 **结构体与JSON序列化**：
 - JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON键值对是用来保存JS对象的一种方式，键/值对组合中的键名写在前面并用双引号””包裹，使用冒号:分隔，然后紧接着值；多个键值之间使用英文,分隔。

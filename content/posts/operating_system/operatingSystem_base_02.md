@@ -5,7 +5,7 @@ lastmod: 2021-11-22
 tags: [operating system]
 categories: [School courses]
 slug: Process management
-draft: false
+draft: true
 ---
 > 王道考研操作系统笔记
 

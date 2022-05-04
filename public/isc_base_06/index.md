@@ -1,5 +1,7 @@
 # ISC_base_06
 
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 网络威胁
 ## 6.1 概述	
 - 威胁：用威力逼迫恫吓使人屈服。
@@ -72,12 +74,12 @@ CIH病毒：
 - 计算机开机后，运行了带病毒的文件，其病毒就驻留在Wnidows核心内存里。
 - 由初始化驻留模块、传染模块和破坏模块组成。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221085130.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221085130.png)
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221085229.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221085229.png)
 - Signature=”00455000”表明该文件是PE格式的可执行文件，且尚未感染。
 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221085252.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221085252.png)
 ### 6.2.3 蠕虫病毒
 蠕虫病毒产生于20世纪80年代后期，鼎盛时期却是从20世纪90年代末开始的，而且迅速成为计算机病毒的主流。
 
@@ -113,10 +115,10 @@ CIH病毒：
 - 由于尼姆达病毒通过网络大量传播，产生大量异常的网络流量和大量的垃圾邮件，网络性能势必受到严重影响。
 
 Nimda传播途径：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221085602.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221085602.png)
 
 尼姆达病毒程序：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221085637.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221085637.png)
 
 Nimda病毒的防范及清除：
 - 感染的用户应重新安装系统，以便彻底清除其它潜在的后门。
@@ -176,7 +178,7 @@ Nimda病毒的防范及清除：
 灰鸽子的植入方法：
 - 被动植入是指植入过程必须依赖受害用户的手工操作。一般是伪装成合法程序，以降低用户的警觉性并诱骗用户。
 - 主动植入是将灰鸽子程序通过程序自动安装到目标系统，植入过程无需受害用户的操作。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221090121.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221090121.png)
 
 灰鸽子的初始化安装：
 - 木马程序G_Server.exe运行后，将自己复制到Windows文件夹内，并释放G_Server.dll和G_Server_Hook.dll。
@@ -374,7 +376,7 @@ Smurf攻击：
 - 如果Smurf攻击将回复地址设置成受害网络的广播地址，则网络中会充斥大量的ICMP ECHO响应包，导致网络阻塞。
 
 Smurf攻击过程示意图：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221093344.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221093344.png)
 
 电子邮件炸弹：
 - 实施电子邮件炸弹攻击的特殊程序称为Email Bomber。
@@ -456,11 +458,11 @@ DoS攻击的防御方法：
 - 交换网络下的窃听是利用ARP欺骗实现的。 
 - ARP（Address Resolution Protocol）协议：当主机接收到ARP应答数据包的时候，就使用应答数据包内的数据对本地的ARP缓存进行更新或添加。
     - ARP协议并不只是在发送了ARP请求并接收ARP应答后，添加ARP地址缓存。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221095038.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221095038.png)
 
 ARP欺骗：
 - 主机D给局域网中的所有主机发送ARP应答。主机A和B更新其ARP缓存表，主机C显示IP地址冲突。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221095126.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221095126.png)
 - 假设主机D想监听主机A和主机C之间的通信内容：
     - D给A发送ARP应答，告诉A，192.168.1.3主机的MAC地址是dd-dd-dd-dd-dd-dd。
     - D给C发送ARP应答，告诉C，192.168.1.1主机的MAC地址是dd-dd-dd-dd-dd-dd。
@@ -509,7 +511,7 @@ IP欺骗攻击主要步骤：
 
 DNS欺骗：
 - DNS欺骗的目的是冒充域名服务器，把受害者要查询的域名对应的IP地址伪造成欺骗着希望的IP地址。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221095547.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221095547.png)
 
 伪造电子邮件：
 - 由于SMTP并不对邮件的发送者的身份进行鉴定，攻击者可以冒充别的邮件地址伪造电子邮件。
@@ -587,7 +589,7 @@ Hello computerssssssss
 Segmentation fault (core dumped)
 ```
 分析：
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221100524.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221100524.png)
 ## 6.4 诱骗类威胁
 诱骗类威胁是指攻击者利用社会工程学的思想，利用人的弱点（如人的本能反应、好奇心、信任、贪便宜等）通过网络散布虚假信息，诱使受害者上当受骗，而达到攻击者目的的一种网络攻击行为。
 

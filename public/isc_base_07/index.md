@@ -1,5 +1,7 @@
 # ISC_base_07
 
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 网络防御
 ## 7.1 概述	
 网络防御是一个综合性的安全工程，不是几个网络安全产品能够完成的任务。
@@ -11,7 +13,7 @@
 - 目前，网络安全防御技术主要包括**防火墙、入侵检测系统、VLAN、防病毒技术**等。
 
 网络安全防御体系：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221103011.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221103011.png)
 - 防火墙：网络安全防御体系的第一道防线，是网络安全的网关设备。防火墙的工作机制是依据安全规则检查每一个通过防火墙的数据包，只有符合安全规则的数据包才能通过。
 - 入侵检测系统：一般部署在网络内部，对网络内部的数据进行检测。当发现具有攻击特征的数据报文时，发出报警信息。
 - VLAN（Virtual Local Area Network，虚拟局域网）：将局域网中的各个节点，从逻辑上划分为多个网段（即VLAN），每一个VLAN都包含一组有着相同需求的工作站，与网络上形成的LAN有着相同的属性。
@@ -54,7 +56,7 @@
 - 支持VPN：通过VPN，企业可以将分布在各地的局域网有机地连成一个整体。
 
 典型企业防火墙应用：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221103403.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221103403.png)
 - 该企业网络中，由于应用了防火墙，解决了网络流量过滤及审计、地址短缺、远程安全内网访问以及DMZ部署问题。
 
 防火墙的局限性：
@@ -74,13 +76,13 @@
 包过滤防火墙：
 - 包过滤防火墙主要是面向网络底层数据流进行审计和控管。
     - 其安全策略主要根据数据包头的源地址、目的地址、端口号和协议类型等标志来制定，可见其主要工作在网络层和传输层。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221103925.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221103925.png)
 
 代理防火墙：
 - 代理防火墙基于代理（Proxy）技术，使防火墙参与到每一个内外网络之间的连接过程。
     - 防火墙需要理解用户使用的协议，对内部节点向外部节点的请求进行还原审查后，转发给外部服务器；外部节点发送来的数据也要进行还原审查，然后封装转发给内部节点。
     - 主要工作在应用层，有时也称为应用级网关。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221104007.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221104007.png)
 
 个人防火墙：
 - 目前普通用户最常使用的一种，常见如天网个人防火墙。
@@ -99,19 +101,19 @@
 访问控制列表ACL
 - Access Control List是允许和拒绝匹配规则的集合。
     - 规则告诉防火墙哪些数据包允许通过、哪些被拒绝。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221104233.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221104233.png)
 - ACL可以清晰体现防火墙的访问控制策略。
 - 规则的顺序非常重要。
 
 静态包过滤：
 - 静态包过滤是指防火墙根据定义好的包过滤规则审查每个数据包，确定其是否与某一条包过滤规则匹配。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221104323.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221104323.png)
 - 过滤规则基于数据包的包头信息进行制定，并存储在ACL中。
     - 包头信息中包括IP源地址、IP目标地址、传输协议（如TCP、UDP、ICMP等）、TCP/UDP目标端口、ICMP消息类型等。
 
 动态包过滤：
 - 动态包过滤是指防火墙采用动态配置包过滤规则的方法。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221104410.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221104410.png)
 - 根据需求动态地添加或删除ACL中的过滤规则，并通过对其批准建立的每一个连接进行跟踪，更加灵活地实现对网络连接访问的控制。
 - 当一个合法用户请求访问外网时，向防火墙发出连接请求，防火墙审核通过后，向ACL中添加放行该用户访问的规则，该用户可以建立访问外网的会话。当防火墙接收到该用户结束访问的通知或检测到会话结束或超时的时候，将自行删除为该用户创建的规则。
 - 实际上，静态包过滤是依据数据包的包头信息进行控管，而动态包过滤是基于会话，动态建立和删除规则。
@@ -136,31 +138,31 @@ NAT：
 - 同时，对于内网用户来说，整个地址翻译过程是透明的。
 - 实际上NAT就是把内部网络中的IP包头内内部IP地址信息用可以访问外部网络的真实IP地址信息来替换。
 - 根据NAT的工作方式，可以分为静态NAT和动态NAT两种。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221104708.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221104708.png)
 
 VPN：
 - VPN是通过一个公用网络（通常是Internet）建立一个临时的、安全的连接。
     - 可以理解为一条穿过公用网络的安全、稳定的隧道。
     - 两台分别处于不同网络的机器可以通过这条隧道进行连接访问，就像在一个内部局域网一样。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221104928.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221104928.png)
 
 VPN典型应用：
 - VPN服务大致分为三类：Access VPN、Intranet VPN和Extranet VPN。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221105006.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221105006.png)
 - Access VPN，又称为虚拟专用拨号网（Virtual Private Dial-up Network，VPDN），是指企业员工或企业的小分支机构通过公网远程拨号的方式构筑的虚拟网。
 - Intranet VPN，及企业的内部与分支机构间通过VPN虚拟网进行网络连接，其最大特点是可以为总部及各分支机构提供整个企业网络的访问权限。
 - Extranet VPN，目的是通过一个使用专用连接的共享基础设施，将客户、供应商、合作伙伴或兴趣群体连接到企业内部网，其特点是支持对外部用户进行相应访问权限的设定。
 
 ### 7.2.3 Netfilter/IPtables防火墙
 2001年，Linux 2.4版内核，Netfilter/IPtables包过滤机制，被业内称为第三代Linux防火墙。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221105103.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221105103.png)
 
 Netfilter通用架构：
 - Netfilter是嵌入在Linux内核IP协议栈中的一个通用架构。
     - 它提供了一系列的“表”（tables）。
         - 每个表由若干“链”（chains）组成。
         - 每条链中可以有一条或数条规则（rule）。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221105154.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221105154.png)
 
 Netfilter的三个主要功能表：
 - Filter，数据包过滤表，用于检查数据包的内容信息，决定放行还是丢弃该数据包。
@@ -170,7 +172,7 @@ Netfilter的三个主要功能表：
 
 Netfilter程序流程架构：
 - Netfilter的具体实现，是通过在网络处理流程的若干位置放置一些钩子(hook)来实现的。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221105320.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221105320.png)
 - IP_PRE_ROUTING：处于数据包从数据链路层进入网络层的钩子点。
 - IP_LOCAL_IN：处于数据包从网络层进入传输层的钩子点。
 - IP_FORWARD：处于数据包在网络层转发的钩子点。
@@ -191,7 +193,7 @@ Netfilter/IPtables 例子：
 - iptables -P FORWARD DROP
 - iptables -A FORWARD -p tcp -s 202.10.13.0/24 -j ACCEPT
 - iptables -A FORWARD -p tcp -d 202.10.13.0/24 -j ACCEPT
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221105533.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221105533.png)
 - 第一条命令是设置防火墙的默认规则为DROP。
 - 使用链上的规则存在着优先级顺序关系，因而形成一条规则队列，匹配时顺序执行。当一个规则匹配成功，就执行该规则的目标动作并结束匹配，否则转向下一条规则。如果所有规则均匹配失败，则执行使用链的默认策略。
 
@@ -206,11 +208,11 @@ IDS（Intrusion Detection System，入侵检测系统）
 1980年，James P. Anderson，《Computer Security Threat Monitoring and Surveillance》，此技术报告被公认是开山之作。 
 
 1984-1986年，Dorothy Denning和 Peter Neumann，实时入侵检测系统模型，IDES (Intrusion Detection Expert System)。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221110025.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221110025.png)
 
 CIDF通用模型：
 - IDWG（Intrusion Detection Working Group，IETF下属的研究机构）和CIDF（Common Intrusion Detection Framework，一个美国国防部赞助的开放组织）负责组织开展对IDS进行标准化和研究工作。
-- CIDF模型：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221110025.png)
+- CIDF模型：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221110025.png)
 
 IDS有关的重要概念：
 - 事件：当网络或主机遭到入侵或出现较重大变化时，称为发生安全事件，简称事件。
@@ -247,7 +249,7 @@ IDS主要功能：
 
 主机型入侵检测系统：
 - 数据来源主要是操作系统的事件日志、应用程序的事件日志、系统调用、端口调用和安全审计记录等。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221110620.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221110620.png)
 - HIDS只能用来检测该主机上发生的入侵行为，主要检测内部授权人员的误用以及成功避开传统的系统保护方法而渗透到网络内部的入侵活动，检测准确性高。
 - 在检测到入侵行为后，可及时与操作系统协同阻止入侵行为的继续。
 - HIDS的缺点：
@@ -263,7 +265,7 @@ IDS主要功能：
 
 网络型入侵检测系统：
 - NIDS主要通过部署在网络关键位置上的感应器（多数为计算机）捕获网上的数据包，分析其是否具有已知的入侵特征模式。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221110910.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221110910.png)
 - NIDS的优点主要包括：
     - 对用户透明，隐蔽性好，使用简便，不容易遭受来自网络上的攻击；
     - 与被检测的系统平台无关；
@@ -286,7 +288,7 @@ HIDS和NIDS：
 
 基于误用检测的IDS：
 - 误用检测是事先定义出已知的入侵行为的入侵特征，将实际环境中的数据与之匹配，根据匹配程度来判断是否发生了入侵攻击行为。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221111210.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221111210.png)
 - 大部分入侵行为都是利用已知的系统脆弱性。通过分析入侵过程的特征、条件、顺序以及事件间的关系，可以具体描述入侵行为的特征信息。
     - 由于依据具体特征库进行判断，所以检测准确率很高。
 - 误用检测有时也被称为特征分析（Signature Analysis）或基于知识的检测（Knowledge-based Detection）。
@@ -296,7 +298,7 @@ HIDS和NIDS：
 
 基于异常检测的IDS：
 - 异常检测是根据使用者的行为或资源使用状况的程度与正常状态下的标准特征（活动轮廓）之间的偏差来判断是否遭到入侵。如果偏差高于阈值，则发生异常。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221111306.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221111306.png)
 - 异常检测不依赖于某个具体行为是否出现，通用性较强。
 - 但是，对基于异常检测的IDS来说，得到正常行为或状态的标准特征以及确定阈值具有较大的难度。
     - 首先，不可能对整个系统内的所有用户行为进行全面的描述，而且每个用户的行为是经常改变的。
@@ -401,7 +403,7 @@ Snort入侵检测系统是一个开放源代码的轻量级网络入侵检测系
 Snort遵循CIDF模型，使用误用检测的方法来识别发现违反系统和网络安全策略的网络行为。
 
 Snort系统包括数据包捕获模块、预处理模块、检测引擎和输出模块四部分组。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221113049.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221113049.png)
 
 Snort检测引擎模块：
 - 检测引擎是Snort的核心部件，主要功能是规则分析和特征检测。
@@ -412,7 +414,7 @@ Snort检测引擎模块：
     - 规则选项对应于规则选项节点（Optional Tree Node, OTN），包含报警信息和匹配内容等选项。
 
 Snort规则库：
-- Activate：报警并且激活另一条dynamic规则。Dynamic：保持空闲直到被一条activate规则激活，被激活后就作为一条log规则执行。![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221113325.png)
+- Activate：报警并且激活另一条dynamic规则。Dynamic：保持空闲直到被一条activate规则激活，被激活后就作为一条log规则执行。![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221113325.png)
 - Snort定义了五种可选的行为：
     - Alert：使用设定的警告方法生成警告信息，并记录这个数据报文；
     - Log：使用设定的记录方法来记录这个数据报文；
@@ -472,7 +474,7 @@ IPS:
 - IPS技术可以深度感知并检查流经的网络流量，对恶意数据包进行丢弃以阻断攻击，保护网络带宽资源。
 
 IPS结构：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221113757.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221113757.png)
 - 流量分析器：截获数据包并处理异常情况，执行类似于防火墙的访问控制。
 - 检测引擎：一般基于异常检测模型和误用检测模型，识别不同属性的攻击。
 - 响应模块：丢弃数据包、中止会话、修改防火墙规则、报警、日志等。
@@ -496,14 +498,14 @@ IMS:
 - 实际上，IMS应该是一个融合了多种安全防御技术的管理系统。
 
 IMS模型：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221113939.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221113939.png)
 
 云安全：
 - “云”是一种新兴技术，云计算（Cloud Compute）、云存储（Cloud Storage）及云安全（Cloud Security）也随之相继产生。
 - 最早受IBM、微软、Google等巨头追捧的“云计算”模式，是将计算资源放置在网络中，供许多终端设备来使用，其关键是分布处理、并行处理以及网格计算。云可以理解为网络中的所有可计算、可共享的资源，这是个共享资源的概念。
 - 云安全是通过网状的大量客户端对网络中软件行为的异常监测，获取互联网中木马、恶意程序的最新信息，传送到Server端进行自动分析和处理，再把病毒和木马的解决方案分发到每一个客户端。
 - 目前，云安全也被称为云杀毒，主要针对木马和病毒。
-- 云安全示意图：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221114025.png)
+- 云安全示意图：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221114025.png)
 
 云安全的特点：
 - 云安全更加强调主动和实时，将互联网打造成为一个巨大的“杀毒软件”，参与者越多，每个参与者就越安全，整个互联网就会更安全。

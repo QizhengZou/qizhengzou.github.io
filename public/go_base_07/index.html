@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Go_base_07 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="Go_base_07" />
-<meta property="og:description" content="并发编程 并发介绍 进程和线程 进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。 线程是进程的一个执行实体,是CPU调度" />
+<meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 并发编程 并发介绍 进程和线程 进程是程序在操作系统中的一次执行过程，系统进行资源分配" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/go_base_07/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-06T09:16:49+08:00" />
@@ -16,11 +16,11 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Go_base_07"/>
-<meta name="twitter:description" content="并发编程 并发介绍 进程和线程 进程是程序在操作系统中的一次执行过程，系统进行资源分配和调度的一个独立单位。 线程是进程的一个执行实体,是CPU调度"/>
+<meta name="twitter:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 并发编程 并发介绍 进程和线程 进程是程序在操作系统中的一次执行过程，系统进行资源分配"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://qizhengzou.github.io/go_base_07/" /><link rel="prev" href="https://qizhengzou.github.io/go_base_06/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://qizhengzou.github.io/go_base_07/" /><link rel="prev" href="https://qizhengzou.github.io/go_base_06/" /><link rel="next" href="https://qizhengzou.github.io/go_grammar_catalogue/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/go_base_07\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  20717 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  23977 ,
         "url": "https:\/\/qizhengzou.github.io\/go_base_07\/","datePublished": "2022-01-06T09:16:49+08:00","dateModified": "2022-01-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/go_base_07/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/go_base_07/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,9 +114,9 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Go_base_07</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw"></i>go</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:49">2022-01-06 09:16:49</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 20717 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 42 分钟&nbsp;<span id="busuanzi_container_page_pv">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw"></i>Go</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:49">2022-01-06 09:16:49</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 23977 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 48 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
             </div>
@@ -129,15 +152,22 @@
         <li><a href="#runtimegomaxprocs">runtime.GOMAXPROCS</a></li>
       </ul>
     </li>
+    <li><a href="#共享内存机制">共享内存机制</a></li>
+    <li><a href="#csp-并发机制">CSP 并发机制</a></li>
     <li><a href="#channel">Channel</a>
       <ul>
         <li><a href="#channel-1">channel</a></li>
         <li><a href="#channel类型">channel类型</a></li>
         <li><a href="#创建channel">创建channel</a></li>
-        <li><a href="#channel操作">channel操作</a></li>
-        <li><a href="#发送">发送</a></li>
-        <li><a href="#接收">接收</a></li>
-        <li><a href="#关闭">关闭</a></li>
+        <li><a href="#channel操作">channel操作</a>
+          <ul>
+            <li><a href="#发送">发送</a></li>
+            <li><a href="#接收">接收</a></li>
+            <li><a href="#关闭">关闭</a></li>
+          </ul>
+        </li>
+        <li><a href="#任务的返回">任务的返回</a></li>
+        <li><a href="#context与任务的取消">context与任务的取消</a></li>
         <li><a href="#无缓冲的通道">无缓冲的通道</a></li>
         <li><a href="#close">close()</a></li>
         <li><a href="#如何优雅的从通道循环取值">如何优雅的从通道循环取值</a></li>
@@ -145,6 +175,7 @@
         <li><a href="#通道总结">通道总结</a></li>
       </ul>
     </li>
+    <li><a href="#用多路选择实现超时控制">用多路选择实现超时控制</a></li>
     <li><a href="#goroutine池">Goroutine池</a>
       <ul>
         <li><a href="#worker-poolgoroutine池">worker pool（goroutine池）</a></li>
@@ -217,6 +248,15 @@
         <li><a href="#四小结">四、小结</a></li>
       </ul>
     </li>
+    <li><a href="#典型并发任务">典型并发任务</a>
+      <ul>
+        <li><a href="#只运行一次">只运行一次</a></li>
+        <li><a href="#仅需任意任务完成">仅需任意任务完成</a></li>
+        <li><a href="#所有任务完成">所有任务完成</a></li>
+        <li><a href="#对象池">对象池</a></li>
+        <li><a href="#syncpool对象缓存">sync.pool对象缓存</a></li>
+      </ul>
+    </li>
     <li><a href="#爬虫小案例">爬虫小案例</a>
       <ul>
         <li><a href="#爬虫步骤">爬虫步骤</a></li>
@@ -226,7 +266,10 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="并发编程">并发编程</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>参考学习go语言中文网、C语言中文网、golang官方文档等</p>
+</blockquote>
+<h1 id="并发编程">并发编程</h1>
 <h2 id="并发介绍">并发介绍</h2>
 <p>进程和线程</p>
 <ol>
@@ -422,18 +465,80 @@
 </div>
 </div><h3 id="goroutine与线程">goroutine与线程</h3>
 <h4 id="可增长的栈">可增长的栈</h4>
-<p>OS线程（操作系统线程）一般都有固定的栈内存（通常为2MB）,一个goroutine的栈在其生命周期开始时只有很小的栈（典型情况下2KB），goroutine的栈不是固定的，他可以按需增大和缩小，goroutine的栈大小限制可以达到1GB，虽然极少会用到这个大。所以在Go语言中一次创建十万左右的goroutine也是可以的。</p>
+<p>OS线程（操作系统线程）一般都有固定的栈内存（通常为2MB）,一个goroutine的栈在其生命周期开始时只有很小的栈（典型情况下2KB），goroutine的栈不是固定的，他可以按需增大和缩小，goroutine的栈大小限制可以达到1GB，虽然极少会用到这么大。所以在Go语言中一次创建十万左右的goroutine也是可以的。</p>
 <h4 id="goroutine调度">goroutine调度</h4>
 <p>GPM是Go语言运行时（runtime）层面的实现，是go语言自己实现的一套调度系统。区别于操作系统调度OS线程。</p>
 <ol>
 <li>G很好理解，就是个goroutine的，里面除了存放本goroutine信息外 还有与所在P的绑定等信息。</li>
-<li>P管理着一组goroutine队列，P里面会存储当前goroutine运行的上下文环境（函数指针，堆栈地址及地址边界），P会对自己管理的goroutine队列做一些调度（比如把占用CPU时间较长的goroutine暂停、运行后续的goroutine等等）当自己的队列消费完了就去全局队列里取，如果全局队列里也消费完了会去其他P的队列里抢任务。</li>
-<li>M（machine）是Go运行时（runtime）对操作系统内核线程的虚拟， M与内核线程一般是一一映射的关系， 一个groutine最终是要放到M上执行的；</li>
+<li>P是go语言实现的协程处理器，管理着一组goroutine队列，P里面会存储当前goroutine运行的上下文环境（函数指针，堆栈地址及地址边界），P会对自己管理的goroutine队列做一些调度（比如把占用CPU时间较长的goroutine暂停，或者阻塞的协程进行跳过（有一个守护线程会记录每个processor完成的协程的数量，如果有个P完成的协程的数量一直不变，说明被阻塞了，守护线程会往这个协程的用户栈里插入一个特殊的标记，当协程运行内敛函数时会读到这个标记，会把自己中断下来，然后查找等候协程队列的队尾，然后切换成别的线程进一步运行）、运行后续的goroutine等等）当自己的队列消费完了就去全局队列里取，如果全局队列里也消费完了会去其他P的队列里抢任务。</li>
+<li>另一个提高整个并发能力的机制：当某一个协程被系统中断了，比如一些IO操作，需要等待的时候，为了提高整体的并发，processor会把自己移到另一个可使用的系统进程当中，继续执行它所挂的队列里的其他的协程，当被中断的协程被唤醒，会把自己加入到某一个pocessor的协程等待队列里，或者加入到全局等待队列当中。需要注意的一点：当一个协程被中断的时候，其在寄存器里的运行状态也会保存到这个协程对象里，当协程再次获得运行的机会，这些又会重新写入寄存器继续运行。</li>
+<li>go的协程机制与系统线程的这种多对多的关系以及它是如何来高效地利用系统线程来尽量多的运行并发的协程任务的。</li>
+<li>M（machine）是Go运行时（runtime）对操作系统内核线程的虚拟， M与内核线程一般是一一映射的关系，也可以是多对一， 一个groutine最终是要放到M上执行的；</li>
 </ol>
-<p>P与M一般也是一一对应的。他们关系是： P管理着一组G挂载在M上运行。当一个G长久阻塞在一个M上时，runtime会新建一个M，阻塞G所在的P会把其他的G 挂载在新建的M上。当旧的G阻塞完成或者认为其已经死掉时 回收旧的M。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220227215827.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220227215827.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220227215827.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220227215827.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220227215827.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220227215827.png" /></p>
+<p>P与M一般也是一一对应的。他们关系是： P管理着一组G挂载在M上运行。当一个G长久阻塞在一个M上时，runtime会新建一个M，阻塞G所在的P会把其他的G 挂载在新建的M上。当旧的G阻塞完成或者认为其已经死掉时回收旧的M。</p>
 <p>P的个数是通过runtime.GOMAXPROCS设定（最大256），Go1.5版本之后默认为物理线程数。 在并发量大的时候会增加一些P和M，但不会太多，切换太频繁的话得不偿失。</p>
 <p>单从线程调度讲，Go语言相比起其他语言的优势在于OS线程是由OS内核来调度的，goroutine则是由Go运行时（runtime）自己的调度器调度的，这个调度器使用一个称为m:n调度的技术（复用/调度m个goroutine到n个OS线程）。 其一大特点是goroutine的调度是在用户态下完成的， 不涉及内核态与用户态之间的频繁切换，包括内存的分配与释放，都是在用户态维护着一块大的内存池， 不直接调用系统的malloc函数（除非内存池需要改变），成本比调度OS线程低很多。 另一方面充分利用了多核的硬件资源，近似的把若干goroutine均分在物理线程上， 再加上本身goroutine的超轻量，以上种种保证了go调度方面的性能。</p>
-<h2 id="runtime包">runtime包</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220129201758.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220129201758.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220129201758.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220129201758.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220129201758.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220129201758.png" /></p>
+<ul>
+<li>kernel space entity 系统线程或者说内核对象，内核对象切换的消耗很大。</li>
+<li>多个协程对应于一个内核线程时，这些协程切换时消耗较少。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">groutine_test</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestGroutine</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+		<span class="p">}(</span><span class="nx">i</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="runtime包">runtime包</h2>
 <h3 id="runtimegosched">runtime.Gosched()</h3>
 <p>让出CPU时间片，重新等待安排任务(大概意思就是本来计划的好好的周末出去烧烤，但是你妈让你去相亲,两种情况第一就是你相亲速度非常快，见面就黄不耽误你继续烧烤，第二种情况就是你相亲速度特别慢，见面就是你侬我侬的，耽误了烧烤，但是还馋就是耽误了烧烤你还得去烧烤)</p>
 <div class="highlight"><div class="chroma">
@@ -630,6 +735,139 @@
 <li>go程序可以同时使用多个操作系统线程。</li>
 <li>goroutine和OS线程是多对多的关系，即m:n。</li>
 </ol>
+<h2 id="共享内存机制">共享内存机制</h2>
+<p>使用锁来实现并发控制</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">share_mem</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;sync&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestCounter</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="nx">counter</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="nx">counter</span><span class="o">++</span>
+		<span class="p">}()</span>
+	<span class="p">}</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;counter = %d&#34;</span><span class="p">,</span> <span class="nx">counter</span><span class="p">)</span>
+
+<span class="p">}</span>
+<span class="c1">//使用锁实现线程安全
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">TestCounterThreadSafe</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">mut</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+	<span class="nx">counter</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+				<span class="nx">mut</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+			<span class="p">}()</span>
+			<span class="nx">mut</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+			<span class="nx">counter</span><span class="o">++</span>
+		<span class="p">}()</span>
+	<span class="p">}</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;counter = %d&#34;</span><span class="p">,</span> <span class="nx">counter</span><span class="p">)</span>
+
+<span class="p">}</span>
+<span class="c1">//是要弄WaitGroup实现
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">TestCounterWaitGroup</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">mut</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+	<span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+	<span class="nx">counter</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+				<span class="nx">mut</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+			<span class="p">}()</span>
+			<span class="nx">mut</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+			<span class="nx">counter</span><span class="o">++</span>
+			<span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+		<span class="p">}()</span>
+	<span class="p">}</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;counter = %d&#34;</span><span class="p">,</span> <span class="nx">counter</span><span class="p">)</span>
+
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="csp-并发机制">CSP 并发机制</h2>
+<p>communicating sequential processes通信顺序进程。</p>
+<p>依赖于通道来完成两个通信实体之间的协调。</p>
+<p>CSP VS Actor Model</p>
+<ul>
+<li>和Actor的直接通讯不同，CSP模式则是通过Channel进⾏通讯的，更松耦合⼀些。</li>
+<li>Go中channel是有容量限制并且独⽴于处理Groutine，⽽如Erlang，Actor模式中的mailbox容量是⽆限的，接收进程也总是被动地处理消息</li>
+</ul>
+<p>可利用channel实现异步返回。</p>
 <h2 id="channel">Channel</h2>
 <h3 id="channel-1">channel</h3>
 <p>单纯地将函数并发执行是没有意义的。函数与函数间需要交换数据才能体现并发执行函数的意义。</p>
@@ -708,7 +946,7 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>    
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="发送">发送</h3>
+</div><h4 id="发送">发送</h4>
 <p>将一个值发送到通道中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -718,7 +956,7 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">10</span> <span class="c1">// 把10发送到ch中   
 </span></code></pre></td></tr></table>
 </div>
-</div><h3 id="接收">接收</h3>
+</div><h4 id="接收">接收</h4>
 <p>从一个通道中接收值。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -730,7 +968,7 @@
 </span><span class="c1"></span><span class="o">&lt;-</span><span class="nx">ch</span>       <span class="c1">// 从ch中接收值，忽略结果   
 </span></code></pre></td></tr></table>
 </div>
-</div><h3 id="关闭">关闭</h3>
+</div><h4 id="关闭">关闭</h4>
 <p>我们通过调用内置的close函数来关闭通道。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -748,15 +986,296 @@
 <li>对一个关闭的并且没有值的通道执行接收操作会得到对应类型的零值。</li>
 <li>关闭一个已经关闭的通道会导致panic。</li>
 </ol>
-<h3 id="无缓冲的通道">无缓冲的通道</h3>
+<p>v, ok &lt;-ch; ok 为 bool 值，true 表示正常接受，false 表示通道关闭</p>
+<p>所有的 channel 接收者都会在 channel 关闭时，⽴刻从阻塞等待中返回且上
+述 ok 值为 false。<strong>这个⼴播机制常被利⽤，进⾏向多个订阅者同时发送信号。如：退出信号</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">channel_close</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;sync&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">dataProducer</span><span class="p">(</span><span class="nx">ch</span> <span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">wg</span> <span class="o">*</span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+			<span class="nx">ch</span> <span class="o">&lt;-</span> <span class="nx">i</span>
+		<span class="p">}</span>
+		<span class="nb">close</span><span class="p">(</span><span class="nx">ch</span><span class="p">)</span>
+
+		<span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+	<span class="p">}()</span>
+
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">dataReceiver</span><span class="p">(</span><span class="nx">ch</span> <span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">wg</span> <span class="o">*</span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">ch</span><span class="p">;</span> <span class="nx">ok</span> <span class="p">{</span>
+				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="k">break</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+	<span class="p">}()</span>
+
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestCloseChannel</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+	<span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="nf">dataProducer</span><span class="p">(</span><span class="nx">ch</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">wg</span><span class="p">)</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="nf">dataReceiver</span><span class="p">(</span><span class="nx">ch</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">wg</span><span class="p">)</span>
+	<span class="c1">// wg.Add(1)
+</span><span class="c1"></span>	<span class="c1">// dataReceiver(ch, &amp;wg)
+</span><span class="c1"></span>	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="任务的返回">任务的返回</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">concurrency</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">isCancelled</span><span class="p">(</span><span class="nx">cancelChan</span> <span class="kd">chan</span> <span class="kd">struct</span><span class="p">{})</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">select</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">cancelChan</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">true</span>
+	<span class="k">default</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">false</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">cancel_1</span><span class="p">(</span><span class="nx">cancelChan</span> <span class="kd">chan</span> <span class="kd">struct</span><span class="p">{})</span> <span class="p">{</span>
+	<span class="nx">cancelChan</span> <span class="o">&lt;-</span> <span class="kd">struct</span><span class="p">{}{}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">cancel_2</span><span class="p">(</span><span class="nx">cancelChan</span> <span class="kd">chan</span> <span class="kd">struct</span><span class="p">{})</span> <span class="p">{</span>
+	<span class="nb">close</span><span class="p">(</span><span class="nx">cancelChan</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestCancel</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">cancelChan</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kd">struct</span><span class="p">{},</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">cancelCh</span> <span class="kd">chan</span> <span class="kd">struct</span><span class="p">{})</span> <span class="p">{</span>
+			<span class="k">for</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="nf">isCancelled</span><span class="p">(</span><span class="nx">cancelCh</span><span class="p">)</span> <span class="p">{</span>
+					<span class="k">break</span>
+				<span class="p">}</span>
+				<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="s">&#34;Cancelled&#34;</span><span class="p">)</span>
+		<span class="p">}(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">cancelChan</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nf">cancel_2</span><span class="p">(</span><span class="nx">cancelChan</span><span class="p">)</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="context与任务的取消">context与任务的取消</h3>
+<p>关联任务的取消。</p>
+<p>go1.9以后，把context正式并入到golang正式的一个包里面了。</p>
+<p>context：</p>
+<ul>
+<li>根 Context：通过 context.Background () 创建</li>
+<li>⼦ Context：context.WithCancel(parentContext) 创建</li>
+<li>ctx, cancel := context.WithCancel(context.Background())</li>
+<li>当前 Context 被取消时，基于他的⼦ context 都会被取消</li>
+<li>接收取消通知 &lt;-ctx.Done()</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">cancel</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;context&#34;</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">isCancelled</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">select</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">ctx</span><span class="p">.</span><span class="nf">Done</span><span class="p">():</span>
+		<span class="k">return</span> <span class="kc">true</span>
+	<span class="k">default</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">false</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestCancel</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancel</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithCancel</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">())</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">for</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="nf">isCancelled</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+					<span class="k">break</span>
+				<span class="p">}</span>
+				<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="s">&#34;Cancelled&#34;</span><span class="p">)</span>
+		<span class="p">}(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">ctx</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nf">cancel</span><span class="p">()</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="无缓冲的通道">无缓冲的通道</h3>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113171554.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113171554.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113171554.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113171554.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113171554.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113171554.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113171554.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113171554.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113171554.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113171554.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113171554.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113171554.png" /></p>
 <p>无缓冲的通道又称为阻塞的通道。我们来看一下下面的代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -828,11 +1347,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172559.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172559.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172559.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172559.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172559.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172559.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172559.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172559.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172559.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172559.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172559.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172559.png" /></p>
 <p>我们可以在使用make函数初始化通道的时候为其指定通道的容量，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1038,13 +1557,89 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172726.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172726.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172726.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172726.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172726.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172726.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172726.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172726.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172726.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172726.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172726.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172726.png" />
 注意:关闭已经关闭的channel也会引发panic。</p>
-<h2 id="goroutine池">Goroutine池</h2>
+<h2 id="用多路选择实现超时控制">用多路选择实现超时控制</h2>
+<p>多路选择select</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">select_test</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">service</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">500</span><span class="p">)</span>
+	<span class="k">return</span> <span class="s">&#34;Done&#34;</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">AsyncService</span><span class="p">()</span> <span class="kd">chan</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="nx">retCh</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="c1">//retCh := make(chan string, 1)
+</span><span class="c1"></span>	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">ret</span> <span class="o">:=</span> <span class="nf">service</span><span class="p">()</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;returned result.&#34;</span><span class="p">)</span>
+		<span class="nx">retCh</span> <span class="o">&lt;-</span> <span class="nx">ret</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;service exited.&#34;</span><span class="p">)</span>
+	<span class="p">}()</span>
+	<span class="k">return</span> <span class="nx">retCh</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestSelect</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">select</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="nx">ret</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nf">AsyncService</span><span class="p">():</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="nx">ret</span><span class="p">)</span>
+	<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nf">After</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">100</span><span class="p">):</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;time out&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="goroutine池">Goroutine池</h2>
 <h3 id="worker-poolgoroutine池">worker pool（goroutine池）</h3>
 <ul>
 <li>本质上是生产者消费者模型</li>
@@ -1059,11 +1654,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172848.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172848.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172848.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172848.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172848.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172848.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172848.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172848.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172848.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113172848.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172848.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113172848.png" /></li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2318,11 +2913,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180801.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180801.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180801.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180801.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180801.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180801.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180801.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180801.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180801.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180801.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180801.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180801.png" /></p>
 <p>早期的单进程操作系统，面临 2 个问题：</p>
 <ol>
 <li>单一的执行流程，计算机只能一个任务一个任务处理。</li>
@@ -2334,11 +2929,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180920.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180920.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180920.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180920.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180920.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180920.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180920.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180920.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180920.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180920.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180920.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180920.png" /></p>
 <p>在多进程 / 多线程的操作系统中，就解决了阻塞的问题，因为一个进程阻塞 cpu 可以立刻切换到其他进程中去执行，而且调度 cpu 的算法可以保证在运行的进程都可以被分配到 cpu 的运行时间片。这样从宏观来看，似乎多个进程是在同时被运行。</p>
 <p>但新的问题就又出现了，进程拥有太多的资源，进程的创建、切换、销毁，都会占用很长的时间，CPU 虽然利用起来了，但如果进程过多，CPU 有很大的一部分都被用来进行进程调度了。</p>
 <p>怎么才能提高 CPU 的利用率呢？</p>
@@ -2346,11 +2941,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180946.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180946.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180946.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180946.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180946.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180946.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180946.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180946.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180946.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113180946.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180946.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113180946.png" /></p>
 <p>很明显，CPU 调度切换的是进程和线程。尽管线程看起来很美好，但实际上多线程开发设计会变得更加复杂，要考虑很多同步竞争等问题，如锁、竞争冲突等。</p>
 <h4 id="协程来提高-cpu-利用率">协程来提高 CPU 利用率</h4>
 <p>多进程、多线程已经提高了系统的并发能力，但是在当今互联网高并发场景下，为每个任务都创建一个线程是不现实的，因为会消耗大量的内存 (进程虚拟内存会占用 4GB [32 位操作系统], 而线程也要大约 4MB)。</p>
@@ -2364,20 +2959,20 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181037.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181037.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181037.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181037.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181037.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181037.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181037.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181037.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181037.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181037.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181037.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181037.png" /></p>
 <p>这样，我们再去细化去分类一下，内核线程依然叫 “线程 (thread)”，用户线程叫 “协程 (co-routine)”.
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181059.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181059.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181059.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181059.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181059.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181059.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181059.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181059.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181059.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181059.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181059.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181059.png" /></p>
 <p>看到这里，我们就要开脑洞了，既然一个协程 (co-routine) 可以绑定一个线程 (thread)，那么能不能多个协程 (co-routine) 绑定一个或者多个线程 (thread) 上呢。</p>
 <p>之后，我们就看到了有 3 中协程和线程的映射关系：</p>
 <div class="highlight"><div class="chroma">
@@ -2400,11 +2995,11 @@ N:1 关系
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181150.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181150.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181150.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181150.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181150.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181150.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181150.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181150.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181150.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181150.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181150.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181150.png" /></li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2423,11 +3018,11 @@ N:1 关系
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181232.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181232.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181232.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181232.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181232.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181232.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181232.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181232.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181232.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181232.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181232.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181232.png" /></li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2443,11 +3038,11 @@ M:N 关系
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181305.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181305.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181305.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181305.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181305.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181305.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181305.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181305.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181305.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181305.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181305.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181305.png" /></p>
 <p>协程跟线程是有区别的，线程由 CPU 调度是抢占式的，协程由用户态调度是协作式的，一个协程让出 CPU 后，才执行下一个协程。</p>
 <h4 id="go-语言的协程-goroutine">Go 语言的协程 goroutine</h4>
 <p>Go 为了提供更容易使用的并发方法，使用了 goroutine 和 channel。goroutine 来自协程的概念，让一组可复用的函数运行在一组线程之上，即使有协程阻塞，该线程的其他协程也可以被 runtime 调度，转移到其他可运行的线程上。最关键的是，程序员看不到这些底层的细节，这就降低了编程的难度，提供了更容易的并发。</p>
@@ -2464,20 +3059,20 @@ M:N 关系
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181400.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181400.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181400.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181400.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181400.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181400.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181400.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181400.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181400.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181400.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181400.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181400.png" /></p>
 <p>下面我们来看看被废弃的 golang 调度器是如何实现的？
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181442.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181442.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181442.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181442.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181442.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181442.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181442.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181442.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181442.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181442.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181442.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181442.png" /></p>
 <p>M 想要执行、放回 G 都必须访问全局 G 队列，并且 M 有多个，即多线程访问同一资源需要加锁进行保证互斥 / 同步，所以全局 G 队列是有互斥锁进行保护的。</p>
 <p>老调度器有几个缺点：</p>
 <ul>
@@ -2491,22 +3086,22 @@ M:N 关系
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181541.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181541.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181541.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181541.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181541.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181541.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181541.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181541.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181541.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181541.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181541.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181541.png" /></p>
 <p>Processor，它包含了运行 goroutine 的资源，如果线程想运行 goroutine，必须先获取 P，P 中还包含了可运行的 G 队列。</p>
 <h4 id="gmp-模型">GMP 模型</h4>
 <p>在 Go 中，线程是运行 goroutine 的实体，调度器的功能是把可运行的 goroutine 分配到工作线程上。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181610.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181610.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181610.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181610.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181610.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181610.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181610.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181610.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181610.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113181610.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181610.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113181610.png" /></p>
 <ul>
 <li>全局队列（Global Queue）：存放等待运行的 G。</li>
 <li>P 的本地队列：同全局队列类似，存放的也是等待运行的 G，存的数量有限，不超过 256 个。新建 G’时，G’优先加入到 P 的本地队列，如果队列满了，则会把本地队列中一半的 G 移动到全局队列。</li>
@@ -2547,11 +3142,11 @@ M:N 关系
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182007.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182007.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182007.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182007.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182007.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182007.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182007.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182007.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182007.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182007.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182007.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182007.png" />
 从上图我们可以分析出几个结论：</p>
 <ol>
 <li>我们通过 go func () 来创建一个 goroutine；</li>
@@ -2565,11 +3160,11 @@ M:N 关系
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182240.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182240.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182240.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182240.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182240.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182240.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182240.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182240.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182240.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182240.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182240.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182240.png" /></p>
 <p>特殊的 M0 和 G0</p>
 <p>M0</p>
 <p>M0 是启动程序后的编号为 0 的主线程，这个 M 对应的实例会在全局变量 runtime.m0 中，不需要在 heap 上分配，M0 负责执行初始化操作和启动第一个 G， 在之后 M0 就和其他的 M 一样了。</p>
@@ -2713,29 +3308,29 @@ Hello World
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182553.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182553.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182553.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182553.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182553.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182553.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182553.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182553.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182553.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182553.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182553.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182553.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182612.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182612.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182612.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182612.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182612.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182612.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182612.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182612.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182612.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182612.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182612.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182612.png" /></p>
 <p>G 信息</p>
 <p>点击 Goroutines 那一行可视化的数据条，我们会看到一些详细的信息。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182640.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182640.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182640.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182640.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182640.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182640.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182640.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182640.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182640.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182640.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182640.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182640.png" /></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -2750,41 +3345,41 @@ Hello World
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182737.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182737.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182737.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182737.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182737.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182737.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182737.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182737.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182737.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182737.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182737.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182737.png" /></p>
 <p>一共有两个 M 在程序中，一个是特殊的 M0，用于初始化使用，这个我们不必讨论。</p>
 <p>P 信息
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182805.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182805.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182805.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182805.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182805.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182805.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182805.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182805.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182805.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182805.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182805.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182805.png" /></p>
 <p>G1 中调用了 main.main，创建了 trace goroutine g18。G1 运行在 P1 上，G18 运行在 P0 上。</p>
 <p>这里有两个 P，我们知道，一个 P 必须绑定一个 M 才能调度 G。</p>
 <p>我们在来看看上面的 M 信息。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182825.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182825.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182825.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182825.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182825.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182825.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182825.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182825.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182825.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182825.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182825.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182825.png" /></p>
 <p>我们会发现，确实 G18 在 P0 上被运行的时候，确实在 Threads 行多了一个 M 的数据，点击查看如下：
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182839.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182839.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182839.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182839.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182839.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182839.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182839.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182839.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182839.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113182839.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182839.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113182839.png" /></p>
 <p>多了一个 M2 应该就是 P0 为了执行 G18 而动态创建的 M2.</p>
 <p>方式 2：Debug trace</p>
 <div class="highlight"><div class="chroma">
@@ -2874,31 +3469,31 @@ Hello World
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183007.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183007.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183007.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183007.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183007.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183007.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183007.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183007.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183007.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183007.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183007.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183007.png" /></p>
 <h4 id="场景-2">场景 2</h4>
 <p>G1 运行完成后 (函数：goexit)，M 上运行的 goroutine 切换为 G0，G0 负责调度时协程的切换（函数：schedule）。从 P 的本地队列取 G2，从 G0 切换到 G2，并开始运行 G2 (函数：execute)。实现了线程 M1 的复用。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183027.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183027.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183027.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183027.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183027.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183027.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183027.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183027.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183027.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183027.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183027.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183027.png" /></p>
 <h4 id="场景-3">场景 3</h4>
 <p>假设每个 P 的本地队列只能存 3 个 G。G2 要创建了 6 个 G，前 3 个 G（G3, G4, G5）已经加入 p1 的本地队列，p1 本地队列满了。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183047.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183047.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183047.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183047.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183047.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183047.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183047.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183047.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183047.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183047.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183047.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183047.png" /></p>
 <h4 id="场景-4">场景 4</h4>
 <p>G2 在创建 G7 的时候，发现 P1 的本地队列已满，需要执行负载均衡 (把 P1 中本地队列中前一半的 G，还有新创建 G 转移到全局队列)</p>
 <div class="highlight"><div class="chroma">
@@ -2912,33 +3507,33 @@ Hello World
 </div><p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183102.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183102.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183102.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183102.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183102.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183102.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183102.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183102.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183102.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183102.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183102.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183102.png" /></p>
 <p>这些 G 被转移到全局队列时，会被打乱顺序。所以 G3,G4,G7 被转移到全局队列。</p>
 <h4 id="场景-5">场景 5</h4>
 <p>G2 创建 G8 时，P1 的本地队列未满，所以 G8 会被加入到 P1 的本地队列。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183218.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183218.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183218.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183218.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183218.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183218.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183218.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183218.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183218.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183218.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183218.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183218.png" /></p>
 <p>G8 加入到 P1 点本地队列的原因还是因为 P1 此时在与 M1 绑定，而 G2 此时是 M1 在执行。所以 G2 创建的新的 G 会优先放置到自己的 M 绑定的 P 上。</p>
 <h4 id="场景-6">场景 6</h4>
 <p>规定：在创建 G 时，运行的 G 会尝试唤醒其他空闲的 P 和 M 组合去执行。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183240.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183240.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183240.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183240.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183240.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183240.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183240.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183240.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183240.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183240.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183240.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183240.png" /></p>
 <p>假定 G2 唤醒了 M2，M2 绑定了 P2，并运行 G0，但 P2 本地队列没有 G，M2 此时为自旋线程（没有 G 但为运行状态的线程，不断寻找 G）。</p>
 <p>(7) 场景 7</p>
 <p>M2 尝试从全局队列 (简称 “GQ”) 取一批 G 放到 P2 的本地队列（函数：findrunnable()）。M2 从全局队列取的 G 数量符合下面的公式：</p>
@@ -2954,57 +3549,603 @@ Hello World
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183310.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183310.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183310.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183310.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183310.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183310.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183310.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183310.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183310.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183310.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183310.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183310.png" /></p>
 <p>假定我们场景中一共有 4 个 P（GOMAXPROCS 设置为 4，那么我们允许最多就能用 4 个 P 来供 M 使用）。所以 M2 只从能从全局队列取 1 个 G（即 G3）移动 P2 本地队列，然后完成从 G0 到 G3 的切换，运行 G3。</p>
 <h4 id="场景-8">场景 8</h4>
 <p>假设 G2 一直在 M1 上运行，经过 2 轮后，M2 已经把 G7、G4 从全局队列获取到了 P2 的本地队列并完成运行，全局队列和 P2 的本地队列都空了，如场景 8 图的左半部分。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183338.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183338.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183338.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183338.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183338.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183338.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183338.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183338.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183338.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183338.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183338.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183338.png" /></p>
 <p>全局队列已经没有 G，那 m 就要执行 work stealing (偷取)：从其他有 G 的 P 哪里偷取一半 G 过来，放到自己的 P 本地队列。P2 从 P1 的本地队列尾部取一半的 G，本例中一半则只有 1 个 G8，放到 P2 的本地队列并执行。</p>
 <h4 id="场景-9">场景 9</h4>
 <p>G1 本地队列 G5、G6 已经被其他 M 偷走并运行完成，当前 M1 和 M2 分别在运行 G2 和 G8，M3 和 M4 没有 goroutine 可以运行，M3 和 M4 处于自旋状态，它们不断寻找 goroutine。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183401.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183401.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183401.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183401.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183401.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183401.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183401.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183401.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183401.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183401.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183401.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183401.png" /></p>
 <p>为什么要让 m3 和 m4 自旋，自旋本质是在运行，线程在运行却没有执行 G，就变成了浪费 CPU. 为什么不销毁现场，来节约 CPU 资源。因为创建和销毁 CPU 也会浪费时间，我们希望当有新 goroutine 创建时，立刻能有 M 运行它，如果销毁再新建就增加了时延，降低了效率。当然也考虑了过多的自旋线程是浪费 CPU，所以系统中最多有 GOMAXPROCS 个自旋的线程 (当前例子中的 GOMAXPROCS=4，所以一共 4 个 P)，多余的没事做线程会让他们休眠。</p>
 <h4 id="场景-10">场景 10</h4>
 <p>假定当前除了 M3 和 M4 为自旋线程，还有 M5 和 M6 为空闲的线程 (没有得到 P 的绑定，注意我们这里最多就只能够存在 4 个 P，所以 P 的数量应该永远是 M&gt;=P, 大部分都是 M 在抢占需要运行的 P)，G8 创建了 G9，G8 进行了阻塞的系统调用，M2 和 P2 立即解绑，P2 会执行以下判断：如果 P2 本地队列有 G、全局队列有 G 或有空闲的 M，P2 都会立马唤醒 1 个 M 和它绑定，否则 P2 则会加入到空闲 P 列表，等待 M 来获取可用的 p。本场景中，P2 本地队列有 G9，可以和其他空闲的线程 M5 绑定。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183428.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183428.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183428.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183428.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183428.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183428.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183428.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183428.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183428.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183428.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183428.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183428.png" /></p>
 <p>(11) 场景 11</p>
 <p>G8 创建了 G9，假如 G8 进行了非阻塞系统调用。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183451.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183451.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183451.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183451.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183451.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183451.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183451.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183451.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183451.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113183451.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183451.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113183451.png" /></p>
 <p>M2 和 P2 会解绑，但 M2 会记住 P2，然后 G8 和 M2 进入系统调用状态。当 G8 和 M2 退出系统调用时，会尝试获取 P2，如果无法获取，则获取空闲的 P，如果依然没有，G8 会被记为可运行状态，并加入到全局队列，M2 因为没有 P 的绑定而变成休眠状态 (长时间休眠等待 GC 回收销毁)。</p>
 <h3 id="四小结">四、小结</h3>
 <p>总结，Go 调度器很轻量也很简单，足以撑起 goroutine 的调度工作，并且让 Go 具有了原生（强大）并发的能力。Go 调度本质是把大量的 goroutine 分配到少量线程上去执行，并利用多核并行，实现更强大的并发。</p>
+<h2 id="典型并发任务">典型并发任务</h2>
+<h3 id="只运行一次">只运行一次</h3>
+<p>在多线程的环境下，某一段代码只执行一次。</p>
+<p>也就是单例模式。</p>
+<p>在go语言里有个专门的方法 <code>sync.Once</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">once_test</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;sync&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;unsafe&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">Singleton</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">data</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">singleInstance</span> <span class="o">*</span><span class="nx">Singleton</span>
+<span class="kd">var</span> <span class="nx">once</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Once</span>
+
+<span class="kd">func</span> <span class="nf">GetSingletonObj</span><span class="p">()</span> <span class="o">*</span><span class="nx">Singleton</span> <span class="p">{</span>
+	<span class="nx">once</span><span class="p">.</span><span class="nf">Do</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Create Obj&#34;</span><span class="p">)</span>
+		<span class="nx">singleInstance</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Singleton</span><span class="p">)</span>
+	<span class="p">})</span>
+	<span class="k">return</span> <span class="nx">singleInstance</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestGetSingletonObj</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="nx">obj</span> <span class="o">:=</span> <span class="nf">GetSingletonObj</span><span class="p">()</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%X\n&#34;</span><span class="p">,</span> <span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">obj</span><span class="p">))</span>
+			<span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+		<span class="p">}()</span>
+	<span class="p">}</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PS D:\Go\Go_WorkSpace\go_learning-master\code\ch23\singleton&gt; go test -v -run TestGetSingletonObj once_test.go
+=== RUN   TestGetSingletonObj
+Create Obj
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+C00008A000
+--- PASS: TestGetSingletonObj (0.00s)
+PASS
+ok      command-line-arguments  0.550s
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="仅需任意任务完成">仅需任意任务完成</h3>
+<p>eg:并行执行很多任务，当一个任务返回的时候就可以返回给用户了。像搜索引擎返回搜索结果。</p>
+<p>go的CSP的并发控制机制能够简单快速地实现这样的模式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">concurrency</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;runtime&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">runTask</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;The result is from %d&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">FirstResponse</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="nx">numOfRunner</span> <span class="o">:=</span> <span class="mi">10</span>
+	<span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">numOfRunner</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">numOfRunner</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">ret</span> <span class="o">:=</span> <span class="nf">runTask</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+			<span class="nx">ch</span> <span class="o">&lt;-</span> <span class="nx">ret</span>
+		<span class="p">}(</span><span class="nx">i</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="o">&lt;-</span><span class="nx">ch</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestFirstResponse</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Before:&#34;</span><span class="p">,</span> <span class="nx">runtime</span><span class="p">.</span><span class="nf">NumGoroutine</span><span class="p">())</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="nf">FirstResponse</span><span class="p">())</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;After:&#34;</span><span class="p">,</span> <span class="nx">runtime</span><span class="p">.</span><span class="nf">NumGoroutine</span><span class="p">())</span>
+
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="所有任务完成">所有任务完成</h3>
+<p>sync package 里的WaitGroup即可实现。</p>
+<p>另一种方式：在CSP模式下如何利用channel实现？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">util_all_done</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;runtime&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">runTask</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;The result is from %d&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+
+<span class="kd">func</span> <span class="nf">AllResponse</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="nx">numOfRunner</span> <span class="o">:=</span> <span class="mi">10</span>
+	<span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">numOfRunner</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">numOfRunner</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">ret</span> <span class="o">:=</span> <span class="nf">runTask</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+			<span class="nx">ch</span> <span class="o">&lt;-</span> <span class="nx">ret</span>
+		<span class="p">}(</span><span class="nx">i</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">finalRet</span> <span class="o">:=</span> <span class="s">&#34;&#34;</span>
+	<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">numOfRunner</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">finalRet</span> <span class="o">+=</span> <span class="o">&lt;-</span><span class="nx">ch</span> <span class="o">+</span> <span class="s">&#34;\n&#34;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">finalRet</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestAllResponse</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Before:&#34;</span><span class="p">,</span> <span class="nx">runtime</span><span class="p">.</span><span class="nf">NumGoroutine</span><span class="p">())</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="nf">AllResponse</span><span class="p">())</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;After:&#34;</span><span class="p">,</span> <span class="nx">runtime</span><span class="p">.</span><span class="nf">NumGoroutine</span><span class="p">())</span>
+
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="对象池">对象池</h3>
+<p>很多场景可能会遇到对象池，比如创建一些代价比较高的对象。数据库连接、网络连接。通常会将这些对象进行池化以避免重复创建</p>
+<p>简单地可以使用buffered channel实现对象池。在select时需要有一个<strong>超时控制</strong>（高可用系统里有个金句：slow response比quick failure更糟糕）</p>
+<p>当然可以用空接口来实现对象池里有不同类型的对象，但每次取出对象时需要断言来确认对象的类型。实际运用时建议不同类型用不同缓冲池。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">object_pool</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;errors&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">ReusableObj</span> <span class="kd">struct</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">ObjPool</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">bufChan</span> <span class="kd">chan</span> <span class="o">*</span><span class="nx">ReusableObj</span> <span class="c1">//用于缓冲可重用对象
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">NewObjPool</span><span class="p">(</span><span class="nx">numOfObj</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">ObjPool</span> <span class="p">{</span>
+	<span class="nx">objPool</span> <span class="o">:=</span> <span class="nx">ObjPool</span><span class="p">{}</span>
+	<span class="nx">objPool</span><span class="p">.</span><span class="nx">bufChan</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">ReusableObj</span><span class="p">,</span> <span class="nx">numOfObj</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">numOfObj</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">objPool</span><span class="p">.</span><span class="nx">bufChan</span> <span class="o">&lt;-</span> <span class="o">&amp;</span><span class="nx">ReusableObj</span><span class="p">{}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">objPool</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">ObjPool</span><span class="p">)</span> <span class="nf">GetObj</span><span class="p">(</span><span class="nx">timeout</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">ReusableObj</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">select</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="nx">ret</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">p</span><span class="p">.</span><span class="nx">bufChan</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nx">ret</span><span class="p">,</span> <span class="kc">nil</span>
+	<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nf">After</span><span class="p">(</span><span class="nx">timeout</span><span class="p">):</span> <span class="c1">//超时控制
+</span><span class="c1"></span>		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;time out&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">ObjPool</span><span class="p">)</span> <span class="nf">ReleaseObj</span><span class="p">(</span><span class="nx">obj</span> <span class="o">*</span><span class="nx">ReusableObj</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="k">select</span> <span class="p">{</span>
+    <span class="c1">//channel被阻塞会立即返回default
+</span><span class="c1"></span>	<span class="k">case</span> <span class="nx">p</span><span class="p">.</span><span class="nx">bufChan</span> <span class="o">&lt;-</span> <span class="nx">obj</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">nil</span>
+	<span class="k">default</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;overflow&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="syncpool对象缓存">sync.pool对象缓存</h3>
+<p>注意与buffered channel区别。</p>
+<p>sync.Pool对象获取：</p>
+<ul>
+<li>尝试从私有对象获取</li>
+<li>私有对象不存在，尝试从当前 Processor 的共享池获取</li>
+<li>如果当前 Processor 共享池也是空的，那么就尝试去其他Processor 的共享池获取</li>
+<li>如果所有⼦池都是空的，最后就⽤⽤户指定的 New 函数产⽣⼀个新的对象返回
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220306094445.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220306094445.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220306094445.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220306094445.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220306094445.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220306094445.png" /></li>
+</ul>
+<p>对象放回：</p>
+<ul>
+<li>如果私有对象不存在则保存为私有对象</li>
+<li>如果私有对象存在，放⼊当前 Processor ⼦池的共享池中</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="err">……</span>
+<span class="nx">pool</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">sync</span><span class="p">.</span><span class="nx">Pool</span><span class="p">{</span>
+    <span class="nx">New</span><span class="p">:</span> <span class="kd">func</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="nx">arry</span> <span class="o">:=</span> <span class="nx">pool</span><span class="p">.</span><span class="nf">Get</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span>
+ <span class="err">…</span>
+<span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>为什么sync.Pool不能拿来当对象池用？</strong></p>
+<ul>
+<li>sync.Pool对象的生命周期
+<ul>
+<li>GC 会清除 sync.pool 缓存的对象（GC是通过系统来调度的，没办法去干预，如果要长时间的去控制一个连接的生命周期就难以做到）</li>
+<li>对象的缓存有效期为下⼀次GC 之前</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">object_pool</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;runtime&#34;</span>
+	<span class="s">&#34;sync&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestSyncPool</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">pool</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">sync</span><span class="p">.</span><span class="nx">Pool</span><span class="p">{</span>
+		<span class="nx">New</span><span class="p">:</span> <span class="kd">func</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Create a new object.&#34;</span><span class="p">)</span>
+			<span class="k">return</span> <span class="mi">100</span>
+		<span class="p">},</span>
+	<span class="p">}</span>
+
+	<span class="nx">v</span> <span class="o">:=</span> <span class="nx">pool</span><span class="p">.</span><span class="nf">Get</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+	<span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+	<span class="nx">runtime</span><span class="p">.</span><span class="nf">GC</span><span class="p">()</span> <span class="c1">//GC 会清除sync.pool中缓存的对象
+</span><span class="c1"></span>	<span class="nx">v1</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">pool</span><span class="p">.</span><span class="nf">Get</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestSyncPoolInMultiGroutine</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">pool</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">sync</span><span class="p">.</span><span class="nx">Pool</span><span class="p">{</span>
+		<span class="nx">New</span><span class="p">:</span> <span class="kd">func</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Create a new object.&#34;</span><span class="p">)</span>
+			<span class="k">return</span> <span class="mi">10</span>
+		<span class="p">},</span>
+	<span class="p">}</span>
+
+	<span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+	<span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+	<span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+	<span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+		<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Get</span><span class="p">())</span>
+			<span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+		<span class="p">}(</span><span class="nx">i</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>sync.Pool总结</strong>：</p>
+<ul>
+<li>适合于通过复⽤，降低复杂对象的创建和 GC 代价</li>
+<li>协程安全，会有锁的开销</li>
+<li>⽣命周期受 GC 影响，不适合于做连接池等，需⾃⼰管理⽣命周期的资源的池化</li>
+</ul>
 <h2 id="爬虫小案例">爬虫小案例</h2>
 <h3 id="爬虫步骤">爬虫步骤</h3>
 <ul>
@@ -3691,7 +4832,8 @@ Hello World
         </section>
     </div>
 
-    <div class="post-nav"><a href="/go_base_06/" class="prev" rel="prev" title="Go_base_06"><i class="fas fa-angle-left fa-fw"></i>Go_base_06</a></div>
+    <div class="post-nav"><a href="/go_base_06/" class="prev" rel="prev" title="Go_base_06"><i class="fas fa-angle-left fa-fw"></i>Go_base_06</a>
+            <a href="/go_grammar_catalogue/" class="next" rel="next" title="Go_grammar_catalogue">Go_grammar_catalogue<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
@@ -3703,5 +4845,5 @@ Hello World
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

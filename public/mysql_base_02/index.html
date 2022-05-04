@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Mysql_base_02 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="Mysql_base_02" />
-<meta property="og:description" content="关系模型与关系运算 关系模型与关系运算简述 关系模型的提出与作用 关系模型最早由E.F.Codd在1970年提出 是从表(Table)及表的处理方式" />
+<meta property="og:description" content="笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫 关系模型与关系运算 关系模型与关系运算简述 关系模型的提出与作用 关系模型最早由E.F" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/mysql_base_02/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-07T09:18:21+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Mysql_base_02"/>
-<meta name="twitter:description" content="关系模型与关系运算 关系模型与关系运算简述 关系模型的提出与作用 关系模型最早由E.F.Codd在1970年提出 是从表(Table)及表的处理方式"/>
+<meta name="twitter:description" content="笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫 关系模型与关系运算 关系模型与关系运算简述 关系模型的提出与作用 关系模型最早由E.F"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/mysql_base_02\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "mysql","wordcount":  2937 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "mysql","wordcount":  2967 ,
         "url": "https:\/\/qizhengzou.github.io\/mysql_base_02\/","datePublished": "2021-11-07T09:18:21+08:00","dateModified": "2021-11-09T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/mysql_base_02/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/mysql_base_02/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Mysql_base_02</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-07 09:18:21">2021-11-07 09:18:21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2937 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-07 09:18:21">2021-11-07 09:18:21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2967 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -119,7 +142,10 @@
     <li><a href="#关系代数运算">关系代数运算</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="关系模型与关系运算">关系模型与关系运算</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫</p>
+</blockquote>
+<h1 id="关系模型与关系运算">关系模型与关系运算</h1>
 <h2 id="关系模型与关系运算简述">关系模型与关系运算简述</h2>
 <h3 id="关系模型的提出与作用">关系模型的提出与作用</h3>
 <ul>
@@ -142,20 +168,20 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093528.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093528.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093528.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093528.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093528.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093528.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093528.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093528.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093528.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093528.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093528.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093528.png" />
 域演算示例：检索出不是03系的所有学生:<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093944.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093944.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093944.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093944.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093944.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093944.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093944.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093944.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093944.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109093944.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093944.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109093944.png" /></p>
 <h2 id="关系与关系模型">关系与关系模型</h2>
 <h3 id="关系">关系</h3>
 <ul>
@@ -268,52 +294,52 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103642.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103642.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103642.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103642.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103642.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103642.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103642.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103642.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103642.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103642.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103642.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103642.png" /></li>
 <li>投影<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103823.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103823.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103823.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103823.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103823.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103823.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103823.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103823.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103823.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109103823.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103823.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109103823.png" /></li>
 <li>连接
 <ul>
 <li>θ-连接
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104047.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104047.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104047.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104047.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104047.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104047.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104047.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104047.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104047.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104047.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104047.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104047.png" />
 注：上式p SC1 (SC)表更名操作，即将表SC更名为SC1，当一个表需要和其自身进行连接运算时，通常要使用更名操作。<br>
 在讲解θ-连接操作时，使用笛卡尔积然后再进行选择来得到θ- 连接结果。这主要是方便大家理解。但当引入连接操作后，DBMS可直接进行连接操作，而不必先形成笛卡尔积</li>
 <li>等值连接
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104413.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104413.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104413.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104413.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104413.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104413.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104413.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104413.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104413.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104413.png" /><br>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104413.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104413.png" /><br>
 θ -连接的特例</li>
 <li>自然连接<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104530.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104530.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104530.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104530.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104530.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104530.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104530.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104530.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104530.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109104530.png" /><br>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104530.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109104530.png" /><br>
 自然连接=特殊的等值连接+去除重复属性组。</li>
 </ul>
 </li>
@@ -321,11 +347,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109105046.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109105046.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109105046.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109105046.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109105046.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109105046.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109105046.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109105046.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109105046.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109105046.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109105046.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109105046.png" /></li>
 <li>除
 <ul>
 <li>前提条件：给定关系R(A1 ,A2 , … ,An)为n度关系和关系S(B1 ,B2 , …,Bm)为m度关系，如果可以进行关系R与关系S的除运算，当且仅当：属性集{ B1 ,B2, … ,Bm}是属性集{ A1 ,A2, … ,An}的真子集，即m &lt; n</li>
@@ -333,11 +359,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109110840.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109110840.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109110840.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109110840.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109110840.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109110840.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109110840.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109110840.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109110840.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211109110840.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109110840.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211109110840.png" /></li>
 </ul>
 </li>
 <li>外连接
@@ -390,5 +416,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>ISC_base_08 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="ISC_base_08" />
-<meta property="og:description" content="网络安全协议 8.1 概述 许多网络攻击都是由网络协议（如TCP/IP）的固有漏洞引起的，因此，为了保证网络传输和应用的安全，各种类型的网络安全协议不" />
+<meta property="og:description" content="2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄 网络安全协议 8.1 概述 许多网络攻击都是由网络协议（如TCP/IP）的固有漏洞引起的，因此，为" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/isc_base_08/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-21T11:36:15+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="ISC_base_08"/>
-<meta name="twitter:description" content="网络安全协议 8.1 概述 许多网络攻击都是由网络协议（如TCP/IP）的固有漏洞引起的，因此，为了保证网络传输和应用的安全，各种类型的网络安全协议不"/>
+<meta name="twitter:description" content="2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄 网络安全协议 8.1 概述 许多网络攻击都是由网络协议（如TCP/IP）的固有漏洞引起的，因此，为"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/isc_base_08\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "information_security_conspectus","wordcount":  13450 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "information security conspectus","wordcount":  13476 ,
         "url": "https:\/\/qizhengzou.github.io\/isc_base_08\/","datePublished": "2021-11-21T11:36:15+08:00","dateModified": "2021-12-21T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/isc_base_08/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/isc_base_08/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">ISC_base_08</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-21 11:36:15">2021-11-21 11:36:15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 13450 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-21 11:36:15">2021-11-21 11:36:15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 13476 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 27 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -136,7 +159,10 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="网络安全协议">网络安全协议</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄</p>
+</blockquote>
+<h1 id="网络安全协议">网络安全协议</h1>
 <h2 id="81-概述">8.1 概述</h2>
 <p>许多网络攻击都是由网络协议（如TCP/IP）的固有漏洞引起的，因此，为了保证网络传输和应用的安全，各种类型的网络安全协议不断涌现。</p>
 <p>安全协议是以密码学为基础的消息交换协议，也称作密码协议，其目的是在网络环境中提供各种安全服务。</p>
@@ -183,11 +209,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221161608.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221161608.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221161608.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221161608.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221161608.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221161608.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221161608.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221161608.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221161608.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221161608.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221161608.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221161608.png" /></li>
 <li>Encapsulating Security Payload（ESP，封装安全有效负载协议）</li>
 <li>Authentication Header（AH，认证头协议）</li>
 </ul>
@@ -268,11 +294,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165238.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165238.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165238.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165238.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165238.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165238.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165238.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165238.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165238.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165238.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165238.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165238.png" /></li>
 <li>SAD中的SA是通过三元组&lt;安全参数索引，IP目的地址，安全协议标识&gt;来标识。
 <ul>
 <li>SPI（Security Parameter Index）：是一个与SA相关联的位串。一般在IKE 确立一个SA时，产生一个伪随机导数作为该SA的SPI。SPI 也可以人为设定。</li>
@@ -327,21 +353,21 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165651.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165651.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165651.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165651.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165651.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165651.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165651.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165651.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165651.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165651.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165651.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165651.png" /></li>
 <li>IPv6增加了扩展头，其原理为：大多数IP包只需要简单的处理，因此有基本报头的信息就足够了。当网络层存在需要额外信息的信息包时，就可以把这些信息编码到扩展报头上。</li>
 <li>在实施IPSec时，IPv4和IPv6存在着一些区别，主要集中在对两种协议数据包的封装上。</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165727.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165727.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165727.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165727.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165727.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165727.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165727.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165727.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165727.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165727.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165727.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165727.png" /></li>
 </ul>
 <p>IPSec的工作模式：</p>
 <ul>
@@ -354,11 +380,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165803.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165803.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165803.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165803.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165803.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165803.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165803.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165803.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165803.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165803.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165803.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165803.png" /></li>
 <li>传输模式：只对IP数据包的有效负载进行加密或认证；继续使用以前的IP头部，只对IP头部的部分域进行修改。</li>
 <li>隧道模式：对整个IP数据包进行加密或认证；需要新产生一个IP头部，IPSec头部放在新产生的IP头部和以前的IP数据包之间。</li>
 </ul>
@@ -369,11 +395,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165911.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165911.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165911.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165911.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165911.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165911.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165911.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165911.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165911.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165911.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165911.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165911.png" /></li>
 <li>IP包中的部分域（如生存周期，即IPv4中的TTL，IPv6中称为跳数）、AH校验值等是可变化的，因此只对在传输过程中不变的内容或可以预测变化的内容进行认证。</li>
 </ul>
 <p>AH头格式：</p>
@@ -381,11 +407,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165949.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165949.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165949.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165949.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165949.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165949.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165949.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165949.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165949.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221165949.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165949.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221165949.png" /></li>
 <li>下一个头（8位）：用来标记下一个扩展头的类型；</li>
 <li>载荷长度（8位）：表示认证头数据的长度减2，以字（字长32位）来计；</li>
 <li>保留（16位）：备用；</li>
@@ -406,22 +432,22 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170128.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170128.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170128.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170128.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170128.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170128.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170128.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170128.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170128.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170128.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170128.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170128.png" /></li>
 </ul>
 <p>ESP的封装格式：</p>
 <ul>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170155.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170155.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170155.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170155.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170155.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170155.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170155.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170155.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170155.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170155.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170155.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170155.png" /></li>
 <li>传输模式：需对IP数据包的负载部分进行有效填充，并添加ESP尾，构造成长度为字长整数倍的规整数据块。</li>
 <li>隧道模式：需对整个原始IP数据包进行有效填充。</li>
 <li>ESP封装包主要包括七个部分：
@@ -472,11 +498,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170507.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170507.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170507.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170507.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170507.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170507.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170507.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170507.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170507.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170507.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170507.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170507.png" /></li>
 </ul>
 <h3 id="823-internet秘钥交换协议">8.2.3 Internet秘钥交换协议</h3>
 <p>IPsec在提供认证或加密服务之前，必须针对安全协议、加密算法和密钥等内容进行协商，并建立SA，这个过程可以手工进行和自动完成。</p>
@@ -510,11 +536,11 @@
 <li>主模式协商过程：<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170708.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170708.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170708.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170708.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170708.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170708.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170708.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170708.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170708.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170708.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170708.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170708.png" />
 <ul>
 <li>
 <p>第一步：策略协商，即确定IKE SA中所必需的有关算法和参数，包括加密算法、散列算法、认证方法以及DH组的选择。</p>
@@ -539,11 +565,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170844.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170844.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170844.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170844.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170844.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170844.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170844.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170844.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170844.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221170844.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170844.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221170844.png" /></li>
 <li>验证载荷是使用协商得到的安全参数及秘钥对接收到的所有信息进行加密散列计算，得到的数据结果即为可验证信息，可作为发送方现场操作的证据。</li>
 </ul>
 </li>
@@ -565,11 +591,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221171044.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221171044.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221171044.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221171044.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221171044.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221171044.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221171044.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221171044.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221171044.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221171044.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221171044.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221171044.png" /></p>
 <h4 id="新组模式和isakmp信息交换">新组模式和ISAKMP信息交换</h4>
 <p>新组模式主要<strong>用于实现通信双方交换协商新的Diffie－Hellman组</strong>，属于一种请求/响应交换。</p>
 <ul>
@@ -596,11 +622,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190543.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190543.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190543.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190543.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190543.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190543.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190543.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190543.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190543.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190543.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190543.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190543.png" /></p>
 <p>SSL协议族由4个协议组成：</p>
 <ul>
 <li>记录协议 Record Protocol、握手协议 Handshake Protocol、转换密码规范协议 Change Cipher Spec Protocol和报警协议Alert Protocol。</li>
@@ -632,11 +658,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190729.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190729.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190729.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190729.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190729.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190729.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190729.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190729.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190729.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221190729.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190729.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221190729.png" /></li>
 <li>SSL会话与多种状态相关，状态可以理解为描述特定过程的特征信息集合。</li>
 <li>SSL协议中，最主要的两个状态就是会话状态和连接状态。</li>
 <li>会话状态包含标识会话特征的信息和握手协议的协商结果，用来描述一个SSL会话的特征参数。</li>
@@ -650,20 +676,20 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191037.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191037.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191037.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191037.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191037.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191037.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191037.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191037.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191037.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191037.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191037.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191037.png" /></p>
 <p>SSL连接状态参数定义：
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191113.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191113.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191113.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191113.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191113.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191113.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191113.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191113.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191113.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191113.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191113.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191113.png" /></p>
 <p>待用状态和当前操作状态：</p>
 <ul>
 <li>SSL会话还定义了当前操作状态和待用状态。</li>
@@ -693,11 +719,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191247.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191247.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191247.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191247.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191247.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191247.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191247.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191247.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191247.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191247.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191247.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191247.png" /></li>
 </ul>
 <p>SSL记录格式：</p>
 <ul>
@@ -705,11 +731,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191327.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191327.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191327.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191327.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191327.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191327.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191327.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191327.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191327.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191327.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191327.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191327.png" /></li>
 <li>内容类型（8位）：用来指明封装数据的类型， 已定义的类型包括转换密码规范协议、报警协议、握手协议和应用数据四类。</li>
 <li>主版本（8位）：指明SSL使用的主版本。</li>
 <li>从版本（8位）：指明SSL使用的从版本。</li>
@@ -738,32 +764,32 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191500.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191500.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191500.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191500.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191500.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191500.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191500.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191500.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191500.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191500.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191500.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191500.png" /></li>
 </ul>
 <p>SSL握手协议的报文类型：
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191528.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191528.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191528.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191528.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191528.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191528.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191528.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191528.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191528.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191528.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191528.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191528.png" /></p>
 <p>SSL握手协议操作的整个过程：</p>
 <ul>
 <li>SSL握手协议通过在客户端和服务器之间传递消息报文，完成会话协商谈判。</li>
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191606.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191606.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191606.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191606.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191606.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191606.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191606.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191606.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191606.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191606.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191606.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191606.png" /></li>
 </ul>
 <p>SSL转换密码规范协议：</p>
 <ul>
@@ -790,11 +816,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191732.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191732.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191732.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191732.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191732.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191732.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191732.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191732.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191732.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221191732.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191732.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221191732.png" /></li>
 <li>致命错误：
 <ul>
 <li>意外消息：接收到不正确的信息；</li>
@@ -860,11 +886,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192104.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192104.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192104.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192104.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192104.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192104.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192104.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192104.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192104.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192104.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192104.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192104.png" /></li>
 </ul>
 <h2 id="84-安全电子交易协议">8.4 安全电子交易协议</h2>
 <p>SET（Secure Electronic Transaction），Visa和MasterCard发起，联合IBM、Microsoft、Netscape、GTE等公司，于1997年6月1日推出的用于电子商务的行业规范。</p>
@@ -877,11 +903,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192222.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192222.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192222.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192222.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192222.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192222.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192222.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192222.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192222.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192222.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192222.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192222.png" /></p>
 <p>安全问题及安全技术：</p>
 <ul>
 <li>面临的安全问题
@@ -921,11 +947,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192443.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192443.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192443.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192443.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192443.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192443.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192443.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192443.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192443.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192443.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192443.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192443.png" /></li>
 </ul>
 <p>基于SET的网络交易流程：</p>
 <ul>
@@ -978,11 +1004,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192735.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192735.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192735.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192735.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192735.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192735.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192735.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192735.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192735.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192735.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192735.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192735.png" /></li>
 </ul>
 <p>双重签名：</p>
 <ul>
@@ -993,11 +1019,11 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192813.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192813.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192813.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192813.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192813.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192813.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192813.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192813.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192813.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192813.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192813.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192813.png" /></li>
 </ul>
 <p>双重签名的使用过程：</p>
 <ul>
@@ -1018,20 +1044,20 @@
 <li><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192958.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192958.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192958.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192958.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192958.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192958.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192958.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192958.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192958.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221192958.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192958.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221192958.png" /></li>
 </ul>
 <p>交易处理：<img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221193023.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221193023.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221193023.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221193023.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221193023.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221193023.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221193023.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221193023.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221193023.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211221193023.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221193023.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211221193023.png" /></p>
 <p>购买请求：</p>
 <ul>
 <li>初始请求是顾客为了建立与商家之间的基本信任关系而发出的第一个消息。
@@ -1149,13 +1175,13 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/isc_base_08/" data-title="ISC_base_08" data-hashtags="information_security_conspectus"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/isc_base_08/" data-hashtag="information_security_conspectus"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/isc_base_08/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/isc_base_08/" data-title="ISC_base_08"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/isc_base_08/" data-title="ISC_base_08"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/isc_base_08/" data-title="ISC_base_08"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/isc_base_08/" data-title="ISC_base_08" data-hashtags="information security conspectus"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/isc_base_08/" data-hashtag="information security conspectus"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/isc_base_08/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/isc_base_08/" data-title="ISC_base_08"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/isc_base_08/" data-title="ISC_base_08"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/isc_base_08/" data-title="ISC_base_08"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/information_security_conspectus/">information_security_conspectus</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/information-security-conspectus/">information security conspectus</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
@@ -1174,5 +1200,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

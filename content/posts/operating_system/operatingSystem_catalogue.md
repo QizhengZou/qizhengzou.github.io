@@ -5,7 +5,7 @@ lastmod: 2021-11-21
 tags: [catalogue, operating system]
 categories: [Catalogue, School courses]
 slug: OS_catalogue
-draft: false
+draft: true
 ---
 > base来自王道考研操作系统
 - [base_01](https://qizhengzou.github.io/operatingsystem_base_01/)（绪论）

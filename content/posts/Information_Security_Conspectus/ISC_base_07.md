@@ -5,7 +5,7 @@ lastmod: 2021-12-21
 tags: [information security conspectus]
 categories: [School courses]
 slug: Network defense
-draft: false
+draft: true
 ---
 > 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
 

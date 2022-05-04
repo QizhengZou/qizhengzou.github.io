@@ -5,7 +5,7 @@ lastmod: 2021-11-23
 tags: [information security conspectus]
 categories: [School courses]
 slug: Foundations of Cryptography
-draft: false
+draft: true
 ---
 > 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
 

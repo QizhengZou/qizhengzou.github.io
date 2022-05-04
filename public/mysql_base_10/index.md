@@ -1,5 +1,7 @@
 # Mysql_base_10
 
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
+
 # 数据库索引
 ## 为什么需要索引与什么是索引
 索引：定义在存储表(Table)基础之上，无需检查所有记录，快速定位所需记录的一种辅助存储结构，由一系列存储在磁盘上的索引项(index
@@ -108,7 +110,7 @@ B+树的存储约定：
     - 索引字段是主文件的非键属性。主文件不按此非键属性排序
     - 索引文件的索引字段值是有重复的。指针指向的是记录。
     - 索引字段带有重复值的B+树的非叶结点示例:
-    ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113154355.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113154355.png)
 
 B树：   
 - 索引字段值仅出现一次或者在叶结点或者在非叶结点；

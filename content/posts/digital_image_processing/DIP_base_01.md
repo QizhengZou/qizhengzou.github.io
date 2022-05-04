@@ -5,7 +5,7 @@ lastmod: 2022-02-24
 tags: [DIP]
 categories: [School courses]
 slug: DIP_intro
-draft: false
+draft: true
 ---
 > 哈工大深圳卢光明副院长授课的本科生图像处理课程，参考教材：Digital Image Processing”, Rafael C. Gonzalez & Richard E. Woods, 2011（or 4th Edition，2017）
 

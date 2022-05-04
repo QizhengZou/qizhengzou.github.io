@@ -1,5 +1,7 @@
 # DistributedSystem_HongweiDu_02
 
+> 2021哈工大深圳堵宏伟分布式系统课程笔记
+
 # System Modules
 Descriptive models for distributed system design:
 - Physical model
@@ -35,7 +37,7 @@ Difficulties for and threats to distributed systems:
         - System typically consisted of 10 to 100 nodes connected by a LAN, with limited Internet connectivity and supported services (e.g., shared local printer, file servers).
     - Internet-scale distributed systems
         - Emerged in the 1990s because of the growth of the Internet.
-- Physical model of the internet-scale distributed system:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211203151334.png)
+- Physical model of the internet-scale distributed system:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211203151334.png)
 - Three generations of distributed systems
     - Early distributed systems
         - Emerged in the late 1970s and early 1980s because of the usage of local area networking technologies.
@@ -122,15 +124,15 @@ Publish-subscribe-systems(or event-based communication):
 - Generally associated with publish/subscribe systems
 - Sender process publishes events
 - Receiver process subscribes to events and receives only the ones it is interested in
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211203153103.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211203153103.png)
 #### Roles and responsibilities
 Architectural styles:
 - Client-Server 
 - Peer-to-peer
 
 Client-Server:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211203153245.png)
-- Clients invoke individual servers:![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211203153332.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211203153245.png)
+- Clients invoke individual servers:![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211203153332.png)
 - Fundamental issue with client-server:
     - Client-server offers a direct, relatively simple approach to the sharing of data and other resources
     - But it scales poorly
@@ -146,7 +148,7 @@ Peer-to-peer:
     - Storage, processing and communication loads for accessing objects are distributed across computers and network links.
     - Each object is replicated in several computers to further distribute the load and to provide resilience in the event of disconnection of individual computers.
     - Need to place and retrieve individual computers is more complex then in client-server architecture.
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211203153708.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211203153708.png)
 #### Placement
 Services provided by multiple servers:
 - Option 1
@@ -158,7 +160,7 @@ Services provided by multiple servers:
     - Server maintain replicated copies of them on several hosts.
     - Example:
         - NIS (Network Information Service) used by computers on a LAN.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211203153838.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211203153838.png)
 
 Proxy server and caches:
 - A cache is a store of recently used data objects that is closer to the objects themselves. Caches might be co-located with each client or may be located in a proxy server that can be shared by several clients.
@@ -166,9 +168,9 @@ Proxy server and caches:
     - A new object is received at a computer -> it is added to the cache store, replacing some existing objects if necessary.
     - Object is needed by the client process -> caching service checks  the cache for an up-to-date copy.
     - If copy is not available,  this copy is fetched.
-    - ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211203153946.png)
+    - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211203153946.png)
 
-Mobile code:A typical well-known and widely-used example for mobile code are applets.![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101152842.png)
+Mobile code:A typical well-known and widely-used example for mobile code are applets.![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101152842.png)
 
 Mobile agents:
 - A mobile agent is a running program (both code and data) that travels from one computer to another in a network carrying out a task on someone’s behalf, e.g. collecting information.
@@ -193,7 +195,7 @@ Example
 - Network time service is implemented on the Internet based on the Network Time Protocol (NTP) by server processes running on hosts throughout the Internet that supply current time to any client that request it.
 
 Software and hardware service layers:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101153136.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101153136.png)
 
 Platform:
 - Lowest level hardware and software layers for distributed systems and applications
@@ -215,10 +217,10 @@ Middleware:
 Vertical Distribution (Multi-Tier):
 - An extension of the client-server architecture.
 - Distributes the traditional server functionality over multiple servers.
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101153355.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101153355.png)
 
 Communication in a multi-tier system:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101153447.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101153447.png)
 
 Horizontal Distribution:
 - Involves replicating a server’s functionality over multiple computers.
@@ -226,7 +228,7 @@ Horizontal Distribution:
     - Each server machine contains a complete copy of all hosted Web pages.
     - Client requests are passed on to the servers in a round robin fashion.
 - Is used to improve scalability (by reducing the load on individual servers) and reliability (by providing redundancy)
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101153625.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101153625.png)
 
 Thin and fat client implementations:
 - Decomposed a typical client-server application into three logical parts
@@ -276,7 +278,7 @@ Two variants of the interaction model:
         - Clock drift rate
 
 Event ordering:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101154228.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101154228.png)
 
 ### Failure model （故障模型）
 Introducing the failure model:
@@ -287,7 +289,7 @@ Introducing the failure model:
     - Timing failures.
 
 Processes and channels:
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220101154329.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220101154329.png)
 
 Omission failures:
 - Class of failure---Affects---Description

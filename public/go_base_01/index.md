@@ -1,5 +1,67 @@
 # Go_base_01
 
+> 参考学习go语言中文网、C语言中文网、golang官方文档等
+
+## 前言
+
+计算机里的数据都是以字节形式进行存储和处理，从而需要编码来表达信息。ASCII是**简单字符集编码模型**，定义了这个字符集里包含的字符以及其映射成的8位比特值。
+关于**现代编码模型**：
+- 一个字符如何映射成有限长度的比特值？
+    - 需要表示字符的范围--**字符表**（character repertoire）
+    - CR映射到一个整数集，称映射为**编码字符集**（coded character set），也就是Unicode的概念，那些整数称为码点（code point）
+    - 将CCS里的整数映射成有限长度的比特值，这个对应关系称为字符编码方式或**字符编码表**（character encoding form），比如UTF-8，UTF-16。（Unicode Transformation Format，8或者16是指码元的大小，码元是一个已编码文本中具有最短的比特组合的单元，即最小单位是一个字节或者两个字节）
+- UTF-8是完全兼容ASCII的，多字节表示一个字符时Unicode码点范围以及对应的bit组合：
+    - 一字节：U+00~U+7F--------------UTF-8字节流（二进制）：0xxxxxxx
+    - 二字节：U+80~U+7FF-------------UTF-8字节流（二进制）：110xxxxx 10xxxxxx
+    - 三字节：U+800~U+7FFF-----------UTF-8字节流（二进制）：1110xxxx 10xxxxxx 10xxxxxx
+    - 四字节：U+10000~U+10FFFF-------UTF-8字节流（二进制）：11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+    - 汉字大多是三字节
+
+关于Unicode和UTF-8：
+
+```go
+func TestString(t *testing.T) {
+	var s string
+	t.Log(s) //初始化为默认零值“”
+	s = "hello"
+	t.Log(len(s))
+	//s[1] = '3' //string是不可变的byte slice
+	//s = "\xE4\xB8\xA5" //可以存储任何二进制数据
+	s = "\xE4\xBA\xBB\xFF"
+	t.Log(s)
+	t.Log(len(s))
+	s = "中"
+	t.Log(len(s)) //是byte数
+
+	c := []rune(s)
+	t.Log(len(c))
+	//	t.Log("rune size:", unsafe.Sizeof(c[0]))
+	t.Logf("中 unicode %x", c[0])
+	t.Logf("中 UTF8 %x", s)
+}
+```
+```
+Running tool: D:\go\bin\go.exe test -timeout 30s -run ^TestString$ code/code/ch9/string
+
+=== RUN   TestString
+    d:\Go\Go_WorkSpace\go_learning-master\code\ch9\string\string_test.go:9:
+    d:\Go\Go_WorkSpace\go_learning-master\code\ch9\string\string_test.go:11: 5
+    d:\Go\Go_WorkSpace\go_learning-master\code\ch9\string\string_test.go:15: 亻�
+    d:\Go\Go_WorkSpace\go_learning-master\code\ch9\string\string_test.go:16: 4
+    d:\Go\Go_WorkSpace\go_learning-master\code\ch9\string\string_test.go:18: 3
+    d:\Go\Go_WorkSpace\go_learning-master\code\ch9\string\string_test.go:21: 1
+    d:\Go\Go_WorkSpace\go_learning-master\code\ch9\string\string_test.go:23: 中 unicode 4e2d
+    d:\Go\Go_WorkSpace\go_learning-master\code\ch9\string\string_test.go:24: 中 UTF8 e4b8ad
+--- PASS: TestString (0.00s)
+PASS
+ok      code/code/ch9/string    0.514s
+```
+## go起源
+07年 三位大牛 解决三个困难：多核硬件架构、超大规模的分布式计算集群、如今使用的web开发模式导致的前所未有的开发规模和更新速度
+## 环境相关
+go1.8前必须设置GOPATH ,之后的版本设置GOPATH也有用……
+
+Go 官方下载站点是 golang.org/dl，但我们可以用针对中国大陆的镜像站点 golang.google.cn/dl 来下载
 ## 主要特征
 1. 自动立即回收。(自带GC)
 2. 更丰富的内置类型。
@@ -9,10 +71,10 @@
 6. 类型和接口。
 7. 并发编程。
 8. 反射。
-9. 语言交互性。
+9. 有复合，无继承（因为复合大于继承，干脆不要继承）
 
 Go的函数、变量、常量、自定义类型、包(package)的命名方式遵循以下规则：
-- 1）首字符可以是任意的Unicode字符（一个字符两个字节，表示包括了每种语言）或者下划线
+- 1）首字符可以是任意的Unicode字符（一种字符集，一个字符两个字节，表示包括了每种语言）或者下划线
 - 2）剩余字符可以是Unicode字符、下划线、数字
 - 3）字符长度不限
 
@@ -89,6 +151,7 @@ array
 slice
 map
 chan
+……
 ```
 内置函数（无需导入即可使用）:
 ```go
@@ -102,28 +165,122 @@ imag            -- 返回complex的虚部
 make            -- 用来分配内存，返回Type本身(只能应用于slice, map, channel) make 函数允许在运行期动态指定数组长度，绕开了数组类型必须使用编译期常量的限制。
 new                -- 用来分配内存，主要用来分配值类型，比如int、struct。返回指向Type的指针
 cap                -- capacity是容量的意思，用于返回某个类型的最大容量（只能用于切片和 map）
-copy            -- 用于复制和连接slice，返回复制的数目
+copy            -- 用于复制和连接slice，返回复制的数目，copy(a,b) 只有 min(len(a),len(b))个元素会被成功拷贝。
 len                -- 用来求长度，比如string、array、slice、map、channel ，返回长度
 print、println     -- 底层打印函数，在部署环境中建议使用 fmt 包
 ```
-内直接口error：
+内置接口error：
 ```go
 type error interface { //只要实现了Error()函数，返回值为String的都实现了err接口（鸭子类型）
     Error()    String
 }
 ```
-## init & main
+## init & main 以及Go包的初始化顺序
 go语言中init函数用于包(package)的初始化，该函数是go语言的一个重要特性。有下面的特征：
 1. init函数是用于程序执行前做包的初始化的函数，比如初始化包里的变量等
-2.  每个包可以拥有多个init函数
+2. 每个包可以拥有多个init函数
 3. 包的每个源文件也可以拥有多个init函数
 4. 同一个包中多个init函数的执行顺序go语言没有明确的定义(说明)
 5. 不同包的init函数按照包导入的依赖关系决定该初始化函数的执行顺序
 6. init函数不能被其他函数调用，而是在main函数执行之前，自动被调用
 
-Go语言程序的默认入口函数(主函数)：func main(){
-    ……
+init()函数的用途：
+- 重置包级变量值，对包内部以及暴露到外部的包级数据（主要是包级变量）的初始状态进行检查
+- 实现对包级变量的复杂初始化，有些包级变量需要一个比较复杂的初始化过程，使用init()比较合适
+- 在 init 函数中实现“注册模式”，如下
+```go
+
+import (
+    "database/sql"
+    _ "github.com/lib/pq"
+)
+
+func main() {
+    db, err := sql.Open("postgres", "user=pqgotest dbname=pqgotest sslmode=verify-full")
+    if err != nil {
+        log.Fatal(err)
+    }
+    
+    age := 21
+    rows, err := db.Query("SELECT name FROM users WHERE age = $1", age)
+    ...
 }
+```
+```go
+//pq包的init()
+func init() {
+    sql.Register("postgres", &Driver{})
+}
+```
+pq 包将自己实现的 sql 驱动注册到了 sql 包中。这样只要应用层代码在 Open 数据库的时候，传入驱动的名字（这里是“postgres”)，那么通过 sql.Open 函数，返回的数据库实例句柄对数据库进行的操作，实际上调用的都是 pq 包中相应的驱动实现。
+
+从标准库 database/sql 包的角度来看，这种“注册模式”实质是一种工厂设计模式的实现，sql.Open 函数就是这个模式中的工厂方法，它根据外部传入的驱动名称“生产”出不同类别的数据库实例句柄。
+
+这种“注册模式”在标准库的其他包中也有广泛应用，比如说，使用标准库 image 包获取各种格式图片的宽和高：
+```go
+
+package main
+
+import (
+    "fmt"
+    "image"
+    _ "image/gif" // 以空导入方式注入gif图片格式驱动
+    _ "image/jpeg" // 以空导入方式注入jpeg图片格式驱动
+    _ "image/png" // 以空导入方式注入png图片格式驱动
+    "os"
+)
+
+func main() {
+    // 支持png, jpeg, gif
+    width, height, err := imageSize(os.Args[1]) // 获取传入的图片文件的宽与高
+    if err != nil {
+        fmt.Println("get image size error:", err)
+        return
+    }
+    fmt.Printf("image size: [%d, %d]\n", width, height)
+}
+
+func imageSize(imageFile string) (int, int, error) {
+    f, _ := os.Open(imageFile) // 打开图文文件
+    defer f.Close()
+
+    img, _, err := image.Decode(f) // 对文件进行解码，得到图片实例
+    if err != nil {
+        return 0, 0, err
+    }
+
+    b := img.Bounds() // 返回图片区域
+    return b.Max.X, b.Max.Y, nil
+}
+```
+```go
+// $GOROOT/src/image/png/reader.go
+func init() {
+    image.RegisterFormat("png", pngHeader, Decode, DecodeConfig)
+}
+
+// $GOROOT/src/image/jpeg/reader.go
+func init() {
+    image.RegisterFormat("jpeg", "\xff\xd8", Decode, DecodeConfig)
+}
+
+// $GOROOT/src/image/gif/reader.go
+func init() {
+    image.RegisterFormat("gif", "GIF8?a", Decode, DecodeConfig)
+}  
+```
+
+
+
+Go语言程序的默认入口函数(主函数)：
+```go
+func main(){
+    ……
+    //通过os.Args获取参数eg:os.Args[0]
+    //不支持返回值，可以通过os.Exit()来返回状态
+}
+```
+在启动了多个 Goroutine 的 Go 应用中，main.main 函数将在 Go 应用的主 Goroutine 中执行。
 
 init函数和main函数的异同：
 - 同
@@ -132,11 +289,15 @@ init函数和main函数的异同：
     - init可以应用于任意包中，且可以重复定义多个。
     - main函数只能用于main包中，且只能定义一个。
 
-执行顺序：
+init()执行顺序：
 - 对同一个go文件的init()调用顺序是从上到下的。
 - 对同一个package中不同文件是按**文件名字符串比较“从小到大”顺序**调用各文件中的init()函数。
 - 对于不同的package，如果不相互依赖的话，按照main包中”先import的后调用”的顺序调用其包中的init()，如果package存在依赖，则先调用最早被依赖的package中的init()，最后调用main函数。
+- 同一个包被多次调用只会执行一次init()函数
 - 如果init函数中使用了println()或者print()你会发现在执行过程中这两个不会按照你想象中的顺序执行。这两个函数官方只推荐在测试环境中使用，对于正式环境不要使用。
+
+Go包初始化：从main包开始按照深度优先初始化main包的依赖包，初始化一个包时的顺序是初始化依赖包、常量、变量、init()，回到main包时同样初始化常量、变量、init()，再执行main()函数。
+
 ## go命令
 ```
 PS D:\Blog\qizhengzou.github.io-blog\content\posts> go
@@ -193,32 +354,229 @@ Additional help topics:
 Use "go help <topic>" for more information about that topic.
 ```
 
-go env用于打印Go语言的环境信息。
+### go env
+用于打印Go语言的环境信息。
 
-go run命令可以编译并运行命令源码文件。
+### go run命令
+可以编译并运行命令源码文件。
 
-go get可以根据要求和实际情况从互联网上下载或更新指定的代码包及其依赖包，并对它们进行编译和安装。
+### go get
+可以根据要求和实际情况从互联网上下载或更新指定的代码包及其依赖包，并对它们进行编译和安装。
 
-go build命令用于编译我们指定的源码文件或代码包以及它们的依赖包。
+### go build命令
+用于编译我们指定的源码文件或代码包以及它们的依赖包。
 
-go install用于编译并安装指定的代码包及它们的依赖包。
+### go install
+用于编译并安装指定的代码包及它们的依赖包。
 
-go clean命令会删除掉执行其它命令时产生的一些文件和目录。
+### go clean命令
+会删除掉执行其它命令时产生的一些文件和目录。
 
-go doc命令可以打印附于Go语言程序实体上的文档。我们可以通过把程序实体的标识符作为该命令的参数来达到查看其文档的目的。
+### go doc命令
+可以打印附于Go语言程序实体上的文档。我们可以通过把程序实体的标识符作为该命令的参数来达到查看其文档的目的。
 
-go test命令用于对Go语言编写的程序进行测试。
+### go test命令
+用于对Go语言编写的程序进行测试。
+在命名文件时需要让文件必须以_test结尾。默认的情况下，go test命令不需要任何的参数，它会自动把你源码包下面所有 test 文件测试完毕，当然你也可以带上参数。
 
-go list命令的作用是列出指定的代码包的信息。
+这里介绍几个常用的参数：
+```
+-bench regexp 执行相应的 benchmarks，例如 -bench=.；
+-cover 开启测试覆盖率；
+-run regexp 只运行 regexp 匹配的函数，例如 -run=Array 那么就执行包含有 Array 开头的函数；
+-v 显示测试的详细命令。
+```
+单元测试源码文件可以由多个测试用例组成，每个测试用例函数需要以Test为前缀。**测试用例文件不会参与正常源码编译，不会被包含到可执行文件中。**测试用例文件使用go test指令来执行，没有也不需要 main() 作为函数入口。所有在以_test结尾的源码内以Test开头的函数会自动被执行。测试用例可以不传入 *testing.T 参数。单元（功能）测试以testing.T为参数，性能（压力）测试以testing.B为参数。
 
-go fix会把指定代码包的所有Go语言源码文件中的旧版本代码修正为新版本的代码。
+运行指定示例：
+```
+PS D:\Go\Go_WorkSpace\go_learning-master\code\ch2\constant_test> go test -v -run TestTest test_test.go
+=== RUN   TestTest
+    test_test.go:6: kk
+--- PASS: TestTest (0.00s)
+PASS
+ok      command-line-arguments  0.425s
+```
+t.FailNow()-----------标记错误并终止当前测试用例
+t.Fail()--------------仅编辑错误
 
-go vet是一个用于检查Go语言源码中静态错误的简单工具。
+每个测试用例可能并发执行，使用 testing.T 提供的日志输出可以保证日志跟随这个测试上下文一起打印输出。testing.T 提供了几种日志输出方法：
+```
+Log	打印日志
+Logf	格式化打印日志
+Error	打印错误日志
+Errorf	格式化打印错误日志
+Fatal	打印致命日志
+Fatalf	格式化打印致命日志
+```
+单元测试使用示例：
+```go
+//demo.go
+package demo
+// 冒泡排序
+func BubbleSort(list []int) []int {
+	n := len(list)
+	for i := n - 1; i > 0; i-- {
+		for j := 0; j < i; j++ {
+			if list[j] > list[j+1] {
+				list[j], list[j+1] = list[j+1], list[j]
+			}
+		}
+	}
+	return list
+}
+```
+```go
+//demo_test.go
+package demo
+import "testing"
+func TestBubbleSort(t *testing.T) {
+    area := BubbleSort([]list{2,1,3,4,65,13,22})
+    if area != {1,2,3,4,13,22,65} {
+        t.Error("测试失败")
+    }
+}
+```
+执行：
+```
+PS D:\code> go test -v
+=== RUN   TestGetArea
+--- PASS: TestGetArea (0.00s)
+PASS
+ok      _/D_/code       0.435s
+```
 
-go tool pprof命令来交互式的访问概要文件的内容。
+#### 基准测试——获得代码内存占用和运行效率的性能数据
+使用者无须准备高精度的计时器和各种分析工具，基准测试本身即可以打印出非常标准的测试报告。
+```go
+package code
+import "testing"
+func Benchmark_Add(b *testing.B) {
+    var n int
+    for i := 0; i < b.N; i++ {
+        n++
+    }
+}
+```
+这段代码使用基准测试框架测试加法性能。第 7 行中的 b.N 由基准测试框架提供。测试代码需要保证函数可重入性及无状态，也就是说，测试代码不使用全局变量等带有记忆性质的数据结构。避免多次运行同一段代码时的环境不一致，不能假设 N 值范围。
+```
+//-bench=.相当于-run。在windows下使用-bench="."
+$ go test -v -bench=. benchmark_test.go
+goos: linux
+goarch: amd64
+Benchmark_Add-4           20000000         0.33 ns/op
+// 20000000指的是测试执行次数
+PASS
+ok          command-line-arguments        0.700s
+```
+基准测试原理：基准测试框架对一个测试用例的默认测试时间是 1 秒。开始测试时，当以 Benchmark 开头的基准测试用例函数返回时还不到 1 秒，那么 testing.B 中的 N 值将按 1、2、5、10、20、50……递增，同时以递增后的值重新调用基准测试用例函数。
 
+通过-benchtime参数可以自定义测试时间，例如：
+```
+$ go test -v -bench=. -benchtime=5s benchmark_test.go
+goos: linux
+goarch: amd64
+Benchmark_Add-4           10000000000                 0.33 ns/op
+PASS
+ok          command-line-arguments        3.380s
+```
+
+基准测试可以对一段代码可能存在的内存分配进行统计，下面是一段使用字符串格式化的函数，内部会进行一些分配操作。
+```go
+func Benchmark_Alloc(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        fmt.Sprintf("%d", i)
+    }
+}
+```
+```
+$ go test -v -bench=Alloc -benchmem benchmark_test.go
+goos: linux
+goarch: amd64
+Benchmark_Alloc-4 20000000 109 ns/op 16 B/op 2 allocs/op
+PASS
+ok          command-line-arguments        2.311s
+```
+- 第 1 行的代码中-bench后添加了 Alloc，指定只测试 Benchmark_Alloc() 函数。
+- 第 4 行代码的“16 B/op”表示每一次调用需要分配 16 个字节，“2 allocs/op”表示每一次调用有两次分配
+- 开发者根据这些信息可以迅速找到可能的分配点，进行优化和调整。
+
+**控制计时器**：有些测试需要一定的启动和初始化时间，如果从 Benchmark() 函数开始计时会很大程度上影响测试结果的精准性。testing.B 提供了一系列的方法可以方便地控制计时器，从而让计时器只在需要的区间进行测试。我们通过下面的代码来了解计时器的控制。
+```go
+func Benchmark_Add_TimerControl(b *testing.B) {
+    // 重置计时器
+    b.ResetTimer()
+    // 停止计时器
+    b.StopTimer()
+    // 开始计时器
+    b.StartTimer()
+    var n int
+    for i := 0; i < b.N; i++ {
+        n++
+    }
+}
+```
+从 Benchmark() 函数开始，Timer 就开始计数。计数器内部不仅包含耗时数据，还包括内存分配的数据。
+### go list命令
+作用是列出指定的代码包的信息。
+
+### go fix
+会把指定代码包的所有Go语言源码文件中的旧版本代码修正为新版本的代码。
+
+### go vet
+是一个用于检查Go语言源码中静态错误的简单工具。
+
+### go tool pprof命令
+交互式的访问概要文件的内容。监测进程的运行数据，用于监控程序的性能，对内存使用和CPU使用的情况统信息进行分析。官方提供了两个包：runtime/pprof和net/http/pprof，前者用于普通代码的性能分析，后者用于web服务器的性能分析。
+#### runtime/pprof
+```示例
+PS D:\Go\Go_WorkSpace\go_learning-master\code\ch46\tools\file> go tool pprof prof cpu.prof
+prof: open prof: The system cannot find the file specified.
+Fetched 1 source profiles out of 2
+Type: cpu
+Time: Mar 10, 2022 at 10:41am (CST)
+Duration: 2.77s, Total samples = 1.70s (61.39%)
+Entering interactive mode (type "help" for commands, "o" for options)
+(pprof) top
+Showing nodes accounting for 1.67s, 98.24% of 1.70s total
+Showing top 10 nodes out of 34
+      flat  flat%   sum%        cum   cum%
+     0.49s 28.82% 28.82%      1.62s 95.29%  main.fillMatrix
+     0.35s 20.59% 49.41%      1.13s 66.47%  math/rand.(*Rand).Intn
+     0.33s 19.41% 68.82%      0.78s 45.88%  math/rand.(*Rand).Int31n
+     0.14s  8.24% 77.06%      0.14s  8.24%  math/rand.(*rngSource).Uint64 (inline)
+     0.13s  7.65% 84.71%      0.45s 26.47%  math/rand.(*Rand).Int31 (inline)
+     0.10s  5.88% 90.59%      0.24s 14.12%  math/rand.(*rngSource).Int63
+     0.08s  4.71% 95.29%      0.32s 18.82%  math/rand.(*Rand).Int63
+     0.02s  1.18% 96.47%      0.02s  1.18%  main.calculate
+     0.02s  1.18% 97.65%      0.02s  1.18%  runtime.stdcall1
+     0.01s  0.59% 98.24%      0.01s  0.59%  runtime.lock2
+(pprof) list fillMatrix
+Total: 1.70s
+ROUTINE ======================== main.fillMatrix in D:\go\Go_WorkSpace\go_learning-master\code\ch46\tools\file\prof.go
+     490ms      1.62s (flat, cum) 95.29% of Total
+         .          .     16:
+         .          .     17:func fillMatrix(m *[row][col]int) {
+         .          .     18:   s := rand.New(rand.NewSource(time.Now().UnixNano()))
+         .          .     19:
+         .          .     20:   for i := 0; i < row; i++ {
+      20ms       20ms     21:           for j := 0; j < col; j++ {
+     470ms      1.60s     22:                   m[i][j] = s.Intn(100000)
+         .          .     23:           }
+         .          .     24:   }
+         .          .     25:}
+         .          .     26:
+         .          .     27:func calculate(m *[row][col]int) {
+(pprof) 
+```
+top/tree/web
+- top [n]，查看排名前n个数据，默认为10。（这个函数本身占用的时间，以及这个函数包括调用其他函数的时间）
+- tree [n]，以树状图形式显示，默认显示10个。
+#### net/http/pprof
+
+### go modules
 go modules 是 golang 1.11 新加的特性
-- go
+- go mod
     - download
         - download modules to local cache(下载依赖包)
     - edit
@@ -228,7 +586,7 @@ go modules 是 golang 1.11 新加的特性
     - init
         - initialize new module in current directory（在当前目录初始化mod）
     - tidy
-        - add missing and remove unused modules(拉取缺少的模块，移除不用的模块)
+        - add missing and remove unused modules(拉取缺少的模块，移除不用的模块,常用)
     - vendor
         - make vendored copy of dependencies(将依赖复制到vendor下)
     - verify
@@ -239,10 +597,12 @@ go modules 是 golang 1.11 新加的特性
 ## 运算符
 Go 语言内置的运算符有：
 - 算术运算符
+    - ++ **只有后置的，没有前置的，只作为语句，不作为表达式**
 - 关系运算符
 - 逻辑运算符
 - 位运算符
-- 赋值运算符
+    - **按位置零运算符 x &^ y ------如果y非零，则z为0；如果y为零，则z为x（先非再与）**
+- 赋值运算符（**一个赋值语句可以给多个变量进行赋值，多重赋值时，变量的左值和右值按从左到右的顺序赋值。多重赋值在 Go 语言的错误处理和函数返回值中会大量地使用。**）
     - =	简单的赋值运算符，将一个表达式的值赋给一个左值
     - +=	相加后再赋值
     - -=	相减后再赋值
@@ -258,13 +618,88 @@ Go 语言内置的运算符有：
 “_”是特殊标识符，用来忽略结果。
 - 下划线在import中
     -  import 下划线（如：import _ hello/imp）的作用：当导入一个包时，该包下的文件里所有init()函数都会被执行，然而，有些时候我们并不需要把整个包都导入进来，仅仅是是希望它执行init()函数而已。这个时候就可以使用 import _ 引用该包。即使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数。
+    - 注意区别于.在import中，它是指import进来的package里的所有的方法是在当前的名字空间的，使用其方法时直接使用即可。
 - 下划线在代码中
-    - 占位符
+    - 作为占位符
+## 格式占位符%…
+```go
+普通占位符
+占位符     说明                           举例                   输出
+%v      相应值的默认格式。            Printf("%v", people)   {zhangsan}，
+%+v     打印结构体时，会添加字段名     Printf("%+v", people)  {Name:zhangsan}
+%#v     相应值的Go语法表示            Printf("#v", people)   main.Human{Name:"zhangsan"}
+%T      相应值的类型的Go语法表示       Printf("%T", people)   main.Human
+%%      字面上的百分号，并非值的占位符  Printf("%%")            %
+
+布尔占位符
+占位符       说明                举例                     输出
+%t          true 或 false。     Printf("%t", true)       true
+
+整数占位符
+占位符     说明                                  举例                       输出
+%b      二进制表示                             Printf("%b", 5)             101
+%c      相应Unicode码点所表示的字符              Printf("%c", 0x4E2D)        中
+%d      十进制表示                             Printf("%d", 0x12)          18
+%o      八进制表示                             Printf("%o", 10)            12
+%q      单引号围绕的字符字面值，由Go语法安全地转义 Printf("%q", 0x4E2D)        '中'
+%x      十六进制表示，字母形式为小写 a-f         Printf("%x", 13)             d
+%X      十六进制表示，字母形式为大写 A-F         Printf("%x", 13)             D
+%U      Unicode格式：U+1234，等同于 "U+%04X"   
+Printf("%U", 0x4E2D)         U+4E2D
+
+浮点数和复数的组成部分（实部和虚部）
+占位符     说明                              举例            输出
+%b      无小数部分的，指数为二的幂的科学计数法，
+        与 strconv.FormatFloat 的 'b' 转换格式一致。例如 -123456p-78
+%e      科学计数法，例如 -1234.456e+78        Printf("%e", 10.2)     1.020000e+01
+%E      科学计数法，例如 -1234.456E+78        Printf("%e", 10.2)     1.020000E+01
+%f      有小数点而无指数，例如 123.456        Printf("%f", 10.2)     10.200000
+%g      根据情况选择 %e 或 %f 以产生更紧凑的（无末尾的0）输出 Printf("%g", 10.20)   10.2
+%G      根据情况选择 %E 或 %f 以产生更紧凑的（无末尾的0）输出 Printf("%G", 10.20+2i) (10.2+2i)
+
+字符串与字节切片
+占位符     说明                              举例                           输出
+%s      输出字符串表示（string类型或[]byte)   Printf("%s", []byte("Go语言"))  Go语言
+%q      双引号围绕的字符串，由Go语法安全地转义  Printf("%q", "Go语言")         "Go语言"
+%x      十六进制，小写字母，每字节两个字符      Printf("%x", "golang")         676f6c616e67
+%X      十六进制，大写字母，每字节两个字符      Printf("%X", "golang")         676F6C616E67
+
+指针
+占位符         说明                      举例                             输出
+%p      十六进制表示，前缀 0x          Printf("%p", &people)             0x4f57f0
+
+其它标记
+占位符      说明                             举例          输出
++      总打印数值的正负号；对于%q（%+q）保证只输出ASCII编码的字符。 
+                                           Printf("%+q", "中文")  "\u4e2d\u6587"
+-      在右侧而非左侧填充空格（左对齐该区域）
+#      备用格式：为八进制添加前导 0（%#o）      Printf("%#U", '中')      U+4E2D
+       为十六进制添加前导 0x（%#x）或 0X（%#X），为 %p（%#p）去掉前导 0x；
+       如果可能的话，%q（%#q）会打印原始 （即反引号围绕的）字符串；
+       如果是可打印字符，%U（%#U）会写出该字符的
+       Unicode 编码形式（如字符 x 会被打印成 U+0078 'x'）。
+' '    (空格)为数值中省略的正负号留出空白（% d）；
+       以十六进制（% x, % X）打印字符串或切片时，在字节之间用空格隔开
+0      填充前导的0而非空格；对于数字，这会将填充移到正负号之后
+```
+golang没有 '%u' 点位符，若整数为无符号类型，默认就会被打印成无符号的。
+
+宽度与精度的控制格式以Unicode码点为单位。宽度为该数值占用区域的最小宽度；精度为小数点之后的位数。
+
+操作数的类型为int时，宽度与精度都可用字符 '*' 表示。
+
+对于 %g/%G 而言，精度为所有数字的总数，例如：123.45，%.4g 会打印123.5，（而 %6.2f 会打印123.45）。
+
+%e 和 %f 的默认精度为6
+
+对大多数的数值类型而言，宽度为输出的最小字符数，如果必要的话会为已格式化的形式填充空格。
+
+而以字符串类型，精度为输出的最大字符数，如果必要的话会直接截断。
 ## 变量和常量
 变量：
 - 为什么要有变量：程序运行过程中的数据都是保存在内存中，我们想要在代码中操作某个数据时就需要去内存上找到这个变量，但是如果我们直接在代码中通过内存地址去操作变量的话，代码的可读性会非常差而且还容易出错，所以我们就利用变量将这个数据的内存地址保存起来，以后直接通过这个变量就能找到内存上对应的数据了。
 - Go语言中的变量需要声明后才能使用，同一作用域内不支持重复声明。并且Go语言的变量声明后必须使用。
-- 批量声明变量：
+- 批量声明变量：（“声明聚类”）
 ```go
 var (
         a string
@@ -273,6 +708,8 @@ var (
         d float32
     )
 ```
+- 建议将延迟初始化的变量声明放在一个 var 声明块，将声明且显式初始化的变量放在另一个 var 块中
+- 变量声明咱们一般采用就近原则，以实现变量的作用域最小化
 - 在函数内部，可以使用更简略的 := 方式声明并初始化变量。
 - 匿名变量_
 
@@ -306,7 +743,7 @@ const (
 |:--|:--|:--|:--|
 bool   |1  |**false**
 byte	|1	|0	|uint8，一个ASCII字符
-rune	|4	|0	|Unicode Code Point，int32，一个utf-8字符
+rune	|4	|0	|Unicode Code Point，int32，一个utf-8字符,**c:=[]rune(s)//指将字符串s转化为rune的切片**
 int, uint	|4或8	|0	|由操作系统位数(32/64)决定
 int8, uint8 |1	|0	|-128 ~ 127, 0 ~ 255，**byte是uint8 的别名**
 int16, uint16	|2	|0	|-32768 ~ 32767, 0 ~ 65535
@@ -327,11 +764,13 @@ interface	|	|nil	|接口
 function	|	|nil	|函数
 - uintptr 实际上就是一个 uint 用来表示地址，go 的指针和 c 不一样不能进行偏移操作，如果非要偏移的话就需要 unsafe.Pointer 和 uintptr 配合来实现。uintptr 不是一个指针 所以 GC 时也不会处理 uintptr 的引用。如果不涉及地址偏移时没有必要使用 uintptr 。------[来自知乎回答](https://www.zhihu.com/question/439659823)
 - 标准库 math 定义了各数字类型取值范围。
-- 空指针值 nil，而非C/C++ NULL。golang中有多种引用类型：pointer、interface、slice、map、channel、function。go作为一个强类型语言，不同引用类型的判空（nil）规则是不同的；比如：interface的判空规则是，需要判断类型和值是否都为nil(interface的底层是有类型和值构成的)slice的判空，需要判断slice引用底层数组的指针为空，容量和size均为0。
+- 空指针值 nil，而非C/C++ NULL。golang中有多种引用类型：pointer、interface、slice、map、channel、function。go作为一个强类型语言（类型是定义好的无法改变，不像c，你定义一个short可以当成char用，因为可以直接操作内存），不同引用类型的判空（nil）规则是不同的；比如：interface的判空规则是，需要判断类型和值是否都为nil(interface的底层是有类型和值构成的)slice的判空，需要判断slice引用底层数组的指针为空，容量和size均为0。
 - 不允许将整型强制转换为布尔型。
-- 字符串的内部实现使用UTF-8编码。
+- 字符串的内部实现使用UTF-8编码。（UTF-8是Unicode的存储实现，转化为有限长度比特组合的规则）
 - 只有显示类型转化。
-## 字符串：
+## string：
+值类型，空值是空字符串而不是nil。本质就是个只读的（不可变的）byte切片。
+
 - 多行字符串，用反引号`
 ```go
 s1 := `第一行
@@ -381,7 +820,39 @@ strings.Join(a[]string, sep string)	|join操作
 - 指针数组 [n]*T，数组指针 *[n]T。
 - 多维数组除了第一维，初始化时都不能用[...]省略长度声明。
 - 值拷贝行为会造成性能问题，通常会建议使用 slice，或数组指针。
+## 列表list
+初始化：
+- 通过 container/list 包的 New() 函数初始化 list。变量名 := list.New()
+- 通过 var 关键字声明初始化 list 。var 变量名 list.List
+列表与切片和 map 不同的是，列表并没有具体元素类型的限制，因此，列表的元素可以是任意类型，这既带来了便利，也引来一些问题，例如给列表中放入了一个 interface{} 类型的值，取出值后，如果要将 interface{} 转换为其他类型将会发生宕机。
+
+源码数据结构：
+```go
+type Element struct {
+	// Next and previous pointers in the doubly-linked list of elements.
+	// To simplify the implementation, internally a list l is implemented
+	// as a ring, such that &l.root is both the next element of the last
+	// list element (l.Back()) and the previous element of the first list
+	// element (l.Front()).
+	next, prev *Element
+
+	// The list to which this element belongs.
+	list *List
+
+	// The value stored with this element.
+	Value interface{}
+}
+type List struct {
+	root Element // sentinel list element, only &root, root.prev, and root.next are used
+	len  int     // current list length excluding (this) sentinel element
+}
+```
+其他源码列出稍冗长，root.prev可以视作尾节点，root.next相当于头节点，不过这些是透明的，被封装好的。
+
+
+在列表中插入元素删除元素都有简便方法。
 ## 切片
+只能和nil进行比较。
 ```go
 //用make()初始化
 var s3 []int = make([]int, 0, 10)//len=0,cap=10
@@ -416,6 +887,16 @@ fmt.Printf("slice e : %v\n", e)
 slice := append([]byte("hello "), "world"...)//注意是字节数组和字符串。
 fmt.Printf("slice slice : %v\n", slice)
 ```
+```go
+func TestOne(t *testing.T) {
+	q := make([]int, 3, 10)
+	w := append(q, 1)
+	t.Log(len(w), len(q))
+	e := append(q, 2)
+	//append是加在该切片的len后面，但不是最后一个元素后面，因为底层数组会被改变，而切片变量的结构体所记录的信息是固定的。
+	t.Log(q, w, e)
+}
+```
 - 超出原 slice.cap 限制，就会重新分配底层数组，即便原数组并未填满。
 - 通常以 2 倍容量重新分配底层数组。在大批量添加数据时，建议一次性分配足够大的空间，以减少内存分配和数据复制开销。或初始化足够长的 len 属性，改用索引号进行操作。
 - 及时释放不再使用的 slice 对象，避免持有过期数组，造成 GC 无法回收。
@@ -445,7 +926,16 @@ slice c : [4 5] , len(c) : 2
 
 string & slice :
 string底层就是一个byte的数组，因此，也可以进行切片操作。
-### 切片底层实现
+
+二维切片：
+```go
+……
+ a := make([][]int,dy)
+ for i = range a {
+     a[i] = make([]int, dx)
+ }
+```
+### slice切片底层实现
 切片的设计想法是由动态数组概念而来，为了开发者可以更加方便的使一个数据结构可以自动增加和减少。但是切片本身并不是动态数据或者数组指针。切片常见的操作有   **reslice、append、copy**。与此同时，切片还具有**可索引，可迭代**的优秀特性。
 ```go
 func main() {
@@ -477,6 +967,8 @@ type slice struct {
 	cap   int // 切片容量
 }
 ```
+**注意**：Golang 语言是没有操作原始内存的指针的，所以 **unsafe 包**提供相关的对内存指针的操作，一般情况下非专业人员勿用
+
 如果想从 slice 中得到一块内存地址，可以这样做：
 ```go
 s := make([]byte, 200)
@@ -577,6 +1069,12 @@ slicecopy 方法会把源切片值(即 fm Slice )中的元素复制到目标切�
 初始化时用make申请内存（或者直接填充元素）：
 ```go
     make(map[KeyType]ValueType, [cap])//cap不是必须的，但最好一开始就申请一个合适的容量
+    //
+    // 初始化 + 赋值一体化
+    m3 := map[string]string{
+        "a": "aa",
+        "b": "bb",
+    }
 ```
 **判断某个key是否存在**：
 ```go
@@ -634,7 +1132,7 @@ map底层存储方式为（结构体）数组，在存储时key不能重复，�
     - 发现hashkey(key)的下标已经被别key占用的时候，在这个数组中空间中重新找一个没被占用的存储这个冲突的key。寻找方式有很多。常见的有线性探测法，线性补偿探测法，随机探测法。
         - 线性探测法：
             - 从冲突的下标处开始往后探测，到达数组末尾时，从数组开始处探测，直到找到一个空位置存储这个key，当数组都找不到的情况下会扩容（事实上当数组容量快满的时候就会扩容了）
-            - 查找某一个key的时候，找到key对应的下标，比较key是否相等，如果相等直接取出来，否则按照顺寻探测直到碰到一个空位置，说明key不存在。
+            - 查找某一个key的时候，找到key对应的下标，比较key是否相等，如果相等直接取出来，否则按照顺序探测直到碰到一个空位置，说明key不存在。
         - 拉链法：
             - 当key的hash冲突时，我们在冲突位置的元素上形成一个链表，通过指针互连接。
             - 当查找时，发现key冲突，顺着链表一直往下找，直到链表的尾节点，找不到则返回空
@@ -646,6 +1144,9 @@ map底层存储方式为（结构体）数组，在存储时key不能重复，�
         - 拉链是动态申请存储空间的，所以更适合链长不确定的
 
 ### go中map的实现原理
+go里面map并不是线程安全的，在1.9版本之前用map加互斥锁来解决此问题，之后加了sync.map性能稍微高了一些，因为它有一块只读的buffer，相当于由两个buffer组成，一块只读，一块读写。sync.map更适合于读非常多，能够占到90%以上的情况。如果读写差不多或者说写更多的话，sync.map的性能就比较差了。
+在读写对半的情况下，可以考虑引入concurrent_map包。（go get -u +包地址）
+
 在go1.16中，map也是数组存储的的，每个数组下标处存储的是一个bucket,这个bucket的类型见下面代码，每个bucket中可以存储8个kv键值对，当每个bucket存储的kv对到达8个之后，会通过overflow指针指向一个新的bucket，从而形成一个链表,看bmap的结构
 ```go
 // A bucket for a Go map.
@@ -797,6 +1298,49 @@ done:
 	return elem
 }
 ```
+### map与工厂模式
+map的value可以是一个方法。
+
+与 Go 的 Dock type 接⼝⽅式⼀起，可以⽅便的实现单⼀⽅法对象的⼯⼚模式
+```go
+func TestMapWithFunValue(t *testing.T) {
+	m := map[int]func(op int) int{}
+	m[1] = func(op int) int { return op }
+	m[2] = func(op int) int { return op * op }
+	m[3] = func(op int) int { return op * op * op }
+	t.Log(m[1](2), m[2](2), m[3](2))
+}
+```
+## set
+Go 的内置集合中没有 Set 实现， 可以 map[type]bool。
+
+1. map可以保证添加元素的唯⼀性，方便判断唯一元素的个数
+2. 基本操作
+    - 1) 添加元素
+    - 2) 判断元素是否存在
+    - 3) 删除元素
+    - 4) 元素个数
+```go
+func TestMapForSet(t *testing.T) {
+	mySet := map[int]bool{}
+	mySet[1] = true
+	n := 3
+	if mySet[n] {
+		t.Logf("%d is existing", n)
+	} else {
+		t.Logf("%d is not existing", n)
+	}
+	mySet[3] = true
+	t.Log(len(mySet))
+	delete(mySet, 1)
+	n = 1
+	if mySet[n] {
+		t.Logf("%d is existing", n)
+	} else {
+		t.Logf("%d is not existing", n)
+	}
+}
+```
 ## 结构体
 **Go语言中通过结构体的内嵌再配合接口比面向对象具有更高的扩展性和灵活性。**
 
@@ -813,7 +1357,7 @@ done:
 //将MyInt作为为int类型的昵称
     type MyInt = int 
 ```
-## 结构体
+### 结构体
 本质上是一种聚合型的数据类型。
 
 通过struct可以实现面向对象。
@@ -859,7 +1403,7 @@ func newPerson(name, city string, age int8) *person {
     }
 }
 ```
-### 方法和接收者
+#### 方法和接收者
 Go语言中的方法（Method）是一种作用于特定类型变量的函数。这种特定类型变量叫做接收者（Receiver）。**接收者的概念就类似于其他语言中的this或者 self。**
 ```go
 //接收者变量：接收者中的参数变量名在命名时，官方建议使用接收者类型名的第一个小写字母，而不是self、this之类的命名。例如，Person类型的接收者变量应该命名为 p，Connector类型的接收者变量应该命名为c等。
@@ -959,6 +1503,7 @@ func main() {
 
 **结构体与JSON序列化**：
 - JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON键值对是用来保存JS对象的一种方式，键/值对组合中的键名写在前面并用双引号””包裹，使用冒号:分隔，然后紧接着值；多个键值之间使用英文,分隔。
+- 应用于远程的过程调用、webservice、程序配置等
 ```go
 //Student 学生
 type Student struct {
@@ -1036,6 +1581,229 @@ func main() {
     fmt.Printf("json str:%s\n", data) //json str:{"id":1,"Gender":"女"}
 } 
 ```
+
+**内置JSON解析**：
+- 利⽤反射实现，通过FeildTag来标识对应的json 值（性能较低）
+
+```go
+package jsontest
+
+type BasicInfo struct {
+	Name string `json:"name"`
+	Age  int    `json:"age"`
+}
+type JobInfo struct {
+	Skills []string `json:"skills"`
+}
+type Employee struct {
+	BasicInfo BasicInfo `json:"basic_info"`
+	JobInfo   JobInfo   `json:"job_info"`
+}
+```
+
+```go
+package jsontest
+
+import (
+	"encoding/json"
+	"fmt"
+	"testing"
+)
+
+var jsonStr = `{
+	"basic_info":{
+	  	"name":"Mike",
+		"age":30
+	},
+	"job_info":{
+		"skills":["Java","Go","C"]
+	}
+}	`
+
+func TestEmbeddedJson(t *testing.T) {
+	e := new(Employee)
+	err := json.Unmarshal([]byte(jsonStr), e)
+	if err != nil {
+		t.Error(err)
+	}
+	fmt.Println(*e)
+	if v, err := json.Marshal(e); err == nil {
+		fmt.Println(string(v))
+	} else {
+		t.Error(err)
+	}
+
+}
+```
+
+**easyjson**:
+- 更快的JSON解析
+- EasyJSON 采⽤代码⽣成⽽⾮反射
+- 见ch43
+
+
+## go项目的标准布局演进
+官方并没有给标准布局，但社区还是有的。随着go版本的不断更新，Go源码比例不断增大，Go 1.0时还占比32%的C语言现在也只不过占比不到1%。而项目布局一直保持了下来。
+
+Go 1.3 src 目录下面的结构：
+- 以 all.bash 为代表的代码构建的脚本源文件放在了 src 下面的顶层目录下。
+- src 下的二级目录 cmd 下面存放着 Go 相关可执行文件的相关目录
+    - 每个子目录都是一个 Go 工具链命令或子命令对应的可执行文件
+- src 下的二级目录 pkg 下面存放着运行时实现、标准库包实现，这些包既可以被上面 cmd 下各程序所导入，也可以被 Go 语言项目之外的 Go 程序依赖并导入。
+
+Go 1.4 版本删除 pkg 这一中间层目录并引入 internal 目录。“src/pkg/xxx”->“src/xxx”
+- 根据 internal 机制的定义，一个 Go 项目里的 internal 目录下的 Go 包，只可以被本项目内部的包导入。项目外部是无法导入这个 internal 目录下面的包的。
+    - internal 目录的引入，让一个 Go 项目中 Go 包的分类与用途变得更加清晰
+
+Go 1.6 版本增加 vendor 目录
+- 为了解决 Go 包依赖版本管理的问题，Go 核心团队在 Go 1.5 版本中做了第一次改进。增加了 vendor 构建机制，也就是 Go 源码的编译可以不在 GOPATH 环境变量下面搜索依赖包的路径，而在 vendor 目录下查找对应的依赖包
+    - Go 1.7 版本，Go 在 vendor 下缓存了其依赖的外部包。这些依赖包主要是 golang.org/x 下面的包
+- vendor 机制与目录的引入，让 Go 项目第一次具有了**可重现构建**（Reproducible Build）的能力。
+
+Go 1.13 版本引入 go.mod 和 go.sum
+- 在 Go 1.11 版本中，Go 核心团队做出了第二次改进尝试：引入了 Go Module 构建机制，也就是在项目引入 go.mod 以及在 go.mod 中明确项目所依赖的第三方包和版本，项目的构建就将摆脱 GOPATH 的束缚，实现精准的可重现构建。
+- Go 语言项目自身在 Go 1.13 版本引入 go.mod 和 go.sum 以支持 Go Module 构建机制
+
+**Go 可执行程序项目的典型结构布局**：
+```
+├── cmd/
+│   ├── app1/
+│   │   └── main.go
+│   └── app2/
+│       └── main.go
+├── go.mod
+├── go.sum
+├── internal/
+│   ├── pkga/
+│   │   └── pkg_a.go
+│   └── pkgb/
+│       └── pkg_b.go
+├── pkg1/
+│   └── pkg1.go
+├── pkg2/
+│   └── pkg2.go
+└── vendor/
+```
+- cmd（也可以是app或者其他名字）
+    - 存放项目要编译构建的可执行文件对应的 main 包的源文件。如果你的项目中有多个可执行文件需要构建，每个可执行文件的 main 包单独放在一个子目录中，cmd 目录下的各 app 的 main 包将整个项目的依赖连接在一起
+    - 通常来说，main 包应该很简洁。我们在 main 包中会做一些**命令行参数解析、资源初始化、日志设施初始化、数据库连接初始化等**工作，之后就会将程序的执行权限交给更高级的执行控制对象
+- pkgN
+    - 一个存放项目自身要使用、同样也是可执行文件对应 main 包所要依赖的库文件，同时这些目录下的包还可以被外部项目引用。
+- go.mod和go.sum
+    - 包依赖管理的配置文件
+- vendor（可选）
+    - 前面有说，vendor 是 Go 1.5 版本引入的用于在项目本地缓存特定版本依赖包的机制
+    - Go Module 机制也保留了 vendor 目录（通过 go mod vendor 可以生成 vendor 下的依赖包，通过 go build -mod=vendor 可以实现基于 vendor 的构建）。一般我们仅保留项目根目录下的 vendor 目录，否则会造成不必要的依赖选择的复杂性。
+- etc
+    - 如若喜欢借助一些第三方的构建工具辅助构建，比如：make、bazel 等。你可以将这类外部辅助构建工具涉及的诸多脚本文件（比如 Makefile）放置在项目的顶层目录下，就像 Go 1.3中的 all.bash 那样。
+
+如果app1，app2的发布版本不总是同步的，建议将每个项目单独作为一个 module 进行单独的版本管理和演进，避免版本管理的“分歧”带来更大的复杂性。当然新版Go命令较好地解决了这一点，可以采用如下结构：
+```
+├── go.mod // mainmodule
+├── module1
+│   └── go.mod // module1
+└── module2
+    └── go.mod // module2
+```
+- 可以通过 git tag 名字来区分不同 module 的版本。其中 vX.Y.Z 形式的 tag 名字用于代码仓库下的 mainmodule；而 module1/vX.Y.Z 形式的 tag 名字用于指示 module1 的版本。
+
+**Go 库项目的典型结构布局**：Go 库项目主要作用还是对外暴露 API。
+```
+├── go.mod
+├── internal/
+│   ├── pkga/
+│   │   └── pkg_a.go
+│   └── pkgb/
+│       └── pkg_b.go
+├── pkg1/
+│   └── pkg1.go
+└── pkg2/
+    └── pkg2.go
+```
+- 不需要构建可执行程序
+- 仅限项目内部使用而不想暴露到外部的包，可以放在项目顶层的 internal 目录下面。当然 internal 也可以有多个并存在于项目结构中的任一目录层级中，关键是项目结构设计人员要明确各级 internal 包的应用层次和范围。
+## go应用构建模式的演进
+Go 程序的构建过程就是确定包版本、编译包以及将编译后得到的目标文件链接在一起的过程。
+
+包依赖管理演进：
+- GOPATH模式。
+    - Go 编译器可以在本地 GOPATH 环境变量配置的路径下，搜寻 Go 程序依赖的第三方包。如果存在，就使用这个本地包进行编译；如果不存在，就会报编译错误
+    - 如果你没有显式设置 GOPATH 环境变量，Go 会将 GOPATH 设置为默认值，不同操作系统下默认值的路径不同
+    - 可以通过 go get 命令将本地缺失的第三方依赖包下载到本地。不仅能将包下载到 GOPATH 环境变量配置的目录下，它还会检查该包的依赖包在本地是否存在，如果不存在，go get 也会一并将它们下载到本地。**但是，go get只能得到最新主线版本的依赖包，不能保证Reproduceable Build**
+    - 总之，在 GOPATH 构建模式下，Go 编译器实质上并没有关注 Go 项目所依赖的第三方包的版本。从而有了Vendor机制控制依赖包版本。
+- Vendor机制
+    - 本质上就是在 Go 项目的某个特定目录下，将项目的所有依赖包缓存起来，这个特定目录名就是 vendor。
+    - Go 编译器会优先感知和使用 vendor 目录下缓存的第三方包版本，而不是 GOPATH 环境变量所配置的路径下的第三方包版本。
+    - 目录示例：
+    ```
+    ├── main.go
+    └── vendor/
+        ├── github.com/
+        │   └── sirupsen/
+        │       └── logrus/
+        └── golang.org/
+            └── x/
+                └── sys/
+                    └── unix/
+    ```
+    - 开启 vendor 机制，你的 Go 项目**必须**位于 GOPATH 环境变量配置的某个路径的 src 目录下面
+    - 不足之处主要在于需要手工管理 vendor 下面的 Go 依赖包（Go 社区先后开发了诸如 gb、glide、dep 等工具，都是用来进行依赖分析管理的，自身却都存在某些问题）、庞大的vendor目录也得提交到代码仓库，以及项目路径的限制。
+- Go Module
+    - 如何创建？
+        - go mod init 
+        - go mod tidy
+        - go build
+    - go.sum是由 go mod 相关命令维护的一个文件，它存放了特定版本 module 内容的哈希值。这是 Go Module 的一个安全措施。当将来这里的某个 module 的特定版本被再次下载的时候，go 命令会使用 go.sum 文件中对应的哈希值，和新下载的内容的哈希值进行比对，只有哈希值比对一致才是合法的，这样可以确保你的项目所依赖的 module 内容，不会被恶意或意外篡改。
+    - 项目所依赖的包有很多版本，Go Module 是如何选出最适合的那个版本？
+        - Go Module 的语义导入版本机制
+            -  go.mod 的 require 段中依赖的版本号，都符合 vX.Y.Z 的格式。语义版本号分成 3 部分：主版本号 (major)、次版本号 (minor) 和补丁版本号 (patch)。分别对应XYZ。
+            - 按照语义版本规范，主版本号不同的两个版本是相互不兼容的。而且，在主版本号相同的情况下，次版本号大都是向后兼容次版本号小的版本。补丁版本号也不影响兼容性
+            - Go Module 规定：如果同一个包的新旧版本是兼容的，那么它们的包导入路径应该是相同的。
+                - 如果不兼容，Go Module 创新性地给出了一个方法：将包主版本号引入到包导入路径中，我们可以像下面这样导入 logrus v2.0.0 版本依赖包：
+                ```
+                import "github.com/sirupsen/logrus/v2"
+                ```
+            - 关于主版本号为0时，按照语义版本规范的说法，v0.y.z 这样的版本号是用于项目初始开发阶段的版本号。在这个阶段任何事情都有可能发生，其 API 也不应该被认为是稳定的。Go Module 将这样的版本 (v0) 与主版本号 v1 做同等对待，也就是采用不带主版本号的包导入路径
+            - 总之，通过在包导入路径中引入主版本号的方式，来区别同一个包的不兼容版本。
+        - 最小版本选择原则
+            - 包依赖关系比较复杂时，一个包A的两个依赖包BC可能依赖于不同版本的某个包D，那A依赖于D的哪个版本？
+            - **Go 会在该项目依赖项的所有版本中，选出符合项目整体要求的“最小版本”。**
+    - 明确具体版本下 Go Module 的实际表现行为还是比较重要的，方便应用时选择切换。
+    - Go 各版本构建模式机制和切换：
+        - Go 1.11后一段时间GOPATH 构建模式与 Go Modules 构建模式各自独立工作，我们可以通过设置环境变量 GO111MODULE 的值在两种构建模式间切换。
+        - Go 1.16 版本，Go Module 构建模式成为了默认模式。
+        - 目前我觉得GOPATH似乎可以抛弃了
+
+**Go Module常规操作**：
+- 为当前 module 添加一个依赖：
+    - go get 命令将我们新增的依赖包下载到了本地 module 缓存里，并在 go.mod 文件的 require 段中新增相关内容。
+    - 使用 go mod tidy 命令，在执行构建前自动分析源码中的依赖变化，识别新增依赖项并下载它们
+    - 两种方法都行，复杂的项目用go mod tidy/go get .（注意二者还是有区别的,看到后面你就知道了）
+- 升级、降级依赖版本：
+    - 查询某个依赖包的版本
+    ```
+    PS D:\Blog\qizhengzou.github.io-blog\content\posts> go list -m -versions github.com/sirupsen/logrus
+    github.com/sirupsen/logrus v0.1.0 v0.1.1 v0.2.0 v0.3.0 v0.4.0 v0.4.1 v0.5.0 v0.5.1 v0.6.0 v0.6.1 v0.6.2 v0.6.3 v0.6.4 v0.6.5 v0.6.6 v0.7.0 v0.7.1 v0.7.2 v0.7.3 v0.8.0 v0.8.1 v0.8.2 v0.8.3 v0.8.4 v0.8.5 v0.8.6 v0.8.7 v0.9.0 v0.10.0 v0.11.0 v0.11.1 v0.11.2 v0.11.3 v0.11.4 v0.11.5 v1.0.0 v1.0.1 v1.0.3 v1.0.4 v1.0.5 v1.0.6 v1.1.0 v1.1.1 v1.2.0 v1.3.0 v1.4.0 v1.4.1 v1.4.2 v1.5.0 v1.6.0 v1.7.0 v1.7.1 v1.8.0 v1.8.1
+    //go mod tidy帮我们选择了v1.8.1
+    ```
+    - 我们可以在项目的 module 根目录下，执行带有版本号的 go get 命令eg: go get github.com/sirupsen/logrus@v1.7.0
+    - 或者，用 go mod edit 命令，明确告知我们要依赖 v1.7.0 版本，而不是 v1.8.1。执行go mod edit -require=github.com/sirupsen/logrus@v1.7.0再go mod tidy。
+- 添加一个主版本号大于 1 的依赖：
+    - 在声明它的导入路径的基础上，加上版本号信息
+- 升级依赖版本到一个不兼容版本：
+    - 需要注意一点，可能需要移除对某个包的依赖
+- 移除一个依赖
+    - 要想彻底从项目中移除 go.mod 中的依赖项，仅从源码中删除对依赖项的导入语句还不够。
+    - 还得用 go mod tidy 命令，将这个依赖项彻底从 Go Module 构建上下文中清除掉。go mod tidy 会自动分析源码依赖，而且将不再使用的依赖从 go.mod 和 go.sum 中移除。
+- **特殊情况**：借用Vendor
+    - Vendor机制其实可以作为Go Module的一个很好的补充。
+    - **在一些不方便访问外部网络，并且对 Go 应用构建性能敏感的环境，比如在一些内部的持续集成或持续交付环境（CI/CD）中，使用 vendor 机制可以实现与 Go Module 等价的构建。**
+    - Go 提供了可以快速建立和更新 vendor 的命令：
+        - go mod vendor
+            - make vendored copy of dependencies(将依赖复制到vendor下)
+    - 在 go build 后面加上 -mod=vendor 参数，可以快速基于 vendor 构建项目。
+    - **在 Go 1.14 及以后版本中，如果 Go 项目的顶层目录下存在 vendor 目录，那么 go build 默认也会优先基于 vendor 构建，除非你给 go build 传入 -mod=mod 的参数**
 ## 参考
 - https://cloud.tencent.com/developer/article/1526095
 - https://www.topgoer.cn/docs/golang/chapter02
+- https://time.geekbang.org/column/article/429143

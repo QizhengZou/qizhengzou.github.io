@@ -1,7 +1,9 @@
 # Cry_base_01
 
+> 笔记来自2021年秋哈工大深圳密码学基础授课老师：蒋琳
+
 # 课程简介
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211216143711.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211216143711.png)
 
 不包含内容
 - 计算机安全，例如病毒
@@ -13,7 +15,7 @@
 - 对称加密(Symmetric encryption)：加密和解密由同一个密钥来控制，也叫“单钥加密” 。
 - 非对称加密(Asymmetric encryption)：用作加密的密钥不同于用作解密的密钥，而且解密密钥不能根据加密密钥计算出来，也叫“公钥加密”
 
-密码算法分类：![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211216144246.png)
+密码算法分类：![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211216144246.png)
 
 密码术：
 - 密码编码学

@@ -1,8 +1,8 @@
 # Mysql_base_01
 
+> 笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫
 # 数据库概念结构
 ## 基本概念
-32
 ###  什么是数据库及为什么要学数据库？
 现代信息社会有异于传统社会，业务工作是建立在计算机网络以及数据库的支持上的。数据库将传统纸张上记录的各种信息规范化并使之电子化,形成电子信息‘库’以便利用计算机对这些信息进行快速有效的检索、统计与管理。
 ### 数据库(信息库)
@@ -12,18 +12,18 @@
 数据库管理系统(DBMS): Database Management System   
 数据库应用(DBAP): DataBase Application   
 数据库管理员(DBA): DataBase Administrator 
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211107100915.png)   
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211107100915.png)   
 ### 数据库管理系统(软件系统)
 DBMS提供一套数据定义语言(DDL:Data Definition Language)给用户,用户使用DDL描述其所要建立表的格式,DBMS依照用户的定义，创建数据库及其中的Table。   
 数据操纵语言(DML:Data Manipulation Language)，用户使用DML描述其所要进行的增、删、改、查等操作，DBMS依照用户的操作描述，实际执行这些操作。   
 数据控制语言(DCL:Data Control Language)，用户使用DCL描述其对数据库所要实施的控制，DBMS依照用户的描述，实际进行控制。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211107101806.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211107101806.png)
 * 语言翻译器：将用数据库语言书写的内容，翻译成DBMS可执行的命令。
 例如: DDL编译器, DML编译器, DCL编译器等;
 * 查询优化与查询实现(执行引擎)：提高数据库检索速度的手段；例如贯穿于数据存取各个阶段的优化程序;
 * 数据存取：提供数据在磁盘、磁带等上的高效存取手段。例如:存储管理器, 缓冲区管理器,索引/文件和记录管理器等;
 * 通信控制：提供网络环境下数据库操作的手段。
-![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211107102049.png)
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211107102049.png)
 ## 数据库工作者的分类及要求
 * 终端用户（ End Users ）：
 无经验用户（naive Users）

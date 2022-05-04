@@ -1,10 +1,12 @@
 # ISC_base_05
 
+> 2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄
+
 # 访问控制
 ## 5.1 概述
 - 身份认证：识别“用户是谁”的问题。
 - 访问控制：管理用户对资源的访问。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207092824.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207092824.png)
 - 主体对于客体的每一次访问，访问控制系统均要审核该次访问操作是否符合访问控制策略。影响访问控制系统实施效果的首要因素是访问控制策略。
 - 访问控制的基本组成元素
     - 主体(Subject)：是指提出访问请求的实体，是动作的发起者，但不一定是动作的执行者。主体可以是用户或其它代理用户行为的实体（如进程、作业和程序等）。
@@ -118,7 +120,7 @@ RBAC小结：
 ## 5.3 Windows系统的安全管理
 ### 5.3.1 Windows系统安全体系结构
 Windows系统采用层次性的安全架构：
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094218.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094218.png)
 
 安全主体：
 - Windows系统的安全性主要围绕安全主体展开，保护其安全性。
@@ -130,11 +132,11 @@ Windows系统采用层次性的安全架构：
 
 安全子系统：
 - 安全子系统既可以用于工作站，也可以用于服务器，区别在于服务器版的用户账户数据库可以用于整个域，而工作站版的数据库只能本地使用。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094356.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094356.png)
 
 Windows登录认证流程：
 - SSPI：Security Support Provider Interface
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207094456.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207094456.png)
 ### 5.3.2 Windows系统的访问控制
 Windows系统的访问控制：
 - 访问控制模块的组成
@@ -156,7 +158,7 @@ Windows系统的访问控制：
 
 访问令牌：
 - 每个访问令牌都与特定的Windows账户相关联，访问令牌包含该帐户的SID、所属组的SID以及帐户的特权信息。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095154.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095154.png)
 
 Window 访问控制：
 - ……
@@ -169,7 +171,7 @@ Window 访问控制：
 
 活动目录AD的管理划分：
 - AD把整个域作为一个完整的目录来进行管理。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095356.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095356.png)
 
 组策略GP：
 - 活动目录AD是Windows网络中重要的安全管理平台，组策略GP是其安全性的重要体现。
@@ -179,7 +181,7 @@ Window 访问控制：
 
 组策略工作流程：
 - 用户完成网络登录后，就会受到AD直接控制管理，依据所在OU的GP来实施安全配置。
-- ![](https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211207095512.png)
+- ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211207095512.png)
 
 组策略的实施：
 - 注册表是Windows系统中保存系统应用软件配置的数据库。

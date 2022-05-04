@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Go_base_06 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="Go_base_06" />
-<meta property="og:description" content="网络编程 互联网协议介绍 互联网的核心是一系列协议，总称为”互联网协议”（Internet Protocol Suite），正是这一些协议规定了电脑如何连接和组网" />
+<meta property="og:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 网络编程 互联网协议介绍 互联网的核心是一系列协议，总称为”互联网协议”（Inter" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/go_base_06/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-06T09:16:45+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Go_base_06"/>
-<meta name="twitter:description" content="网络编程 互联网协议介绍 互联网的核心是一系列协议，总称为”互联网协议”（Internet Protocol Suite），正是这一些协议规定了电脑如何连接和组网"/>
+<meta name="twitter:description" content="参考学习go语言中文网、C语言中文网、golang官方文档等 网络编程 互联网协议介绍 互联网的核心是一系列协议，总称为”互联网协议”（Inter"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/go_base_06\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  8781 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  9364 ,
         "url": "https:\/\/qizhengzou.github.io\/go_base_06\/","datePublished": "2022-01-06T09:16:45+08:00","dateModified": "2022-01-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/go_base_06/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/go_base_06/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,9 +114,9 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Go_base_06</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw"></i>go</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:45">2022-01-06 09:16:45</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8781 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 18 分钟&nbsp;<span id="busuanzi_container_page_pv">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw"></i>Go</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:45">2022-01-06 09:16:45</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 9364 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 19 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
             </div>
@@ -148,6 +171,8 @@
         <li><a href="#web工作流程">web工作流程</a></li>
         <li><a href="#http协议">HTTP协议</a></li>
         <li><a href="#http服务端">HTTP服务端</a></li>
+        <li><a href="#http客户端">HTTP客户端</a></li>
+        <li><a href="#构建restful服务">构建RESTful服务</a></li>
       </ul>
     </li>
     <li><a href="#websocket编程">WebSocket编程</a>
@@ -166,7 +191,10 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="网络编程">网络编程</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>参考学习go语言中文网、C语言中文网、golang官方文档等</p>
+</blockquote>
+<h1 id="网络编程">网络编程</h1>
 <h2 id="互联网协议介绍">互联网协议介绍</h2>
 <p>互联网的核心是一系列协议，总称为”互联网协议”（Internet Protocol Suite），正是这一些协议规定了电脑如何连接和组网。我们理解了这些协议，就理解了互联网的原理。由于这些协议太过庞大和复杂，没有办法在这里一概而全，只能介绍一下我们日常开发中接触较多的几个协议。</p>
 <h3 id="互联网分层模型">互联网分层模型</h3>
@@ -174,11 +202,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165056.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165056.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165056.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165056.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165056.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165056.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165056.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165056.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165056.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165056.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165056.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165056.png" />
 如上图所示，互联网按照不同的模型划分会有不用的分层，但是不论按照什么模型去划分，越往上的层越靠近用户，越往下的层越靠近硬件。在软件开发中我们使用最多的是上图中将互联网划分为五个分层的模型。</p>
 <p>接下来我们一层一层的自底向上介绍一下每一层。</p>
 <h4 id="物理层">物理层</h4>
@@ -205,11 +233,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165216.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165216.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165216.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165216.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165216.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165216.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165216.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165216.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165216.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165216.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165216.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165216.png" /></p>
 <h2 id="socket编程">socket编程</h2>
 <h3 id="socket-图解">socket 图解</h3>
 <p>Socket是BSD UNIX的进程通信机制，通常也称作”套接字”，用于描述IP地址和端口，是一个通信链的句柄。Socket可以理解为TCP/IP网络的API，它定义了许多函数或例程，程序员可以用它们来开发TCP/IP网络上的应用程序。电脑上运行的应用程序通常通过”套接字”向网络发出请求或者应答网络请求。</p>
@@ -218,11 +246,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165301.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165301.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165301.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165301.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165301.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165301.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165301.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165301.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165301.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20220113165301.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165301.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220113165301.png" /></p>
 <ul>
 <li>Socket又称“套接字”，应用程序通常通过“套接字”向网络发出请求或者应答网络请求</li>
 <li>常用的Socket类型有两种：流式Socket和数据报式Socket，流式是一种面向连接的Socket，针对于面向连接的TCP服务应用，数据报式Socket是一种无连接的Socket，针对于无连接的UDP服务应用</li>
@@ -977,7 +1005,44 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>HTTP客户端</p>
+</div><p>go的默认路由规则：</p>
+<ul>
+<li>URL 分为两种，末尾是 /：表示⼀个⼦树，后⾯可以跟其他⼦路径； 末尾不是 /，表示⼀个叶⼦，固定的路径</li>
+<li>以/ 结尾的 URL 可以匹配它的任何⼦路径，⽐如 /images 会匹配 /images/cute-cat.jpg</li>
+<li>它采⽤最⻓匹配原则，如果有多个匹配，⼀定采⽤匹配路径最⻓的那个进⾏处理</li>
+<li>如果没有找到任何匹配项，会返回 404 错误</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//Default Router
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">sh</span> <span class="nx">serverHandler</span><span class="p">)</span> <span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">rw</span> <span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">handler</span> <span class="o">:=</span> <span class="nx">sh</span><span class="p">.</span><span class="nx">srv</span><span class="p">.</span><span class="nx">Handler</span>
+ <span class="k">if</span> <span class="nx">handler</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+ <span class="nx">handler</span> <span class="p">=</span> <span class="nx">DefaultServeMux</span> <span class="c1">//使⽤缺省的Router
+</span><span class="c1"></span> <span class="p">}</span>
+ <span class="k">if</span> <span class="nx">req</span><span class="p">.</span><span class="nx">RequestURI</span> <span class="o">==</span>
+<span class="s">&#34;*&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">req</span><span class="p">.</span><span class="nx">Method</span> <span class="o">==</span> <span class="s">&#34;OPTIONS&#34;</span> <span class="p">{</span>
+ <span class="nx">handler</span> <span class="p">=</span> <span class="nx">globalOptionsHandler</span><span class="p">{}</span>
+ <span class="p">}</span>
+ <span class="nx">handler</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">rw</span><span class="p">,</span> <span class="nx">req</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="http客户端">HTTP客户端</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1046,6 +1111,167 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="构建restful服务">构建RESTful服务</h3>
+<p>第三方的handler  更好的router</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//详情见https://github.com/julienschmidt/httprouter
+</span><span class="c1">//handler多了一个参数
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Hello</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">ps</span> <span class="nx">httprouter</span><span class="p">.</span><span class="nx">Params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintf</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;hello, %s!\n&#34;</span><span class="p">,</span> <span class="nx">ps</span><span class="p">.</span><span class="nf">ByName</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">router</span> <span class="o">:=</span> <span class="nx">httprouter</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+    <span class="nx">router</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">Index</span><span class="p">)</span>
+    <span class="nx">router</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/hello/:name&#34;</span><span class="p">,</span> <span class="nx">Hello</span><span class="p">)</span>
+    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">router</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>RESTful程序设计很多时候会基于面向资源的架构（resource oriented architecture）
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220310102434.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220310102434.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220310102434.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220310102434.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220310102434.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220310102434.png" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;encoding/json&#34;</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;log&#34;</span>
+	<span class="s">&#34;net/http&#34;</span>
+
+	<span class="s">&#34;github.com/julienschmidt/httprouter&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">Employee</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">ID</span>   <span class="kt">string</span> <span class="s">`json:&#34;id&#34;`</span>
+	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
+	<span class="nx">Age</span>  <span class="kt">int</span>    <span class="s">`json:&#34;age&#34;`</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">employeeDB</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">Employee</span>
+
+<span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">employeeDB</span> <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">Employee</span><span class="p">{}</span>
+	<span class="nx">employeeDB</span><span class="p">[</span><span class="s">&#34;Mike&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Employee</span><span class="p">{</span><span class="s">&#34;e-1&#34;</span><span class="p">,</span> <span class="s">&#34;Mike&#34;</span><span class="p">,</span> <span class="mi">35</span><span class="p">}</span>
+	<span class="nx">employeeDB</span><span class="p">[</span><span class="s">&#34;Rose&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Employee</span><span class="p">{</span><span class="s">&#34;e-2&#34;</span><span class="p">,</span> <span class="s">&#34;Rose&#34;</span><span class="p">,</span> <span class="mi">45</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">Index</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">_</span> <span class="nx">httprouter</span><span class="p">.</span><span class="nx">Params</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprint</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;Welcome!\n&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">GetEmployeeByName</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">ps</span> <span class="nx">httprouter</span><span class="p">.</span><span class="nx">Params</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">qName</span> <span class="o">:=</span> <span class="nx">ps</span><span class="p">.</span><span class="nf">ByName</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">)</span>
+	<span class="kd">var</span> <span class="p">(</span>
+		<span class="nx">ok</span>       <span class="kt">bool</span>
+		<span class="nx">info</span>     <span class="o">*</span><span class="nx">Employee</span>
+		<span class="nx">infoJson</span> <span class="p">[]</span><span class="kt">byte</span>
+		<span class="nx">err</span>      <span class="kt">error</span>
+	<span class="p">)</span>
+	<span class="k">if</span> <span class="nx">info</span><span class="p">,</span> <span class="nx">ok</span> <span class="p">=</span> <span class="nx">employeeDB</span><span class="p">[</span><span class="nx">qName</span><span class="p">];</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;{\&#34;error\&#34;:\&#34;Not Found\&#34;}&#34;</span><span class="p">))</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">infoJson</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">info</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;{\&#34;error\&#34;:,\&#34;%s\&#34;}&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)))</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+
+	<span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">infoJson</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">router</span> <span class="o">:=</span> <span class="nx">httprouter</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+	<span class="nx">router</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">Index</span><span class="p">)</span>
+	<span class="nx">router</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/employee/:name&#34;</span><span class="p">,</span> <span class="nx">GetEmployeeByName</span><span class="p">)</span>
+
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">router</span><span class="p">))</span>
+<span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="websocket编程">WebSocket编程</h2>
@@ -1359,14 +1585,14 @@
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">wu</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">Upgrader</span><span class="p">{</span><span class="nx">ReadBufferSize</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
-    <span class="nx">WriteBufferSize</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span> <span class="nx">CheckOrigin</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}}</span>
+    <span class="nx">WriteBufferSize</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span> <span class="nx">CheckOrigin</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">myws</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">ws</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">wu</span><span class="p">.</span><span class="nf">Upgrade</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
     <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
         <span class="k">return</span>
     <span class="p">}</span>
-    <span class="nx">c</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">connection</span><span class="p">{</span><span class="nx">sc</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="nx">ws</span><span class="p">:</span> <span class="nx">ws</span><span class="p">,</span> <span class="nx">data</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">Data</span><span class="p">{}}</span>
+    <span class="nx">c</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">connection</span><span class="p">{</span><span class="nx">sc</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="nx">ws</span><span class="p">:</span> <span class="nx">ws</span><span class="p">,</span> <span class="nx">data</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">Data</span><span class="p">{}</span> <span class="p">}</span>
     <span class="nx">h</span><span class="p">.</span><span class="nx">r</span> <span class="o">&lt;-</span> <span class="nx">c</span>
     <span class="k">go</span> <span class="nx">c</span><span class="p">.</span><span class="nf">writer</span><span class="p">()</span>
     <span class="nx">c</span><span class="p">.</span><span class="nf">reader</span><span class="p">()</span>
@@ -1749,5 +1975,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

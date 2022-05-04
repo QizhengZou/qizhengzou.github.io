@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Mysql_base_08 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="Mysql_base_08" />
-<meta property="og:description" content="模式分解存在的问题 模式分解存在什么问题 模式分解需要关注： R与p在数据内容方面是否等价：分解的无损连接性； R与p在数据依赖方面是否等价：分解的" />
+<meta property="og:description" content="笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫 模式分解存在的问题 模式分解存在什么问题 模式分解需要关注： R与p在数据内容方面是否" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/mysql_base_08/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-09T11:28:20+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Mysql_base_08"/>
-<meta name="twitter:description" content="模式分解存在的问题 模式分解存在什么问题 模式分解需要关注： R与p在数据内容方面是否等价：分解的无损连接性； R与p在数据依赖方面是否等价：分解的"/>
+<meta name="twitter:description" content="笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫 模式分解存在的问题 模式分解存在什么问题 模式分解需要关注： R与p在数据内容方面是否"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/mysql_base_08\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "mysql","wordcount":  466 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "mysql","wordcount":  496 ,
         "url": "https:\/\/qizhengzou.github.io\/mysql_base_08\/","datePublished": "2021-11-09T11:28:20+08:00","dateModified": "2021-11-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/mysql_base_08/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/mysql_base_08/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Mysql_base_08</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09 11:28:20">2021-11-09 11:28:20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 466 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-09 11:28:20">2021-11-09 11:28:20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 496 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -112,16 +135,19 @@
     <li><a href="#总结">总结</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="模式分解存在的问题">模式分解存在的问题</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>笔记来自哈工大深圳2021秋数据库系统理论课授课老师：刘圣鑫</p>
+</blockquote>
+<h1 id="模式分解存在的问题">模式分解存在的问题</h1>
 <h2 id="模式分解存在什么问题">模式分解存在什么问题</h2>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113100944.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113100944.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113100944.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113100944.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113100944.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113100944.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113100944.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113100944.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113100944.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113100944.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113100944.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113100944.png" />
 模式分解需要关注：</p>
 <ul>
 <li>R与p在数据内容方面是否等价：分解的无损连接性；</li>
@@ -130,11 +156,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101137.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101137.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101137.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101137.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101137.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101137.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101137.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101137.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101137.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101137.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101137.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101137.png" /></p>
 <ul>
 <li>数据约束的等价性,分解后是否有约束丢失了?</li>
 <li>当模式不符合关系范式时，进行模式分解时，分解后的关系的连接与分解前关系的等价性? 分解前的约束，在分解后是否还存在?</li>
@@ -143,100 +169,100 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101525.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101525.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101525.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101525.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101525.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101525.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101525.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101525.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101525.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101525.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101525.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101525.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101600.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101600.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101600.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101600.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101600.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101600.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101600.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101600.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101600.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101600.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101600.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101600.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101714.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101714.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101714.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101714.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101714.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101714.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101714.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101714.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101714.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101714.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101714.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101714.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101742.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101742.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101742.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101742.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101742.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101742.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101742.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101742.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101742.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101742.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101742.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101742.png" /></p>
 <h2 id="保持依赖分解及其检验算法">保持依赖分解及其检验算法</h2>
 <p>保持依赖分解：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101841.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101841.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101841.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101841.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101841.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101841.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101841.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101841.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101841.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113101841.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101841.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113101841.png" />
 保持依赖性检验算法：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105344.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105344.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105344.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105344.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105344.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105344.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105344.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105344.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105344.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105344.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105344.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105344.png" /></p>
 <h2 id="关系模式无损连接或保持依赖的分解算法">关系模式无损连接或保持依赖的分解算法</h2>
 <p>无损连接分解成BCNF的算法：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105507.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105507.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105507.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105507.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105507.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105507.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105507.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105507.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105507.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105507.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105507.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105507.png" />
 保持依赖分解成3NF的算法：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105712.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105712.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105712.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105712.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105712.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105712.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105712.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105712.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105712.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113105712.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105712.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113105712.png" />
 无损连接分解成4NF：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110538.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110538.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110538.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110538.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110538.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110538.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110538.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110538.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110538.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110538.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110538.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110538.png" />
 连接依赖：<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110804.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110804.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110804.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110804.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110804.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110804.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110804.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110804.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110804.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110804.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110804.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110804.png" />
 5NF:
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110849.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110849.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110849.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110849.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110849.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110849.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110849.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110849.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110849.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113110849.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110849.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113110849.png" /></p>
 <h2 id="数据库设计需要知道的">数据库设计需要知道的</h2>
 <p>数据库设计理论要解决的根本问题：</p>
 <ul>
@@ -254,11 +280,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113111108.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113111108.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113111108.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113111108.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113111108.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113111108.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113111108.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113111108.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113111108.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211113111108.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113111108.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211113111108.png" /></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -295,5 +321,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

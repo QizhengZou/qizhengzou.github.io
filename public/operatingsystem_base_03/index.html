@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>OperatingSystem_base_03 - Jefo</title><meta name="Description" content="Jefo"><meta property="og:title" content="OperatingSystem_base_03" />
-<meta property="og:description" content="内存管理 内存管理基础 内存管理概念：程序装入与链接、逻辑地址与物理地址空间、内存保护。 存储器是计算机系统的重要组成部分，是计算机系统中的一种 宝" />
+<meta property="og:description" content="王道考研操作系统笔记 内存管理 内存管理基础 内存管理概念：程序装入与链接、逻辑地址与物理地址空间、内存保护。 存储器是计算机系统的重要组成部分，是" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qizhengzou.github.io/operatingsystem_base_03/" /><meta property="og:image" content="https://qizhengzou.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-10T13:14:39+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://qizhengzou.github.io/logo.png"/>
 
 <meta name="twitter:title" content="OperatingSystem_base_03"/>
-<meta name="twitter:description" content="内存管理 内存管理基础 内存管理概念：程序装入与链接、逻辑地址与物理地址空间、内存保护。 存储器是计算机系统的重要组成部分，是计算机系统中的一种 宝"/>
+<meta name="twitter:description" content="王道考研操作系统笔记 内存管理 内存管理基础 内存管理概念：程序装入与链接、逻辑地址与物理地址空间、内存保护。 存储器是计算机系统的重要组成部分，是"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/operatingsystem_base_03\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "operating_system","wordcount":  23649 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "operating system","wordcount":  23659 ,
         "url": "https:\/\/qizhengzou.github.io\/operatingsystem_base_03\/","datePublished": "2021-11-10T13:14:39+08:00","dateModified": "2021-11-30T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -55,9 +55,18 @@
             <a href="/" title="Jefo"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Jefo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/operatingsystem_base_03/" selected>简体中文</option></select>
-                    </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -73,11 +82,25 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="直接搜索更方便^-^" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/qizhengzou" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/operatingsystem_base_03/" selected>简体中文</option></select>
-                </a></div>
+            </a></div>
     </div>
 </header>
 <div class="search-dropdown desktop">
@@ -91,8 +114,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">OperatingSystem_base_03</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School Courses</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-10 13:14:39">2021-11-10 13:14:39</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 23649 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/school-courses/"><i class="far fa-folder fa-fw"></i>School courses</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-10 13:14:39">2021-11-10 13:14:39</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 23659 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 48 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -124,7 +147,10 @@
     <li><a href="#习题">习题</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="内存管理">内存管理</h1>
+            </div><div class="content" id="content"><blockquote>
+<p>王道考研操作系统笔记</p>
+</blockquote>
+<h1 id="内存管理">内存管理</h1>
 <h2 id="内存管理基础">内存管理基础</h2>
 <h3 id="内存管理概念程序装入与链接逻辑地址与物理地址空间内存保护">内存管理概念：程序装入与链接、逻辑地址与物理地址空间、内存保护。</h3>
 <p>存储器是计算机系统的重要组成部分，是计算机系统中的一种 宝贵而紧俏的资源。操作系统中的存储管理是指对内存(又称主存。默认情况下，本章的存储器指的是内存)的管理，
@@ -145,21 +171,21 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131256.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131256.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131256.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131256.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131256.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131256.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131256.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131256.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131256.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131256.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131256.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131256.png" /></li>
 <li>对程序设计者来说，数据的存放地址由数据名称决定，称为名地址或符号名地址，源程序的地址空间因此称为名空间或符号名空间。源程序经过编译之后得到目标代码，由于编译程序无法得知代码驻留在内存中的实际位置(即物理地址)，一般总 是从0号单元开始编址,并顺序分配所有地址单元，这些都不是真实的内存地址，因此称为相对地址或者虚拟地址。</li>
 <li>一个完整的程序可以由多个模块构成，这些模块都是从0号单元开始编址。当链接程序将多个模块链接为装入模块时，链接程序会按照各个模块的相对地址将其地址构成统一的从0号单元开始编址的相对地址。当装入程序将可执行代码装入内存时，程序的逻辑地址与程序在内存的实际地址(物理地址)通常不同，这就需要通过地址转换将逻辑地址转换为物理地址，这个过程叫作重定位。不同地址的变换过程如图3-2所示。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131526.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131526.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131526.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131526.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131526.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131526.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131526.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131526.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131526.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131526.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131526.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131526.png" /></li>
 <li>程序的链接有3种方式。
 <ul>
 <li>静态链接。在程序运行之前，先把各个目标模块及所需库链接为一个完整的可执行程序，以后不再拆开。</li>
@@ -176,19 +202,19 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131916.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131916.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131916.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131916.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131916.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131916.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131916.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131916.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131916.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123131916.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131916.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123131916.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132121.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132121.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132121.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132121.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132121.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132121.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132121.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132121.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132121.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132121.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132121.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132121.png" /></li>
 </ul>
 </li>
 </ul>
@@ -228,11 +254,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132909.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132909.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132909.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132909.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132909.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132909.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132909.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132909.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132909.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123132909.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132909.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123132909.png" /></li>
 </ul>
 </li>
 <li>交换技术
@@ -274,11 +300,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123232146.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123232146.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123232146.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123232146.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123232146.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123232146.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123232146.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123232146.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123232146.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211123232146.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123232146.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211123232146.png" />
 当某个用户程序要装入内存时，由内存分配程序检索分区说明表，从表中找出一个能满足要求的尚未分配的分区分配给该程序，然后修改分区说明表中相应分区表项的状态;若找不到大小足够的分区，则拒绝为该程序分配内存。当程序执行完毕不再需要内存资源时，释放程序占用的分区，管理程序只需将对应分区的状态设置为未分配即可。分区大小可以相等，也可以不相等。</li>
 <li>分区大小相等。缺乏灵活性，造成内存空间的浪费，当程序太大时，一个分区又不足以装入该程序，导致程序无法运行。</li>
 <li>分区大小不相等。可把内存区划分成含有多个较小的分区、适量的中等分区及少量的大分区。可根据程序的大小为之分配适合的分区。</li>
@@ -336,11 +362,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000016.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000016.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000016.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000016.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000016.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000016.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000016.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000016.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000016.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000016.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000016.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000016.png" /></li>
 <li>回收区上邻接一个空闲分区，如图3-9a所示。此时应将回收区与上邻接分区F1合并成一个连续的空闲分区。合并分区的首地址为空闲分区F1的首地址，其大小为二者之和。</li>
 <li>回收区下邻接一个空闲分区，如图3-9b 所示。此时应将回收区与下邻接分区F1合并成一个连续的空闲分区。合并分区的首地址为回收区的首地址，其大小为二者之和。</li>
 <li>回收区 上、下各邻接一个空闲分区，如图3-9c所示。此时应将回收区与F1、F2 合并为一个连续的空闲分区。合并分区的首地址为F1的首地址，其大小为三者之和，且应当把F2从空闲分区表(或空闲分区链)中删除。</li>
@@ -398,11 +424,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000639.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000639.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000639.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000639.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000639.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000639.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000639.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000639.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000639.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000639.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000639.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000639.png" /></li>
 <li>上述地址结构中，两部分构成的地址长度为32位。其中0~11位是页内位移地址，即每页的大小为2的12次方B=4KB，12~31 位是页号，即一个进程运行的最多页数为2的20次方=1M页。假设逻辑地址为A，页面大小为L，则页号P= (int) (A/L)。 页内位移W=A%L。其中，“(int)”是强制类型转换为整型，“/” 为取商操作，“%”是取余操作。</li>
 </ul>
 </li>
@@ -412,11 +438,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000813.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000813.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000813.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000813.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000813.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000813.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000813.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000813.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000813.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000813.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000813.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000813.png" /></li>
 </ul>
 </li>
 <li>基本地址变换机构
@@ -427,11 +453,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000947.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000947.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000947.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000947.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000947.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000947.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000947.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000947.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000947.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124000947.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000947.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124000947.png" /></li>
 <li>1)计算页号P=(int)(A/L);页内位移W=A%L。</li>
 <li>2)比较页号P和页表长度M，若P≥M,则产生越界中断，否则转到3)接着执行。</li>
 <li>3)页表起始地址F与页号P和页表项长度的乘积相加，用得到的地址值到内存中取出该内存单元存放的数b，这个b就是物理块号。</li>
@@ -446,11 +472,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001123.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001123.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001123.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001123.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001123.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001123.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001123.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001123.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001123.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001123.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001123.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001123.png" /></li>
 <li>增加快表后的地址变换过程如下。
 <ul>
 <li>根据逻辑地址得出页号P与页内位移W。</li>
@@ -468,11 +494,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001408.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001408.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001408.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001408.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001408.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001408.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001408.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001408.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001408.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001408.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001408.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001408.png" /></li>
 <li>多级页表。对于32位的机器(逻辑地址的位数是32位)，采用两级页表机构是合适的，但对于64位的系统，两级页表机构会使页表的大小变得不可接受,所以可以通过继续增加页表的级数来减小页表的大小，不过会使页表的数量大大增加。多级页表最主要的缺点是要多次访问内存，每次地址变换很浪费时间。</li>
 </ul>
 </li>
@@ -519,11 +545,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001939.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001939.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001939.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001939.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001939.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001939.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001939.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001939.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001939.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124001939.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001939.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124001939.png" /></li>
 <li>段号S通常是从0开始的连续正整数。当逻辑地址结构中段号和段内位移占用的位数确定之后，一个作业地址空间中允许的最大段数和各段的最大长度也就确定了,例如，在图3-15中，段号占用的位数为16位，段内位移占用的位数也是16位，因此一个作业最多可以有216 -65536段，最大段长为64KB。</li>
 <li>注:这里解释为什么分页存储管理系统的地址空间是一维，而分段存储管理系统是二维的。</li>
 <li>大家可能会比较疑惑，认为分页的地址结构也分为页号与页内位移，与分段类似，也应当是二维的。这里要注意段号与页号的来历是不同的，段号是程序员自己定义的，每个段都是有特定含义的，因此不同的段大小不同，代表的意义也不相同，因此要想找到某个数据或指令，需要指定段号和位移两个变量。而页号是系统自动生成的，本身地址是线性连续的，当要访问特定地址时，只需要提供地址即可。系统会自动将地址划分为页号和页内位移(地址整除页的大小，商为页号，余数为页内位移)，而页号对于程序员来说是没有实际意义的，因此是一维的。</li>
@@ -535,29 +561,29 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002127.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002127.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002127.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002127.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002127.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002127.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002127.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002127.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002127.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002127.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002127.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002127.png" /></li>
 <li>在配置了段表后，执行中的进程可通过查找段表，找到每个段所对应的内存区域，实现从逻辑段到物理内存区的映射，如图3-17所示。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002211.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002211.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002211.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002211.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002211.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002211.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002211.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002211.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002211.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002211.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002211.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002211.png" /></li>
 <li>为了实现从逻辑地址到物理地址的转换，在系统中设置了段表寄存器，用于存放段表起始地址(简称始址)和段表长度。在进行地址变换时，系统将逻辑地址中的段号与段表长度进行比较，若段号超过了段表长度，则表示段号越界，产生越界中断;否则根据段表起始地址和段号计算出该段对应段表项的位置，从中读出该段在内存中的起始地址，然后检查段内位移是否超过该段段长，若超过，则同样产生越界中断;否则将该段的起始地址与段内位移相加，从而得到要访问的物理地址。为了提高内存的访问速度，也可以使用快表。地址变换过程都是由硬件自动完成的。图3-18给出了分段存储管理系统的地址变换机构。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002259.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002259.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002259.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002259.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002259.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002259.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002259.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002259.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002259.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002259.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002259.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002259.png" /></li>
 <li>从逻辑地址A得到物理地址E再去访问内存的步骤如下。</li>
 <li>1)从逻辑地址A中取出前几位作为段号S,后几位作为段内位移W。</li>
 <li>2)比较段号S和段表长度M，若S≥M,则产生越界中断，否则转到3)接着执行。</li>
@@ -598,11 +624,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002648.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002648.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002648.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002648.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002648.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002648.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002648.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002648.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002648.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002648.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002648.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002648.png" /></li>
 <li>页是信息的物理单位， 分页是为了实现离散分配方式，以减少内存的碎片，提高内存的利用率。或者说，分页仅仅是出于系统管理的需要，而不是用户的需要。段是信息的逻辑单位，它含有一组意义相对完整的信息。分段的目的是更好地满足用户的需要。</li>
 <li>页的大小固定且由系统决定，把逻辑地址划分为页号和页内位移两部分，是由机器硬件实现的。段的长度不固定，是由用户所编写的程序决定的，通常由编译系统在对源程序进行编译时根据信息的性质来划分。</li>
 <li>分页系统中作业的地址空间是一维的， 即单一的线性地址空间， 程序员只需利用一个值来表示一个地址。分段系统中作业的地址空间是二维的，程序员在标识一个地方时，既要给出段名，又要给出段内位移。</li>
@@ -619,11 +645,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002948.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002948.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002948.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002948.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002948.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002948.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002948.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002948.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002948.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124002948.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002948.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124002948.png" /></li>
 <li>为了实现地址变换，段页式存储管理系统中需要同时设立段表和页表。系统为每个进程建立一张段表，而每个分段有一张页表。段表的表项中至少应包括段号、页表始址和页表长度，其中页表始址指出该段的页表在主存中的起始位置;页表的表项中至少应包括页号和块号。此外，为了便于实现地址变换，系统中还需要配置一个段表寄存器，用来存放段表的起始地址和段表长度。</li>
 <li>如图3-20所示，下面列举从逻辑地址A得到物理地址E再去访问内存的步骤。</li>
 <li>1)从逻辑地址A中取出前几位为段号S，中间几位为页号P,后几位为页内位移W。</li>
@@ -634,11 +660,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124003100.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124003100.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124003100.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124003100.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124003100.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124003100.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124003100.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124003100.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124003100.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124003100.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124003100.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124003100.png" /></li>
 <li>6)用得到的物理地址E去访问内存。</li>
 <li>由上述步骤可知，段页式存储管理系统的地址变换需要访问内存3次，所以同样可以用高速缓冲寄存器(快表)来减少对内存的访问次数。</li>
 <li>注:段页式的确结合了段式和页式的优点，而且克服了段式的外部碎片问题，但是段页式的内部碎片并没有做到和页式一样少。页式存储管理方式下平均一个程序有半页碎片,而段页式存储管理方式下平均一段就有半页碎片，而一个程序往往有很多段，所以平均下来段页式的内部碎片比页式要多。</li>
@@ -702,11 +728,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114256.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114256.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114256.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114256.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114256.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114256.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114256.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114256.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114256.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114256.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114256.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114256.png" /></li>
 <li>页表中各字段的作用如下。
 <ul>
 <li>页号和物理块号。 这两个字段在分页存储管理中已经定义过，是进行地址变换所必需的。</li>
@@ -725,11 +751,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114546.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114546.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114546.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114546.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114546.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114546.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114546.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114546.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114546.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211124114546.png" /></li>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114546.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211124114546.png" /></li>
 <li>缺页中断是一个比较特殊的中断，它与一般中断相比有着明显的区别，主要表现在以下方面。
 <ul>
 <li>在指令 的执行期间产生和处理缺页中断。通常，CPU是在指令执行完毕后检查是否有中断请求到达，若有，便响应。而缺页中断是在一条指令的执行期间发现要访问的指令和数据不在内存时产生和处理的。</li>
@@ -876,177 +902,177 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211625.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211625.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211625.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211625.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211625.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211625.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211625.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211625.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211625.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211625.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211625.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211625.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211654.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211654.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211654.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211654.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211654.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211654.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211654.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211654.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211654.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214211654.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211654.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214211654.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212106.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212106.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212106.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212106.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212106.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212106.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212106.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212106.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212106.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212106.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212106.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212106.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212838.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212838.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212838.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212838.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212838.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212838.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212838.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212838.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212838.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212838.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212838.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212838.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212904.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212904.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212904.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212904.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212904.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212904.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212904.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212904.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212904.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214212904.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212904.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214212904.png" />
 “大哥，注意单位！”</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213153.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213153.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213153.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213153.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213153.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213153.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213153.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213153.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213153.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213153.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213153.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213153.png" /></p>
 <ul>
 <li></li>
 </ul>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213750.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213750.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213750.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213750.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213750.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213750.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213750.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213750.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213750.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213750.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213750.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213750.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213844.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213844.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213844.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213844.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213844.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213844.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213844.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213844.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213844.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214213844.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213844.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214213844.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214143.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214143.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214143.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214143.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214143.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214143.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214143.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214143.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214143.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214143.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214143.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214143.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214201.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214201.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214201.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214201.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214201.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214201.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214201.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214201.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214201.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214201.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214201.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214201.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214313.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214313.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214313.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214313.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214313.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214313.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214313.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214313.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214313.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214313.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214313.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214313.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214736.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214736.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214736.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214736.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214736.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214736.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214736.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214736.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214736.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214736.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214736.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214736.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214752.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214752.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214752.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214752.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214752.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214752.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214752.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214752.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214752.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214752.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214752.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214752.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214816.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214816.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214816.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214816.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214816.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214816.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214816.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214816.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214816.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214214816.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214816.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214214816.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215017.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215017.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215017.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215017.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215017.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215017.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215017.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215017.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215017.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215017.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215017.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215017.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215222.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215222.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215222.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215222.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215222.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215222.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215222.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215222.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215222.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215222.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215222.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215222.png" /></p>
 <p>静态重定位是在程序运行之前由装入程序完成的(即装入内存时进行的)。而页式存储管理方案在运行过程中可能改变程序位置，静态重定位不能满足其要求。</p>
 <p>只有FIFO算法会导致Belady异常。</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215836.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215836.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215836.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215836.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215836.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215836.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215836.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215836.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215836.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215836.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215836.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215836.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215858.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215858.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215858.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215858.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215858.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215858.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215858.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215858.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215858.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214215858.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215858.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214215858.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220128.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220128.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220128.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220128.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220128.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220128.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220128.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220128.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220128.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220128.png" />
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220128.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220128.png" />
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220145.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220145.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220145.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220145.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220145.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220145.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220145.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220145.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220145.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220145.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220145.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220145.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220505.png"
-        data-srcset="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220505.png, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220505.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220505.png 2x"
+        data-src="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220505.png"
+        data-srcset="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220505.png, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220505.png 1.5x, https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220505.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220505.png"
-        title="https://raw.githubusercontent.com/QizhengZou/Drawing_bed/main/20211214220505.png" /></p>
+        alt="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220505.png"
+        title="https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211214220505.png" /></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -1058,13 +1084,13 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-title="OperatingSystem_base_03" data-hashtags="operating_system"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-hashtag="operating_system"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/operatingsystem_base_03/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-title="OperatingSystem_base_03"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-title="OperatingSystem_base_03"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-title="OperatingSystem_base_03"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-title="OperatingSystem_base_03" data-hashtags="operating system"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-hashtag="operating system"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://qizhengzou.github.io/operatingsystem_base_03/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-title="OperatingSystem_base_03"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-title="OperatingSystem_base_03"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://qizhengzou.github.io/operatingsystem_base_03/" data-title="OperatingSystem_base_03"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/operating_system/">operating_system</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/operating-system/">operating system</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
@@ -1083,5 +1109,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
