@@ -17,14 +17,62 @@ The goal of computer vision:
 
 ### Linear algebra primer
 #### Vectors and matrices
-Basic Matrix Operations
-Special Matrices
+Basic Matrix Operations：
+- Vectors have two main uses：
+    - Vectors can represent an offset in 2D or 3D space
+    - Data (pixels, gradients at an image keypoint, etc) can also be treated as a vector.Such vectors don’t have a geometric interpretation, but calculations like “distance” can still have value
+
+Color Images:
+- Grayscale images have one number per pixel, and are stored as an m × n matrix.
+- Color images have 3 numbers per pixel – red, green, and blue brightness
+- Stored as an m × n × 3 matrix
+
+Basic Matrix Operations:
+- Addition
+- Scaling(缩放)
+- Dot product(点积)
+- Multiplication
+- Transpose
+- Inverse / pseudoinverse
+
+- Determinant 
+- trace
+    - sum of diagonal elements
+
+
+
+Special Matrices:
+- Identity matrix
+    - Square matrix, 1’s along diagonal, 0’s elsewhere
+- Diagonal matrix
+- Symmetric matrix:$A^T=A$
+- Skew-symmetric matrix:$A^T=-A$
+
 #### Transformation Matrices
-Homogeneous coordinates
-Translation
+Homogeneous coordinates:
+
+Matrices can be used to transform vectors in useful ways, through multiplication: $x’= Ax$
+
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220509092134.png)
+
+$$
+\left[\begin{array}{l}
+x^{\prime} \\
+y^{\prime}
+\end{array}\right]=\left[\begin{array}{cc}
+\cos \theta & -\sin \theta \\
+\sin \theta & \cos \theta
+\end{array}\right]\left[\begin{array}{l}
+x \\
+y
+\end{array}\right]
+$$
+
+
 #### Matrix inverse
-#### Matrix rank
-#### Singular Value Decomposition (SVD)
+skip ……
+#### Matrix rank（秩）
+#### Singular Value Decomposition (SVD奇异值分解)
 Use for image compression
 Use for Principal Component Analysis (PCA)
 Computer algorithm

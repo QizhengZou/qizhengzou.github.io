@@ -61,6 +61,10 @@ func preorderTraversal(root *TreeNode) (res []int) {
     traversal(root)
     return res
 }
+
+func pre(r *TreeNode)(res []int){
+    
+}
 ```
 中序遍历：
 ```go
