@@ -27,6 +27,23 @@ func search(nums []int, target int) int {
     }
     return -1
 }
+
+
+func search(nums []int,t int)int{
+    left:=0
+    right:=len(nums)-1
+    for left<=right{
+        m=left+(right-left)/2
+        if nums[m]>t{
+            right=m-1
+        }else if nums[m]<t{
+            left=m+1
+        }else{
+            return m
+        }
+    }
+    return -1
+}
 ```
 ## 移除元素
 双指针法（快慢指针法）： 通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。
@@ -42,10 +59,9 @@ func removeElement(nums []int, val int) int {
     }
     return res
 }
-```
-```go
+
 func removeElement(nums []int, val int) int {
-    //自己第一次写的解
+   
     num := 0
 
     for i, v := range nums {
@@ -80,6 +96,7 @@ func sortedSquares(nums []int) []int {
 }
 ```
 ## 长度最小的子数组
+给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的 连续 子数组，并返回其长度。如果不存在符合条件的子数组，返回 0。
 **滑动窗口**
 ```go
 func minSubArrayLen(target int, nums []int) int {

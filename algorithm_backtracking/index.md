@@ -36,14 +36,14 @@ void backtracking(参数) {
     }
 }
 ```
-## 组合问题及其优化
+## *组合问题及其优化
 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
 
 **回溯法三部曲**：函数参数、终止条件和单层搜索
 
 剪枝优化：
 - 可以剪枝的地方就在递归中每一层的for循环所选择的起始位置。
-- 如果for循环选择的起始位置之后的元素个数 已经不足 我们需要的元素个数了，那么就没有必要搜索了。
+- 如果for循环选择的起始位置之后的元素个数已经不足我们需要的元素个数了，那么就没有必要搜索了。
 
 ```go
 var res [][]int 
@@ -71,7 +71,7 @@ func backtrack(n,k,start int,track []int){
     }
 }
 ```
-剪枝：
+剪枝：**go语言的剪枝优化会爆内存溢出，不知道是为啥……**
 ```go
 var res [][]int 
 func combine(n int, k int) [][]int {
@@ -91,7 +91,7 @@ func backtrack(n,k,start int,track []int){
     if len(track)+n-start+1 < k {
 			return
 		}
-    for i:=start;i<=n;i++{ 
+    for i:=start;i<=(n-k+len(track)+1);i++{ 
         track=append(track,i)
         backtrack(n,k,i+1,track)
         track=track[:len(track)-1]
