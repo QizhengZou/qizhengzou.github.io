@@ -2,6 +2,8 @@
 
 > Hsiang-Fu Yu, Nikhil Rao, Inderjit S. Dhillon, 2016. Temporal regularized matrix factorization for high-dimensional time series prediction.   
 
+> 笔记中部分公式未渲染出来，文末截图可见
+
 # Temporal Regularized Matrix Factorization(TRMF) for High-dimensional Time Series Prediction
 ## 摘要
 现代应用程序需要具有高度可扩展性的方法，并且可以处理有噪声的或有缺失值的数据。
@@ -59,7 +61,7 @@ MF方法可以对缺失数据进行修复，但是对于预测问题则无能为
 ## 2. 具有时间依赖性的数据的现有矩阵分解方法
 标准MF公式对列的排列保持不变（列不管怎么变，权重矩阵保持不变），这不适用于具有时间依赖性的数据。
 
-因此，对于时间依赖性{xt}，大多数现有的时间MF方法都转向基于图的正则化框架，并用图编码时间依赖性。
+因此，对于时间依赖性{$x_t$}，大多数现有的时间MF方法都转向基于图的正则化框架，并用图编码时间依赖性。
 
 ### 时间依赖性的图正则化
 
@@ -67,7 +69,7 @@ MF方法可以对缺失数据进行修复，但是对于预测问题则无能为
 
 图2：时态依赖的基于图的正则化。
 
-令G是一个时间依赖性{xt}的图，Gts是第t个点和第s个点之间的边权重。一种常见的正则化方式如下公式：
+令G是一个时间依赖性{$x_t$}的图，$G_{ts}$是第t个点和第s个点之间的边权重。一种常见的正则化方式如下公式：
 $$
 \mathcal{R}_{x}(X)=\mathcal{G}(X \mid G, \eta):=\frac{1}{2} \sum_{t \sim s} G_{t s}\left\|\boldsymbol{x}_{t}-\boldsymbol{x}_{s}\right\|^{2}+\frac{\eta}{2} \sum_{t}\left\|\boldsymbol{x}_{t}\right\|^{2}(2)
 $$
@@ -213,3 +215,5 @@ TRMF中L的选择更加灵活。因此，TRMF可以提供重要的优势:
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220513165317.png)
 表3：缺失值插补结果：每种方法的ND/NRMSE。请注意，TRMF
 在几乎所有情况下都优于所有竞争方法
+
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220515165114.png)

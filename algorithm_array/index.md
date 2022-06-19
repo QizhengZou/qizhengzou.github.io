@@ -1,6 +1,9 @@
 # Algorithm_array
 
 > 学习[代码随想录](https://programmercarl.com/)笔记
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 # 数组
 ## 数组基础
 数组是存放在连续内存空间上的相同类型数据的集合。 
@@ -30,20 +33,36 @@ func search(nums []int, target int) int {
 
 
 func search(nums []int,t int)int{
-    left:=0
-    right:=len(nums)-1
+    left,middle:=0
+    right:=len(nums)
     for left<=right{
-        m=left+(right-left)/2
-        if nums[m]>t{
-            right=m-1
-        }else if nums[m]<t{
-            left=m+1
+        num=(left+right)/2
+        if nums[num]==t{
+            return num
+        }
+        if nums[num]>t{
+            right=num-1
         }else{
-            return m
+            left=num+1
         }
     }
-    return -1
 }
+
+func search(nums []int,t int)int{
+    if middle:=len(nums)/2;nums[middle]==t{
+        return middle
+    }
+    if len(nums)==1{
+        return -1
+    }
+    if nums[middle]>t{
+        return search(nums[:middle],t)
+    }else{
+        return search(nums[middle+1:])
+    }
+    
+}
+func recureionSearch(nums []int,t int)
 ```
 ## 移除元素
 双指针法（快慢指针法）： 通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。
