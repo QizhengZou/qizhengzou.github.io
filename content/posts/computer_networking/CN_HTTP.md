@@ -9,7 +9,7 @@ draft: false
 ---
 > 部分来自极客时间学习笔记
 # HTTP
-## 前言
+## 基础
 **因特网、互联网、万维网**：
 - 互联网 > 因特网 > 万维网
 - 凡是能彼此通信的设备组成的网络就叫互联网
@@ -28,7 +28,6 @@ HTTP 不就是请求 / 响应、GET/POST、Header/Body 吗？好像是哎，但�
 
 学习网络协议最重要的就是实践，咱们会用 Nginx 搭建一个“麻雀虽小，五脏俱全”的实验环境（**自身就是一个完整的网络环境，即使不联网也能够在里面收发 HTTP 消息。**）
 
-## 破冰
 ### 历史
 20 世纪 60 年代，美国国防部高等研究计划署（ARPA）建立了 ARPA 网，它有四个分布在各地的节点，被认为是如今互联网的“始祖”。
 
@@ -327,7 +326,6 @@ resolver 8.8.8.8 valid=30s;  #指定Google的DNS，缓存30秒
 
 
 
-## 基础
 ### 在浏览器上访问网址
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220401112727.png)
 - 解析域名
@@ -859,7 +857,7 @@ HTTP 的服务器缓存功能主要由代理服务器来实现（即缓存代理
     - “min-fresh”的意思是缓存必须有效，而且必须在 x 秒后依然有效。
 - 有的时候客户端还会发出一个特别的“only-if-cached”属性，表示只接受代理缓存的数据，不接受源服务器的响应。如果代理上没有缓存或者缓存过期，就应该给客户端返回一个 504（Gateway Timeout）
 
-## 安全
+## HTTPs
 ### HTTPS? SSL/TLS?
 HTTP的“明文”以及“不安全”需要HTTPS来解决。
 
@@ -970,23 +968,25 @@ TLS协议的组成：
 - 服务器收到“Client Hello”后，会返回一个“Server Hello”消息。把版本号对一下，也给出一个随机数（Server Random），然后从客户端的列表里选一个作为本次通信使用的密码套件。比如：“TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384”。
 - 然后，服务器为了证明自己的身份，就把证书也发给了客户端（Server Certificate）
 - 接下来，**因为服务器选择了 ECDHE 算法，所以它会在证书后发送“Server Key Exchange”消息，里面是椭圆曲线的公钥（Server Params），用来实现密钥交换算法，再加上自己的私钥签名认证。**
-
-### TLS1.3特性解析
-### HTTPS的优化
-### 该不该迁移到HTTPS
-## 飞翔
-### HTTP/2特性概览
-### HTTP/2内核剖析
-### HTTP/3展望
-### 该不该迁移到HTTP/2
-## 探索
-### Nginx：高性能web服务器
-### OpenResty：更灵活的web服务器
-### WAF：保护我们的网络服务
-### CDN：加速我们的网络服务
-### WebSocket：沙盒里的TCP
-## 总结
-### HTTP性能优化
+[^^]:
+    commentted-out contents
+    should be shift to right by four spaces (`>>`).
+    ### TLS1.3特性解析
+    ### HTTPS的优化
+    ### 该不该迁移到HTTPS
+    ## HTTP/2
+    ### HTTP/2特性概览
+    ### HTTP/2内核剖析
+    ### HTTP/3展望
+    ### 该不该迁移到HTTP/2
+    ## web服务器
+    ### Nginx：高性能web服务器
+    ### OpenResty：更灵活的web服务器
+    ### WAF：保护我们的网络服务
+    ### CDN：加速我们的网络服务
+    ### WebSocket：沙盒里的TCP
+    ## 总结
+    ### HTTP性能优化
 
 ## 附录
 [HTTP错误状态码](https://zhuanlan.zhihu.com/p/86603617)：

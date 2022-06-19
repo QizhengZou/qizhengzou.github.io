@@ -9,6 +9,8 @@ draft: false
 ---
 > Hsiang-Fu Yu, Nikhil Rao, Inderjit S. Dhillon, 2016. Temporal regularized matrix factorization for high-dimensional time series prediction.   
 
+> 笔记中部分公式未渲染出来，文末截图可见
+
 # Temporal Regularized Matrix Factorization(TRMF) for High-dimensional Time Series Prediction
 ## 摘要
 现代应用程序需要具有高度可扩展性的方法，并且可以处理有噪声的或有缺失值的数据。
@@ -220,3 +222,5 @@ TRMF中L的选择更加灵活。因此，TRMF可以提供重要的优势:
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220513165317.png)
 表3：缺失值插补结果：每种方法的ND/NRMSE。请注意，TRMF
 在几乎所有情况下都优于所有竞争方法
+
+![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220515165114.png)

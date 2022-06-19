@@ -9,6 +9,34 @@ draft: false
 ---
 >2022春JOANNA老师的软件体系结构
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [topics](#topics)
+- [1.Introduction to Software Architecture](#1introduction-to-software-architecture)
+  - [Why is Software Architecture Important?](#why-is-software-architecture-important)
+  - [The Many Contexts of Software Architecture](#the-many-contexts-of-software-architecture)
+- [2.Architecture modelling and representation: Architectural structures and views](#2architecture-modelling-and-representation-architectural-structures-and-views)
+- [3.Quality attributes	:Understanding quality attributes and availability](#3quality-attributesunderstanding-quality-attributes-and-availability)
+  - [Availability](#availability)
+- [Quality attributes: interoperability and modifiability](#quality-attributes-interoperability-and-modifiability)
+  - [Interoperability](#interoperability)
+  - [Quality attributes: Modifiability](#quality-attributes-modifiability)
+- [Quality attributes: Performance, Security](#quality-attributes-performance-security)
+  - [Quality attributes: Security](#quality-attributes-security)
+- [Patterns and Tactics](#patterns-and-tactics)
+- [Quality Attribute Modelling and Analysis](#quality-attribute-modelling-and-analysis)
+- [Designing for architecturally significant requirements](#designing-for-architecturally-significant-requirements)
+- [Designing and evaluating an architecture](#designing-and-evaluating-an-architecture)
+- [Exercise 1 Capturing ASR in practice .](#exercise-1-capturing-asr-in-practice)
+- [exercise2](#exercise2)
+- [exercise3](#exercise3)
+
+<!-- /code_chunk_output -->
+
+
+
 10%+30%+60%
 
 ## topics
@@ -478,7 +506,7 @@ Some Useful Allocation Structures
     - It is of particular interest in distributed and parallel systems.
 - Implementation structure 
     - This structure shows how software elements (usually modules) are mapped to the file structure(s) in the system’s development, integration, or configuration control environments. 
-![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507105444.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507105444.png)
 - Work assignment structure
     - This structure assigns responsibility for implementing and integrating the modules to the teams who will carry it out. 
 
@@ -866,6 +894,7 @@ Data Model
     -	metadata needed for consistent interpretation of the data
     -	organization of the data, i.e., to decide whether the data is going to be kept in a relational data base, a collection of objects or both 
     
+
 Management of Resources
 -	Decisions for management of resources include:
     -	identifying the resources that must be managed and determining the limits for each
@@ -1389,6 +1418,7 @@ When is the change made and who makes it?
     -	an end user
     -	a system administrator
     
+
 What is the cost of the change?
 -	Involving two types of cost
     -	The cost of introducing the mechanisms to make the system more modifiable
@@ -1426,11 +1456,12 @@ Sample Concrete Modifiability Scenario
     -	Response measure – No side effects in three hours
     -	Source - Developer
     
+
 Goal of Modifiability Tactics
 -	Goal of modifiability
     -	controlling the complexity of making changes, 
     -	controlling the time and cost to make changes.
-![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507170315.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507170315.png)
 
 Modifiability Tactics
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507170332.png)
@@ -1524,7 +1555,7 @@ Event Filtering- Subscription Model Topic based VS Content based
     -	More flexibility and power to subscribers, by allowing more expression in arbitrary/customized query over the contents of the event.
     -	Event publication by a key/value attribute pair, and subscriptions specify filters using a explicit subscription language. 
     -	E.g. Notify me of all stock quotes of IBM from New York stock exchange if the price is greater than 150
-  
+
 Content-based Subscription 
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507170920.png)
 -	Added complexity in matching an event to subscriptions. 
@@ -2503,7 +2534,7 @@ Performance Models
 Allocation Model for MVC
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507200127.png)
 
- 
+
 Queuing Model for MVC
 -	Arrivals
 -	View sends requests to Controller
@@ -2998,7 +3029,7 @@ Step 1 example
 - In iteration #3, which element should we choose to design?
     - Refine one of the remaining SOA elements?
     - Refine one of the SOA infrastructure components?
-![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507205535.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507205535.png)
 
 Which Element Comes Next?
 -	Two basic refinement strategies:
@@ -3513,7 +3544,7 @@ Performance Tactics
 -	Can we control resource demand with an ATM?
     -	From technical point of view, yes - controlling resource demand would mean the bank would can ask customers to use ATM less often
     -	But from business point of view, NO-  asking customers to limit their use of ATM is bad for business
-![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507213144.png)
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507213144.png)
 
 Performance Tactics
 -	In that case, let us consider the second group of tactics – Manage resources
@@ -3525,8 +3556,8 @@ What we can do
     -	Deploy additional database servers and business rule servers
 -	Arbitrate between multiple resources to ensure that the processing load is distributed among the system’s resources according to a chosen scheduling policy
     -	Introduce a “load balancer” component 
-Elaborated version of our architecture
-![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507213239.png)
+    Elaborated version of our architecture
+    ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507213239.png)
 
 
 Activity: Discuss the candidate architecture 
@@ -3761,7 +3792,7 @@ Activity
         -	The ATM prompts the customer for a "password" which the user enters at the ATM.
         -	The customer then selects an action to be performed; the selected action is then performed by the branch (perhaps causing dispersal of cash at the ATM).
         -	Additionally, the bank would like to be able to use the system to maintain statistics about customers’ behaviour in order to adapt its services to their needs, and also to send them some advertisements when they are using the system.
-![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507214532.png)
+        ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507214532.png)
 
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220507214550.png)
 
@@ -3787,22 +3818,3 @@ Homework 3
 -	Submission: 
     -	Deadline:  May 8th 
     -	Place: submit to Blackboard
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -5,7 +5,7 @@ lastmod: 2021-12-01
 tags: [operating system]
 categories: [Advanced learning]
 slug: why OS?
-draft: false
+draft: true
 ---
 
 

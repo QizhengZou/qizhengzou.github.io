@@ -5,7 +5,7 @@ lastmod: 2021-12-01
 tags: [mysql]
 categories: [Advanced learning]
 slug: An update sentence
-draft: false
+draft: true
 ---
 # MySQL实践
 ## 用普通索引还是唯一索引
