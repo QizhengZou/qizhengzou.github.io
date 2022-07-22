@@ -5,7 +5,7 @@ lastmod: 2022-07-07
 tags: [iam]
 categories: [iam]
 slug: iam_standard_design
-draft: false
+draft: true
 ---
 ## 4 | 规范设计（上）：项目开发杂乱无章，如何规范？（开源规范、文档规范和版本规范）
 规范问题：

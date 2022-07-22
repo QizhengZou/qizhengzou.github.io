@@ -5,7 +5,7 @@ lastmod: 2022-07-07
 tags: [iam]
 categories: [iam]
 slug: iam_service_develop
-draft: false
+draft: true
 ---
 # 服务开发
 
@@ -3767,7 +3767,7 @@ db.Create 函数会返回如下 3 个值：user.ID：返回插入数据的主键
 
 
 ```go
-var users = []User{{Name: "jinzhu1"}, {Name: "jinzhu2"}, {Name: "jinzhu3"}}
+var users = []User{ {Name: "jinzhu1"}, {Name: "jinzhu2"}, {Name: "jinzhu3"} }
 DB.Create(&users)
 
 for _, user := range users {

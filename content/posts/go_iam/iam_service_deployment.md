@@ -5,7 +5,7 @@ lastmod: 2022-07-07
 tags: [iam]
 categories: [iam]
 slug: iam_service_deployment
-draft: false
+draft: true
 ---
 # 服务部署
 ## 40 | 软件部署实战（上）：部署方案及负载均衡、高可用组件介绍
