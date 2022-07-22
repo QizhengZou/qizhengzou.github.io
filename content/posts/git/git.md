@@ -11,3 +11,8 @@ draft: true
 
 git fetch 相当于是从远程获取最新到本地，不会自动merge
 git pull：相当于是从远程获取最新版本并merge到本地
+
+
+清空暂存区：rm .git/index
+
+更改远程origin仓库git remote set-url origin git://new.url.here

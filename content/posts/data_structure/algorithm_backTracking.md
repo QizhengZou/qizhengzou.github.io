@@ -144,7 +144,7 @@ func backTree(n,k,startIndex int,track *[]int,result *[][]int){
 ## 电话号码的字母组合
 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
 
-给出数字到字母的映射如电话按键。注意 1 不对应任何字母。
+给出数字到字母的映射如电话按键。**注意** 1 不对应任何字母。
 
 
 主要在于递归中传递下一个数字
@@ -308,7 +308,7 @@ func backtracking(startIndex,sum,target int,candidates,trcak []int,res *[][]int)
 示例: 输入: "aab" 输出: [ ["aa","b"], ["a","a","b"] ]
 ```
 
-注意切片（go切片是披着值类型外衣的引用类型）
+**注意**切片（go切片是披着值类型外衣的引用类型）
 ```go
 func partition(s string) [][]string {
     var tmpString []string//切割字符串集合
@@ -368,7 +368,7 @@ func isPartition(s string,startIndex,end int)bool{
 输出：["0.0.0.0"]
 ```
 
-回溯（对于前导 0的IP（特别注意s[startIndex]=='0'的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字））
+回溯（对于前导 0的IP（特别**注意**s[startIndex]=='0'的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字））
 ```go
 func restoreIpAddresses(s string) []string {
 	var res,path []string
@@ -396,7 +396,7 @@ func backTracking(s string,path []string,startIndex int,res *[]string){
 }
 func isNormalIp(s string,startIndex,end int)bool{
 	checkInt,_:=strconv.Atoi(s[startIndex:end+1])
-	if end-startIndex+1>1&&s[startIndex]=='0'{//对于前导 0的IP（特别注意s[startIndex]=='0'的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字）
+	if end-startIndex+1>1&&s[startIndex]=='0'{//对于前导 0的IP（特别**注意**s[startIndex]=='0'的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字）
 		return false
 	}
 	if checkInt>255{

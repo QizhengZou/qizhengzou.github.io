@@ -377,7 +377,7 @@ SSL一般以两种形式出现：
 
 HTTPS的思想：
 - 客户端向服务器发送一个连接请求，然后双方协商一个SSL会话，并启动SSL连接，接着就可以在SSL的应用通道上传送HTTPS数据。
-- 注意：HTTPS使用与传统HTTP不同的端口，IANA（Internet Assigned Numbers Authority）将HTTPS端口定为443，以此来区分非安全HTTP的80端口，同时采用“https”来标识协议类型。
+- **注意**：HTTPS使用与传统HTTP不同的端口，IANA（Internet Assigned Numbers Authority）将HTTPS端口定为443，以此来区分非安全HTTP的80端口，同时采用“https”来标识协议类型。
 
 HTTPS的主要作用：
 - 建立一个信息安全通道，用来保证数据传输的安全；

@@ -149,3 +149,46 @@ draft: true
     - 两阶段提交
     -  一天一备份和一周一备份的区别
     
+
+```sql
+DROP TABLE IF EXISTS `policy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `policy` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `instanceID` varchar(32) DEFAULT NULL,
+  `name` varchar(45) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `policyShadow` longtext DEFAULT NULL,
+  `extendShadow` longtext DEFAULT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `instanceID_UNIQUE` (`instanceID`),
+  KEY `fk_policy_user_idx` (`username`),
+  CONSTRAINT `fk_policy_user` FOREIGN KEY (`username`) REFERENCES `user` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+```
+对于外键，
+完整语法：
+[CONSTRAINT symbol] FOREIGN KEY [id] (index_col_name, …)
+REFERENCES tbl_name (index_col_name, …)
+[ON DELETE {RESTRICT | CASCADE | SET NULL | NO ACTION}]
+[ON UPDATE {RESTRICT | CASCADE | SET NULL | NO ACTION}]
+参数说明：
+CASCADE
+在父表上update/delete记录时，同步update/delete掉子表的匹配记录 
+
+SET NULL
+在父表上update/delete记录时，将子表上匹配记录的列设为null (要**注意**子表的外键列不能为not null)  
+
+NO ACTION
+如果子表中有匹配的记录,则不允许对父表对应候选键进行update/delete操作  
+
+RESTRICT
+同no action, 都是立即检查外键约束
+
+SET NULL
+父表有变更时,子表将外键列设置成一个默认的值 但Innodb不能识别
+>参考链接：https://www.cnblogs.com/yzuzhang/p/5174720.html

@@ -81,7 +81,7 @@ draft: true
     - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20211219090926.png)
     - 会出现传播错误    
     - 能隐蔽明文的数据模式
-    - 要注意IV的使用，不能IV+1和chained IV， 他们都不能解决CPA攻击
+    - 要**注意**IV的使用，不能IV+1和chained IV， 他们都不能解决CPA攻击
 - 密码反馈CFB
     - 可以进一步将DES转化为流密码
     - 加密：输入是移位寄存器，加密的也是移位寄存器，最后与明文异或

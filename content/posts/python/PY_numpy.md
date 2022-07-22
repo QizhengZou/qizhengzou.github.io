@@ -204,7 +204,7 @@ numpy.frombuffer(buffer, dtype = float, count = -1, offset = 0)
     # dtype	返回数组的数据类型，可选
     # count	读取的数据数量，默认为-1，读取所有数据。
     # offset	读取的起始位置，默认为0。
-s =  b'Hello World' #注意：buffer 是字符串的时候，Python3 默认 str 是 Unicode 类型，所以要转成 bytestring 在原 str 前加上 b。Python2不用加
+s =  b'Hello World' #**注意**：buffer 是字符串的时候，Python3 默认 str 是 Unicode 类型，所以要转成 bytestring 在原 str 前加上 b。Python2不用加
 a = np.frombuffer(s, dtype =  'S1')  
 print (a)#[b'H' b'e' b'l' b'l' b'o' b' ' b'W' b'o' b'r' b'l' b'd']
 

@@ -263,7 +263,7 @@ Internet标准：
     - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123140310.png)
 - 无线接入网络
     - ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220123140331.png)
-注意：
+**注意**：
 - 接入网络的带宽 (bits per second) 
 - 共享/专用
 

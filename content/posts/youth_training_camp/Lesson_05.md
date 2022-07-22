@@ -181,6 +181,10 @@ https://dev.mysql.com/doc/internals/en/client-server-protocol.html
 
 ## 02.GORM基础使用
 
+什么是ORM?
+
+ORM全称是：Object Relational Mapping(对象关系映射)，其主要作用是在编程中，把面向对象的概念跟数据库中表的概念对应起来。举例来说就是，我定义一个对象，那就对应着一张表，这个对象的实例，就对应着表中的一条记录。
+
 基本用法，Model定义，惯例约定，关联操作
 
 ## 2.1背景知识

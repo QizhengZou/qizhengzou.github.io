@@ -1982,7 +1982,7 @@ func trimBST(root *TreeNode, low int, high int) *TreeNode {
     if root == nil {
         return nil
     }
-    // 处理 root，让 root 移动到[low, high] 范围内，注意是左闭右闭
+    // 处理 root，让 root 移动到[low, high] 范围内，**注意**是左闭右闭
     for root != nil && (root.Val<low||root.Val>high){
         if root.Val < low{
             root = root.Right
