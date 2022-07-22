@@ -294,7 +294,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
     <span class=nx>golang</span> <span class=p>:</span> <span class=nx>golang</span><span class=err>@</span><span class=nx>golang</span><span class=p>.</span><span class=nx>com</span> 
     <span class=k>go</span> <span class=p>:</span> <span class=k>go</span><span class=err>@</span><span class=k>go</span><span class=p>.</span><span class=nx>com</span>    
 </code></pre></td></tr></table></div></div><p>解释：
-首先我们定义了一个叫做 User 的结构体类型，然后定义了一个该类型的方法叫做 Notify，该方法的接受者是一个 User 类型的值。要调用 Notify 方法我们需要一个 User 类型的值或者指针。</p><p>在这个例子中当我们使用指针时，Go 调整和解引用指针使得调用可以被执行。注意，当接受者不是一个指针时，该方法操作对应接受者的值的副本(意思就是即使你使用了指针调用函数，但是函数的接受者是值类型，所以函数内部操作还是对副本的操作，而不是指针操作。</p><p>我们修改 Notify 方法，让它的接受者使用指针类型：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+首先我们定义了一个叫做 User 的结构体类型，然后定义了一个该类型的方法叫做 Notify，该方法的接受者是一个 User 类型的值。要调用 Notify 方法我们需要一个 User 类型的值或者指针。</p><p>在这个例子中当我们使用指针时，Go 调整和解引用指针使得调用可以被执行。<strong>注意</strong>，当接受者不是一个指针时，该方法操作对应接受者的值的副本(意思就是即使你使用了指针调用函数，但是函数的接受者是值类型，所以函数内部操作还是对副本的操作，而不是指针操作。</p><p>我们修改 Notify 方法，让它的接受者使用指针类型：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -352,7 +352,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 
     <span class=nx>golang</span> <span class=p>:</span> <span class=nx>golang</span><span class=err>@</span><span class=nx>golang</span><span class=p>.</span><span class=nx>com</span> 
     <span class=k>go</span> <span class=p>:</span> <span class=k>go</span><span class=err>@</span><span class=k>go</span><span class=p>.</span><span class=nx>com</span>  
-</code></pre></td></tr></table></div></div><p>注意：当接受者是指针时，即使用值类型调用那么函数内部也是对指针的操作。</p><p>方法不过是一种特殊的函数，只需将其还原，就知道 receiver T 和 *T 的差别。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p><strong>注意</strong>：当接受者是指针时，即使用值类型调用那么函数内部也是对指针的操作。</p><p>方法不过是一种特殊的函数，只需将其还原，就知道 receiver T 和 *T 的差别。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -984,7 +984,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
     <span class=mh>0xc42000a060</span><span class=p>,</span> <span class=o>&amp;</span><span class=p>{</span><span class=mi>1</span> <span class=nx>Tom</span><span class=p>}</span>
     <span class=mh>0xc42000a060</span><span class=p>,</span> <span class=o>&amp;</span><span class=p>{</span><span class=mi>1</span> <span class=nx>Tom</span><span class=p>}</span>
     <span class=mh>0xc42000a060</span><span class=p>,</span> <span class=o>&amp;</span><span class=p>{</span><span class=mi>1</span> <span class=nx>Tom</span><span class=p>}</span>  
-</code></pre></td></tr></table></div></div><p>需要注意，method value 会复制 receiver。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>需要<strong>注意</strong>，method value 会复制 receiver。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -1036,7 +1036,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
     <span class=p>{</span><span class=mi>1</span> <span class=nx>Tom</span><span class=p>}</span>  
 </code></pre></td></tr></table></div></div><p>在汇编层面，method value 和闭包的实现方式相同，实际返回 FuncVal 类型对象。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>    FuncVal { method_address, receiver_copy }  
-</code></pre></td></tr></table></div></div><p>可依据方法集转换 method expression，注意 receiver 类型的差异。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>可依据方法集转换 method expression，<strong>注意</strong> receiver 类型的差异。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4

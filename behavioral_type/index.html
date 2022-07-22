@@ -684,7 +684,7 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 </span><span class=c1></span>	<span class=c1>// 9
 </span><span class=c1></span>	<span class=c1>// 10
 </span><span class=c1></span><span class=p>}</span>
-</code></pre></td></tr></table></div></div><h2 id=template-method>template method</h2><p>模版方法模式使用继承机制，把通用步骤和通用方法放到父类中，把具体实现延迟到子类中实现。使得实现符合开闭原则。</p><p>如实例代码中通用步骤在父类中实现（准备、下载、保存、收尾）下载和保存的具体实现留到子类中，并且提供 保存方法的默认实现。</p><p>因为Golang不提供继承机制，需要使用匿名组合模拟实现继承。</p><p>此处需要注意：因为父类需要调用子类方法，所以子类需要匿名组合父类的同时，父类需要持有子类的引用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><h2 id=template-method>template method</h2><p>模版方法模式使用继承机制，把通用步骤和通用方法放到父类中，把具体实现延迟到子类中实现。使得实现符合开闭原则。</p><p>如实例代码中通用步骤在父类中实现（准备、下载、保存、收尾）下载和保存的具体实现留到子类中，并且提供 保存方法的默认实现。</p><p>因为Golang不提供继承机制，需要使用匿名组合模拟实现继承。</p><p>此处需要<strong>注意</strong>：因为父类需要调用子类方法，所以子类需要匿名组合父类的同时，父类需要持有子类的引用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4

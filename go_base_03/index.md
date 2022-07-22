@@ -103,7 +103,7 @@ map、slice、chan、指针、interface默认以引用的方式传递，其他�
 
 Golang 可变参数本质上就是 slice。只能有一个，且必须是最后一个。
 
-在参数赋值时可以不用用一个一个的赋值，可以直接传递一个数组或者切片，特别注意的是在参数后加上“…”即可。
+在参数赋值时可以不用用一个一个的赋值，可以直接传递一个数组或者切片，特别**注意**的是在参数后加上“…”即可。
 ```go
   func myfunc(args ...int) {    //0个或多个参数
   }
@@ -114,7 +114,7 @@ Golang 可变参数本质上就是 slice。只能有一个，且必须是最后�
   func add(a int, b int, args…int) int {    //2个或多个参数
   }
 ```
-注意：其中args是一个slice，我们可以通过arg[index]依次访问所有参数,通过len(arg)来判断传递参数的个数.
+**注意**：其中args是一个slice，我们可以通过arg[index]依次访问所有参数,通过len(arg)来判断传递参数的个数.
 
 任意类型的不定参数：就是函数的参数和每个参数的类型都不是固定的。
 
@@ -330,7 +330,7 @@ output:
 x (0xc42007c008) = 100
 x (0xc42007c008) = 100
 ```
-**在汇编层 ，test 实际返回的是 FuncVal 对象，其中包含了匿名函数地址、闭包对象指针。当调 匿名函数时，只需以某个寄存器传递该对象即可。**
+**在汇编层 ，test 实际返回的是 FuncVal 对象，其中包含了匿名函数地址、闭包对象指针。当调用匿名函数时，只需以某个寄存器传递该对象即可。**
 
 Funcval对象：
 ```
@@ -711,7 +711,7 @@ output：
 runs
 runtime error: invalid memory address or nil pointer dereference
 ```
-解释：名为 test 的函数一直运行至结束，然后 defer 函数会被执行且会因为值为 nil 而产生 panic 异常。然而值得注意的是，run() 的声明是没有问题，因为在test函数运行完成后它才会被调用。
+解释：名为 test 的函数一直运行至结束，然后 defer 函数会被执行且会因为值为 nil 而产生 panic 异常。然而值得**注意**的是，run() 的声明是没有问题，因为在test函数运行完成后它才会被调用。
 
 **在错误的位置使用 defer:**
 当 http.Get 失败时会抛出异常。
@@ -972,7 +972,7 @@ recover:
     - 只能用在defer函数中，通过recever来终止一个goroutine的panicking过程，从而恢复正常代码的执行
     - 可以获取通过panic传递的error
 
-注意：
+**注意**：
 1. 利用recover处理panic指令，defer 必须放在 panic 之前定义，另外 recover 只有在 defer 调用的函数中才有效。否则当panic时，recover无法捕获到panic，无法防止panic扩散。
 2. recover 处理异常后，逻辑并不会恢复到 panic 那个点去，函数跑到 defer 之后的那个点。
 3. 多个 defer 会形成 defer 栈，后定义的 defer 语句会被最先调用。
@@ -1772,7 +1772,7 @@ func Split(s, sep string) (result []string) {
     return
 } 
 ```
-这一次我们再来测试一下，我们的程序。注意，当我们修改了我们的代码之后不要仅仅执行那些失败的测试函数，我们应该完整的运行所有的测试，保证不会因为修改代码而引入了新的问题。
+这一次我们再来测试一下，我们的程序。**注意**，当我们修改了我们的代码之后不要仅仅执行那些失败的测试函数，我们应该完整的运行所有的测试，保证不会因为修改代码而引入了新的问题。
 ```
  split $ go test -v
     === RUN   TestSplit
@@ -2086,7 +2086,7 @@ func BenchmarkFib40(b *testing.B) { benchmarkFib(b, 40) }
     PASS
     ok      github.com/pprof/studygo/code_demo/test_demo/fib 12.944s 
 ```
-这里需要注意的是，默认情况下，每个基准测试至少运行1秒。如果在Benchmark函数返回时没有到1秒，则b.N的值会按1,2,5,10,20,50，…增加，并且函数再次运行。
+这里需要**注意**的是，默认情况下，每个基准测试至少运行1秒。如果在Benchmark函数返回时没有到1秒，则b.N的值会按1,2,5,10,20,50，…增加，并且函数再次运行。
 
 最终的BenchmarkFib40只运行了两次，每次运行的平均值只有不到一秒。像这种情况下我们应该可以使用-benchtime标志增加最小基准时间，以产生更准确的结果。例如：
 ```
@@ -2169,7 +2169,7 @@ func TestMain(m *testing.M) {
     os.Exit(retCode)                           // 退出测试
 }  
 ```
-需要注意的是：在调用TestMain时, flag.Parse并没有被调用。所以如果TestMain 依赖于command-line标志 (包括 testing 包的标记), 则应该显示的调用flag.Parse。
+需要**注意**的是：在调用TestMain时, flag.Parse并没有被调用。所以如果TestMain 依赖于command-line标志 (包括 testing 包的标记), 则应该显示的调用flag.Parse。
 
 子测试的Setup与Teardown
 有时候我们可能需要为每个测试集设置Setup与Teardown，也有可能需要为每个子测试设置Setup与Teardown。下面我们定义两个函数工具函数如下：
@@ -2410,7 +2410,7 @@ go test -v -run funcName fileName.go
 go test -v -cover -run funcName fileName.go
 ```
 ### 如何编写压力测试
-压力测试用来检测函数(方法）的性能，和编写单元功能测试的方法类似,此处不再赘述，但需要注意以下几点：
+压力测试用来检测函数(方法）的性能，和编写单元功能测试的方法类似,此处不再赘述，但需要**注意**以下几点：
 
 压力测试用例必须遵循如下格式，其中XXX可以是任意字母数字的组合，但是首字母不能是小写字母
 ```go

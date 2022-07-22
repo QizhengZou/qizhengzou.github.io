@@ -152,7 +152,7 @@ empty() &ndash; 返回队列是否为空。</p><p>示例:</p><div class=highligh
 pop() -- 移除栈顶元素
 top() -- 获取栈顶元素
 empty() -- 返回栈是否为空
-</code></pre></td></tr></table></div></div><p>注意:</p><ul><li>你只能使用队列的基本操作&ndash; 也就是 push to back, peek/pop from front, size, 和 is empty 这些操作是合法的。</li><li>你所使用的语言也许不支持队列。 你可以使用 list 或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。</li><li>你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）</li></ul><p>用两个队列实现：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p><strong>注意</strong>:</p><ul><li>你只能使用队列的基本操作&ndash; 也就是 push to back, peek/pop from front, size, 和 is empty 这些操作是合法的。</li><li>你所使用的语言也许不支持队列。 你可以使用 list 或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。</li><li>你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）</li></ul><p>用两个队列实现：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -394,7 +394,7 @@ empty() -- 返回栈是否为空
 </span><span class=cm>* param_3 := obj.Top();
 </span><span class=cm>* param_4 := obj.Empty();
 </span><span class=cm>*/</span>
-</code></pre></td></tr></table></div></div><h2 id=有效的括号>有效的括号</h2><p>给定一个只包括 &lsquo;('，')'，'{'，'}'，'['，']&rsquo; 的字符串，判断字符串是否有效。</p><p>有效字符串需满足：</p><ul><li>左括号必须用相同类型的右括号闭合。</li><li>左括号必须以正确的顺序闭合。</li><li>注意空字符串可被认为是有效字符串。</li></ul><p>栈的经典问题。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><h2 id=有效的括号>有效的括号</h2><p>给定一个只包括 &lsquo;('，')'，'{'，'}'，'['，']&rsquo; 的字符串，判断字符串是否有效。</p><p>有效字符串需满足：</p><ul><li>左括号必须用相同类型的右括号闭合。</li><li>左括号必须以正确的顺序闭合。</li><li><strong>注意</strong>空字符串可被认为是有效字符串。</li></ul><p>栈的经典问题。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4

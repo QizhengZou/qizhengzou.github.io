@@ -213,7 +213,7 @@ TRMF中L的选择更加灵活。因此，TRMF可以提供重要的优势:
 
 ### 实验结果
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/20220513165317.png)
-表3：缺失值插补结果：每种方法的ND/NRMSE。请注意，TRMF
+表3：缺失值插补结果：每种方法的ND/NRMSE。请**注意**，TRMF
 在几乎所有情况下都优于所有竞争方法
 
 ![](https://raw.githubusercontent.com/QizhengZou/Image_hosting_rep/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220515165114.png)
