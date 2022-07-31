@@ -117,6 +117,11 @@ func preorderTraversal(root *TreeNode) []int {
     }
     return ans
 }
+
+
+func preorderTraver(root *TreeNode) []int {
+    
+}
 ```
 迭代法后序遍历
 ```go
