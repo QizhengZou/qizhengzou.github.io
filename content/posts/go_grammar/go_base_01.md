@@ -1277,8 +1277,9 @@ map底层存储方式为（结构体）数组，在存储时key不能重复，�
 go里面map并不是线程安全的，在1.9版本之前用map加互斥锁来解决此问题，之后加了sync.map性能稍微高了一些，因为它有一块只读的buffer，相当于由两个buffer组成，一块只读，一块读写。sync.map更适合于读非常多，能够占到90%以上的情况。如果读写差不多或者说写更多的话，sync.map的性能就比较差了。
 在读写对半的情况下，可以考虑引入concurrent_map包。（go get -u +包地址）
 
-在go1.16中，map也是数组存储的的，每个数组下标处存储的是一个bucket,这个bucket的类型见下面代码，每个bucket中可以存储8个kv键值对，当每个bucket存储的kv对到达8个之后，会通过overflow指针指向一个新的bucket，从而形成一个链表,看bmap的结构
+在go1.16中，map也是数组存储的的，每个数组下标处存储的是一个bucket,这个bucket的类型见下面代码，每个bucket中可以存储8个kv键值对，当每个bucket存储的kv对到达8个之后，会通过overflow指针指向一个新的bucket，从而形成一个链表,看bmap和hmap的结构
 ```go
+//go 1.18
 // A bucket for a Go map.
 type bmap struct {
 	// tophash generally contains the top byte of the hash value
@@ -1291,10 +1292,29 @@ type bmap struct {
 	// us to eliminate padding which would be needed for, e.g., map[int64]int8.
 	// Followed by an overflow pointer.
 }
+
+
+// A header for a Go map.
+type hmap struct {
+	// Note: the format of the hmap is also encoded in cmd/compile/internal/reflectdata/reflect.go.
+	// Make sure this stays in sync with the compiler's definition.
+	count     int // # live cells == size of map.  Must be first (used by len() builtin)
+	flags     uint8
+	B         uint8  // log_2 of # of buckets (can hold up to loadFactor * 2^B items)
+	noverflow uint16 // approximate number of overflow buckets; see incrnoverflow for details
+	hash0     uint32 // hash seed
+
+	buckets    unsafe.Pointer // array of 2^B Buckets. may be nil if count==0.
+	oldbuckets unsafe.Pointer // previous bucket array of half the size, non-nil only when growing
+	nevacuate  uintptr        // progress counter for evacuation (buckets less than this have been evacuated)
+
+	extra *mapextra // optional fields
+}
 ```
+- `B` 是 buckets 数组的长度的对数，也就是说 buckets 数组的长度就是 2^B。
 - tophash用来快速查找key值是否在该bucket中，而不同每次都通过真值进行比较。
 - **`map[int64]int8`,key是int64（8个字节），value是int8（一个字节），kv的长度不同，如果按照kv格式存放，则考虑内存对齐v也会占用int64，而按照后者存储时，8个v刚好占用一个int64**
-- **当往map中存储一个kv对时，通过k获取hash值，hash值的低八位和bucket数组长度取余，定位到在数组中的那个下标，hash值的高八位存储在bucket中的tophash中，用来快速判断key是否存在，key和value的具体值则通过指针运算存储，当一个bucket满时，通过overfolw指针链接到下一个bucket。**
+- **当往map中存储一个kv对时，通过k获取hash值，hash值的低八位和bucket数组长度取余，定位到在数组中的那个下标，hash值的高八位存储在bucket中的tophash中，用来快速判断key是否存在，当一个bucket满时，通过overfolw指针链接到下一个bucket。**
 - map的存储源码：
 ```go
 // Like mapaccess, but allocates a slot for the key if it is not present in the map.如果key不在map里为其分配一个插槽（狭槽）

@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/go_base_02\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  3133 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  3294 ,
         "url": "https:\/\/qizhengzou.github.io\/go_base_02\/","datePublished": "2022-01-06T09:16:07+08:00","dateModified": "2022-01-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -115,7 +115,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Go_base_02</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw"></i>Go</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:07">2022-01-06 09:16:07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3133 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:07">2022-01-06 09:16:07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3294 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -163,7 +163,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"> <span class="nx">可省略条件表达式括号</span><span class="err">。</span>
- <span class="nx">持初始化语句</span><span class="err">，</span><span class="nx">可定义代码块局部变量</span><span class="err">。</span> 
+ <span class="nx">持初始化语句</span><span class="err">，</span><span class="nx">可定义代码块局部变量</span><span class="err">，</span><span class="nx">也叫做if语句的自用变量</span><span class="err">，</span><span class="nx">而这自用变量作用域在其声明所在的代码块</span><span class="err">，</span><span class="nx">但不能在该if语句块之外</span><span class="err">。</span>
  <span class="nx">代码块左花括号必须在条件表达式尾部</span><span class="err">。</span>
  <span class="nx">可嵌套</span>    
 
@@ -172,10 +172,12 @@
     <span class="p">}</span>   
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>Go不支持三元操作符(三目运算符) &ldquo;a &gt; b ? a : b&rdquo;</strong></p>
+</div><p>if分支有三种：单分支、二分支、多分支，要减少多分支结构，甚至是二分支结构的使用。这样的代码更优雅、简洁、易读、易维护。单分支结构的使用被称为符合“快乐路径”原则。</p>
+<p><strong>Go不支持三元操作符(三目运算符) &ldquo;a &gt; b ? a : b&rdquo;</strong></p>
 <h2 id="switch">switch</h2>
 <p><strong>Golang switch 分支表达式可以是任意类型，不限于常量。可省略 break，默认自动终止。</strong></p>
 <p>可以同时测试多个可能符合条件的值，使用逗号分割它们，例如：case val1, val2, val3。</p>
+<p>switch 语句支持声明临时变量。</p>
 <p>如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -516,7 +518,7 @@
 <span class="p">}</span>   
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>注意range会复制对象</strong>：</p>
+</div><p>****注意<strong>range会复制对象</strong>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -623,7 +625,7 @@
 <span class="mi">4</span> <span class="mi">5</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>另外两种引用类型 map、channel 是指针包装，而不像 slice 是 struct。</p>
+</div><p>另外两种引用类型 map、channel 也能应用于for range遍历上，是指针包装，而不像 slice 是 struct。</p>
 <p>for 和 for range有什么区别?</p>
 <p>主要是使用场景不同</p>
 <p>for可以</p>
@@ -682,5 +684,5 @@ Goto、Break、Continue</p>
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

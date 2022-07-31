@@ -1,10 +1,10 @@
 ---
 title: "Mongodb_base_01"
 date: 2022-07-05T10:19:41+08:00
-lastmod:
-tags: []
-categories: []
-slug:
+lastmod: 2022-07-05
+tags: [mongodb]
+categories: [Advanced learning]
+slug: mongodb
 draft: true
 ---
 # mongodb

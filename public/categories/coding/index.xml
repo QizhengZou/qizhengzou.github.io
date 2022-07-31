@@ -4,7 +4,14 @@
         <link>https://qizhengzou.github.io/categories/coding/</link>
         <description>Coding - 分类 - Jefo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2838264218@qq.com (Jefo)</managingEditor>
-            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 20 Feb 2022 19:52:33 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/coding/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 31 Jul 2022 14:17:48 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/coding/" rel="self" type="application/rss+xml" /><item>
+    <title>Patterns_principles</title>
+    <link>https://qizhengzou.github.io/patterns_principles/</link>
+    <pubDate>Sun, 31 Jul 2022 14:17:48 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/patterns_principles/</guid>
+    <description><![CDATA[https://github.com/geekhall/gof/blob/main/README.md?plain=1 1. 软件设计的七大原则 也叫solid原则 迪米特与合成/复用是后加的 Principle 1 : 开闭原则（Open Close Principle, OCP） 内容：对扩展开放，对修改关闭 实现方式：]]></description>
+</item><item>
     <title>Algorithm_find</title>
     <link>https://qizhengzou.github.io/algorithm_find/</link>
     <pubDate>Sun, 20 Feb 2022 19:52:33 &#43;0800</pubDate>
@@ -24,21 +31,28 @@
     <pubDate>Sat, 22 Jan 2022 09:21:00 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://qizhengzou.github.io/structural_type/</guid>
-    <description><![CDATA[facade API 为facade 模块的外观接口，大部分代码使用此接口简化对facade类的访问。 facade模块同时暴露了a和b 两个Module 的NewX]]></description>
+    <description><![CDATA[结构型设计模式 常用的有：代理模式、桥接模式、装饰者模式、适配器模式。不常用的有：门面模式、组合模式、享元模式。 代理模式：代理模式在不改变原始]]></description>
 </item><item>
     <title>Behavioral_type</title>
     <link>https://qizhengzou.github.io/behavioral_type/</link>
     <pubDate>Sat, 22 Jan 2022 09:20:41 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://qizhengzou.github.io/behavioral_type/</guid>
-    <description><![CDATA[mediator 中介者模式封装对象之间互交，使依赖变的简单，并且使复杂互交简单化，封装在中介者中。 例子中的中介者使用单例模式生成中介者。 中介者的chang]]></description>
+    <description><![CDATA[行为型设计模式 常用的有：观察者模式、模板模式、策略模式、职责链模式、迭代器模式、状态模式。 不常用的有：命令模式、备忘录模式、解释器模式、访问]]></description>
 </item><item>
     <title>Create_type</title>
     <link>https://qizhengzou.github.io/create_type/</link>
     <pubDate>Sat, 22 Jan 2022 09:19:30 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://qizhengzou.github.io/create_type/</guid>
-    <description><![CDATA[simple factory go 语言没有构造函数一说，所以一般会定义NewXXX函数来初始化相关类。 NewXXX 函数根据参数返回不同接口时就是简单工厂模式。 在这个simplef]]></description>
+    <description><![CDATA[创建型设计模式 常用的有：单例模式、工厂模式（工厂方法和抽象工厂）、建造者模式。不常用的有：原型模式。 创建型模式主要解决对象的创建问题，封装复]]></description>
+</item><item>
+    <title>Algo_catalogue</title>
+    <link>https://qizhengzou.github.io/algo_catalogue/</link>
+    <pubDate>Wed, 19 Jan 2022 10:06:22 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algo_catalogue/</guid>
+    <description><![CDATA[学习代码随想录笔记 algorithm_array algorithm_backTracking algorithm_binaryTree algorithm_doublePointer algorithm_dp algorithm_find algorithm_greedy algorithm_hashTable algorithm_linkedList algorithm_sort algorithm_stackAndQueue algorithm_string]]></description>
 </item><item>
     <title>Algorithm_dynamicProgramming</title>
     <link>https://qizhengzou.github.io/algorithm_dynamicprogramming/</link>
@@ -60,19 +74,5 @@
     <author>作者</author>
     <guid>https://qizhengzou.github.io/algorithm_backtracking/</guid>
     <description><![CDATA[学习代码随想录笔记 回溯算法 理论基础 也叫回溯搜索算法。 回溯是递归的副产品，只要有递归就会有回溯 回溯的本质是穷举，穷举所有可能，然后选出我们想要]]></description>
-</item><item>
-    <title>Algorithm_binaryTree</title>
-    <link>https://qizhengzou.github.io/algorithm_binarytree/</link>
-    <pubDate>Thu, 06 Jan 2022 08:21:45 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/algorithm_binarytree/</guid>
-    <description><![CDATA[学习代码随想录笔记 二叉树 理论基础 一般主要会碰到满二叉树以及完全二叉树。 完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余]]></description>
-</item><item>
-    <title>Algorithm_stackAndQueue</title>
-    <link>https://qizhengzou.github.io/algorithm_stackandqueue/</link>
-    <pubDate>Thu, 06 Jan 2022 08:20:54 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/algorithm_stackandqueue/</guid>
-    <description><![CDATA[学习代码随想录笔记 栈和队列 需要知道栈和队列的底层实现，不同编程语言不同STL的实现原理都是不尽相同的。 理论基础(c++) 栈其实就是递归的一种]]></description>
 </item></channel>
 </rss>

@@ -4,7 +4,56 @@
         <link>https://qizhengzou.github.io/categories/school-courses/</link>
         <description>School courses - 分类 - Jefo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2838264218@qq.com (Jefo)</managingEditor>
-            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 24 Feb 2022 14:06:32 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/school-courses/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 20 Jul 2022 16:24:55 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/school-courses/" rel="self" type="application/rss+xml" /><item>
+    <title>DS_geek</title>
+    <link>https://qizhengzou.github.io/ds_geek/</link>
+    <pubDate>Wed, 20 Jul 2022 16:24:55 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/ds_geek/</guid>
+    <description><![CDATA[深入浅出分布式技术原理 开篇词｜掌握好学习路径，分布式系统原来如此简单 陈现麟 2022-01-24 从我的经验来看，初学者想要高效且系统性地掌握分布式系统，这本身就]]></description>
+</item><item>
+    <title>SEK_geek.md</title>
+    <link>https://qizhengzou.github.io/sek_geek/</link>
+    <pubDate>Wed, 20 Jul 2022 10:56:50 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/sek_geek/</guid>
+    <description><![CDATA[软件工程之美 01 | 到底应该怎样理解软件工程？ 宝玉 2019-02-23 瀑布模型。 瀑布模型的诞生，在当时是有非常重大的意义的，让软件开发从无序到有序，让大家更好的分]]></description>
+</item><item>
+    <title>Linear_algebra</title>
+    <link>https://qizhengzou.github.io/linear_algebra/</link>
+    <pubDate>Wed, 20 Jul 2022 10:04:29 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/linear_algebra/</guid>
+    <description><![CDATA[线性代数 开篇词 | 从今天起，学会线性代数 朱维刚 2020-07-27 机器学习本身没有多大难度，因为经过多年的积累后，很多规则已经成型了。对于我们来说真正难的，是机]]></description>
+</item><item>
+    <title>Cp_practice</title>
+    <link>https://qizhengzou.github.io/cp_practice/</link>
+    <pubDate>Mon, 18 Jul 2022 23:55:56 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/cp_practice/</guid>
+    <description><![CDATA[编译原理实战课 开篇词 | 在真实世界的编译器中游历 宫文学 2020-06-01 你好，我是宫文学，一名技术创业者，现在是北京物演科技的 CEO，很高兴在这里跟你见面。我]]></description>
+</item><item>
+    <title>Cp_base</title>
+    <link>https://qizhengzou.github.io/cp_base/</link>
+    <pubDate>Mon, 18 Jul 2022 23:55:09 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/cp_base/</guid>
+    <description><![CDATA[编译原理之美 开篇词 | 为什么你要学习编译原理？ 宫文学 2019-08-14 我会通过具体的案例带你理解抽象的原理。比如语义分析阶段有个 I 属性和 S 属性，传统课本里只专]]></description>
+</item><item>
+    <title>Geekbang_POCC</title>
+    <link>https://qizhengzou.github.io/geekbang_pocc/</link>
+    <pubDate>Sun, 17 Jul 2022 15:33:49 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/geekbang_pocc/</guid>
+    <description><![CDATA[深入浅出计算机组成原理 徐文浩 2019-07-22 22 | 冒险和预测（一）：hazard是“危”也是“机” 过去两讲，我为你讲解了流水线设计 CPU 所需要的基本概念。接下来]]></description>
+</item><item>
+    <title>Middleware</title>
+    <link>https://qizhengzou.github.io/middleware/</link>
+    <pubDate>Thu, 14 Jul 2022 10:04:50 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/middleware/</guid>
+    <description><![CDATA[中间件核心技术与实战 开篇词｜为什么中间件对分布式架构体系来说这么重要？ 你好，我是丁威。一名奋战在 IT 一线十多年的技术老兵，现任中通快递技术平台]]></description>
+</item><item>
     <title>AI_base_01</title>
     <link>https://qizhengzou.github.io/ai_base_01/</link>
     <pubDate>Thu, 24 Feb 2022 14:06:32 &#43;0800</pubDate>
@@ -12,67 +61,18 @@
     <guid>https://qizhengzou.github.io/ai_base_01/</guid>
     <description><![CDATA[哈工大深圳苏敬勇本科生课程人工智能 参考教材：王万森《人工智能原理及其应用》，电子工业出版社， 2018 人工智能 30%+30%+40% 第1章 人工智能概述 定义 自然智能 指人类]]></description>
 </item><item>
-    <title>DIP_base_01</title>
-    <link>https://qizhengzou.github.io/dip_base_01/</link>
-    <pubDate>Thu, 24 Feb 2022 10:43:56 &#43;0800</pubDate>
+    <title>SEK_base_07</title>
+    <link>https://qizhengzou.github.io/sek_base_07/</link>
+    <pubDate>Thu, 25 Nov 2021 08:44:33 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/dip_base_01/</guid>
-    <description><![CDATA[哈工大深圳卢光明副院长授课的本科生图像处理课程，参考教材：Digital Image Processing”, Rafael C. Gonzalez &amp; Richard E. Woods, 2011（or 4th Editio]]></description>
+    <guid>https://qizhengzou.github.io/sek_base_07/</guid>
+    <description><![CDATA[2022春JOANNA老师的软件体系结构 topics 1.Introduction to Software Architecture Why is Software Architecture Important? The Many Contexts of Software Architecture 2.Architecture modelling and representation: Architectural structures and views 3.Quality attributes :Understanding quality attributes and availability Availability Quality attributes: interoperability and modifiability Interoperability Quality attributes: Modifiability Quality attributes: Performance, Security Quality attributes: Security Patterns and]]></description>
 </item><item>
-    <title>DistributedSystem_HongweiDu_14</title>
-    <link>https://qizhengzou.github.io/distributedsystem_hongweidu_14/</link>
-    <pubDate>Sat, 01 Jan 2022 15:21:52 &#43;0800</pubDate>
+    <title>DistributedSystem_base_02</title>
+    <link>https://qizhengzou.github.io/distributedsystem_base_02/</link>
+    <pubDate>Wed, 17 Nov 2021 08:45:55 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/distributedsystem_hongweidu_14/</guid>
-    <description><![CDATA[2021哈工大深圳堵宏伟分布式系统课程笔记 topics Understanding lecture notes and tutorial questions. 1.Introduction A distributed system is defined as one in which components at networked computers communicate and coordinate their actions only by passing messages. The motivation of constructing a distributed system is resource sharing and collaborative computing Distributed system features. Concurrency No global]]></description>
-</item><item>
-    <title>DistributedSystem_HongweiDu_catalogue</title>
-    <link>https://qizhengzou.github.io/distributedsystem_hongweidu_catalogue/</link>
-    <pubDate>Sat, 01 Jan 2022 15:21:52 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/distributedsystem_hongweidu_catalogue/</guid>
-    <description><![CDATA[ DHW_01(intro)  topics motivation definition features challanges conclusino   DHW_02(system modules)  physical model architectural model fundamental model   DHW_03(physical time) DHW_04(logic time) DHW_05(mutual exclusion and election algorithms)  mutual exclusion election algorithms   DHW_06(socket and RPC)  socket communication remote procedure call(RPC)   DHW_07(internetworking) DHW_08(name services) DHW_09(group communication)  Implementing Group Communication Mechanisms Reliability of multicasts Message ordering IP multicast routing   DHW_10(Consistency and Replication) DHW_11(Unix File Systems and Distributed File Systems) DHW_12(Transaction Processing Systems) DHW_13(Web Searching Technologies) DHW_14(DistributedSystem_HongweiDu_catalogue)  ]]></description>
-</item><item>
-    <title>DistributedSystem_HongweiDu_13</title>
-    <link>https://qizhengzou.github.io/distributedsystem_hongweidu_13/</link>
-    <pubDate>Sat, 01 Jan 2022 15:21:48 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/distributedsystem_hongweidu_13/</guid>
-    <description><![CDATA[2021哈工大深圳堵宏伟分布式系统课程笔记 Web Searching Technologies Some helpful web sites： A history of search engines: http://www.wiley.com/legacy/compbooks/sonnenreich/webdev/history.html Open source search engines written in Java: http://java-source.net/open-source/search-engines Robots: http://www.robotstxt.org/wc/robots.html Search Engines Architecture： Spiders (Web Craw]]></description>
-</item><item>
-    <title>DistributedSystem_HongweiDu_12</title>
-    <link>https://qizhengzou.github.io/distributedsystem_hongweidu_12/</link>
-    <pubDate>Sat, 01 Jan 2022 15:21:45 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/distributedsystem_hongweidu_12/</guid>
-    <description><![CDATA[2021哈工大深圳堵宏伟分布式系统课程笔记 Transaction Processing Systems事务处理系统 File operations and Transaction operations： Definitions of Atomic Transactions ： Atomic Transaction: a sequence of data access operations that are atomic in the sense]]></description>
-</item><item>
-    <title>DistributedSystem_HongweiDu_11</title>
-    <link>https://qizhengzou.github.io/distributedsystem_hongweidu_11/</link>
-    <pubDate>Sat, 01 Jan 2022 15:21:34 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/distributedsystem_hongweidu_11/</guid>
-    <description><![CDATA[2021哈工大深圳堵宏伟分布式系统课程笔记 Unix File Systems文件系统 File Systems： File system provides the most fundamental service for building any information systems. file storage, management and retrieve service. We look at two file operations: fp = open]]></description>
-</item><item>
-    <title>ISC_base_10</title>
-    <link>https://qizhengzou.github.io/isc_base_10/</link>
-    <pubDate>Tue, 21 Dec 2021 19:38:13 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/isc_base_10/</guid>
-    <description><![CDATA[2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄 信息安全管理 10.1 概述 当今社会已经进入到信息化社会，其信息安全是建立在信息社会的基础设施及信]]></description>
-</item><item>
-    <title>ISC_base_09</title>
-    <link>https://qizhengzou.github.io/isc_base_09/</link>
-    <pubDate>Tue, 21 Dec 2021 19:37:20 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/isc_base_09/</guid>
-    <description><![CDATA[2021秋哈工大深圳罗文坚 信息安全概论课程PPT 摘抄 内容安全 9.1 概述 信息内容安全有两方面内容: 一方面是指针对合法的信息内容加以安全保护，如对合]]></description>
-</item><item>
-    <title>Cry_catalogue</title>
-    <link>https://qizhengzou.github.io/cry_catalogue/</link>
-    <pubDate>Thu, 16 Dec 2021 15:27:36 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/cry_catalogue/</guid>
-    <description><![CDATA[base来自2021年秋哈工大深圳密码学基础授课老师：蒋琳 base_01 课程简介 base_02 古典密码学 代换密码 置换密码 小结 base_03 分组密码 对称加密分类 分组密码设计准则 分]]></description>
+    <guid>https://qizhengzou.github.io/distributedsystem_base_02/</guid>
+    <description><![CDATA[系统模型 简介 物理模型是描述系统的-个最显式的方法，它从计算机(和其他设备，例如移动电话)及其互联的网络方面考虑系统的硬件组成。 体系结构模型从]]></description>
 </item></channel>
 </rss>

@@ -1,6 +1,9 @@
 # Algorithm_array
 
 > 学习[代码随想录](https://programmercarl.com/)笔记
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 # 数组
 ## 数组基础
 数组是存放在连续内存空间上的相同类型数据的集合。 
@@ -9,7 +12,7 @@
 
 数组元素无法删除，只能覆盖。
 ## 二分查找
-有序数组、无重复元素便可想到用二分法查找。注意区间左闭右闭还是左闭右开。
+有序数组、无重复元素便可想到用二分法查找。**注意**区间左闭右闭还是左闭右开。
 简单实现：
 ```go
 func search(nums []int, target int) int {
@@ -27,6 +30,39 @@ func search(nums []int, target int) int {
     }
     return -1
 }
+
+
+func search(nums []int,t int)int{
+    left,middle:=0
+    right:=len(nums)
+    for left<=right{
+        num=(left+right)/2
+        if nums[num]==t{
+            return num
+        }
+        if nums[num]>t{
+            right=num-1
+        }else{
+            left=num+1
+        }
+    }
+}
+
+func search(nums []int,t int)int{
+    if middle:=len(nums)/2;nums[middle]==t{
+        return middle
+    }
+    if len(nums)==1{
+        return -1
+    }
+    if nums[middle]>t{
+        return search(nums[:middle],t)
+    }else{
+        return search(nums[middle+1:])
+    }
+    
+}
+func recureionSearch(nums []int,t int)
 ```
 ## 移除元素
 双指针法（快慢指针法）： 通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。
@@ -42,10 +78,9 @@ func removeElement(nums []int, val int) int {
     }
     return res
 }
-```
-```go
+
 func removeElement(nums []int, val int) int {
-    //自己第一次写的解
+   
     num := 0
 
     for i, v := range nums {
@@ -80,6 +115,7 @@ func sortedSquares(nums []int) []int {
 }
 ```
 ## 长度最小的子数组
+给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的 连续 子数组，并返回其长度。如果不存在符合条件的子数组，返回 0。
 **滑动窗口**
 ```go
 func minSubArrayLen(target int, nums []int) int {

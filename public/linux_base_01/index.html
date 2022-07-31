@@ -20,7 +20,7 @@
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://qizhengzou.github.io/linux_base_01/" /><link rel="prev" href="https://qizhengzou.github.io/mysql_base_02/" /><link rel="next" href="https://qizhengzou.github.io/mysql_catalogue/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://qizhengzou.github.io/linux_base_01/" /><link rel="next" href="https://qizhengzou.github.io/distributedsystem_base_01/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/linux_base_01\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "linux","wordcount":  4130 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "linux","wordcount":  8460 ,
         "url": "https:\/\/qizhengzou.github.io\/linux_base_01\/","datePublished": "2021-11-08T15:34:58+08:00","dateModified": "2021-11-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -115,8 +115,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Linux_base_01</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/advanced-learning/"><i class="far fa-folder fa-fw"></i>Advanced learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-08 15:34:58">2021-11-08 15:34:58</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4130 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="busuanzi_container_page_pv">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-08 15:34:58">2021-11-08 15:34:58</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8460 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 17 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
             </div>
@@ -158,14 +158,28 @@
     </li>
     <li><a href="#3-服务管理">3. 服务管理</a>
       <ul>
-        <li><a href="#网络管理">网络管理</a></li>
-        <li><a href="#查看修改网络配置">查看、修改网络配置</a></li>
-        <li><a href="#网络故障排除">网络故障排除</a></li>
-        <li><a href="#网络管理和配置文件">网络管理和配置文件</a></li>
+        <li><a href="#网络管理">网络管理</a>
+          <ul>
+            <li><a href="#络状态查看-">⽹络状态查看 ：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#络配置修改路由命令">⽹络配置修改、路由命令</a></li>
+            <li><a href="#络故障排除">⽹络故障排除</a></li>
+          </ul>
+        </li>
         <li><a href="#软件包管理器的使用及软件包的安装">软件包管理器的使用及软件包的安装</a>
           <ul>
             <li><a href="#rpm命令">rpm命令</a></li>
-            <li><a href="#yum包管理器">yum包管理器</a></li>
+            <li><a href="#yum包管理器也叫yum仓库">yum包管理器也叫yum仓库</a></li>
             <li><a href="#源代码编译安装">源代码编译安装</a></li>
           </ul>
         </li>
@@ -179,21 +193,16 @@
         <li><a href="#selinux">SElinux</a></li>
         <li><a href="#内存和磁盘管理">内存和磁盘管理</a>
           <ul>
-            <li><a href="#内存查看命令">内存查看命令</a></li>
-            <li><a href="#磁盘分区和文件大小查看">磁盘分区和文件大小查看</a></li>
+            <li><a href="#内存和磁盘使率查看">内存和磁盘使⽤率查看</a></li>
+            <li><a href="#ext4-件系统">ext4 ⽂件系统</a></li>
+            <li><a href="#磁盘配额的使">磁盘配额的使⽤</a></li>
+            <li><a href="#磁盘的分区与挂载">磁盘的分区与挂载</a></li>
+            <li><a href="#交换分区虚拟内存的查看与创建">交换分区（虚拟内存）的查看与创建</a></li>
+            <li><a href="#软件-raid-的使">软件 RAID 的使⽤</a></li>
+            <li><a href="#逻辑卷管理">逻辑卷管理</a></li>
+            <li><a href="#系统综合状态查看">系统综合状态查看</a></li>
           </ul>
         </li>
-        <li><a href="#文件系统管理">文件系统管理</a></li>
-        <li><a href="#i节点和数据块操作">i节点和数据块操作</a></li>
-        <li><a href="#分区和挂载">分区和挂载</a>
-          <ul>
-            <li><a href="#分区和挂载磁盘配额">分区和挂载磁盘配额</a></li>
-          </ul>
-        </li>
-        <li><a href="#交换分区swap的查看与创建">交换分区swap的查看与创建</a></li>
-        <li><a href="#软件raid的使用">软件RAID的使用</a></li>
-        <li><a href="#逻辑卷lvm的用途与创建">逻辑卷LVM的用途与创建</a></li>
-        <li><a href="#sar以及第三方命令">sar以及第三方命令</a></li>
       </ul>
     </li>
     <li><a href="#4-shell">4. Shell</a>
@@ -201,11 +210,10 @@
         <li><a href="#什么是shell">什么是shell</a></li>
         <li><a href="#linux的启动过程">linux的启动过程</a></li>
         <li><a href="#shell脚本">shell脚本</a></li>
-        <li><a href="#脚本不同执行方式的影响">脚本不同执行方式的影响</a></li>
         <li><a href="#管道">管道</a></li>
         <li><a href="#重定向">重定向</a></li>
-        <li><a href="#变量赋值">变量赋值</a></li>
-        <li><a href="#变量引用及作用范围">变量引用及作用范围</a></li>
+        <li><a href="#变量查看">变量查看</a></li>
+        <li><a href="#变量作用范围">变量作用范围</a></li>
         <li><a href="#环境变量预定义变量与位置变量">环境变量、预定义变量与位置变量</a></li>
         <li><a href="#环境变量配置文件">环境变量配置文件</a></li>
         <li><a href="#数组">数组</a></li>
@@ -250,7 +258,7 @@
         <li><a href="#awk">awk</a></li>
       </ul>
     </li>
-    <li><a href="#6-服务篇">6. 服务篇</a>
+    <li><a href="#6-服务">6. 服务</a>
       <ul>
         <li><a href="#防火墙概述">防火墙概述</a></li>
         <li><a href="#iptables">iptables</a>
@@ -282,7 +290,6 @@
         <li><a href="#nas演示">NAS演示</a></li>
       </ul>
     </li>
-    <li><a href="#7-实战">7. 实战</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="1-linux-背景知识">1. Linux 背景知识</h2>
@@ -307,7 +314,7 @@
 <li>主版本号、次版本号、末版本号</li>
 </ul>
 </li>
-<li>次版本号是奇数为开发版，偶数为稳定版</li>
+<li>次版本号是奇数为开发版，偶数为稳定版（但从2.6开始就不这样了）</li>
 </ul>
 </li>
 <li>
@@ -381,6 +388,9 @@ windows里有注册表，资源管理器等组件，控制linux自身的统统�
 <li>-p 保留访问权限、修改时间</li>
 <li>-a 等同于 -dpR（保留权限、属组、修改时间）</li>
 <li>-v 显示复制过程</li>
+</ul>
+<ul>
+<li>-i 会在复制文件的时候给提示 如果复制的目标文件存在 会给你提示是否要覆盖如果目标文件不存在那么就直接复制了</li>
 </ul>
 </li>
 <li>mv
@@ -626,10 +636,33 @@ shutdown -c
 </ul>
 <p>- rw- r-x r- - 1 userame groupname mtime filename</p>
 <ul>
-<li>rw- 文件属主的权限</li>
-<li>r-x 文件属组的权限</li>
-<li>r- - 其他用户的权限</li>
-<li>创建文件有默认权限，根据 umask 值计算</li>
+<li>
+<p>第一列：文件类型加权限。</p>
+<ul>
+<li>第一个字符为文件类型，d表示目录，l表示软连接，-表示文件，c表示字符设备文件。后面的字符分为三组，所有者u，所属组g,其它人o. r表示可读，w表示可写，x表示可执行。</li>
+</ul>
+</li>
+<li>
+<p>第2列是硬链接的引用次数。</p>
+</li>
+<li>
+<p>第3列是文件的拥有者账户。只能有一个。</p>
+</li>
+<li>
+<p>第4列是文件的拥有者账户所在组名。只能有一个。</p>
+</li>
+<li>
+<p>第5列是文件所占有的字节数。</p>
+</li>
+<li>
+<p>第6列是文件最后修改时间。</p>
+</li>
+<li>
+<p>第7列是文件名。</p>
+</li>
+<li>
+<p>创建文件有默认权限，根据 umask 值计算</p>
+</li>
 </ul>
 <p>目录权限：</p>
 <ul>
@@ -640,59 +673,687 @@ shutdown -c
 <h3 id="文件权限的修改方法和数字表示方法">文件权限的修改方法和数字表示方法</h3>
 <p>修改权限：</p>
 <ul>
-<li>chmod 修改文件、目录权限</li>
-<li>chown 更改属主、属组</li>
-<li>chgrp 可以单独更改属组，不常用</li>
+<li>chmod 修改文件、目录权限
+<ul>
+<li>u/g/o/a 前三个分别对应属主、属组、其他用户的权限，a代表所有的权限</li>
+<li>chmod u+/-/=  rwx   file</li>
+<li>数字权限表示：chmod 446 file</li>
+<li>一个新建文件的默认权限是644，即666-0022（umask）</li>
 </ul>
+</li>
+<li>chown 更改属主、属组
+<ul>
+<li>chown user /dir改属主</li>
+<li>chown :group1 /dir改属组</li>
+<li>或者 chown user1:group1 /dir</li>
+</ul>
+</li>
+<li>chgrp 可以单独更改属组，不常用
+<ul>
+<li>chgrp group1 /dir</li>
+</ul>
+</li>
+</ul>
+<p><strong>ctrl+r搜索之前出现的命令</strong></p>
+<h3 id="权限管理和文件的特殊权限">权限管理和文件的特殊权限</h3>
+<p>echo 123 &gt; file
+将123输出到file，&gt;是输出重定向符号，会将file先清空。</p>
+<p><strong><strong>注意</strong>：如果一个文件的属主权限和其属组的权限有冲突，以属主的权限为准。</strong></p>
+<p>对于目录来说，x执行就是进入目录,rx是可以进入查看，wx是可以进入修改，只给r权限只能看到文件名。。</p>
 <p>特殊权限：</p>
 <ul>
-<li>SUID 用于二进制可执行文件，执行命令时取得文件属主权限</li>
-<li>SGID 用于目录，在该目录下创建新的文件和目录，权限自动更改为该目录的属组</li>
-<li>SBIT 用于目录，该目录下新建的文件和目录，仅 root 和自己可以删除</li>
+<li>SUID 用于二进制可执行文件，执行命令时取得文件属主权限
+<ul>
+<li>如/usr/bin/passwd，执行passwd自动获取到root身份，只有root能改/etc/shadow （/etc/shadow里边是用户密码）</li>
+<li>chmod 4755 /test/b  755是目的文件属性</li>
 </ul>
-<h3 id="权限管理和文件的特殊权限">权限管理和文件的特殊权限</h3>
+</li>
+<li>SGID 用于目录，在该目录下创建新的文件和目录，权限自动更改为该目录的属组，<strong>文件共享会用到</strong></li>
+<li>SBIT 用于目录，该目录下新建的文件和目录，仅 root 和自己可以删除，用sbit位进行标记
+<ul>
+<li><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="D:%5cBlog%5clocalImages%5cimage-20220622095949728.png"
+        data-srcset="D:%5cBlog%5clocalImages%5cimage-20220622095949728.png, D:%5cBlog%5clocalImages%5cimage-20220622095949728.png 1.5x, D:%5cBlog%5clocalImages%5cimage-20220622095949728.png 2x"
+        data-sizes="auto"
+        alt="D:\Blog\localImages\image-20220622095949728.png"
+        title="image-20220622095949728" /></li>
+<li>chmod 1777  /test  777是目的文件夹属性</li>
+</ul>
+</li>
+</ul>
 <h2 id="3-服务管理">3. 服务管理</h2>
 <h3 id="网络管理">网络管理</h3>
-<h3 id="查看修改网络配置">查看、修改网络配置</h3>
-<h3 id="网络故障排除">网络故障排除</h3>
-<h3 id="网络管理和配置文件">网络管理和配置文件</h3>
+<h4 id="络状态查看-">⽹络状态查看 ：</h4>
+<ol>
+<li>net-tools （centos7以前）
+<ul>
+<li>
+<p>ifconfig</p>
+<ul>
+<li>eth0 第⼀块⽹卡（⽹络接⼝）
+<ul>
+<li>第⼀个⽹络接⼝可能叫做下⾯的名字
+<ul>
+<li>eno1 板载⽹卡</li>
+<li>ens33 PCI-E⽹卡</li>
+<li>enp0s3 ⽆法获取物理信息的 PCI-E ⽹卡</li>
+<li>CentOS 7 使⽤了⼀致性⽹络设备命名，以上都不匹配则使⽤ eth0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>⽹络接⼝命名修改</strong>
+<ul>
+<li>⽹卡命名规则受 biosdevname 和 net.ifnames 两个参数影响</li>
+<li>编辑 /etc/default/grub ⽂件，在GRUB_COMMIT_LINUX项中增加 biosdevname=0 net.ifnames=0      （grub是系统刚开始启动的时候，引导内核需要一个工具，类似于启动菜单，这个启动菜单可以设置一些参数，传递到内核，真正启动时读取到的文件是/boot/grub2/grub.cfg）</li>
+<li>更新 grub</li>
+<li>
+<h1 id="grub2-mkconfig--o-bootgrub2grubcfg">grub2-mkconfig -o /boot/grub2/grub.cfg</h1>
+</li>
+<li>重启后网卡生效</li>
+<li>
+<h1 id="reboot">reboot</h1>
+</li>
+</ul>
+</li>
+<li><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="D:%5cBlog%5clocalImages%5cimage-20220622102300462.png"
+        data-srcset="D:%5cBlog%5clocalImages%5cimage-20220622102300462.png, D:%5cBlog%5clocalImages%5cimage-20220622102300462.png 1.5x, D:%5cBlog%5clocalImages%5cimage-20220622102300462.png 2x"
+        data-sizes="auto"
+        alt="D:\Blog\localImages\image-20220622102300462.png"
+        title="image-20220622102300462" /></li>
+</ul>
+</li>
+<li>
+<p>route</p>
+</li>
+<li>
+<p>netstat</p>
+</li>
+</ul>
+</li>
+<li>iproute2（centos7、8）
+<ul>
+<li>ip</li>
+<li>ss</li>
+</ul>
+</li>
+</ol>
+<p>查看⽹卡物理连接情况</p>
+<ul>
+<li>mii-tool eth0</li>
+</ul>
+<p>当网卡通信需要连接其他网络地址范围的时候，需要配置一个网关路由，查看⽹关</p>
+<ul>
+<li>route -n</li>
+<li>使⽤ -n 参数不解析主机名</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>test@Centos8 workspace<span class="o">]</span>$ route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         _gateway        0.0.0.0         UG    <span class="m">100</span>    <span class="m">0</span>        <span class="m">0</span> eth0
+172.17.0.0      0.0.0.0         255.255.0.0     U     <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> docker0
+172.25.208.0    0.0.0.0         255.255.240.0   U     <span class="m">100</span>    <span class="m">0</span>        <span class="m">0</span> eth0
+<span class="o">[</span>test@Centos8 workspace<span class="o">]</span>$ route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         172.25.223.253  0.0.0.0         UG    <span class="m">100</span>    <span class="m">0</span>        <span class="m">0</span> eth0
+172.17.0.0      0.0.0.0         255.255.0.0     U     <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> docker0
+172.25.208.0    0.0.0.0         255.255.240.0   U     <span class="m">100</span>    <span class="m">0</span>        <span class="m">0</span> eth0
+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="络配置修改路由命令">⽹络配置修改、路由命令</h4>
+<ul>
+<li>ifconfig &lt;接⼝&gt; &lt;IP地址&gt; [netmask ⼦⽹掩码 ]（云主机会立即生效）eg:ifconfig eth0 10.211.55.4</li>
+<li>ifup &lt;接⼝&gt; （启动）</li>
+<li>ifdown &lt;接⼝&gt;</li>
+</ul>
+<p>添加⽹关（删除del）</p>
+<ul>
+<li>route add default gw &lt;⽹关ip&gt;</li>
+<li>route add -host &lt;指定ip&gt; gw &lt;⽹关ip&gt;</li>
+<li>route add -net &lt;指定⽹段&gt; netmask &lt;⼦⽹掩码&gt; gw &lt;⽹关ip&gt;</li>
+</ul>
+<p><strong>ip命令</strong></p>
+<ul>
+<li>ip addr ls
+<ul>
+<li>ifconfig</li>
+</ul>
+</li>
+<li>ip link set dev eth0 up
+<ul>
+<li>ifup eth0</li>
+</ul>
+</li>
+<li>ip addr add 10.0.0.1/24 dev eth1
+<ul>
+<li>ifconfig eth1 10.0.0.1 netmask 255.255.255.0</li>
+</ul>
+</li>
+<li>ip route add 10.0.0/24 via 192.168.0.1
+<ul>
+<li>route add -net 10.0.0.0 netmask 255.255.255.0 gw 192.168.0.</li>
+</ul>
+</li>
+</ul>
+<h4 id="络故障排除">⽹络故障排除</h4>
+<p>从上到下依次排除：</p>
+<ul>
+<li>ping：检查到目标主机是否畅通</li>
+<li>traceroute： Ping有效，但网络依旧异常，可追踪服务器每一跳服务质量，显示数据包到主机间的路径 eg:traceroute -w 1（指1秒） <a href="http://www.baidu.com" target="_blank" rel="noopener noreffer">www.baidu.com</a></li>
+<li>mtr：检查到目标主机中间是否有数据报丢失，更详细</li>
+<li>nslookup：查看域名对应的IP eg:nslookup <a href="http://www.baidu.com" target="_blank" rel="noopener noreffer">www.baidu.com</a></li>
+<li>telnet：查看端口连接状态 eg:telnet <a href="http://www.baidu.com" target="_blank" rel="noopener noreffer">www.baidu.com</a> 80</li>
+<li>tcpdump：抓取分析数据包 eg:tcpdump -i any -n port 80(任意网卡、80端口数据包、以IP形式进行显示)（捕获主机的话用host eg: ~-i any host 10.0.0.1）（两者都要可用and eg: ~host 10.0.0.1 and port 80）（~ -w /filename保存到文件中）</li>
+<li>netstat：服务的监听地址范围 netstat -ntpl
+<ul>
+<li>n显示IP不显示域名</li>
+<li>t 以TCP方式截取要显示的内容，非UDP（UDP是-p）</li>
+<li>p 显示进程，除了显示端口之外，还要显示端口对应哪一个进程</li>
+<li>l TCP的一个状态，叫做listen，监听服务</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>test@Centos8 workspace<span class="o">]</span>$ netstat -ntpl
+<span class="o">(</span>Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.<span class="o">)</span>
+Active Internet connections <span class="o">(</span>only servers<span class="o">)</span>
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        <span class="m">0</span>      <span class="m">0</span> 0.0.0.0:5355            0.0.0.0:*               LISTEN      -      
+tcp        <span class="m">0</span>      <span class="m">0</span> 0.0.0.0:22              0.0.0.0:*               LISTEN      -      
+tcp6       <span class="m">0</span>      <span class="m">0</span> :::5355                 :::*                    LISTEN      -      
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>ss：服务的监听地址范围，参数和netstat基本相同</li>
+</ul>
+<p>⽹络服务管理 :
+⽹络服务管理程序分为两种，分别为SysV和systemd</p>
+<ul>
+<li>service network start|stop|restart|status</li>
+<li>chkconfig -list network</li>
+<li>chkconfig &ndash;level 2345 network off禁用2345network</li>
+<li>systemctl list-unit-files NetworkManager.service</li>
+<li>systemctl start|stop|restart NetworkManger</li>
+<li>systemctl enable|disable NetworkManger</li>
+</ul>
+<p>常⽤⽹络配置⽂件:</p>
+<ul>
+<li>ifcfg-eth0</li>
+<li>/etc/hosts</li>
+</ul>
+<p>/etc/sysconfig/network-scripts/下每个ifcfg开头的文件都对应着一个网络接口，可以配置这些网卡。</p>
+<p>route -n可以查看网关</p>
 <h3 id="软件包管理器的使用及软件包的安装">软件包管理器的使用及软件包的安装</h3>
+<p>包管理器是⽅便软件安装、卸载，解决软件依赖关系的重要⼯具</p>
+<ul>
+<li>CentOS、RedHat 使⽤ yum 包管理器，软件安装包格式为 rpm</li>
+<li>Debian、Ubuntu 使⽤ apt 包管理器，软件安装包格式为 deb</li>
+</ul>
 <h4 id="rpm命令">rpm命令</h4>
-<h4 id="yum包管理器">yum包管理器</h4>
+<p>rpm 包格式</p>
+<ul>
+<li>vim-common-7.4.10-5.el7.x86_64.rpm
+软件名称 软件版本 系统版本 平台</li>
+</ul>
+<p>rpm 命令常⽤参数</p>
+<ul>
+<li>-q 查询软件包</li>
+<li>-i 安装软件包（要加软件包完整名称）</li>
+<li>-e 卸载软件包</li>
+</ul>
+<p>rpm -qa | more查看所有安装的软件包
+rpm -q vim-common查看某个软件包</p>
+<h4 id="yum包管理器也叫yum仓库">yum包管理器也叫yum仓库</h4>
+<p>rpm 包的问题</p>
+<ul>
+<li>需要⾃⼰解决依赖关系</li>
+<li>软件包来源不可靠</li>
+</ul>
+<p>CentOS yum 源</p>
+<ul>
+<li><a href="http://mirror.centos.org/centos/7/" target="_blank" rel="noopener noreffer">http://mirror.centos.org/centos/7/</a>
+国内镜像</li>
+<li><a href="https://opsx.alibaba.com/mirror" target="_blank" rel="noopener noreffer">https://opsx.alibaba.com/mirror</a></li>
+</ul>
+<p>yum makecache切换镜像后更新缓存</p>
+<p>常⽤选项</p>
+<ul>
+<li>install 安装软件包</li>
+<li>remove 卸载软件包</li>
+<li>list| grouplist 查看软件包</li>
+<li>update 升级软件包</li>
+</ul>
 <h4 id="源代码编译安装">源代码编译安装</h4>
+<ul>
+<li>⼆进制安装</li>
+</ul>
+<p>源代码编译安装</p>
+<ul>
+<li>wget <a href="https://openresty.org/download/openresty-1.15.8.1.tar.gz" target="_blank" rel="noopener noreffer">https://openresty.org/download/openresty-1.15.8.1.tar.gz</a></li>
+<li>tar -zxf openresty-VERSION.tar.gz</li>
+<li>cd openresty-VERSION/</li>
+<li>./configure &ndash;prefix=/usr/local/openresty指定安装目录</li>
+<li>make -j2 指定两个内核</li>
+<li>make install</li>
+</ul>
 <h3 id="内核升级">内核升级</h3>
+<p>rpm 格式内核（不能获得最新稳定版内核）</p>
+<ul>
+<li>查看内核版本</li>
+<li>uname –r</li>
+<li>升级内核版本</li>
+<li>yum install kernel-3.10.0</li>
+<li>升级已安装的其他软件包和补丁</li>
+<li>yum update</li>
+</ul>
+<p>源代码编译安装内核：</p>
+<ul>
+<li>
+<p>安装依赖包</p>
+</li>
+<li>
+<p>yum install gcc gcc-c++ make ncurses-devel openssl-devel elfutils-libelf-devel</p>
+</li>
+<li>
+<p>下载并解压缩内核</p>
+</li>
+<li>
+<p><a href="https://www.kernel.org" target="_blank" rel="noopener noreffer">https://www.kernel.org</a></p>
+</li>
+<li>
+<p>tar xvf linux-5.1.10.tar.xz -C /usr/src/kernels</p>
+</li>
+<li>
+<p>配置内核编译参数</p>
+</li>
+<li>
+<p>cd /usr/src/kernels/linux-5.1.10/</p>
+</li>
+<li>
+<p>make menuconfig | allyesconfig | allnoconfig</p>
+</li>
+<li>
+<p>使⽤当前系统内核配置</p>
+</li>
+<li>
+<p>cp /boot/config-kernelversion.platform /usr/src/kernels/
+linux-5.1.10/.config</p>
+</li>
+<li>
+<p>查看 CPU</p>
+</li>
+<li>
+<p>lscpu</p>
+</li>
+<li>
+<p>编译</p>
+</li>
+<li>
+<p>make -j2 all</p>
+</li>
+<li>
+<p>安装内核</p>
+</li>
+<li>
+<p>make modules_install</p>
+</li>
+<li>
+<p>make install</p>
+</li>
+</ul>
 <h3 id="grub配置文件介绍">grub配置文件介绍</h3>
+<p>启动引导软件grub
+grub 配置⽂件</p>
+<ul>
+<li>/etc/default/grub（主要关注：grub_default和grub_cmdline_linux）</li>
+<li>/etc/grub.d/</li>
+<li>/boot/grub2/grub.cfg</li>
+<li>grub2-mkconfig -o /boot/grub2/grub.cfg</li>
+</ul>
+<p>使⽤单⽤户进⼊系统（忘记 root 密码）
+重设root密码~</p>
 <h3 id="ps-top查看进程">ps top查看进程</h3>
+<p>查看命令</p>
+<ul>
+<li>ps   （ps -e  , ps -e | more,ps -ef | more,ps -eLf可查看线程数）</li>
+<li>pstree</li>
+<li>top（top -p 18746）
+结论：</li>
+<li>进程也是树形结构</li>
+<li>进程和权限有着密不可分的关系</li>
+</ul>
 <h3 id="进程的控制关联通信">进程的控制、关联、通信</h3>
+<p>调整优先级</p>
+<ul>
+<li>nice 范围从-20 到 19 ，值越⼩优先级越⾼，抢占资源就越多</li>
+<li>renice 重新设置优先级（已经运行的程序更改优先级 renice -n 15 19314）
+进程的作业控制（前后台切换）</li>
+<li>jobs</li>
+<li>&amp; 符号</li>
+</ul>
+<p>ctrl+z暂停 ctrl+c终止</p>
+<p>进程通信：（比如管道、socket）</p>
+<ul>
+<li>信号是进程间通信⽅式之⼀，典型⽤法是：终端⽤户输⼊中断命令，通过信号机制停⽌⼀个程序的运⾏。</li>
+<li>使⽤信号的常⽤快捷键和命令</li>
+<li>kill -l
+<ul>
+<li>SIGINT 通知前台进程组终⽌进程 ctrl + c</li>
+<li>SIGKILL ⽴即结束程序，不能被阻塞和处理 kill -9 pid</li>
+</ul>
+</li>
+</ul>
 <h3 id="守护进程">守护进程</h3>
+<p>如何使你关掉终端也不杀死进程？</p>
+<ul>
+<li>使⽤ nohup 与 &amp; 符号配合运⾏⼀个命令</li>
+<li>nohup 命令使进程忽略 hangup（挂起）信号</li>
+<li>把输出追加到nohup.out文件中</li>
+<li>关掉终端后，继续执行的进程a的父进程&ndash;也就是终端结束，进程a成了孤儿进程，会被1号进程收留</li>
+</ul>
+<p>守护进程(daemon)和⼀般进程有什么差别呢？（开机自启，输出会打印到socket通信程序，socket通过套接字与系统日志进行通讯。daemon进程占用的目录是根目录）(/var/log系统日志)</p>
 <h3 id="screen和系统日志">screen和系统日志</h3>
+<p>使⽤ screen 命令</p>
+<ul>
+<li>screen 进⼊ screen 环境</li>
+<li>ctrl+a d 退出 (detached) screen 环境</li>
+<li>screen -ls 查看 screen 的会话</li>
+<li>screen -r sessionid 恢复会话</li>
+</ul>
+<p>常⻅的系统⽇志/var/log（系统日志）</p>
+<ul>
+<li>message（常规日志）</li>
+<li>dmesg（内核运行相关信息）</li>
+<li>cron（周期性、计划任务日志信息）</li>
+<li>secur（安全日志）</li>
+</ul>
 <h3 id="服务管理工具systemctl">服务管理工具systemctl</h3>
+<p>服务（提供常⻅功能的守护进程）集中管理⼯具</p>
+<ul>
+<li>service
+<ul>
+<li>/etc/init.d/</li>
+</ul>
+</li>
+<li>systemctl
+<ul>
+<li>systemctl 常⻅操作
+<ul>
+<li>systemctl start | stop | restart | reload | enable(随开机运行) | disable |status 服务名称</li>
+<li>软件包安装的服务单元 /usr/lib/systemd/system/</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>systemctl 的服务配置</p>
+<ul>
+<li>[Unit]
+<ul>
+<li>Requires = 新的依赖服务</li>
+<li>After = 新的依赖服务</li>
+</ul>
+</li>
+<li>[Service]</li>
+<li>[Install]
+<ul>
+<li>安装到哪个默认启动级别 /lib/systemd/system</li>
+<li>systemctl get-default | set-default</li>
+</ul>
+</li>
+</ul>
 <h3 id="selinux">SElinux</h3>
+<p>安全组件，安全但复杂，且会降低服务器的性能，生产环境下一般被关闭</p>
+<ul>
+<li>MAC（强制访问控制）与 DAC（⾃主访问控制）</li>
+<li>查看 SELinux 的命令
+<ul>
+<li>getenforce</li>
+<li>/usr/sbin/sestatus</li>
+<li>ps -Z and ls -Z and id -Z</li>
+</ul>
+</li>
+<li>关闭 SELinux
+<ul>
+<li>setenforce 0</li>
+<li>vim /etc/selinux/sysconfig</li>
+</ul>
+</li>
+</ul>
 <h3 id="内存和磁盘管理">内存和磁盘管理</h3>
-<h4 id="内存查看命令">内存查看命令</h4>
-<h4 id="磁盘分区和文件大小查看">磁盘分区和文件大小查看</h4>
-<h3 id="文件系统管理">文件系统管理</h3>
-<h3 id="i节点和数据块操作">i节点和数据块操作</h3>
-<h3 id="分区和挂载">分区和挂载</h3>
-<h4 id="分区和挂载磁盘配额">分区和挂载磁盘配额</h4>
-<h3 id="交换分区swap的查看与创建">交换分区swap的查看与创建</h3>
-<h3 id="软件raid的使用">软件RAID的使用</h3>
-<h3 id="逻辑卷lvm的用途与创建">逻辑卷LVM的用途与创建</h3>
-<h3 id="sar以及第三方命令">sar以及第三方命令</h3>
+<h4 id="内存和磁盘使率查看">内存和磁盘使⽤率查看</h4>
+<ul>
+<li>
+<p>free
+如果不设swap分区，也就是虚拟内存，那当内存不足时，linux内核会随机杀掉占用内存较大的进程。一旦发现swap被占用了，尽量增大内存。</p>
+</li>
+<li>
+<p>top</p>
+</li>
+<li>
+<p>fdisk -l</p>
+</li>
+<li>
+<p>df</p>
+</li>
+<li>
+<p>du</p>
+</li>
+<li>
+<p>du 与 ls 的区别</p>
+</li>
+</ul>
+<h4 id="ext4-件系统">ext4 ⽂件系统</h4>
+<p>Linux ⽀持多种⽂件系统，常⻅的有</p>
+<ul>
+<li>ext4</li>
+<li>xfs</li>
+<li>NTFS（需安装额外软件）</li>
+</ul>
+<p>ext4 ⽂件系统基本结构⽐较复杂</p>
+<ul>
+<li>超级块</li>
+<li>超级块副本</li>
+<li>i 节点(inode)</li>
+<li>数据块(datablock)</li>
+</ul>
+<p>ext4 ⽂件系统深⼊理解</p>
+<ul>
+<li>执⾏ mkdir 、touch、 vi 等命令后的内部操作</li>
+<li>符号链接与硬链接</li>
+<li>facl</li>
+</ul>
+<h4 id="磁盘配额的使">磁盘配额的使⽤</h4>
+<p>⽤户磁盘配额</p>
+<ul>
+<li>xfs⽂件系统的⽤户磁盘配额 quota</li>
+<li>mkfs.xfs /dev/sdb1</li>
+<li>mkdir /mnt/disk1</li>
+<li>mount -o uquota,gquota /dev/sdb1 /mnt/disk1</li>
+<li>chmod 1777 /mnt/disk1</li>
+<li>xfs_quota -x -c ‘report -ugibh’ /mnt/disk1</li>
+<li>xfs_quota -x -c ‘limit -u isoft=5 ihard=10 user1’ /mnt/disk1</li>
+</ul>
+<h4 id="磁盘的分区与挂载">磁盘的分区与挂载</h4>
+<p>常⽤命令</p>
+<ul>
+<li>fdisk</li>
+<li>mkfs</li>
+<li>parted</li>
+<li>mount
+常⻅配置⽂件</li>
+<li>/etc/fstab</li>
+</ul>
+<h4 id="交换分区虚拟内存的查看与创建">交换分区（虚拟内存）的查看与创建</h4>
+<p>增加交换分区的⼤⼩</p>
+<ul>
+<li>mkswap</li>
+<li>swapon
+使⽤⽂件制作交换分区</li>
+<li>dd if=/dev/zero bs=4M count=1024 of=/swapfile</li>
+</ul>
+<h4 id="软件-raid-的使">软件 RAID 的使⽤</h4>
+<p>RAID 与软件 RAID 技术</p>
+<ul>
+<li>RAID 的常⻅级别及含义
+<ul>
+<li>RAID 0 striping 条带⽅式，提⾼单盘吞吐率</li>
+<li>RAID 1 mirroring 镜像⽅式，提⾼可靠性</li>
+<li>RAID 5 有奇偶校验</li>
+<li>RAID 10 是RAID 1 与 RAID 0 的结合</li>
+</ul>
+</li>
+<li>软件 RAID 的使⽤</li>
+</ul>
+<h4 id="逻辑卷管理">逻辑卷管理</h4>
+<ul>
+<li>逻辑卷和⽂件系统的关系</li>
+<li>为 Linux 创建逻辑卷</li>
+<li>动态扩容逻辑卷</li>
+</ul>
+<h4 id="系统综合状态查看">系统综合状态查看</h4>
+<ul>
+<li>使⽤ sar 命令查看系统综合状态</li>
+<li>使⽤第三⽅命令查看⽹络流量</li>
+<li>yum install epel-release</li>
+<li>yum install iftop</li>
+<li>iftop -P</li>
+</ul>
 <h2 id="4-shell">4. Shell</h2>
 <h3 id="什么是shell">什么是shell</h3>
+<ul>
+<li>Shell 是命令解释器，用于解释用户对操作系统的操作</li>
+</ul>
+<p>• Shell 有很多</p>
+<p>• cat /etc/shells</p>
+<p>• CentOS 7 默认使用的 Shell 是 bash</p>
 <h3 id="linux的启动过程">linux的启动过程</h3>
+<p>BIOS-MBR-BootLoader(grub)-kernel-init-系统初始化-shell</p>
 <h3 id="shell脚本">shell脚本</h3>
-<h3 id="脚本不同执行方式的影响">脚本不同执行方式的影响</h3>
+<ul>
+<li>UNIX 的哲学：一条命令只做一件事</li>
+</ul>
+<p>• 为了组合命令和多次执行，使用脚本文件来保存需要执行的命令</p>
+<p>• 赋予该文件执行权限（chmod u+rx filename）</p>
+<p>标准的 Shell 脚本要包含哪些元素
+• Sha-Bang</p>
+<p>• 命令</p>
+<p>• “#”号开头的注释</p>
+<p>• chmod u+rx filename 可执行权限</p>
+<p>• 执行命令</p>
+<pre><code>• bash ./filename.sh. 
+
+• ./filename.sh
+
+• source ./filename.sh
+
+• . filename.sh
+</code></pre>
+<p>内建命令和外部命令的区别
+• 内建命令不需要创建子进程</p>
+<p>• 内建命令对当前 Shell 生效</p>
 <h3 id="管道">管道</h3>
+<p>管道与管道符
+• 管道和信号一样，也是进程通信的方式之一</p>
+<p>• 匿名管道（管道符）是 Shell 编程经常用到的通信工具</p>
+<p>• 管道符是“|”，将前一个命令执行的结果传递给后面的命令</p>
+<pre><code>• ps | cat
+
+• echo 123 | ps
+</code></pre>
+<p>子进程与子 Shell
+• 子进程是 Shell 程序，称作子 Shell</p>
+<p>• 内部命令的结果不会传递给子 Shell</p>
 <h3 id="重定向">重定向</h3>
-<h3 id="变量赋值">变量赋值</h3>
-<h3 id="变量引用及作用范围">变量引用及作用范围</h3>
+<p>重定向符号
+• 一个进程默认会打开标准输入、标准输出、错误输出三个文件描述符</p>
+<p>• 输入重定向符号 “ &lt;”</p>
+<p>• 输出重定向符号 “&gt;” “&raquo;” “2&gt;” “&amp;&gt;”</p>
+<h3 id="变量查看">变量查看</h3>
+<p>变量的查看方法</p>
+<p>• echo</p>
+<p>• ${变量名} 在部分情况下可以省略为 $变量名</p>
+<h3 id="变量作用范围">变量作用范围</h3>
+<p>• 变量的默认作用范围</p>
+<p>• 变量的导出</p>
+<p>• export</p>
 <h3 id="环境变量预定义变量与位置变量">环境变量、预定义变量与位置变量</h3>
+<p>系统环境变量
+• 环境变量：每个 Shell 打开都可以获得到的变量</p>
+<p>• set 和 env 命令</p>
+<p>• $?</p>
+<p>• $!</p>
+<p>• $$ $0</p>
+<p>• $PATH</p>
+<p>• $PS1</p>
+<p>环境变量配置文件
+• 配置文件</p>
+<p>• /etc/profile</p>
+<p>• /etc/bashrc</p>
+<p>• ~/.bashrc</p>
+<p>• ~/.bash_profile</p>
 <h3 id="环境变量配置文件">环境变量配置文件</h3>
 <h3 id="数组">数组</h3>
 <h3 id="转义和引用">转义和引用</h3>
+<p>特殊字符
+• 特殊字符：一个字符不仅有字面意义，还有元意（meta-meaning）</p>
+<p>• # 注释</p>
+<p>• ; 分号</p>
+<p>• \ 转义符号</p>
+<p>• “和’ 引号</p>
+<p>转义符号
+• 单个字符前的转义符号</p>
+<p>• \n \r \t 单个字母的转义</p>
+<p>• $ \” \ 单个非字母的转义</p>
+<p>引用
+• 常用的引用符号</p>
+<p>• “ 双引号</p>
+<p>• ‘ 单引号</p>
+<p>• ` 反引号</p>
 <h3 id="运算符">运算符</h3>
+<p>运算符
+• 赋值运算符</p>
+<p>• 算数运算符</p>
+<p>• 数字常量</p>
+<p>• 双圆括号</p>
 <h3 id="特殊字符大全">特殊字符大全</h3>
 <h3 id="test比较">test比较</h3>
 <h3 id="if判断的使用">if判断的使用</h3>
@@ -721,7 +1382,7 @@ shutdown -c
 <h3 id="sed多行模式空间">sed多行模式空间</h3>
 <h3 id="什么是sed的保持空间">什么是sed的保持空间</h3>
 <h3 id="awk">awk</h3>
-<h2 id="6-服务篇">6. 服务篇</h2>
+<h2 id="6-服务">6. 服务</h2>
 <h3 id="防火墙概述">防火墙概述</h3>
 <h3 id="iptables">iptables</h3>
 <h4 id="iptables规则的基本使用演示">iptables规则的基本使用演示</h4>
@@ -741,7 +1402,6 @@ shutdown -c
 <h3 id="lnmp环境搭建">LNMP环境搭建</h3>
 <h3 id="dns服务原理">DNS服务原理</h3>
 <h3 id="nas演示">NAS演示</h3>
-<h2 id="7-实战">7. 实战</h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -765,8 +1425,8 @@ shutdown -c
         </section>
     </div>
 
-    <div class="post-nav"><a href="/mysql_base_02/" class="prev" rel="prev" title="Mysql_base_02"><i class="fas fa-angle-left fa-fw"></i>Mysql_base_02</a>
-            <a href="/mysql_catalogue/" class="next" rel="next" title="Mysql_catalogue">Mysql_catalogue<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav">
+            <a href="/distributedsystem_base_01/" class="next" rel="next" title="DistributedSystem_base_01">DistributedSystem_base_01<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
@@ -778,5 +1438,5 @@ shutdown -c
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/algorithm_backtracking\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "data structure","wordcount":  5563 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "data structure","wordcount":  5592 ,
         "url": "https:\/\/qizhengzou.github.io\/algorithm_backtracking\/","datePublished": "2022-01-06T08:22:27+08:00","dateModified": "2022-01-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -115,7 +115,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Algorithm_backTracking</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/coding/"><i class="far fa-folder fa-fw"></i>Coding</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 08:22:27">2022-01-06 08:22:27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5563 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 08:22:27">2022-01-06 08:22:27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5592 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -128,7 +128,7 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#理论基础">理论基础</a></li>
-    <li><a href="#组合问题及其优化">组合问题及其优化</a></li>
+    <li><a href="#组合问题及其优化">*组合问题及其优化</a></li>
     <li><a href="#组合总和iii">组合总和III</a></li>
     <li><a href="#电话号码的字母组合">电话号码的字母组合</a></li>
     <li><a href="#组合总和">组合总和</a></li>
@@ -198,13 +198,13 @@
 }
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="组合问题及其优化">组合问题及其优化</h2>
+</div><h2 id="组合问题及其优化">*组合问题及其优化</h2>
 <p>给定两个整数 n 和 k，返回 1 &hellip; n 中所有可能的 k 个数的组合。</p>
 <p><strong>回溯法三部曲</strong>：函数参数、终止条件和单层搜索</p>
 <p>剪枝优化：</p>
 <ul>
 <li>可以剪枝的地方就在递归中每一层的for循环所选择的起始位置。</li>
-<li>如果for循环选择的起始位置之后的元素个数 已经不足 我们需要的元素个数了，那么就没有必要搜索了。</li>
+<li>如果for循环选择的起始位置之后的元素个数已经不足我们需要的元素个数了，那么就没有必要搜索了。</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -260,7 +260,7 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>剪枝：</p>
+</div><p>剪枝：<strong>go语言的剪枝优化会爆内存溢出，不知道是为啥……</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -307,7 +307,7 @@
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">track</span><span class="p">)</span><span class="o">+</span><span class="nx">n</span><span class="o">-</span><span class="nx">start</span><span class="o">+</span><span class="mi">1</span> <span class="p">&lt;</span> <span class="nx">k</span> <span class="p">{</span>
 			<span class="k">return</span>
 		<span class="p">}</span>
-    <span class="k">for</span> <span class="nx">i</span><span class="o">:=</span><span class="nx">start</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;=</span><span class="nx">n</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">{</span> 
+    <span class="k">for</span> <span class="nx">i</span><span class="o">:=</span><span class="nx">start</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;=</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="nx">k</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="nx">track</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="nx">i</span><span class="o">++</span><span class="p">{</span> 
         <span class="nx">track</span><span class="p">=</span><span class="nb">append</span><span class="p">(</span><span class="nx">track</span><span class="p">,</span><span class="nx">i</span><span class="p">)</span>
         <span class="nf">backtrack</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">k</span><span class="p">,</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nx">track</span><span class="p">)</span>
         <span class="nx">track</span><span class="p">=</span><span class="nx">track</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">track</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -381,7 +381,7 @@
 </div>
 </div><h2 id="电话号码的字母组合">电话号码的字母组合</h2>
 <p>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。</p>
-<p>给出数字到字母的映射如电话按键。注意 1 不对应任何字母。</p>
+<p>给出数字到字母的映射如电话按键。<strong>注意</strong> 1 不对应任何字母。</p>
 <p>主要在于递归中传递下一个数字</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -689,7 +689,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">示例: 输入: &#34;aab&#34; 输出: [ [&#34;aa&#34;,&#34;b&#34;], [&#34;a&#34;,&#34;a&#34;,&#34;b&#34;] ]
 </code></pre></td></tr></table>
 </div>
-</div><p>注意切片（go切片是披着值类型外衣的引用类型）</p>
+</div><p><strong>注意</strong>切片（go切片是披着值类型外衣的引用类型）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -802,7 +802,7 @@
 输出：[&#34;0.0.0.0&#34;]
 </code></pre></td></tr></table>
 </div>
-</div><p>回溯（对于前导 0的IP（特别注意s[startIndex]==&lsquo;0&rsquo;的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字））</p>
+</div><p>回溯（对于前导 0的IP（特别<strong>注意</strong>s[startIndex]==&lsquo;0&rsquo;的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字））</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -867,7 +867,7 @@
 <span class="p">}</span>
 <span class="kd">func</span> <span class="nf">isNormalIp</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">,</span><span class="nx">startIndex</span><span class="p">,</span><span class="nx">end</span> <span class="kt">int</span><span class="p">)</span><span class="kt">bool</span><span class="p">{</span>
 	<span class="nx">checkInt</span><span class="p">,</span><span class="nx">_</span><span class="o">:=</span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">startIndex</span><span class="p">:</span><span class="nx">end</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-	<span class="k">if</span> <span class="nx">end</span><span class="o">-</span><span class="nx">startIndex</span><span class="o">+</span><span class="mi">1</span><span class="p">&gt;</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="nx">s</span><span class="p">[</span><span class="nx">startIndex</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;0&#39;</span><span class="p">{</span><span class="c1">//对于前导 0的IP（特别注意s[startIndex]==&#39;0&#39;的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字）
+	<span class="k">if</span> <span class="nx">end</span><span class="o">-</span><span class="nx">startIndex</span><span class="o">+</span><span class="mi">1</span><span class="p">&gt;</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="nx">s</span><span class="p">[</span><span class="nx">startIndex</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;0&#39;</span><span class="p">{</span><span class="c1">//对于前导 0的IP（特别**注意**s[startIndex]==&#39;0&#39;的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字）
 </span><span class="c1"></span>		<span class="k">return</span> <span class="kc">false</span>
 	<span class="p">}</span>
 	<span class="k">if</span> <span class="nx">checkInt</span><span class="p">&gt;</span><span class="mi">255</span><span class="p">{</span>
@@ -1536,5 +1536,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

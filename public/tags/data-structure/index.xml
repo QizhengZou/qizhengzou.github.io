@@ -19,6 +19,13 @@
     <guid>https://qizhengzou.github.io/algorithm_sort/</guid>
     <description><![CDATA[排序算法 稳定性概念 定义：能保证两个相等的数，经过排序之后，其在序列的前后位置顺序不变。（A1=A2，排序前A1在A2前面，排序后A1还在A2]]></description>
 </item><item>
+    <title>Algo_catalogue</title>
+    <link>https://qizhengzou.github.io/algo_catalogue/</link>
+    <pubDate>Wed, 19 Jan 2022 10:06:22 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/algo_catalogue/</guid>
+    <description><![CDATA[学习代码随想录笔记 algorithm_array algorithm_backTracking algorithm_binaryTree algorithm_doublePointer algorithm_dp algorithm_find algorithm_greedy algorithm_hashTable algorithm_linkedList algorithm_sort algorithm_stackAndQueue algorithm_string]]></description>
+</item><item>
     <title>Algorithm_dynamicProgramming</title>
     <link>https://qizhengzou.github.io/algorithm_dynamicprogramming/</link>
     <pubDate>Thu, 06 Jan 2022 08:27:39 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://qizhengzou.github.io/algorithm_string/</guid>
     <description><![CDATA[学习代码随想录笔记 字符串 库函数是工具，基础更重要。 反转字符串 I 和反转链表相同，都用双指针法。 1 2 3 4 5 6 7 8 9 func reverseString(s []byte) { left:=0 right:=len(s)-1 for left&lt;right{ s[left],s[right]=s[right],s[left] left++ right-- } } II 给]]></description>
-</item><item>
-    <title>Algorithm_hashTable</title>
-    <link>https://qizhengzou.github.io/algorithm_hashtable/</link>
-    <pubDate>Thu, 06 Jan 2022 08:18:30 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/algorithm_hashtable/</guid>
-    <description><![CDATA[学习代码随想录笔记 哈希表 哈希表理论基础 哈希表是根据关键码的值而直接进行访问的数据结构，比如数组、map（映射）、set（集合）。 一般用来快速]]></description>
 </item></channel>
 </rss>

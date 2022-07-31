@@ -1,10 +1,10 @@
 ---
 title: "Framework_base"
 date: 2022-07-15T14:56:21+08:00
-lastmod:
-tags: []
-categories: []
-slug:
+lastmod: 2022-07-15
+tags: [framework]
+categories: [Advanced learning]
+slug: framework base
 draft: true
 ---
 

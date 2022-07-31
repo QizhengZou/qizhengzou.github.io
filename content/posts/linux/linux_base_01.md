@@ -5,7 +5,7 @@ lastmod: 2021-11-08
 tags: [linux]
 categories: [Advanced learning]
 slug: linux
-draft: false
+draft: true
 ---
 ## 1. Linux 背景知识
 Linux 有两种含义：

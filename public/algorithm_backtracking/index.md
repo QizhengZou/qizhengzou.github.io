@@ -36,14 +36,14 @@ void backtracking(参数) {
     }
 }
 ```
-## 组合问题及其优化
+## *组合问题及其优化
 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
 
 **回溯法三部曲**：函数参数、终止条件和单层搜索
 
 剪枝优化：
 - 可以剪枝的地方就在递归中每一层的for循环所选择的起始位置。
-- 如果for循环选择的起始位置之后的元素个数 已经不足 我们需要的元素个数了，那么就没有必要搜索了。
+- 如果for循环选择的起始位置之后的元素个数已经不足我们需要的元素个数了，那么就没有必要搜索了。
 
 ```go
 var res [][]int 
@@ -71,7 +71,7 @@ func backtrack(n,k,start int,track []int){
     }
 }
 ```
-剪枝：
+剪枝：**go语言的剪枝优化会爆内存溢出，不知道是为啥……**
 ```go
 var res [][]int 
 func combine(n int, k int) [][]int {
@@ -91,7 +91,7 @@ func backtrack(n,k,start int,track []int){
     if len(track)+n-start+1 < k {
 			return
 		}
-    for i:=start;i<=n;i++{ 
+    for i:=start;i<=(n-k+len(track)+1);i++{ 
         track=append(track,i)
         backtrack(n,k,i+1,track)
         track=track[:len(track)-1]
@@ -137,7 +137,7 @@ func backTree(n,k,startIndex int,track *[]int,result *[][]int){
 ## 电话号码的字母组合
 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
 
-给出数字到字母的映射如电话按键。注意 1 不对应任何字母。
+给出数字到字母的映射如电话按键。**注意** 1 不对应任何字母。
 
 
 主要在于递归中传递下一个数字
@@ -301,7 +301,7 @@ func backtracking(startIndex,sum,target int,candidates,trcak []int,res *[][]int)
 示例: 输入: "aab" 输出: [ ["aa","b"], ["a","a","b"] ]
 ```
 
-注意切片（go切片是披着值类型外衣的引用类型）
+**注意**切片（go切片是披着值类型外衣的引用类型）
 ```go
 func partition(s string) [][]string {
     var tmpString []string//切割字符串集合
@@ -361,7 +361,7 @@ func isPartition(s string,startIndex,end int)bool{
 输出：["0.0.0.0"]
 ```
 
-回溯（对于前导 0的IP（特别注意s[startIndex]=='0'的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字））
+回溯（对于前导 0的IP（特别**注意**s[startIndex]=='0'的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字））
 ```go
 func restoreIpAddresses(s string) []string {
 	var res,path []string
@@ -389,7 +389,7 @@ func backTracking(s string,path []string,startIndex int,res *[]string){
 }
 func isNormalIp(s string,startIndex,end int)bool{
 	checkInt,_:=strconv.Atoi(s[startIndex:end+1])
-	if end-startIndex+1>1&&s[startIndex]=='0'{//对于前导 0的IP（特别注意s[startIndex]=='0'的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字）
+	if end-startIndex+1>1&&s[startIndex]=='0'{//对于前导 0的IP（特别**注意**s[startIndex]=='0'的判断，不应该写成s[startIndex]==0，因为s截取出来不是数字）
 		return false
 	}
 	if checkInt>255{

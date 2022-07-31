@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/qizhengzou.github.io\/go_base_03\/"
-        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  19508 ,
+        },"image": ["https:\/\/qizhengzou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go grammar","wordcount":  24343 ,
         "url": "https:\/\/qizhengzou.github.io\/go_base_03\/","datePublished": "2022-01-06T09:16:34+08:00","dateModified": "2022-01-06T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Jefo","logo": "https:\/\/qizhengzou.github.io\/images\/avatar.png"},"author": {
@@ -115,8 +115,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Go_base_03</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Jefo</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw"></i>Go</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:34">2022-01-06 09:16:34</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 19508 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 39 分钟&nbsp;<span id="busuanzi_container_page_pv">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-06 09:16:34">2022-01-06 09:16:34</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 24343 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 49 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
             </div>
@@ -134,6 +134,7 @@
       </ul>
     </li>
     <li><a href="#返回值">返回值</a></li>
+    <li><a href="#利用多返回值进行错误处理">利用多返回值进行错误处理：</a></li>
     <li><a href="#匿名函数">匿名函数</a></li>
     <li><a href="#闭包递归">闭包、递归</a>
       <ul>
@@ -147,6 +148,7 @@
       </ul>
     </li>
     <li><a href="#异常处理错误处理">异常处理，错误处理</a></li>
+    <li><a href="#为啥说函数是go语言的一等公民"><strong>为啥说函数是Go语言的一等公民</strong>：</a></li>
     <li><a href="#单元测试">单元测试</a>
       <ul>
         <li><a href="#go-test工具">go test工具</a></li>
@@ -212,12 +214,72 @@
 <li>函数也是一种类型，一个函数可以赋值给变量。</li>
 <li>有返回值的函数，必须有明确的终止语句，否则会引发编译错误。</li>
 <li>不支持 嵌套 (nested) 一个包不能有两个名字一样的函数。</li>
-<li>不支持 重载 (overload) （<strong>区别于重写</strong>，重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。最常用的地方就是构造器的重载。来自菜鸟教程java。）</li>
+<li>不支持 重载 (overload) （<strong>区别于重写</strong>，重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。最常用的地方就是构造器的重载。）</li>
 <li>不支持 默认参数 (default parameter)。</li>
 <li>没有函数体的函数声明，表示该函数不是以Go实现的。这样的声明定义了函数标识符。</li>
-<li><strong>所有参数都是值传递：slice，map，channel 会有传引⽤的错觉</strong></li>
+<li><strong>所有参数都是值传递：slice，map，channel 会有传引⽤的错觉</strong>
+<ul>
+<li>string、切片、map 这些类型它们的内存表示对应的是它们数据内容的“描述符”。当这些类型作为实参类型时，值传递拷贝的也是它们数据内容的“描述符”，不包括数据内容本身，所以这些类型传递的开销是固定的，与数据内容大小无关。这种只拷贝“描述符”，不拷贝实际数据内容的拷贝过程，也被称为“浅拷贝”。</li>
+<li><strong>当函数的形参为接口类型，或者形参是变长参数时，简单的值传递就不能满足要求了</strong>，这时 Go 编译器会介入：对于类型为接口类型的形参，Go 编译器会把传递的实参赋值给对应的接口类型形参；对于为变长参数的形参，Go 编译器会将零个或多个实参按一定形式转换为对应的变长形参。
+<ul>
+<li>在 Go 中，变长参数实际上是通过切片来实现的。所以，我们在函数体中，就可以使用切片支持的所有操作来操作变长参数</li>
 </ul>
-<p><strong>函数是第一类对象，可作为参数传递。建议将复杂签名定义为函数类型，以便于阅读。</strong></p>
+</li>
+</ul>
+</li>
+<li>关于函数的返回值：
+<ul>
+<li>Go 标准库以及大多数项目代码中的函数，都选择了使用普通的非具名返回值形式。但在一些特定场景下，具名返回值也会得到应用。比如，当函数使用 defer，而且还在 defer 函数中修改外部函数返回值时，具名返回值可以让代码显得更优雅清晰。当函数的返回值个数较多时，每次显式使用 return 语句时都会接一长串返回值，这时，我们用具名返回值可以让函数实现的可读性更好一些</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// $GOROOT/src/time/format.go
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">parseNanoseconds</span><span class="p">(</span><span class="nx">value</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">nbytes</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">ns</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">rangeErrString</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">!</span><span class="nf">commaOrPeriod</span><span class="p">(</span><span class="nx">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">err</span> <span class="p">=</span> <span class="nx">errBad</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nx">ns</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nf">atoi</span><span class="p">(</span><span class="nx">value</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="nx">nbytes</span><span class="p">]);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nx">ns</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="mf">1e9</span> <span class="o">&lt;=</span> <span class="nx">ns</span> <span class="p">{</span>
+        <span class="nx">rangeErrString</span> <span class="p">=</span> <span class="s">&#34;fractional second&#34;</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="nx">scaleDigits</span> <span class="o">:=</span> <span class="mi">10</span> <span class="o">-</span> <span class="nx">nbytes</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">scaleDigits</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="nx">ns</span> <span class="o">*=</span> <span class="mi">10</span>
+    <span class="p">}</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>函数是第一类对象，可作为参数传递。建议将复杂签名定义为函数类型，以便于阅读。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -323,7 +385,7 @@
 <h3 id="不定参">不定参</h3>
 <p>就是函数的参数不是固定的，后面的类型是固定的。（可变参数）</p>
 <p>Golang 可变参数本质上就是 slice。只能有一个，且必须是最后一个。</p>
-<p>在参数赋值时可以不用用一个一个的赋值，可以直接传递一个数组或者切片，特别注意的是在参数后加上“…”即可。</p>
+<p>在参数赋值时可以不用用一个一个的赋值，可以直接传递一个数组或者切片，特别<strong>注意</strong>的是在参数后加上“…”即可。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -346,7 +408,7 @@
 </span><span class="c1"></span>  <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>注意：其中args是一个slice，我们可以通过arg[index]依次访问所有参数,通过len(arg)来判断传递参数的个数.</p>
+</div><p><strong>注意</strong>：其中args是一个slice，我们可以通过arg[index]依次访问所有参数,通过len(arg)来判断传递参数的个数.</p>
 <p>任意类型的不定参数：就是函数的参数和每个参数的类型都不是固定的。</p>
 <p><strong>用interface{}传递任意类型数据是Go语言的惯例用法，而且interface{}是类型安全的。</strong></p>
 <div class="highlight"><div class="chroma">
@@ -536,7 +598,8 @@
 <span class="nx">output</span><span class="p">:</span><span class="mi">103</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="匿名函数">匿名函数</h2>
+</div><h2 id="利用多返回值进行错误处理">利用多返回值进行错误处理：</h2>
+<h2 id="匿名函数">匿名函数</h2>
 <p><strong>匿名函数的优越性在于可以直接使用函数内的变量，不必申明。Golang匿名函数可赋值给变量，做为结构字段，或者在 channel 里传送。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -732,7 +795,7 @@
 <span class="nf">x</span> <span class="p">(</span><span class="mh">0xc42007c008</span><span class="p">)</span> <span class="p">=</span> <span class="mi">100</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>在汇编层 ，test 实际返回的是 FuncVal 对象，其中包含了匿名函数地址、闭包对象指针。当调 匿名函数时，只需以某个寄存器传递该对象即可。</strong></p>
+</div><p><strong>在汇编层 ，test 实际返回的是 FuncVal 对象，其中包含了匿名函数地址、闭包对象指针。当调用匿名函数时，只需以某个寄存器传递该对象即可。</strong></p>
 <p>Funcval对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -864,11 +927,75 @@
 <li>这些调用直到 return 前才被执行。因此，可以用来做资源清理。</li>
 <li>多个defer语句，按<strong>先进后出</strong>的方式执行。（因为后面的defer可能会用到前面的资源）</li>
 <li>defer语句中的变量，在defer声明时就决定了。</li>
-<li>发生panic依然会执行defer，但不是任何情况都会执行，比如：os.Exit()不会调用defer。os.Exit()退出时不输出当前调用栈信息。
-用途：</li>
-<li>关闭文件句柄</li>
-<li>锁资源释放</li>
-<li>数据库连接释放</li>
+<li>发生panic依然会执行defer，但不是任何情况都会执行，比如：os.Exit()不会调用defer。os.Exit()退出时不输出当前调用栈信息</li>
+<li>Go1.13前的版本defer的开销还是非常大的，在后续团队优化后现在的开销比较小可以放心使用</li>
+</ol>
+<p>用途：</p>
+<ol>
+<li>关闭文件句柄、锁资源释放、数据库连接释放</li>
+<li><strong>使用 defer 可以跟踪函数的执行过程</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// trace.go
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+  
+<span class="kd">func</span> <span class="nf">Trace</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&#34;enter:&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&#34;exit:&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">defer</span> <span class="nf">Trace</span><span class="p">(</span><span class="s">&#34;foo&#34;</span><span class="p">)()</span>
+    <span class="nf">bar</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">defer</span> <span class="nf">Trace</span><span class="p">(</span><span class="s">&#34;bar&#34;</span><span class="p">)()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">defer</span> <span class="nf">Trace</span><span class="p">(</span><span class="s">&#34;main&#34;</span><span class="p">)()</span>
+    <span class="nf">foo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不足：调用 Trace 时需手动显式传入要跟踪的函数名；如果是并发应用，不同 Goroutine 中函数链跟踪混在一起无法分辨；输出的跟踪结果缺少层次感，调用关系不易识别；对要跟踪的函数，需手动调用 Trace 函数。</p>
+<p><strong>实现一个自动注入跟踪代码，并输出有层次感的函数调用链跟踪命令行工具</strong>：</p>
+<ul>
+<li>自动获取所跟踪函数的函数名</li>
+</ul>
+<ol start="3">
+<li>充当“断言”，提示潜在bug</li>
+<li></li>
+<li></li>
 </ol>
 <p>defer功能强大，对于资源管理非常方便，但是如果没用好，也会有陷阱。</p>
 <p><strong>defer碰上闭包：</strong></p>
@@ -1395,7 +1522,7 @@ defer后面的语句在执行的时候，函数调用的参数会被保存起来
 <span class="nx">runtime</span> <span class="kt">error</span><span class="p">:</span> <span class="nx">invalid</span> <span class="nx">memory</span> <span class="nx">address</span> <span class="nx">or</span> <span class="kc">nil</span> <span class="nx">pointer</span> <span class="nx">dereference</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>解释：名为 test 的函数一直运行至结束，然后 defer 函数会被执行且会因为值为 nil 而产生 panic 异常。然而值得注意的是，run() 的声明是没有问题，因为在test函数运行完成后它才会被调用。</p>
+</div><p>解释：名为 test 的函数一直运行至结束，然后 defer 函数会被执行且会因为值为 nil 而产生 panic 异常。然而值得<strong>注意</strong>的是，run() 的声明是没有问题，因为在test函数运行完成后它才会被调用。</p>
 <p><strong>在错误的位置使用 defer:</strong>
 当 http.Get 失败时会抛出异常。</p>
 <div class="highlight"><div class="chroma">
@@ -1870,12 +1997,12 @@ defer close book.txt err close ./another-book.txt: file already closed</p>
 <li>用来控制一个goroutine的panicking行为，捕获panic，从而影响应用的行为</li>
 <li>一般的调用建议
 <ul>
-<li>在defer函数中，通过recever来终止一个goroutine的panicking过程，从而恢复正常代码的执行</li>
+<li>只能用在defer函数中，通过recever来终止一个goroutine的panicking过程，从而恢复正常代码的执行</li>
 <li>可以获取通过panic传递的error</li>
 </ul>
 </li>
 </ol>
-<p>注意：</p>
+<p><strong>注意</strong>：</p>
 <ol>
 <li>利用recover处理panic指令，defer 必须放在 panic 之前定义，另外 recover 只有在 defer 调用的函数中才有效。否则当panic时，recover无法捕获到panic，无法防止panic扩散。</li>
 <li>recover 处理异常后，逻辑并不会恢复到 panic 那个点去，函数跑到 defer 之后的那个点。</li>
@@ -2337,7 +2464,596 @@ defer close book.txt err close ./another-book.txt: file already closed</p>
 </div>
 </div><p>如何区别使用 panic 和 error 两种方式?</p>
 <p>惯例是:导致关键流程出现不可修复性错误的使用 panic，其他使用 error。</p>
-<h2 id="单元测试">单元测试</h2>
+<p>几种错误处理策略：</p>
+<ol>
+<li>透明错误处理策略</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">err</span> <span class="o">:=</span> <span class="nf">doSomething</span><span class="p">()</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="c1">// 不关心err变量底层错误值所携带的具体上下文信息
+</span><span class="c1"></span>    <span class="c1">// 执行简单错误处理逻辑并返回
+</span><span class="c1"></span>    <span class="o">...</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="nx">err</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>“哨兵”
+<ul>
+<li>当错误处理方不能只根据“透明的错误值”就做出错误处理路径选取的情况下，错误处理方会尝试对返回的错误值进行检视，于是就有可能出现下面代码中的反模式：</li>
+<li>反模式就是，错误处理方以透明错误值所能提供的唯一上下文信息（描述错误的字符串），作为错误处理路径选择的依据。但这种“反模式”会造成严重的隐式耦合。这也就意味着，错误值构造方不经意间的一次错误描述字符串的改动，都会造成错误处理方处理行为的变化，并且这种通过字符串比较的方式，对错误值进行检视的性能也很差。</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">b</span><span class="p">.</span><span class="nf">Peek</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s">&#34;bufio: negative count&#34;</span><span class="p">:</span>
+        <span class="c1">// ... ...
+</span><span class="c1"></span>        <span class="k">return</span>
+    <span class="k">case</span> <span class="s">&#34;bufio: buffer full&#34;</span><span class="p">:</span>
+        <span class="c1">// ... ...
+</span><span class="c1"></span>        <span class="k">return</span>
+    <span class="k">case</span> <span class="s">&#34;bufio: invalid use of UnreadByte&#34;</span><span class="p">:</span>
+        <span class="c1">// ... ...
+</span><span class="c1"></span>        <span class="k">return</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="c1">// ... ...
+</span><span class="c1"></span>        <span class="k">return</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Go 标准库采用了定义导出的（Exported）“哨兵”错误值的方式，来辅助错误处理方检视（inspect）错误值并做出错误处理分支的决策，比如下面的 bufio 包中定义的“哨兵错误”：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="c1">// $GOROOT/src/bufio/bufio.go
+</span><span class="c1"></span><span class="kd">var</span> <span class="p">(</span>
+    <span class="nx">ErrInvalidUnreadByte</span> <span class="p">=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;bufio: invalid use of UnreadByte&#34;</span><span class="p">)</span>
+    <span class="nx">ErrInvalidUnreadRune</span> <span class="p">=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;bufio: invalid use of UnreadRune&#34;</span><span class="p">)</span>
+    <span class="nx">ErrBufferFull</span>        <span class="p">=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;bufio: buffer full&#34;</span><span class="p">)</span>
+    <span class="nx">ErrNegativeCount</span>     <span class="p">=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;bufio: negative count&#34;</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面的代码片段利用了上面的哨兵错误，进行错误处理分支的决策：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">b</span><span class="p">.</span><span class="nf">Peek</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="nx">err</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">bufio</span><span class="p">.</span><span class="nx">ErrNegativeCount</span><span class="p">:</span>
+        <span class="c1">// ... ...
+</span><span class="c1"></span>        <span class="k">return</span>
+    <span class="k">case</span> <span class="nx">bufio</span><span class="p">.</span><span class="nx">ErrBufferFull</span><span class="p">:</span>
+        <span class="c1">// ... ...
+</span><span class="c1"></span>        <span class="k">return</span>
+    <span class="k">case</span> <span class="nx">bufio</span><span class="p">.</span><span class="nx">ErrInvalidUnreadByte</span><span class="p">:</span>
+        <span class="c1">// ... ...
+</span><span class="c1"></span>        <span class="k">return</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="c1">// ... ...
+</span><span class="c1"></span>        <span class="k">return</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>一般“哨兵”错误值变量以 ErrXXX 格式命名。和透明错误策略相比，“哨兵”策略让错误处理方在有检视错误值的需求时候，可以“有的放矢”。不过，对于 API 的开发者而言，暴露“哨兵”错误值也意味着这些错误值和包的公共函数 / 方法一起成为了 API 的一部分。一旦发布出去，开发者就要对它进行很好的维护。而“哨兵”错误值也让使用这些值的错误处理方对它产生了依赖。</p>
+<p>从 Go 1.13 版本开始，标准库 errors 包提供了 Is 函数用于错误处理方对错误值的检视。Is 函数类似于把一个 error 类型变量与“哨兵”错误值进行比较，比如下面代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 类似 if err == ErrOutOfBounds{ … }
+</span><span class="c1"></span><span class="k">if</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Is</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">ErrOutOfBounds</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 越界的错误处理
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不同的是，如果 error 类型变量的底层错误值是一个包装错误（Wrapped Error），errors.Is 方法会沿着该包装错误所在错误链（Error Chain)，与链上所有被包装的错误（Wrapped Error）进行比较，直至找到一个匹配的错误为止。下面是 Is 函数应用的一个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">ErrSentinel</span> <span class="p">=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;the underlying sentinel error&#34;</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">err1</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;wrap sentinel: %w&#34;</span><span class="p">,</span> <span class="nx">ErrSentinel</span><span class="p">)</span>
+  <span class="nx">err2</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;wrap err1: %w&#34;</span><span class="p">,</span> <span class="nx">err1</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">err2</span> <span class="o">==</span> <span class="nx">ErrSentinel</span><span class="p">)</span> <span class="c1">//false
+</span><span class="c1"></span>  <span class="k">if</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Is</span><span class="p">(</span><span class="nx">err2</span><span class="p">,</span> <span class="nx">ErrSentinel</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&#34;err2 is ErrSentinel&#34;</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+
+  <span class="nb">println</span><span class="p">(</span><span class="s">&#34;err2 is not ErrSentinel&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>通过 fmt.Errorf 函数，并且使用 %w 创建包装错误变量 err1 和 err2，其中 err1 实现了对 ErrSentinel 这个“哨兵错误值”的包装，而 err2 又对 err1 进行了包装，这样就形成了一条错误链。位于错误链最上层的是 err2，位于最底层的是 ErrSentinel。之后，我们再分别通过值比较和 errors.Is 这两种方法，判断 err2 与 ErrSentinel 的关系。</p>
+<p>运行上述代码，我们会看到如下结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">false
+err2 is ErrSentinel
+</code></pre></td></tr></table>
+</div>
+</div><p>通过比较操作符对 err2 与 ErrSentinel 进行比较后，我们发现这二者并不相同。而 errors.Is 函数则会沿着 err2 所在错误链，向下找到被包装到最底层的“哨兵”错误值ErrSentinel。</p>
+<p>Go 1.13 及后续版本，建议尽量使用errors.Is方法去检视某个错误值是否就是某个预期错误值，或者包装了某个特定的“哨兵”错误值。
+3. 错误值类型检视策略</p>
+<ul>
+<li>基于 Go 标准库提供的错误值构造方法构造的“哨兵”错误值，除了让错误处理方可以“有的放矢”的进行值比较之外，并没有提供其他有效的错误上下文信息。那如果遇到错误处理方需要错误值提供更多的“错误上下文”的情况，上面这些错误处理策略和错误值构造方式都无法满足。</li>
+<li>这种情况下，我们需要通过自定义错误类型的构造错误值的方式，来提供更多的“错误上下文”信息。并且，由于错误值都通过 error 接口变量统一呈现，要得到底层错误类型携带的错误上下文信息，错误处理方需要使用 Go 提供的类型断言机制（Type Assertion）或类型选择机制（Type Switch），这种错误处理方式，我称之为错误值类型检视策略</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="c1">// $GOROOT/src/encoding/json/decode.go
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">UnmarshalTypeError</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Value</span>  <span class="kt">string</span>       
+    <span class="nx">Type</span>   <span class="nx">reflect</span><span class="p">.</span><span class="nx">Type</span> 
+    <span class="nx">Offset</span> <span class="kt">int64</span>        
+    <span class="nx">Struct</span> <span class="kt">string</span>       
+    <span class="nx">Field</span>  <span class="kt">string</span>      
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>错误处理方可以通过错误类型检视策略，获得更多错误值的错误上下文信息，下面就是利用这一策略的 json 包的一个方法的实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="c1">// $GOROOT/src/encoding/json/decode.go
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">decodeState</span><span class="p">)</span> <span class="nf">addErrorContext</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nx">d</span><span class="p">.</span><span class="nx">errorContext</span><span class="p">.</span><span class="nx">Struct</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">||</span> <span class="nb">len</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">errorContext</span><span class="p">.</span><span class="nx">FieldStack</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">err</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">*</span><span class="nx">UnmarshalTypeError</span><span class="p">:</span>
+            <span class="nx">err</span><span class="p">.</span><span class="nx">Struct</span> <span class="p">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">errorContext</span><span class="p">.</span><span class="nx">Struct</span><span class="p">.</span><span class="nf">Name</span><span class="p">()</span>
+            <span class="nx">err</span><span class="p">.</span><span class="nx">Field</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">errorContext</span><span class="p">.</span><span class="nx">FieldStack</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nx">err</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">err</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们看到，这段代码通过类型 switch 语句得到了 err 变量代表的动态类型和值，然后在匹配的 case 分支中利用错误上下文信息进行处理。这里，一般自定义导出的错误类型以XXXError的形式命名。和“哨兵”错误处理策略一样，错误值类型检视策略，由于暴露了自定义的错误类型给错误处理方，因此这些错误类型也和包的公共函数 / 方法一起，成为了 API 的一部分。一旦发布出去，开发者就要对它们进行很好的维护。而它们也让使用这些类型进行检视的错误处理方对其产生了依赖。</p>
+<p>从 Go 1.13 版本开始，标准库 errors 包提供了As函数给错误处理方检视错误值。As函数类似于通过类型断言判断一个 error 类型变量是否为特定的自定义错误类型，如下面代码所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="c1">// 类似 if e, ok := err.(*MyError); ok { … }
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">e</span> <span class="o">*</span><span class="nx">MyError</span>
+<span class="k">if</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">As</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 如果err类型为*MyError，变量e将被设置为对应的错误值
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不同的是，如果 error 类型变量的动态错误值是一个包装错误，errors.As函数会沿着该包装错误所在错误链，与链上所有被包装的错误的类型进行比较，直至找到一个匹配的错误类型，就像 errors.Is 函数那样。下面是As函数应用的一个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="kd">type</span> <span class="nx">MyError</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">e</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">MyError</span><span class="p">)</span> <span class="nf">Error</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">e</span><span class="p">.</span><span class="nx">e</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">err</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">MyError</span><span class="p">{</span><span class="s">&#34;MyError error demo&#34;</span><span class="p">}</span>
+    <span class="nx">err1</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;wrap err: %w&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="nx">err2</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;wrap err1: %w&#34;</span><span class="p">,</span> <span class="nx">err1</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">e</span> <span class="o">*</span><span class="nx">MyError</span>
+    <span class="k">if</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">As</span><span class="p">(</span><span class="nx">err2</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&#34;MyError is on the chain of err2&#34;</span><span class="p">)</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">e</span> <span class="o">==</span> <span class="nx">err</span><span class="p">)</span>                  
+        <span class="k">return</span>                             
+    <span class="p">}</span>                                      
+    <span class="nb">println</span><span class="p">(</span><span class="s">&#34;MyError is not on the chain of err2&#34;</span><span class="p">)</span>
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">MyError is on the chain of err2
+true
+</code></pre></td></tr></table>
+</div>
+</div><p>errors.As函数沿着 err2 所在错误链向下找到了被包装到最深处的错误值，并将 err2 与其类型 * MyError成功匹配。匹配成功后，errors.As 会将匹配到的错误值存储到 As 函数的第二个参数中，这也是为什么println(e == err)输出 true 的原因。所以，如果使用的是 Go 1.13 及后续版本，尽量使用errors.As方法去检视某个错误值是否是某自定义错误类型的实例。
+4. 错误行为特征检视策略</p>
+<ul>
+<li>“透明错误处理策略”，有效降低了错误的构造方与错误处理方两者之间的耦合，策略二和策略三，都是我们实际编码中有效的错误处理策略，但其实使用这两种策略的代码，依然在错误的构造方与错误处理方两者之间建立了耦合。</li>
+<li><strong>将某个包中的错误类型归类，统一提取出一些公共的错误行为特征，并将这些错误行为特征放入一个公开的接口类型中。这种方式也被叫做错误行为特征检视策略。</strong></li>
+</ul>
+<p>以标准库中的net包为例，它将包内的所有错误类型的公共行为特征抽象并放入net.Error这个接口中，如下面代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="c1">// $GOROOT/src/net/net.go
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Error</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="kt">error</span>
+    <span class="nf">Timeout</span><span class="p">()</span> <span class="kt">bool</span>  
+    <span class="nf">Temporary</span><span class="p">()</span> <span class="kt">bool</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>net.Error 接口包含两个用于判断错误行为特征的方法：Timeout 用来判断是否是超时（Timeout）错误，Temporary 用于判断是否是临时（Temporary）错误。而错误处理方只需要依赖这个公共接口，就可以检视具体错误值的错误行为特征信息，并根据这些信息做出后续错误处理分支选择的决策。</p>
+<p>http 包使用错误行为特征检视策略进行错误处理的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="c1">// $GOROOT/src/net/http/server.go
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">srv</span> <span class="o">*</span><span class="nx">Server</span><span class="p">)</span> <span class="nf">Serve</span><span class="p">(</span><span class="nx">l</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Listener</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="o">...</span>
+    <span class="k">for</span> <span class="p">{</span>
+        <span class="nx">rw</span><span class="p">,</span> <span class="nx">e</span> <span class="o">:=</span> <span class="nx">l</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nx">e</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">select</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="o">&lt;-</span><span class="nx">srv</span><span class="p">.</span><span class="nf">getDoneChan</span><span class="p">():</span>
+                <span class="k">return</span> <span class="nx">ErrServerClosed</span>
+            <span class="k">default</span><span class="p">:</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="nx">ne</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.(</span><span class="nx">net</span><span class="p">.</span><span class="nx">Error</span><span class="p">);</span> <span class="nx">ok</span> <span class="o">&amp;&amp;</span> <span class="nx">ne</span><span class="p">.</span><span class="nf">Temporary</span><span class="p">()</span> <span class="p">{</span>
+                <span class="c1">// 注：这里对临时性(temporary)错误进行处理
+</span><span class="c1"></span>                <span class="o">...</span> <span class="o">...</span>
+                <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">tempDelay</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="nx">e</span>
+        <span class="p">}</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+    <span class="o">...</span> <span class="o">...</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Accept 方法实际上返回的错误类型为*OpError，它是 net 包中的一个自定义错误类型，它实现了错误公共特征接口net.Error，如下代码所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="c1">// $GOROOT/src/net/net.go
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">OpError</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="o">...</span>
+    <span class="c1">// Err is the error that occurred during the operation.
+</span><span class="c1"></span>    <span class="nx">Err</span> <span class="kt">error</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">temporary</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nf">Temporary</span><span class="p">()</span> <span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">OpError</span><span class="p">)</span> <span class="nf">Temporary</span><span class="p">()</span> <span class="kt">bool</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="nx">ne</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Err</span><span class="p">.(</span><span class="o">*</span><span class="nx">os</span><span class="p">.</span><span class="nx">SyscallError</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+      <span class="nx">t</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">ne</span><span class="p">.</span><span class="nx">Err</span><span class="p">.(</span><span class="nx">temporary</span><span class="p">)</span>
+      <span class="k">return</span> <span class="nx">ok</span> <span class="o">&amp;&amp;</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Temporary</span><span class="p">()</span>
+  <span class="p">}</span>
+  <span class="nx">t</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Err</span><span class="p">.(</span><span class="nx">temporary</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">ok</span> <span class="o">&amp;&amp;</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Temporary</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>因此，OpError 实例可以被错误处理方通过net.Error接口的方法，判断它的行为是否满足 Temporary 或 Timeout 特征。</p>
+<p>错误处理策略建议：</p>
+<ul>
+<li>请尽量使用“透明错误”处理策略，降低错误处理方与错误值构造方之间的耦合；</li>
+<li>如果可以通过错误值类型的特征进行错误检视，那么请尽量使用“错误行为特征检视策略”;</li>
+<li>在上述两种策略无法实施的情况下，再使用“哨兵”策略和“错误值类型检视”策略；</li>
+<li>Go 1.13 及后续版本中，尽量用errors.Is和errors.As函数替换原先的错误检视比较语句。</li>
+</ul>
+<h2 id="为啥说函数是go语言的一等公民"><strong>为啥说函数是Go语言的一等公民</strong>：</h2>
+<ul>
+<li>引用一下 wiki 发明人、C2 站点作者沃德·坎宁安 (Ward Cunningham)对“一等公民”的解释：
+<ul>
+<li>如果一门编程语言对某种语言元素的创建和使用没有限制，我们可以像对待值（value）一样对待这种语法元素，那么我们就称这种语法元素是这门编程语言的“一等公民”。拥有“一等公民”待遇的语法元素可以存储在变量中，可以作为参数传递给函数，可以在函数内部创建并可以作为返回值从函数返回</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>Go 函数可以存储在变量中。</li>
+<li>支持在函数内创建并通过返回值返回。</li>
+<li>作为参数传入函数。</li>
+<li>拥有自己的类型。</li>
+</ol>
+<ul>
+<li>应用go函数的这些灵活性：</li>
+</ul>
+<ol>
+<li>函数类型的妙用
+<ul>
+<li>函数也可以被显式转型，见下面web server的例子。</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="kd">func</span> <span class="nf">greeting</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintf</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;Welcome, Gopher!\n&#34;</span><span class="p">)</span>
+<span class="p">}</span>                    
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//greeting这个函数被显示转化为HandleFunc类型，ListenAndServe的第二个参数是个需要实现ServeHTTP方法（即需要实现Handle接口）的类型
+</span><span class="c1"></span>    <span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">greeting</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="err">……</span>
+
+<span class="c1">// $GOROOT/src/net/http/server.go
+</span><span class="c1"></span>
+<span class="kd">type</span> <span class="nx">HandlerFunc</span> <span class="kd">func</span><span class="p">(</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span>
+
+<span class="c1">// ServeHTTP calls f(w, r).
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">f</span> <span class="nx">HandlerFunc</span><span class="p">)</span> <span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">w</span> <span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">f</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>利用闭包简化函数调用。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">
+<span class="kd">func</span> <span class="nf">partialTimes</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">y</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nf">times</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">timesTwo</span> <span class="o">:=</span> <span class="nf">partialTimes</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>   <span class="c1">// 以高频乘数2为固定乘数的乘法函数
+</span><span class="c1"></span>  <span class="nx">timesThree</span> <span class="o">:=</span> <span class="nf">partialTimes</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// 以高频乘数3为固定乘数的乘法函数
+</span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">timesTwo</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>   <span class="c1">// 10，等价于times(2, 5)
+</span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">timesTwo</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>   <span class="c1">// 12，等价于times(2, 6)
+</span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">timesThree</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c1">// 15，等价于times(3, 5)
+</span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">timesThree</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span> <span class="c1">// 18，等价于times(3, 6)
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="单元测试">单元测试</h2>
 <p>单元测试还是挺重要的。</p>
 <h3 id="go-test工具">go test工具</h3>
 <p>Go语言中的测试依赖go test命令。编写测试代码和编写普通的Go代码过程是类似的，并不需要学习新的语法、规则或工具。</p>
@@ -2795,7 +3511,7 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       0.005s
 <span class="p">}</span> 
 </code></pre></td></tr></table>
 </div>
-</div><p>这一次我们再来测试一下，我们的程序。注意，当我们修改了我们的代码之后不要仅仅执行那些失败的测试函数，我们应该完整的运行所有的测试，保证不会因为修改代码而引入了新的问题。</p>
+</div><p>这一次我们再来测试一下，我们的程序。<strong>注意</strong>，当我们修改了我们的代码之后不要仅仅执行那些失败的测试函数，我们应该完整的运行所有的测试，保证不会因为修改代码而引入了新的问题。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -3419,7 +4135,7 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       0.005s
     ok      github.com/pprof/studygo/code_demo/test_demo/fib 12.944s 
 </code></pre></td></tr></table>
 </div>
-</div><p>这里需要注意的是，默认情况下，每个基准测试至少运行1秒。如果在Benchmark函数返回时没有到1秒，则b.N的值会按1,2,5,10,20,50，…增加，并且函数再次运行。</p>
+</div><p>这里需要<strong>注意</strong>的是，默认情况下，每个基准测试至少运行1秒。如果在Benchmark函数返回时没有到1秒，则b.N的值会按1,2,5,10,20,50，…增加，并且函数再次运行。</p>
 <p>最终的BenchmarkFib40只运行了两次，每次运行的平均值只有不到一秒。像这种情况下我们应该可以使用-benchtime标志增加最小基准时间，以产生更准确的结果。例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -3568,7 +4284,7 @@ ok      github.com/pprof/studygo/code_demo/test_demo/split       3.308s
 </span><span class="c1"></span><span class="p">}</span>  
 </code></pre></td></tr></table>
 </div>
-</div><p>需要注意的是：在调用TestMain时, flag.Parse并没有被调用。所以如果TestMain 依赖于command-line标志 (包括 testing 包的标记), 则应该显示的调用flag.Parse。</p>
+</div><p>需要<strong>注意</strong>的是：在调用TestMain时, flag.Parse并没有被调用。所以如果TestMain 依赖于command-line标志 (包括 testing 包的标记), 则应该显示的调用flag.Parse。</p>
 <p>子测试的Setup与Teardown
 有时候我们可能需要为每个测试集设置Setup与Teardown，也有可能需要为每个子测试设置Setup与Teardown。下面我们定义两个函数工具函数如下：</p>
 <div class="highlight"><div class="chroma">
@@ -4015,7 +4731,7 @@ go test -v -cover -run funcName fileName.go
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="如何编写压力测试">如何编写压力测试</h3>
-<p>压力测试用来检测函数(方法）的性能，和编写单元功能测试的方法类似,此处不再赘述，但需要注意以下几点：</p>
+<p>压力测试用来检测函数(方法）的性能，和编写单元功能测试的方法类似,此处不再赘述，但需要<strong>注意</strong>以下几点：</p>
 <p>压力测试用例必须遵循如下格式，其中XXX可以是任意字母数字的组合，但是首字母不能是小写字母</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -4206,5 +4922,5 @@ $GOPATH/bin/goconvey
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

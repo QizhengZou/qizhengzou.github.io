@@ -264,7 +264,7 @@ next数组就是一个前缀表。
             void getNext(int* next, const string& s){
                 int j = -1;
                 next[0] = j;
-                for(int i = 1; i < s.size(); i++) { // 注意i从1开始
+                for(int i = 1; i < s.size(); i++) { // **注意**i从1开始
                     while (j >= 0 && s[i] != s[j + 1]) { // 前后缀不相同了
                         j = next[j]; // 向前回退
                     }
@@ -308,7 +308,7 @@ next数组就是一个前缀表。
     - 那么使用next数组，用模式串匹配文本串的整体代码如下：
     ```c++
     int j = -1; // 因为next数组里记录的起始位置为-1
-    for (int i = 0; i < s.size(); i++) { // 注意i就从0开始
+    for (int i = 0; i < s.size(); i++) { // **注意**i就从0开始
         while(j >= 0 && s[i] != t[j + 1]) { // 不匹配
             j = next[j]; // j 寻找之前匹配的位置
         }
@@ -327,7 +327,7 @@ next数组就是一个前缀表。
         void getNext(int* next, const string& s) {
             int j = -1;
             next[0] = j;
-            for(int i = 1; i < s.size(); i++) { // 注意i从1开始
+            for(int i = 1; i < s.size(); i++) { // **注意**i从1开始
                 while (j >= 0 && s[i] != s[j + 1]) { // 前后缀不相同了
                     j = next[j]; // 向前回退
                 }
@@ -344,7 +344,7 @@ next数组就是一个前缀表。
             int next[needle.size()];
             getNext(next, needle);
             int j = -1; // // 因为next数组里记录的起始位置为-1
-            for (int i = 0; i < haystack.size(); i++) { // 注意i就从0开始
+            for (int i = 0; i < haystack.size(); i++) { // **注意**i就从0开始
                 while(j >= 0 && haystack[i] != needle[j + 1]) { // 不匹配
                     j = next[j]; // j 寻找之前匹配的位置
                 }
@@ -371,7 +371,7 @@ void getNext(int* next, const string& s) {
     next[0] = 0;
     for(int i = 1; i < s.size(); i++) {
         while (j > 0 && s[i] != s[j]) { // j要保证大于0，因为下面有取j-1作为数组下标的操作
-            j = next[j - 1]; // 注意这里，是要找前一位的对应的回退位置了
+            j = next[j - 1]; // **注意**这里，是要找前一位的对应的回退位置了
         }
         if (s[i] == s[j]) {
             j++;

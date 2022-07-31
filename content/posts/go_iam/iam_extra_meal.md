@@ -1,10 +1,10 @@
 ---
 title: "Iam_extra_meal"
 date: 2022-07-11T10:51:45+08:00
-lastmod:
-tags: []
-categories: []
-slug:
+lastmod: 2022-07-07
+tags: [iam]
+categories: [iam]
+slug: iam_extra_meal
 draft: true
 ---
 ## 特别放送 | 给你一份清晰、可直接套用的Go编码规范
@@ -295,7 +295,7 @@ if !ok {
 - 代码生成工具自动生成的代码 (如 xxxx.pb.go) 和为了对相关测试用例进行分组，而采用的下划线 (如 TestMyFunction_WhatIsBeingTested) 排除此规则。
 #### 2.3 文件命名
 - 文件名要简短有意义。
-- 文件名应小写，并使用下划线分割单词。
+- **文件名应小写，并使用下划线分割单词**。
 
 #### 2.4 结构体命名
 - 采用驼峰命名方式，首字母根据访问控制决定使用大写或小写，例如 MixedCaps 或者 mixedCaps。

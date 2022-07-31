@@ -5,7 +5,7 @@ lastmod: 2022-06-10
 tags: [API style]
 categories: [API Style]
 slug: getting-started-Kitex
-draft: false
+draft: true
 ---
 
 > 来自[字节Kitex文档](https://www.cloudwego.io/zh/docs/kitex/getting-started/)

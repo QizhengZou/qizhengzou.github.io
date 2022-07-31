@@ -5,7 +5,7 @@ lastmod: 2022-02-24
 tags: [AI]
 categories: [School courses]
 slug: AI
-draft: FALSE
+draft: true
 ---
 > 哈工大深圳苏敬勇本科生课程人工智能 参考教材：王万森《人工智能原理及其应用》，电子工业出版社， 2018
 

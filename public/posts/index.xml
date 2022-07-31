@@ -4,75 +4,75 @@
         <link>https://qizhengzou.github.io/posts/</link>
         <description>所有文章 | Jefo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2838264218@qq.com (Jefo)</managingEditor>
-            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 24 Feb 2022 14:06:32 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>AI_base_01</title>
-    <link>https://qizhengzou.github.io/ai_base_01/</link>
-    <pubDate>Thu, 24 Feb 2022 14:06:32 &#43;0800</pubDate>
+            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 31 Jul 2022 14:17:48 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Patterns_principles</title>
+    <link>https://qizhengzou.github.io/patterns_principles/</link>
+    <pubDate>Sun, 31 Jul 2022 14:17:48 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/ai_base_01/</guid>
-    <description><![CDATA[哈工大深圳苏敬勇本科生课程人工智能 参考教材：王万森《人工智能原理及其应用》，电子工业出版社， 2018 人工智能 30%+30%+40% 第1章 人工智能概述 定义 自然智能 指人类]]></description>
+    <guid>https://qizhengzou.github.io/patterns_principles/</guid>
+    <description><![CDATA[https://github.com/geekhall/gof/blob/main/README.md?plain=1 1. 软件设计的七大原则 也叫solid原则 迪米特与合成/复用是后加的 Principle 1 : 开闭原则（Open Close Principle, OCP） 内容：对扩展开放，对修改关闭 实现方式：]]></description>
 </item><item>
-    <title>DIP_base_01</title>
-    <link>https://qizhengzou.github.io/dip_base_01/</link>
-    <pubDate>Thu, 24 Feb 2022 10:43:56 &#43;0800</pubDate>
+    <title>Makefile</title>
+    <link>https://qizhengzou.github.io/makefile/</link>
+    <pubDate>Sun, 31 Jul 2022 09:37:14 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/dip_base_01/</guid>
-    <description><![CDATA[哈工大深圳卢光明副院长授课的本科生图像处理课程，参考教材：Digital Image Processing”, Rafael C. Gonzalez &amp; Richard E. Woods, 2011（or 4th Editio]]></description>
+    <guid>https://qizhengzou.github.io/makefile/</guid>
+    <description><![CDATA[https://seisman.github.io/how-to-write-makefile/postscript.html 概述 什么是makefile？或许很多Windows的程序员都不知道这个东西，因为那些Windows的集成开发环境 （integrated development e]]></description>
 </item><item>
-    <title>Algorithm_find</title>
-    <link>https://qizhengzou.github.io/algorithm_find/</link>
-    <pubDate>Sun, 20 Feb 2022 19:52:33 &#43;0800</pubDate>
+    <title>Go_questions</title>
+    <link>https://qizhengzou.github.io/go_questions/</link>
+    <pubDate>Tue, 26 Jul 2022 16:58:56 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/algorithm_find/</guid>
-    <description><![CDATA[查找算法 散列查找：也称哈希查找，有拉链法查找，也有线性探测法查找，拉链法使用数组链表结构，线性探测法使用数组。 树查找：有搜索二叉树，平衡查找]]></description>
+    <guid>https://qizhengzou.github.io/go_questions/</guid>
+    <description><![CDATA[channel 什么是CSP Do not communicate by sharing memory; instead, share memory by communicating. 不要通过共享内存来通信，而要通过通信来实现内存共享。 这就是 Go 的并发哲学，它依赖 CSP 模型，基于 channel 实现。 CSP 经常]]></description>
 </item><item>
-    <title>Algorithm_sort</title>
-    <link>https://qizhengzou.github.io/algorithm_sort/</link>
-    <pubDate>Sun, 20 Feb 2022 19:52:01 &#43;0800</pubDate>
+    <title>Storage_cloud_primordial</title>
+    <link>https://qizhengzou.github.io/storage_cloud_primordial/</link>
+    <pubDate>Thu, 21 Jul 2022 15:59:48 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/algorithm_sort/</guid>
-    <description><![CDATA[排序算法 稳定性概念 定义：能保证两个相等的数，经过排序之后，其在序列的前后位置顺序不变。（A1=A2，排序前A1在A2前面，排序后A1还在A2]]></description>
+    <guid>https://qizhengzou.github.io/storage_cloud_primordial/</guid>
+    <description><![CDATA[etcd实战 （kubernetes的元数据存储，保存了你通过kubectl命令所看到的node/pod/deployment等各种资源、配置]]></description>
 </item><item>
-    <title>CN_HTTP</title>
-    <link>https://qizhengzou.github.io/cn_http/</link>
-    <pubDate>Mon, 24 Jan 2022 20:52:12 &#43;0800</pubDate>
+    <title>OpenResty</title>
+    <link>https://qizhengzou.github.io/openresty/</link>
+    <pubDate>Thu, 21 Jul 2022 10:29:27 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/cn_http/</guid>
-    <description><![CDATA[部分来自极客时间学习笔记 HTTP 前言 因特网、互联网、万维网： 互联网 &gt; 因特网 &gt; 万维网 凡是能彼此通信的设备组成的网络就叫互联网 因特网是网络与网络之间所]]></description>
+    <guid>https://qizhengzou.github.io/openresty/</guid>
+    <description><![CDATA[OpenResty从入门到实战 开篇词 | OpenResty，为你打开高性能开发的大门 温铭 2019-05-22 你好，我是温铭，OpenResty 软件基金会主席，曾]]></description>
 </item><item>
-    <title>Structural_type</title>
-    <link>https://qizhengzou.github.io/structural_type/</link>
-    <pubDate>Sat, 22 Jan 2022 09:21:00 &#43;0800</pubDate>
+    <title>DS_geek</title>
+    <link>https://qizhengzou.github.io/ds_geek/</link>
+    <pubDate>Wed, 20 Jul 2022 16:24:55 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/structural_type/</guid>
-    <description><![CDATA[facade API 为facade 模块的外观接口，大部分代码使用此接口简化对facade类的访问。 facade模块同时暴露了a和b 两个Module 的NewX]]></description>
+    <guid>https://qizhengzou.github.io/ds_geek/</guid>
+    <description><![CDATA[深入浅出分布式技术原理 开篇词｜掌握好学习路径，分布式系统原来如此简单 陈现麟 2022-01-24 从我的经验来看，初学者想要高效且系统性地掌握分布式系统，这本身就]]></description>
 </item><item>
-    <title>Behavioral_type</title>
-    <link>https://qizhengzou.github.io/behavioral_type/</link>
-    <pubDate>Sat, 22 Jan 2022 09:20:41 &#43;0800</pubDate>
+    <title>Storage_geek</title>
+    <link>https://qizhengzou.github.io/storage_geek/</link>
+    <pubDate>Wed, 20 Jul 2022 14:15:51 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/behavioral_type/</guid>
-    <description><![CDATA[mediator 中介者模式封装对象之间互交，使依赖变的简单，并且使复杂互交简单化，封装在中介者中。 例子中的中介者使用单例模式生成中介者。 中介者的chang]]></description>
+    <guid>https://qizhengzou.github.io/storage_geek/</guid>
+    <description><![CDATA[后端存储实战课 开篇词 | 从今天起，换种方式学存储 李玥 2020-02-26 凡是那些特别难解决的、让你付出巨大代价的，或者是损失惨重的技术问题，几乎都可以归为存储系]]></description>
 </item><item>
-    <title>Create_type</title>
-    <link>https://qizhengzou.github.io/create_type/</link>
-    <pubDate>Sat, 22 Jan 2022 09:19:30 &#43;0800</pubDate>
+    <title>SEK_geek.md</title>
+    <link>https://qizhengzou.github.io/sek_geek/</link>
+    <pubDate>Wed, 20 Jul 2022 10:56:50 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/create_type/</guid>
-    <description><![CDATA[simple factory go 语言没有构造函数一说，所以一般会定义NewXXX函数来初始化相关类。 NewXXX 函数根据参数返回不同接口时就是简单工厂模式。 在这个simplef]]></description>
+    <guid>https://qizhengzou.github.io/sek_geek/</guid>
+    <description><![CDATA[软件工程之美 01 | 到底应该怎样理解软件工程？ 宝玉 2019-02-23 瀑布模型。 瀑布模型的诞生，在当时是有非常重大的意义的，让软件开发从无序到有序，让大家更好的分]]></description>
 </item><item>
-    <title>MUSK</title>
-    <link>https://qizhengzou.github.io/musk/</link>
-    <pubDate>Wed, 19 Jan 2022 19:49:08 &#43;0800</pubDate>
+    <title>Linear_algebra</title>
+    <link>https://qizhengzou.github.io/linear_algebra/</link>
+    <pubDate>Wed, 20 Jul 2022 10:04:29 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/musk/</guid>
-    <description><![CDATA[摘自1.6万字马斯克访谈实录 21年末，Youtube知名科技UP主，拥有143万粉丝的大V Lex Fridman与马斯克进行了一场长达2小时31分]]></description>
+    <guid>https://qizhengzou.github.io/linear_algebra/</guid>
+    <description><![CDATA[线性代数 开篇词 | 从今天起，学会线性代数 朱维刚 2020-07-27 机器学习本身没有多大难度，因为经过多年的积累后，很多规则已经成型了。对于我们来说真正难的，是机]]></description>
 </item><item>
-    <title>Go_base_09</title>
-    <link>https://qizhengzou.github.io/go_base_09/</link>
-    <pubDate>Wed, 12 Jan 2022 22:17:07 &#43;0800</pubDate>
+    <title>Cp_practice</title>
+    <link>https://qizhengzou.github.io/cp_practice/</link>
+    <pubDate>Mon, 18 Jul 2022 23:55:56 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://qizhengzou.github.io/go_base_09/</guid>
-    <description><![CDATA[常用标准库 前言 包复用 package: 基本复⽤模块单元：以⾸字⺟⼤写来表明可被包外代码访问 代码的 package 可以和所在的⽬录不⼀致 同⼀⽬录⾥的 Go 代码的 package 要保持⼀致 依赖]]></description>
+    <guid>https://qizhengzou.github.io/cp_practice/</guid>
+    <description><![CDATA[编译原理实战课 开篇词 | 在真实世界的编译器中游历 宫文学 2020-06-01 你好，我是宫文学，一名技术创业者，现在是北京物演科技的 CEO，很高兴在这里跟你见面。我]]></description>
 </item></channel>
 </rss>

@@ -1,10 +1,10 @@
 ---
 title: "Storage_cloud_primordial"
 date: 2022-07-21T15:59:48+08:00
-lastmod:
-tags: []
+lastmod: 2022-07-21
+tags: [etcd]
 categories: []
-slug:
+slug: etcd
 draft: true
 ---
 
@@ -4259,22 +4259,5 @@ ETCD_INITIAL_CLUSTER_STATE="existing"
 ![img](https://static001.geekbang.org/resource/image/yy/1e/yy38094b6be35a476442fd3498eb511e.png?wh=1820*1028)
 
 最后我们来小结下今天的内容，今天我从一个诡异的成员变更故障案例讲起，为你介绍了 etcd 实现成员变更的原理，分别为你分析了 etcd 成员变更在 Raft 层和应用层的实现，并分析了各个实现方案的优缺点。其次我带你过了一遍 etcd 成员变更的演进方案：从只支持 Member 变更到支持 Learner 节点（non-voting Member），Raft 层从只支持单节点变更到支持多节点变更。成员变更的方案越来越完善、稳定，运维人员在变更期间发生故障的概率也越来越低。之后我以新增节点为例，深入为你分析了从配置提交到节点启动对外服务的完整流程，以及新集群启动和恢复过程中涉及到的成员变更原理。最后，通过我们这节课和之前的课程学到的原理，我和你一步一步深入分析了下开篇的故障问题可能发生的原因以及快速恢复的方法。希望通过这节课，让你对 etcd 成员变更方案有一个深入的了解，在遇到类似的问题时能够快速定位问题并解决，提升业务的稳定性。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

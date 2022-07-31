@@ -1,10 +1,10 @@
 ---
 title: "DS_geek"
 date: 2022-07-20T16:24:55+08:00
-lastmod:
-tags: []
-categories: []
-slug:
+lastmod: 2022-07-31
+tags: [distributed system]
+categories: [School courses]
+slug: ds geekbang
 draft: true
 ---
 
@@ -2001,88 +2001,6 @@ Google 发布论文，开源界进行跟进是最近多年的一个规律，于�
 ## 实践
 
 ![img](https://static001.geekbang.org/resource/image/c5/06/c58730d735226f2f6164e88f6d3bfb06.jpg?wh=5400*7276)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

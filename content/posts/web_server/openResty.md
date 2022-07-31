@@ -1,10 +1,10 @@
 ---
 title: "OpenResty"
 date: 2022-07-21T10:29:27+08:00
-lastmod:
-tags: []
+lastmod: 2022-07-21
+tags: [web server]
 categories: []
-slug:
+slug: openResty
 draft: true
 ---
 # OpenResty从入门到实战

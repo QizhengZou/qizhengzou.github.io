@@ -4,41 +4,55 @@
         <link>https://qizhengzou.github.io/categories/advanced-learning/</link>
         <description>Advanced learning - 分类 - Jefo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2838264218@qq.com (Jefo)</managingEditor>
-            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 24 Jan 2022 20:52:12 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/advanced-learning/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Jul 2022 10:05:58 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/advanced-learning/" rel="self" type="application/rss+xml" /><item>
+    <title>CN_proto</title>
+    <link>https://qizhengzou.github.io/cn_proto/</link>
+    <pubDate>Sun, 17 Jul 2022 10:05:58 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/cn_proto/</guid>
+    <description><![CDATA[趣谈网络协议 刘超 2018-05-14 开篇词 | 想成为技术牛人？先搞定网络协议！ 工作 15 年，我在 EMC 做过类似 GFS 的分布式存储开发，做过基于 Lucene 的搜索引擎，做过 Hadoop 的运维；在]]></description>
+</item><item>
+    <title>Vim</title>
+    <link>https://qizhengzou.github.io/vim/</link>
+    <pubDate>Fri, 15 Jul 2022 16:59:08 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/vim/</guid>
+    <description><![CDATA[开篇词｜我们为什么要学 Vim？ 我特别喜欢 Larry Wall（拉里 · 沃尔）所说的程序员的三大美德：懒惰，急切，傲慢（laziness, impatience, hubris）]]></description>
+</item><item>
+    <title>Framework_base</title>
+    <link>https://qizhengzou.github.io/framework_base/</link>
+    <pubDate>Fri, 15 Jul 2022 14:56:21 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/framework_base/</guid>
+    <description><![CDATA[从0开始学架构 李运华 2018-07 开篇词 | 照着做，你也能成为架构师！ 我总结几个架构设计相关的特性：1. 架构设计的思维和程序设计的思维差异很大。架构设计的]]></description>
+</item><item>
+    <title>Linux_base_02</title>
+    <link>https://qizhengzou.github.io/linux_base_02/</link>
+    <pubDate>Tue, 05 Jul 2022 10:39:52 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/linux_base_02/</guid>
+    <description><![CDATA[shell Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。 Shell 是指一种应用程序，这个应用程序提供了]]></description>
+</item><item>
+    <title>Mongodb_base_01</title>
+    <link>https://qizhengzou.github.io/mongodb_base_01/</link>
+    <pubDate>Tue, 05 Jul 2022 10:19:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/mongodb_base_01/</guid>
+    <description><![CDATA[mongodb 介绍 MongoDB是一个基于分布式文件存储的数据库。由C++语言编写。旨在为WEB应用提供可扩展的高性能数据存储解决方案。 MongoDB是]]></description>
+</item><item>
     <title>CN_HTTP</title>
     <link>https://qizhengzou.github.io/cn_http/</link>
     <pubDate>Mon, 24 Jan 2022 20:52:12 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://qizhengzou.github.io/cn_http/</guid>
-    <description><![CDATA[部分来自极客时间学习笔记 HTTP 前言 因特网、互联网、万维网： 互联网 &gt; 因特网 &gt; 万维网 凡是能彼此通信的设备组成的网络就叫互联网 因特网是网络与网络之间所]]></description>
-</item><item>
-    <title>Mysql_advanced_02</title>
-    <link>https://qizhengzou.github.io/mysql_advanced_02/</link>
-    <pubDate>Wed, 01 Dec 2021 23:43:29 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/mysql_advanced_02/</guid>
-    <description><![CDATA[MySQL实战实践 用普通索引还是唯一索引 MySQL为什么有时候会选错索引 怎么给字符串字段家索引 MySQL抖一下？ 为什么表数据删掉一半而表文件]]></description>
+    <description><![CDATA[HTTP 用 Nginx 搭建 Web 服务器，照着网上的文章配好了，但里面那么多的指令，什么 keepalive、rewrite、proxy_pass 都是怎么回事？为什]]></description>
 </item><item>
     <title>Mysql_advanced_01</title>
     <link>https://qizhengzou.github.io/mysql_advanced_01/</link>
     <pubDate>Wed, 01 Dec 2021 21:31:10 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://qizhengzou.github.io/mysql_advanced_01/</guid>
-    <description><![CDATA[MySQL实战基础 一条sql查询语句 1 mysql&gt;select*fromTwhereID=10； 一条简单的查询语句，MYSQL内部发生]]></description>
-</item><item>
-    <title>OperatingSystem_advanced_02</title>
-    <link>https://qizhengzou.github.io/operatingsystem_advanced_02/</link>
-    <pubDate>Wed, 01 Dec 2021 11:22:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/operatingsystem_advanced_02/</guid>
-    <description><![CDATA[程序运行过程 实现一个简单内核 程序编译过程 使用 GCC 相关的工具链。那么使用命令：gcc HelloWorld.c -o HelloWorld 或者 gcc ./HelloWorld.c -o ./HelloWorld ，就可以编译这段代码。其实，GCC 只是完成]]></description>
-</item><item>
-    <title>OperatingSystem_advanced_01</title>
-    <link>https://qizhengzou.github.io/operatingsystem_advanced_01/</link>
-    <pubDate>Wed, 01 Dec 2021 11:08:12 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/operatingsystem_advanced_01/</guid>
-    <description><![CDATA[自己实现一个操作系统呗 1.学习过程 从了解计算机的资源开始，如 CPU、MMU、内存和 Cache。其次要为这个操作系统设计基本法，即各种同步机制]]></description>
+    <description><![CDATA[极客时间学习笔记 MySQL基础 一条sql查询语句 1 mysql&gt;select*fromTwhereID=10； 一条简单的查询语句，MYS]]></description>
 </item><item>
     <title>Linux_base_01</title>
     <link>https://qizhengzou.github.io/linux_base_01/</link>

@@ -20,7 +20,7 @@
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://qizhengzou.github.io/distributedsystem_base_02/" /><link rel="prev" href="https://qizhengzou.github.io/operatingsystem_base_03/" /><link rel="next" href="https://qizhengzou.github.io/isc_base_01/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://qizhengzou.github.io/distributedsystem_base_02/" /><link rel="prev" href="https://qizhengzou.github.io/distributedsystem_base_01/" /><link rel="next" href="https://qizhengzou.github.io/sek_base_07/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -176,11 +176,11 @@
 <li>考察能在开发复杂分布式系统解决方案中单独使用或组合使用的复合体系结构模式;</li>
 <li>最后，对于以上体系结构风格中出现的不同编程风格，考虑可用于支持它们的中间件平台。</li>
 </ul>
-<p>注意，有许多与本章中介绍的体系结构模型相关的权衡，其中涉及采用的系统体系结构元素、所采用的模式和(在合适的地方)使用的中间件，它们会影响结果系统的性能和有效性。理解这样的权衡可以说是分布式系统设计中的关键技能。</p>
+<p><strong>注意</strong>，有许多与本章中介绍的体系结构模型相关的权衡，其中涉及采用的系统体系结构元素、所采用的模式和(在合适的地方)使用的中间件，它们会影响结果系统的性能和有效性。理解这样的权衡可以说是分布式系统设计中的关键技能。</p>
 <h3 id="体系结构元素">体系结构元素</h3>
 <ul>
 <li>
-<p>通信实体：从系统的观点，回答通常是非常清楚的,这是因为在一个分布式系统中通信的实体通常是进程，这导致普遍地把分布式系统看成是带有恰当进程间通信范型的多个进程(如在第4章中讨论的)，有两个注意事项:</p>
+<p>通信实体：从系统的观点，回答通常是非常清楚的,这是因为在一个分布式系统中通信的实体通常是进程，这导致普遍地把分布式系统看成是带有恰当进程间通信范型的多个进程(如在第4章中讨论的)，有两个<strong>注意</strong>事项:</p>
 <ul>
 <li>在一些原始环境中，例如传感器网络,基本的操作系统可能不支持进程抽象(或甚至任何形式的隔离)，因此在这些系统中通信的实体是结点。</li>
 <li>在大多数分布式系统环境中，用线程补充进程，所以，严格说来，通信的末端是线程。</li>
@@ -219,7 +219,7 @@
 <p>远程调用代表分布式系统中最常见的通信范型，覆盖一系列分布式系统中通信实体之间基于双向交换的技术，包括调用远程操作、过程或方法。进一步的定义参见下面内容(详细讨论见第5章):</p>
 </li>
 <li>
-<p>请求-应答协议是一个有效的模式，它加在一个底层消息传递服务之上，用于支持客户-服务器计算。特别的，这样的协议通常涉及一对消息的交换，消息从客户到服务器，接着从服务器返回客户，第一个消息包含在服务器端执行的操作的编码，然后是保存相关参数的字节数组，第二个消息包含操作的结果，它也被编码成字节数组。这种范型相对原始，实际上仅被用于嵌人式系统，对嵌人式系统来说性能是至关重要的。这个方法也被用在5.2节描述的HTTP协议中。正如下面讨论的，大多数分布式系统将选择使用远程过程调用或者远程方法调用，但注意底层的请求-应答交换支持两种方法。</p>
+<p>请求-应答协议是一个有效的模式，它加在一个底层消息传递服务之上，用于支持客户-服务器计算。特别的，这样的协议通常涉及一对消息的交换，消息从客户到服务器，接着从服务器返回客户，第一个消息包含在服务器端执行的操作的编码，然后是保存相关参数的字节数组，第二个消息包含操作的结果，它也被编码成字节数组。这种范型相对原始，实际上仅被用于嵌人式系统，对嵌人式系统来说性能是至关重要的。这个方法也被用在5.2节描述的HTTP协议中。正如下面讨论的，大多数分布式系统将选择使用远程过程调用或者远程方法调用，但<strong>注意</strong>底层的请求-应答交换支持两种方法。</p>
 </li>
 <li>
 <p>远程过程调用( Remote Procedure Call, RPC)的概念，最初由Birell 和Nelson [1984] 提出，代表了分布式计算中的一个主要突破。在RPC中,远程计算机上进程中的过程能被调用，好像它们是在本地地址空间中的过程一样。底层RPC系统隐藏了分布的重要方面，包括参数和结果的编码和解码、消息的传递和保持过程调用所要求的语义。这个方法直接而且得体地支持了客户-服务器计算，其中,服务器通过一个服务接口提供一套操作, 当这些操作本地可用时客户直接调用这些操作。因此，RPC系统(在最低程度上)提供访问和位置透明性。</p>
@@ -302,7 +302,7 @@ URL中可识别的资源类型。当客户收到内容时，浏览器根据其MI
 <li>
 <p>代理</p>
 <ul>
-<li>代理(proxy) 模式是分布式系统中经常出现的模式，其主要用于支持远程过程调用或远程方法调用的位置透明性。用这种方法，一个代理在本地地址空间中被创建，用于代表远程对象。这个代理提供与远程对象-样的接口，程序员调用这个代理对象，因此无须了解交互的分布式特性。在RPC和RMI中，代理支持位置透明性的作用将在第5章做进一步的讨论。 注意代理也被用于封装其他的功能( 诸如复制或缓存的放置策略等)。</li>
+<li>代理(proxy) 模式是分布式系统中经常出现的模式，其主要用于支持远程过程调用或远程方法调用的位置透明性。用这种方法，一个代理在本地地址空间中被创建，用于代表远程对象。这个代理提供与远程对象-样的接口，程序员调用这个代理对象，因此无须了解交互的分布式特性。在RPC和RMI中，代理支持位置透明性的作用将在第5章做进一步的讨论。 <strong>注意</strong>代理也被用于封装其他的功能( 诸如复制或缓存的放置策略等)。</li>
 </ul>
 </li>
 <li>
@@ -553,8 +553,8 @@ URL中可识别的资源类型。当客户收到内容时，浏览器根据其MI
         </section>
     </div>
 
-    <div class="post-nav"><a href="/operatingsystem_base_03/" class="prev" rel="prev" title="OperatingSystem_base_03"><i class="fas fa-angle-left fa-fw"></i>OperatingSystem_base_03</a>
-            <a href="/isc_base_01/" class="next" rel="next" title="ISC_base_01">ISC_base_01<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/distributedsystem_base_01/" class="prev" rel="prev" title="DistributedSystem_base_01"><i class="fas fa-angle-left fa-fw"></i>DistributedSystem_base_01</a>
+            <a href="/sek_base_07/" class="next" rel="next" title="SEK_base_07">SEK_base_07<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
@@ -566,5 +566,5 @@ URL中可识别的资源类型。当客户收到内容时，浏览器根据其MI
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://jefos-blog.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"J0OW8CCKJZ","algoliaIndex":"JF","algoliaSearchKey":"3b4a19e831c95174aca4c03fcdf95f5c","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

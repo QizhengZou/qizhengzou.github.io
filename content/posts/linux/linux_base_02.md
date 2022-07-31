@@ -1,10 +1,10 @@
 ---
 title: "Linux_base_02"
 date: 2022-07-05T10:39:52+08:00
-lastmod:
-tags: []
-categories: []
-slug:
+lastmod: 2022-07-05
+tags: [linux]
+categories: [Advanced learning]
+slug: linux shell
 draft: true
 ---
 
