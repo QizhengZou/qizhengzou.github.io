@@ -2618,7 +2618,7 @@ ip link set veth1 up
 那另一端如何放到容器里呢？一个容器的启动会对应一个 namespace，我们要先找到这个 namespace。对于 docker 来讲，pid 就是 namespace 的名字，可以通过这个命令获取。
 
 ```
-docker inspect '--format={{ .State.Pid }}' test
+docker inspect '--format={ { .State.Pid }}' test
 
 ```
 假设结果为 12065，这个就是 namespace 名字。默认 Docker 创建的网络 namespace 不在默认路径下 ，ip netns 看不到，所以需要 ln 软链接一下。链接完毕以后，我们就可以通过 ip netns 命令操作了。

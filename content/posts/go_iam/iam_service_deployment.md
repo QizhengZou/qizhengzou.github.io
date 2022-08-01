@@ -3976,40 +3976,40 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: {{ .Values.pump.name }}
-  name: {{ .Values.pump.name }}
+    app: { { .Values.pump.name }}
+  name: { { .Values.pump.name }}
 spec:
   ports:
   - name: http
     protocol: TCP
-    {{- toYaml .Values.pump.service.http| nindent 4 }}
+    { {- toYaml .Values.pump.service.http| nindent 4 }}
   selector:
-    app: {{ .Values.pump.name }}
+    app: { { .Values.pump.name }}
   sessionAffinity: None
-  type: {{ .Values.serviceType }}
+  type: { { .Values.serviceType }}
 ```
 
-{{ .Values.pump.name }}会被deployments/iam/values.yaml文件中pump.name的值替换。上面的模版语法扩展了 Go text/template包的语法：
+{ { .Values.pump.name }}会被deployments/iam/values.yaml文件中pump.name的值替换。上面的模版语法扩展了 Go text/template包的语法：
 
 ```yaml
 # 这种方式定义的模版，会去除test模版尾部所有的空行
-{{- define "test"}}
+{ {- define "test"}}
 模版内容
-{{- end}}
+{ {- end}}
 
 # 去除test模版头部的第一个空行
-{{- template "test" }}
+{ {- template "test" }}
 ```
 下面是用于 YAML 文件前置空格的语法：
 
 ```yaml
 # 这种方式定义的模版，会去除test模版头部和尾部所有的空行
-{{- define "test" -}}
+{ {- define "test" -}}
 模版内容
-{{- end -}}
+{ {- end -}}
 
 # 可以在test模版每一行的头部增加4个空格，用于YAML文件的对齐
-{{ include "test" | indent 4}}
+{ { include "test" | indent 4}}
 ```
 最后，这里有三点需要你注意：
 - Chart 名称必须是小写字母和数字，单词之间可以使用横杠-分隔，Chart 名称中不能用大写字母，也不能用下划线，.号也不行。
@@ -4047,7 +4047,7 @@ $ helm lint iam
 
 - 变量名称以小写字母开头，单词按驼峰区分，例如chickenNoodleSoup。
 - 给所有字符串类型的值加上引号。
-- 为了避免整数转换问题，将整型存储为字符串更好，并用 {{ int $value }} 在模板中将字符串转回整型。
+- 为了避免整数转换问题，将整型存储为字符串更好，并用 { { int $value }} 在模板中将字符串转回整型。
 - values.yaml中定义的每个属性都应该文档化。文档字符串应该以它要描述的属性开头，并至少给出一句描述。例如：
 
 ```yaml
@@ -4360,8 +4360,8 @@ on: [push, pull_request]
 jobs:
 
   helloci-build:
-    name: Test with go ${{ matrix.go_version }} on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test with go ${ { matrix.go_version }} on ${ { matrix.os }}
+    runs-on: ${ { matrix.os }}
 
     strategy:
       matrix:
@@ -4370,10 +4370,10 @@ jobs:
 
     steps:
 
-      - name: Set up Go ${{ matrix.go_version }}
+      - name: Set up Go ${ { matrix.go_version }}
         uses: actions/setup-go@v2
         with:
-          go-version: ${{ matrix.go_version }}
+          go-version: ${ { matrix.go_version }}
         id: go
 ```
 
@@ -4400,7 +4400,7 @@ jobs:
     steps:
       - name: use secrets
         env:
-          super_secret: ${{ secrets.YourSecrets }}
+          super_secret: ${ { secrets.YourSecrets }}
 ```
 
 secret name 不区分大小写，所以如果新建 secret 的名字是 name，使用时用 secrets.name 或者 secrets.Name 都是可以的。而且，就算此时直接使用 echo 打印 secret , 控制台也只会打印出*来保护 secret。
@@ -4457,8 +4457,8 @@ on: [push, pull_request]
 jobs:
 
   helloci-build:
-    name: Test with go ${{ matrix.go_version }} on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test with go ${ { matrix.go_version }} on ${ { matrix.os }}
+    runs-on: ${ { matrix.os }}
     environment:
       name: helloci
 
@@ -4469,10 +4469,10 @@ jobs:
 
     steps:
 
-      - name: Set up Go ${{ matrix.go_version }}
+      - name: Set up Go ${ { matrix.go_version }}
         uses: actions/setup-go@v2
         with:
-          go-version: ${{ matrix.go_version }}
+          go-version: ${ { matrix.go_version }}
         id: go
 
       - name: Check out code into the Go module directory
@@ -4496,8 +4496,8 @@ jobs:
         uses: elgohr/Publish-Docker-GitHub-Action@master
         with:
           name: ccr.ccs.tencentyun.com/marmotedu/helloci:beta  # docker image 的名字
-          username: ${{ secrets.DOCKER_USERNAME}} # 用户名
-          password: ${{ secrets.DOCKER_PASSWORD }} # 密码
+          username: ${ { secrets.DOCKER_USERNAME}} # 用户名
+          password: ${ { secrets.DOCKER_PASSWORD }} # 密码
           registry: ccr.ccs.tencentyun.com # 腾讯云Registry
           dockerfile: Dockerfile # 指定 Dockerfile 的位置
           tag_names: true # 是否将 release 的 tag 作为 docker image 的 tag
@@ -4566,8 +4566,8 @@ on:
 jobs:
 
   iamci:
-    name: Test with go ${{ matrix.go_version }} on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test with go ${ { matrix.go_version }} on ${ { matrix.os }}
+    runs-on: ${ { matrix.os }}
     environment:
       name: iamci
 
@@ -4578,10 +4578,10 @@ jobs:
 
     steps:
 
-      - name: Set up Go ${{ matrix.go_version }}
+      - name: Set up Go ${ { matrix.go_version }}
         uses: actions/setup-go@v2
         with:
-          go-version: ${{ matrix.go_version }}
+          go-version: ${ { matrix.go_version }}
         id: go
 
       - name: Check out code into the Go module directory
@@ -4619,8 +4619,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${ { secrets.DOCKERHUB_USERNAME }}
+          password: ${ { secrets.DOCKERHUB_TOKEN }}
 
       - name: Build docker images for host arch and push images to registry
         run: |
