@@ -35,12 +35,12 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>preorderTraversal</span><span class=p>(</span><span class=nx>root</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span> <span class=p>(</span><span class=nx>res</span> <span class=p>[</span><span class=p>]</span><span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
     <span class=kd>var</span> <span class=nx>traversal</span> <span class=kd>func</span><span class=p>(</span><span class=nx>node</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span>
     <span class=nx>traversal</span> <span class=p>=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>node</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span> <span class=p>{</span>
-	<span class=k>if</span> <span class=nx>node</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-            <span class=k>return</span>
-	<span class=p>}</span>
-	<span class=nx>res</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>res</span><span class=p>,</span><span class=nx>node</span><span class=p>.</span><span class=nx>Val</span><span class=p>)</span>
-	<span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Left</span><span class=p>)</span>
-	<span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Right</span><span class=p>)</span>
+        <span class=k>if</span> <span class=nx>node</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
+                <span class=k>return</span>
+        <span class=p>}</span>
+        <span class=nx>res</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>res</span><span class=p>,</span><span class=nx>node</span><span class=p>.</span><span class=nx>Val</span><span class=p>)</span>
+        <span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Left</span><span class=p>)</span>
+        <span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Right</span><span class=p>)</span>
     <span class=p>}</span>
     <span class=nf>traversal</span><span class=p>(</span><span class=nx>root</span><span class=p>)</span>
     <span class=k>return</span> <span class=nx>res</span>
@@ -65,12 +65,12 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>inorderTraversal</span><span class=p>(</span><span class=nx>root</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span> <span class=p>(</span><span class=nx>res</span> <span class=p>[</span><span class=p>]</span><span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
     <span class=kd>var</span> <span class=nx>traversal</span> <span class=kd>func</span><span class=p>(</span><span class=nx>node</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span>
     <span class=nx>traversal</span> <span class=p>=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>node</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span> <span class=p>{</span>
-	<span class=k>if</span> <span class=nx>node</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-	    <span class=k>return</span>
-	<span class=p>}</span>
-	<span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Left</span><span class=p>)</span>
-	<span class=nx>res</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>res</span><span class=p>,</span><span class=nx>node</span><span class=p>.</span><span class=nx>Val</span><span class=p>)</span>
-	<span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Right</span><span class=p>)</span>
+        <span class=k>if</span> <span class=nx>node</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
+            <span class=k>return</span>
+        <span class=p>}</span>
+        <span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Left</span><span class=p>)</span>
+        <span class=nx>res</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>res</span><span class=p>,</span><span class=nx>node</span><span class=p>.</span><span class=nx>Val</span><span class=p>)</span>
+        <span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Right</span><span class=p>)</span>
     <span class=p>}</span>
     <span class=nf>traversal</span><span class=p>(</span><span class=nx>root</span><span class=p>)</span>
     <span class=k>return</span> <span class=nx>res</span>
@@ -91,12 +91,12 @@ gtag('js',new Date());gtag('config','UA-193031966-2');</script></head><body head
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>postorderTraversal</span><span class=p>(</span><span class=nx>root</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span> <span class=p>(</span><span class=nx>res</span> <span class=p>[</span><span class=p>]</span><span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
     <span class=kd>var</span> <span class=nx>traversal</span> <span class=kd>func</span><span class=p>(</span><span class=nx>node</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span>
     <span class=nx>traversal</span> <span class=p>=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>node</span> <span class=o>*</span><span class=nx>TreeNode</span><span class=p>)</span> <span class=p>{</span>
-	<span class=k>if</span> <span class=nx>node</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-	    <span class=k>return</span>
-	<span class=p>}</span>
-	<span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Left</span><span class=p>)</span>
-	<span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Right</span><span class=p>)</span>
-        <span class=nx>res</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>res</span><span class=p>,</span><span class=nx>node</span><span class=p>.</span><span class=nx>Val</span><span class=p>)</span>
+        <span class=k>if</span> <span class=nx>node</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
+            <span class=k>return</span>
+        <span class=p>}</span>
+        <span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Left</span><span class=p>)</span>
+        <span class=nf>traversal</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>Right</span><span class=p>)</span>
+            <span class=nx>res</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>res</span><span class=p>,</span><span class=nx>node</span><span class=p>.</span><span class=nx>Val</span><span class=p>)</span>
     <span class=p>}</span>
     <span class=nf>traversal</span><span class=p>(</span><span class=nx>root</span><span class=p>)</span>
     <span class=k>return</span> <span class=nx>res</span>
