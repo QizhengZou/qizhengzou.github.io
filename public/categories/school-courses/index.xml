@@ -4,63 +4,7 @@
         <link>https://qizhengzou.github.io/categories/school-courses/</link>
         <description>School courses - 分类 - Jefo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2838264218@qq.com (Jefo)</managingEditor>
-            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 20 Jul 2022 16:24:55 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/school-courses/" rel="self" type="application/rss+xml" /><item>
-    <title>DS_geek</title>
-    <link>https://qizhengzou.github.io/ds_geek/</link>
-    <pubDate>Wed, 20 Jul 2022 16:24:55 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/ds_geek/</guid>
-    <description><![CDATA[深入浅出分布式技术原理 开篇词｜掌握好学习路径，分布式系统原来如此简单 陈现麟 2022-01-24 从我的经验来看，初学者想要高效且系统性地掌握分布式系统，这本身就]]></description>
-</item><item>
-    <title>SEK_geek.md</title>
-    <link>https://qizhengzou.github.io/sek_geek/</link>
-    <pubDate>Wed, 20 Jul 2022 10:56:50 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/sek_geek/</guid>
-    <description><![CDATA[软件工程之美 01 | 到底应该怎样理解软件工程？ 宝玉 2019-02-23 瀑布模型。 瀑布模型的诞生，在当时是有非常重大的意义的，让软件开发从无序到有序，让大家更好的分]]></description>
-</item><item>
-    <title>Linear_algebra</title>
-    <link>https://qizhengzou.github.io/linear_algebra/</link>
-    <pubDate>Wed, 20 Jul 2022 10:04:29 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/linear_algebra/</guid>
-    <description><![CDATA[线性代数 开篇词 | 从今天起，学会线性代数 朱维刚 2020-07-27 机器学习本身没有多大难度，因为经过多年的积累后，很多规则已经成型了。对于我们来说真正难的，是机]]></description>
-</item><item>
-    <title>Cp_practice</title>
-    <link>https://qizhengzou.github.io/cp_practice/</link>
-    <pubDate>Mon, 18 Jul 2022 23:55:56 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/cp_practice/</guid>
-    <description><![CDATA[编译原理实战课 开篇词 | 在真实世界的编译器中游历 宫文学 2020-06-01 你好，我是宫文学，一名技术创业者，现在是北京物演科技的 CEO，很高兴在这里跟你见面。我]]></description>
-</item><item>
-    <title>Cp_base</title>
-    <link>https://qizhengzou.github.io/cp_base/</link>
-    <pubDate>Mon, 18 Jul 2022 23:55:09 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/cp_base/</guid>
-    <description><![CDATA[编译原理之美 开篇词 | 为什么你要学习编译原理？ 宫文学 2019-08-14 我会通过具体的案例带你理解抽象的原理。比如语义分析阶段有个 I 属性和 S 属性，传统课本里只专]]></description>
-</item><item>
-    <title>Geekbang_POCC</title>
-    <link>https://qizhengzou.github.io/geekbang_pocc/</link>
-    <pubDate>Sun, 17 Jul 2022 15:33:49 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/geekbang_pocc/</guid>
-    <description><![CDATA[深入浅出计算机组成原理 徐文浩 2019-07-22 22 | 冒险和预测（一）：hazard是“危”也是“机” 过去两讲，我为你讲解了流水线设计 CPU 所需要的基本概念。接下来]]></description>
-</item><item>
-    <title>Middleware</title>
-    <link>https://qizhengzou.github.io/middleware/</link>
-    <pubDate>Thu, 14 Jul 2022 10:04:50 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/middleware/</guid>
-    <description><![CDATA[中间件核心技术与实战 开篇词｜为什么中间件对分布式架构体系来说这么重要？ 你好，我是丁威。一名奋战在 IT 一线十多年的技术老兵，现任中通快递技术平台]]></description>
-</item><item>
-    <title>AI_base_01</title>
-    <link>https://qizhengzou.github.io/ai_base_01/</link>
-    <pubDate>Thu, 24 Feb 2022 14:06:32 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/ai_base_01/</guid>
-    <description><![CDATA[哈工大深圳苏敬勇本科生课程人工智能 参考教材：王万森《人工智能原理及其应用》，电子工业出版社， 2018 人工智能 30%+30%+40% 第1章 人工智能概述 定义 自然智能 指人类]]></description>
-</item><item>
+            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 25 Nov 2021 08:44:33 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/categories/school-courses/" rel="self" type="application/rss+xml" /><item>
     <title>SEK_base_07</title>
     <link>https://qizhengzou.github.io/sek_base_07/</link>
     <pubDate>Thu, 25 Nov 2021 08:44:33 &#43;0800</pubDate>
@@ -74,5 +18,12 @@
     <author>作者</author>
     <guid>https://qizhengzou.github.io/distributedsystem_base_02/</guid>
     <description><![CDATA[系统模型 简介 物理模型是描述系统的-个最显式的方法，它从计算机(和其他设备，例如移动电话)及其互联的网络方面考虑系统的硬件组成。 体系结构模型从]]></description>
+</item><item>
+    <title>DistributedSystem_base_01</title>
+    <link>https://qizhengzou.github.io/distributedsystem_base_01/</link>
+    <pubDate>Wed, 10 Nov 2021 10:24:24 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://qizhengzou.github.io/distributedsystem_base_01/</guid>
+    <description><![CDATA[分布式系统的特征 简介 我们把分布式系统定义成一个其硬件或软件组件分布在联网的计算机上，组件之间通过传递消息进行通信和动作协调的系统。 我们定义的]]></description>
 </item></channel>
 </rss>

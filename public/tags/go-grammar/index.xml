@@ -4,14 +4,7 @@
         <link>https://qizhengzou.github.io/tags/go-grammar/</link>
         <description>go grammar - 标签 - Jefo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2838264218@qq.com (Jefo)</managingEditor>
-            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 26 Jul 2022 16:58:56 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/tags/go-grammar/" rel="self" type="application/rss+xml" /><item>
-    <title>Go_questions</title>
-    <link>https://qizhengzou.github.io/go_questions/</link>
-    <pubDate>Tue, 26 Jul 2022 16:58:56 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://qizhengzou.github.io/go_questions/</guid>
-    <description><![CDATA[channel 什么是CSP Do not communicate by sharing memory; instead, share memory by communicating. 不要通过共享内存来通信，而要通过通信来实现内存共享。 这就是 Go 的并发哲学，它依赖 CSP 模型，基于 channel 实现。 CSP 经常]]></description>
-</item><item>
+            <webMaster>2838264218@qq.com (Jefo)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 12 Jan 2022 22:17:07 &#43;0800</lastBuildDate><atom:link href="https://qizhengzou.github.io/tags/go-grammar/" rel="self" type="application/rss+xml" /><item>
     <title>Go_base_09</title>
     <link>https://qizhengzou.github.io/go_base_09/</link>
     <pubDate>Wed, 12 Jan 2022 22:17:07 &#43;0800</pubDate>
